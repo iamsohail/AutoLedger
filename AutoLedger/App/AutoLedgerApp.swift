@@ -1,6 +1,8 @@
 import SwiftUI
 import SwiftData
-import FirebaseCore
+
+// Firebase temporarily disabled due to SPM resolution issues
+// import FirebaseCore
 
 @main
 struct AutoLedgerApp: App {
@@ -8,8 +10,8 @@ struct AutoLedgerApp: App {
     @StateObject private var vehicleService = FirebaseVehicleService.shared
 
     init() {
-        // Initialize Firebase
-        FirebaseApp.configure()
+        // Firebase temporarily disabled
+        // FirebaseApp.configure()
 
         do {
             let schema = Schema([
