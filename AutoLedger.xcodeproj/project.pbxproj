@@ -28,6 +28,7 @@
 		70F8D21CAE161A3C5066B1DE /* AutoLedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1FE1E0A200F4A7577AA37 /* AutoLedgerTests.swift */; };
 		75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */; };
 		7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8382852832C2DDBCF01EE4B /* Expense.swift */; };
+		8FD42BBAE67CF96C876D15E8 /* IndianVehicleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */; };
 		951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */; };
 		96999C78D5C59FF61295C9B5 /* EndTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E49F8926722B0E627FCB /* EndTripView.swift */; };
 		9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */; };
@@ -80,6 +81,7 @@
 		7E38B958D6C3347ADF253F85 /* AutoLedger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoLedger.entitlements; sourceTree = "<group>"; };
 		81A2B4DB7993257B90B60DC5 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceRecordView.swift; sourceTree = "<group>"; };
+		9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IndianVehicleData.json; sourceTree = "<group>"; };
 		AE15D71AA269C7C442B1F5BC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		B370E49F8926722B0E627FCB /* EndTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTripView.swift; sourceTree = "<group>"; };
 		B5D1502A3223494025EB034E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				72A7EAC88EDBB427C8817FC3 /* Assets.xcassets */,
+				9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B763E2DA9884082361AD38BA /* Assets.xcassets in Resources */,
+				8FD42BBAE67CF96C876D15E8 /* IndianVehicleData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
