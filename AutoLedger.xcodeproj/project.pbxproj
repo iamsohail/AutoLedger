@@ -3,70 +3,572 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		01FC5BDA91520931C0464110 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */; };
+		11BFA22DD48E29D522C3D562 /* MaintenanceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8BAD1F3D6AA9C136A03E9 /* MaintenanceRecord.swift */; };
+		127F3774D34039AB26EEC7D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1502A3223494025EB034E /* DashboardView.swift */; };
+		1C6CE821D7682F1EFC0C1F74 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098F81FCA6B418E64E73B63 /* TripListView.swift */; };
+		1CC188CEDD500C9F2FD21B19 /* AddVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058CD5DDDA17D19EDC7E8182 /* AddVehicleView.swift */; };
+		1E5C208EEE484E0952C932AB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFBDD4F481108521AFCCFE /* SettingsView.swift */; };
+		224DA8CAF727AF626A24D498 /* FuelLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603E0D4354BED6354751686 /* FuelLogView.swift */; };
+		2433486ACA0AA2997F149AF6 /* AutoLedgerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C2C92121535B9E9AC66AD /* AutoLedgerApp.swift */; };
+		27D8606DD3384980F545E810 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15D71AA269C7C442B1F5BC /* Trip.swift */; };
+		2B715D63642B3492A306E767 /* StartTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B4FDF7E2498B4F88E2381A /* StartTripView.swift */; };
+		3325495ED60795B85E5BE290 /* AddFuelEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08DB07410401B4E8894BB3 /* AddFuelEntryView.swift */; };
+		3FB13D27B54A4D958AE06AC7 /* EditVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */; };
+		448B5C3FD3CBD079FB977392 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDED06B19B8E85E661E7AA6 /* Constants.swift */; };
+		4805198F95071FFAF53ED129 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7ADB10E04B94276A50506B /* Extensions.swift */; };
+		4E4CDE1F4145017712A46FE9 /* AutoLedgerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */; };
+		5525CC79041F54A6281C4B9A /* VehicleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4461F8EEA30EE3B7ADACD /* VehicleListView.swift */; };
+		6807E9E5CF587CE24225D4E4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */; };
+		70F8D21CAE161A3C5066B1DE /* AutoLedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1FE1E0A200F4A7577AA37 /* AutoLedgerTests.swift */; };
+		75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */; };
+		7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8382852832C2DDBCF01EE4B /* Expense.swift */; };
+		951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */; };
+		96999C78D5C59FF61295C9B5 /* EndTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E49F8926722B0E627FCB /* EndTripView.swift */; };
+		9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */; };
+		B763E2DA9884082361AD38BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A7EAC88EDBB427C8817FC3 /* Assets.xcassets */; };
+		BC6237269CB50C7B97C58280 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6DACF280AA130D8BF0D2 /* Document.swift */; };
+		BFE0FE3F7740AF54B9AAC408 /* MaintenanceSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E312FC81776CDCFD7EE38 /* MaintenanceSchedule.swift */; };
+		C0135D9732D76DB6D7E41614 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */; };
+		C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5929CE3B7E4DBC8E2263B528 /* FuelEntry.swift */; };
+		D7E08A1C6170053C7327F7CD /* VehicleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F1A81ED31E578B34E8363 /* VehicleDetailView.swift */; };
+		EF92DAC569D9D26ACBBFA577 /* DataExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0339704F614A6AFE01B92 /* DataExportService.swift */; };
+		FF2B1D873D2BDF9D52BB7E09 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2B4DB7993257B90B60DC5 /* Vehicle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		35B7666F66D0DA64B977D176 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 936B043C12FECF61281A6041 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 452FD2A6479D474E0AB6A44F;
+			remoteInfo = AutoLedger;
+		};
+		A1DE5A1A50A197134116475E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 936B043C12FECF61281A6041 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 452FD2A6479D474E0AB6A44F;
+			remoteInfo = AutoLedger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		045E312FC81776CDCFD7EE38 /* MaintenanceSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceSchedule.swift; sourceTree = "<group>"; };
+		058CD5DDDA17D19EDC7E8182 /* AddVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleView.swift; sourceTree = "<group>"; };
+		0760DCDCB5DAE24E9F9996AB /* AutoLedgerUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AutoLedgerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		1FC1FE1E0A200F4A7577AA37 /* AutoLedgerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerTests.swift; sourceTree = "<group>"; };
+		2BDED06B19B8E85E661E7AA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceListView.swift; sourceTree = "<group>"; };
+		32B4FDF7E2498B4F88E2381A /* StartTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripView.swift; sourceTree = "<group>"; };
+		3D0C2C92121535B9E9AC66AD /* AutoLedgerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerApp.swift; sourceTree = "<group>"; };
+		439F1A81ED31E578B34E8363 /* VehicleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailView.swift; sourceTree = "<group>"; };
+		4E7ADB10E04B94276A50506B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4FA0339704F614A6AFE01B92 /* DataExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportService.swift; sourceTree = "<group>"; };
+		51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		5929CE3B7E4DBC8E2263B528 /* FuelEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelEntry.swift; sourceTree = "<group>"; };
+		60F4461F8EEA30EE3B7ADACD /* VehicleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListView.swift; sourceTree = "<group>"; };
+		6DFFBDD4F481108521AFCCFE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		72A7EAC88EDBB427C8817FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E38B958D6C3347ADF253F85 /* AutoLedger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoLedger.entitlements; sourceTree = "<group>"; };
+		81A2B4DB7993257B90B60DC5 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceRecordView.swift; sourceTree = "<group>"; };
+		AE15D71AA269C7C442B1F5BC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		B370E49F8926722B0E627FCB /* EndTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTripView.swift; sourceTree = "<group>"; };
+		B5D1502A3223494025EB034E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		B603E0D4354BED6354751686 /* FuelLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelLogView.swift; sourceTree = "<group>"; };
+		BAA8BAD1F3D6AA9C136A03E9 /* MaintenanceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRecord.swift; sourceTree = "<group>"; };
+		BC08DB07410401B4E8894BB3 /* AddFuelEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelEntryView.swift; sourceTree = "<group>"; };
+		BFCE6DACF280AA130D8BF0D2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVehicleView.swift; sourceTree = "<group>"; };
+		E082AD9638F53A596940EBD8 /* AutoLedgerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AutoLedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E098F81FCA6B418E64E73B63 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
+		E8382852832C2DDBCF01EE4B /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		E919BD8E48FF6A02480DFA0B /* AutoLedger.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AutoLedger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerUITests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
-		00000000000000000000001 = {
+		0A8A8FBF239E21624919F4C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00000000000000000000002 /* AutoLedger */,
-				00000000000000000000003 /* Products */,
+				8F4B0AD32CFC8659C141E4A2 /* Components */,
+				9D50936872AD25D5F027CCF5 /* Dashboard */,
+				63546FD134E95E296A4AA5F6 /* Documents */,
+				46B5588EC23D6E2D09548E2B /* Expenses */,
+				ED03F44BC90D7A5F390CFE3E /* Fuel */,
+				D4DE29B67B0A69F148B5E16F /* Maintenance */,
+				B24C01B13B561FED08052257 /* Settings */,
+				FBA460B311CCF9718BB0510B /* Trips */,
+				322571051CD02A5B7ED917F9 /* Vehicles */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		322571051CD02A5B7ED917F9 /* Vehicles */ = {
+			isa = PBXGroup;
+			children = (
+				058CD5DDDA17D19EDC7E8182 /* AddVehicleView.swift */,
+				D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */,
+				CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */,
+				439F1A81ED31E578B34E8363 /* VehicleDetailView.swift */,
+				60F4461F8EEA30EE3B7ADACD /* VehicleListView.swift */,
+			);
+			path = Vehicles;
+			sourceTree = "<group>";
+		};
+		46B5588EC23D6E2D09548E2B /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		4D1EC7B61DC9C0357AF30768 = {
+			isa = PBXGroup;
+			children = (
+				743BEBD6BBA9318A45F21736 /* AutoLedger */,
+				6726928709F4FE57EA9D237B /* AutoLedgerTests */,
+				93F63EDC507D2BE8C77A7F05 /* AutoLedgerUITests */,
+				963E11A22656B45B1BD20DB8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		00000000000000000000002 /* AutoLedger */ = {
+		5AB545846060A8A0FE9D02ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				72A7EAC88EDBB427C8817FC3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		62564DEE6C1B983E4C84ABC2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		63546FD134E95E296A4AA5F6 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		6726928709F4FE57EA9D237B /* AutoLedgerTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FC1FE1E0A200F4A7577AA37 /* AutoLedgerTests.swift */,
+			);
+			path = AutoLedgerTests;
+			sourceTree = "<group>";
+		};
+		67415D986D93D53F7BC87CD4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFCE6DACF280AA130D8BF0D2 /* Document.swift */,
+				E8382852832C2DDBCF01EE4B /* Expense.swift */,
+				5929CE3B7E4DBC8E2263B528 /* FuelEntry.swift */,
+				BAA8BAD1F3D6AA9C136A03E9 /* MaintenanceRecord.swift */,
+				045E312FC81776CDCFD7EE38 /* MaintenanceSchedule.swift */,
+				AE15D71AA269C7C442B1F5BC /* Trip.swift */,
+				81A2B4DB7993257B90B60DC5 /* Vehicle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		718356DD5EE6DDC349C4FD61 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3D0C2C92121535B9E9AC66AD /* AutoLedgerApp.swift */,
+				CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		743BEBD6BBA9318A45F21736 /* AutoLedger */ = {
+			isa = PBXGroup;
+			children = (
+				718356DD5EE6DDC349C4FD61 /* App */,
+				67415D986D93D53F7BC87CD4 /* Models */,
+				5AB545846060A8A0FE9D02ED /* Resources */,
+				BC51B5534891BD069EFC9208 /* Services */,
+				F28DA39B7D489E2F6CF89BC2 /* Utilities */,
+				62564DEE6C1B983E4C84ABC2 /* ViewModels */,
+				0A8A8FBF239E21624919F4C1 /* Views */,
+				7E38B958D6C3347ADF253F85 /* AutoLedger.entitlements */,
 			);
 			path = AutoLedger;
 			sourceTree = "<group>";
 		};
-		00000000000000000000003 /* Products */ = {
+		8F4B0AD32CFC8659C141E4A2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		93F63EDC507D2BE8C77A7F05 /* AutoLedgerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */,
+			);
+			path = AutoLedgerUITests;
+			sourceTree = "<group>";
+		};
+		963E11A22656B45B1BD20DB8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E919BD8E48FF6A02480DFA0B /* AutoLedger.app */,
+				E082AD9638F53A596940EBD8 /* AutoLedgerTests.xctest */,
+				0760DCDCB5DAE24E9F9996AB /* AutoLedgerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9D50936872AD25D5F027CCF5 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				B5D1502A3223494025EB034E /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		B24C01B13B561FED08052257 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6DFFBDD4F481108521AFCCFE /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		BC51B5534891BD069EFC9208 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4FA0339704F614A6AFE01B92 /* DataExportService.swift */,
+				51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D4DE29B67B0A69F148B5E16F /* Maintenance */ = {
+			isa = PBXGroup;
+			children = (
+				892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */,
+				2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */,
+			);
+			path = Maintenance;
+			sourceTree = "<group>";
+		};
+		ED03F44BC90D7A5F390CFE3E /* Fuel */ = {
+			isa = PBXGroup;
+			children = (
+				BC08DB07410401B4E8894BB3 /* AddFuelEntryView.swift */,
+				B603E0D4354BED6354751686 /* FuelLogView.swift */,
+			);
+			path = Fuel;
+			sourceTree = "<group>";
+		};
+		F28DA39B7D489E2F6CF89BC2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2BDED06B19B8E85E661E7AA6 /* Constants.swift */,
+				4E7ADB10E04B94276A50506B /* Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FBA460B311CCF9718BB0510B /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				B370E49F8926722B0E627FCB /* EndTripView.swift */,
+				32B4FDF7E2498B4F88E2381A /* StartTripView.swift */,
+				E098F81FCA6B418E64E73B63 /* TripListView.swift */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXNativeTarget section */
+		2FC1C7E952CB5AEC7982C851 /* AutoLedgerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EC52CBA37A7D6ABD928A388 /* Build configuration list for PBXNativeTarget "AutoLedgerUITests" */;
+			buildPhases = (
+				34C0D258049E595FD076E431 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2B4A475E1FFDC8AAA469567 /* PBXTargetDependency */,
+			);
+			name = AutoLedgerUITests;
+			packageProductDependencies = (
+			);
+			productName = AutoLedgerUITests;
+			productReference = 0760DCDCB5DAE24E9F9996AB /* AutoLedgerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		452FD2A6479D474E0AB6A44F /* AutoLedger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE19FF111D04B229C5E1CEB4 /* Build configuration list for PBXNativeTarget "AutoLedger" */;
+			buildPhases = (
+				0B9A78979E9B858F54E37654 /* Sources */,
+				5427376CA00B27DD0DFEFC84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutoLedger;
+			packageProductDependencies = (
+			);
+			productName = AutoLedger;
+			productReference = E919BD8E48FF6A02480DFA0B /* AutoLedger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D984F4B5FE34B1EE27F0B3C6 /* AutoLedgerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F35A4C86EB43AF89F5BB6ED2 /* Build configuration list for PBXNativeTarget "AutoLedgerTests" */;
+			buildPhases = (
+				1C924577A1AF684C0BB28FAE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59FB8E187583BF2F0016AD16 /* PBXTargetDependency */,
+			);
+			name = AutoLedgerTests;
+			packageProductDependencies = (
+			);
+			productName = AutoLedgerTests;
+			productReference = E082AD9638F53A596940EBD8 /* AutoLedgerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
-		00000000000000000000000 /* Project object */ = {
+		936B043C12FECF61281A6041 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					2FC1C7E952CB5AEC7982C851 = {
+						TestTargetID = 452FD2A6479D474E0AB6A44F;
+					};
+					452FD2A6479D474E0AB6A44F = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
-			buildConfigurationList = 00000000000000000000010 /* Build configuration list for PBXProject "AutoLedger" */;
+			buildConfigurationList = D82760040F05BE4E2D739115 /* Build configuration list for PBXProject "AutoLedger" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = 00000000000000000000001;
-			productRefGroup = 00000000000000000000003 /* Products */;
+			mainGroup = 4D1EC7B61DC9C0357AF30768;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				452FD2A6479D474E0AB6A44F /* AutoLedger */,
+				D984F4B5FE34B1EE27F0B3C6 /* AutoLedgerTests */,
+				2FC1C7E952CB5AEC7982C851 /* AutoLedgerUITests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		5427376CA00B27DD0DFEFC84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B763E2DA9884082361AD38BA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B9A78979E9B858F54E37654 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3325495ED60795B85E5BE290 /* AddFuelEntryView.swift in Sources */,
+				75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */,
+				1CC188CEDD500C9F2FD21B19 /* AddVehicleView.swift in Sources */,
+				2433486ACA0AA2997F149AF6 /* AutoLedgerApp.swift in Sources */,
+				448B5C3FD3CBD079FB977392 /* Constants.swift in Sources */,
+				C0135D9732D76DB6D7E41614 /* ContentView.swift in Sources */,
+				127F3774D34039AB26EEC7D1 /* DashboardView.swift in Sources */,
+				EF92DAC569D9D26ACBBFA577 /* DataExportService.swift in Sources */,
+				BC6237269CB50C7B97C58280 /* Document.swift in Sources */,
+				3FB13D27B54A4D958AE06AC7 /* EditVehicleView.swift in Sources */,
+				01FC5BDA91520931C0464110 /* EmptyStateView.swift in Sources */,
+				96999C78D5C59FF61295C9B5 /* EndTripView.swift in Sources */,
+				7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */,
+				4805198F95071FFAF53ED129 /* Extensions.swift in Sources */,
+				C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */,
+				224DA8CAF727AF626A24D498 /* FuelLogView.swift in Sources */,
+				951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */,
+				11BFA22DD48E29D522C3D562 /* MaintenanceRecord.swift in Sources */,
+				BFE0FE3F7740AF54B9AAC408 /* MaintenanceSchedule.swift in Sources */,
+				9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */,
+				6807E9E5CF587CE24225D4E4 /* OnboardingView.swift in Sources */,
+				1E5C208EEE484E0952C932AB /* SettingsView.swift in Sources */,
+				2B715D63642B3492A306E767 /* StartTripView.swift in Sources */,
+				27D8606DD3384980F545E810 /* Trip.swift in Sources */,
+				1C6CE821D7682F1EFC0C1F74 /* TripListView.swift in Sources */,
+				FF2B1D873D2BDF9D52BB7E09 /* Vehicle.swift in Sources */,
+				D7E08A1C6170053C7327F7CD /* VehicleDetailView.swift in Sources */,
+				5525CC79041F54A6281C4B9A /* VehicleListView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C924577A1AF684C0BB28FAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70F8D21CAE161A3C5066B1DE /* AutoLedgerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34C0D258049E595FD076E431 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E4CDE1F4145017712A46FE9 /* AutoLedgerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59FB8E187583BF2F0016AD16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 452FD2A6479D474E0AB6A44F /* AutoLedger */;
+			targetProxy = A1DE5A1A50A197134116475E /* PBXContainerItemProxy */;
+		};
+		D2B4A475E1FFDC8AAA469567 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 452FD2A6479D474E0AB6A44F /* AutoLedger */;
+			targetProxy = 35B7666F66D0DA64B977D176 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		00000000000000000000011 /* Debug */ = {
+		3287B35DD573E2C20AC1A6D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AutoLedger/AutoLedger.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iamsohail.AutoLedger;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		35C580EA3E4CD23D8A83529E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AutoLedger/AutoLedger.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iamsohail.AutoLedger;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		54E89AAC3F8FEE12F32AD3FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iamsohail.AutoLedgerUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AutoLedger;
+			};
+			name = Debug;
+		};
+		6D94CED0671AEED22374415B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iamsohail.AutoLedgerTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoLedger.app/AutoLedger";
+			};
+			name = Debug;
+		};
+		9D390E842F92E8761AB0A494 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -93,17 +595,111 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Auto Ledger";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		ABDB1FB6CC6DE9461B0C0AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iamsohail.AutoLedgerTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutoLedger.app/AutoLedger";
+			};
+			name = Release;
+		};
+		B6D3C6C2BA09A5A52E7432D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iamsohail.AutoLedgerUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AutoLedger;
+			};
+			name = Release;
+		};
+		CAED53B5625D9EE1A1DE68C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -111,86 +707,61 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Auto Ledger";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
 			};
 			name = Debug;
-		};
-		00000000000000000000012 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00000000000000000000010 /* Build configuration list for PBXProject "AutoLedger" */ = {
+		2EC52CBA37A7D6ABD928A388 /* Build configuration list for PBXNativeTarget "AutoLedgerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				00000000000000000000011 /* Debug */,
-				00000000000000000000012 /* Release */,
+				54E89AAC3F8FEE12F32AD3FB /* Debug */,
+				B6D3C6C2BA09A5A52E7432D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
+		};
+		D82760040F05BE4E2D739115 /* Build configuration list for PBXProject "AutoLedger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAED53B5625D9EE1A1DE68C4 /* Debug */,
+				9D390E842F92E8761AB0A494 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F35A4C86EB43AF89F5BB6ED2 /* Build configuration list for PBXNativeTarget "AutoLedgerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D94CED0671AEED22374415B /* Debug */,
+				ABDB1FB6CC6DE9461B0C0AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE19FF111D04B229C5E1CEB4 /* Build configuration list for PBXNativeTarget "AutoLedger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3287B35DD573E2C20AC1A6D7 /* Debug */,
+				35C580EA3E4CD23D8A83529E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 00000000000000000000000 /* Project object */;
+	rootObject = 936B043C12FECF61281A6041 /* Project object */;
 }

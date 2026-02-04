@@ -1,0 +1,76 @@
+name: AutoLedger
+options:
+  bundleIdPrefix: com.iamsohail
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+  groupSortPosition: top
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.9"
+    GENERATE_INFOPLIST_FILE: YES
+    INFOPLIST_KEY_CFBundleDisplayName: "Auto Ledger"
+
+targets:
+  AutoLedger:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: AutoLedger
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.iamsohail.AutoLedger
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_EMIT_LOC_STRINGS: YES
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+      configs:
+        Debug:
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "DEBUG"
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+    entitlements:
+      path: AutoLedger/AutoLedger.entitlements
+      properties:
+        com.apple.developer.icloud-container-identifiers:
+          - iCloud.com.iamsohail.AutoLedger
+        com.apple.developer.icloud-services:
+          - CloudKit
+
+  AutoLedgerTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: AutoLedgerTests
+    dependencies:
+      - target: AutoLedger
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.iamsohail.AutoLedgerTests
+
+  AutoLedgerUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: AutoLedgerUITests
+    dependencies:
+      - target: AutoLedger
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.iamsohail.AutoLedgerUITests
