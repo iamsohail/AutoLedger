@@ -21,12 +21,14 @@
 		3FB13D27B54A4D958AE06AC7 /* EditVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */; };
 		448B5C3FD3CBD079FB977392 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDED06B19B8E85E661E7AA6 /* Constants.swift */; };
 		4805198F95071FFAF53ED129 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7ADB10E04B94276A50506B /* Extensions.swift */; };
+		4D94B40D65A7D53B8745F531 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E9DD58097AC7E343BCEC9E6C /* FirebaseFirestore */; };
 		4E4CDE1F4145017712A46FE9 /* AutoLedgerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */; };
 		5525CC79041F54A6281C4B9A /* VehicleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4461F8EEA30EE3B7ADACD /* VehicleListView.swift */; };
 		604AFCAED279A3581A331650 /* VehicleDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBADA860666FD93A0B100E2 /* VehicleDataService.swift */; };
 		6807E9E5CF587CE24225D4E4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */; };
 		70F8D21CAE161A3C5066B1DE /* AutoLedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1FE1E0A200F4A7577AA37 /* AutoLedgerTests.swift */; };
 		75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */; };
+		79B268EAE7061AB8F3700A81 /* FirebaseVehicleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */; };
 		7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8382852832C2DDBCF01EE4B /* Expense.swift */; };
 		8FD42BBAE67CF96C876D15E8 /* IndianVehicleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */; };
 		951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */; };
@@ -89,6 +91,7 @@
 		BAA8BAD1F3D6AA9C136A03E9 /* MaintenanceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRecord.swift; sourceTree = "<group>"; };
 		BC08DB07410401B4E8894BB3 /* AddFuelEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelEntryView.swift; sourceTree = "<group>"; };
 		BFCE6DACF280AA130D8BF0D2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseVehicleService.swift; sourceTree = "<group>"; };
 		CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVehicleView.swift; sourceTree = "<group>"; };
@@ -98,6 +101,17 @@
 		E919BD8E48FF6A02480DFA0B /* AutoLedger.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AutoLedger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		866D39AB8D5BFE5633B52099 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D94B40D65A7D53B8745F531 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0A8A8FBF239E21624919F4C1 /* Views */ = {
@@ -260,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA0339704F614A6AFE01B92 /* DataExportService.swift */,
+				C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */,
 				51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */,
 				1BBADA860666FD93A0B100E2 /* VehicleDataService.swift */,
 			);
@@ -330,6 +345,7 @@
 			buildPhases = (
 				0B9A78979E9B858F54E37654 /* Sources */,
 				5427376CA00B27DD0DFEFC84 /* Resources */,
+				866D39AB8D5BFE5633B52099 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,6 +353,7 @@
 			);
 			name = AutoLedger;
 			packageProductDependencies = (
+				E9DD58097AC7E343BCEC9E6C /* FirebaseFirestore */,
 			);
 			productName = AutoLedger;
 			productReference = E919BD8E48FF6A02480DFA0B /* AutoLedger.app */;
@@ -388,6 +405,9 @@
 			);
 			mainGroup = 4D1EC7B61DC9C0357AF30768;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F19359F7D2D99E3EE4C372B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
@@ -430,6 +450,7 @@
 				96999C78D5C59FF61295C9B5 /* EndTripView.swift in Sources */,
 				7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */,
 				4805198F95071FFAF53ED129 /* Extensions.swift in Sources */,
+				79B268EAE7061AB8F3700A81 /* FirebaseVehicleService.swift in Sources */,
 				C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */,
 				224DA8CAF727AF626A24D498 /* FuelLogView.swift in Sources */,
 				951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */,
@@ -770,6 +791,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F19359F7D2D99E3EE4C372B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9DD58097AC7E343BCEC9E6C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F19359F7D2D99E3EE4C372B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 936B043C12FECF61281A6041 /* Project object */;
 }

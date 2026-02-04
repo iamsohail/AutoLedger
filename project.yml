@@ -7,6 +7,11 @@ options:
   generateEmptyDirectories: true
   groupSortPosition: top
 
+packages:
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    version: 11.0.0
+
 settings:
   base:
     MARKETING_VERSION: "1.0.0"
@@ -24,6 +29,9 @@ targets:
       - path: AutoLedger
         excludes:
           - "**/.DS_Store"
+    dependencies:
+      - package: Firebase
+        product: FirebaseFirestore
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.iamsohail.AutoLedger

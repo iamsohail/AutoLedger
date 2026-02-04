@@ -5,9 +5,10 @@ import PhotosUI
 struct AddVehicleView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var vehicleService: FirebaseVehicleService
 
     @State private var name = ""
-    @State private var selectedMake: IndianVehicleMake?
+    @State private var selectedMake: VehicleMakeData?
     @State private var selectedModel: String?
     @State private var year = Calendar.current.component(.year, from: Date())
     @State private var vin = ""
@@ -28,15 +29,10 @@ struct AddVehicleView: View {
     @State private var showingValidationError = false
     @State private var validationErrorMessage = ""
 
-    private let vehicleDataService = VehicleDataService.shared
     private let currentYear = Calendar.current.component(.year, from: Date())
 
     private var yearRange: [Int] {
         Array((2000...(currentYear + 1)).reversed())
-    }
-
-    private var availableMakes: [IndianVehicleMake] {
-        vehicleDataService.getMakes()
     }
 
     private var availableModels: [String] {
@@ -90,10 +86,16 @@ struct AddVehicleView: View {
                         TextField("Model", text: $manualModel)
                     } else {
                         // Make Picker
-                        Picker("Make", selection: $selectedMake) {
-                            Text("Select Make").tag(nil as IndianVehicleMake?)
-                            ForEach(availableMakes) { make in
-                                Text(make.name).tag(make as IndianVehicleMake?)
+                        HStack {
+                            Picker("Make", selection: $selectedMake) {
+                                Text("Select Make").tag(nil as VehicleMakeData?)
+                                ForEach(vehicleService.makes) { make in
+                                    Text(make.name).tag(make as VehicleMakeData?)
+                                }
+                            }
+                            if vehicleService.isLoading {
+                                ProgressView()
+                                    .scaleEffect(0.8)
                             }
                         }
                         .onChange(of: selectedMake) { _, _ in
@@ -108,6 +110,13 @@ struct AddVehicleView: View {
                             }
                         }
                         .disabled(selectedMake == nil)
+
+                        // Show error if any
+                        if let error = vehicleService.error {
+                            Text(error)
+                                .font(.caption)
+                                .foregroundColor(.red)
+                        }
                     }
 
                     // Toggle for manual entry
@@ -176,6 +185,12 @@ struct AddVehicleView: View {
             } message: {
                 Text(validationErrorMessage)
             }
+            .task {
+                // Refresh data if empty
+                if vehicleService.makes.isEmpty {
+                    await vehicleService.fetchMakes()
+                }
+            }
         }
     }
 
@@ -236,5 +251,6 @@ struct AddVehicleView: View {
 
 #Preview {
     AddVehicleView()
+        .environmentObject(FirebaseVehicleService.shared)
         .modelContainer(for: Vehicle.self, inMemory: true)
 }

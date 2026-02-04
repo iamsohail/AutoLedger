@@ -1,0 +1,238 @@
+/**
+ * Firebase Firestore Seed Script for Auto Ledger
+ *
+ * This script seeds the vehicle_makes collection with Indian vehicle data.
+ *
+ * Usage:
+ * 1. Install Firebase Admin SDK: npm install firebase-admin
+ * 2. Download your service account key from Firebase Console
+ * 3. Set environment variable: export GOOGLE_APPLICATION_CREDENTIALS="path/to/serviceAccountKey.json"
+ * 4. Run: node seed_firebase.js
+ */
+
+const admin = require('firebase-admin');
+
+// Initialize Firebase Admin
+admin.initializeApp({
+  credential: admin.credential.applicationDefault()
+});
+
+const db = admin.firestore();
+
+const vehicleMakes = [
+  {
+    id: "maruti_suzuki",
+    name: "Maruti Suzuki",
+    country: "India",
+    models: [
+      "Alto K10", "S-Presso", "Celerio", "WagonR", "Swift", "Dzire", "Baleno",
+      "Ignis", "Fronx", "Brezza", "Grand Vitara", "Ertiga", "XL6", "Ciaz",
+      "Eeco", "Alto 800", "Jimny", "Invicto"
+    ]
+  },
+  {
+    id: "tata",
+    name: "Tata Motors",
+    country: "India",
+    models: [
+      "Tiago", "Tigor", "Altroz", "Punch", "Nexon", "Harrier", "Safari",
+      "Tiago EV", "Tigor EV", "Punch EV", "Nexon EV", "Curvv", "Curvv EV",
+      "Sierra EV", "Avinya"
+    ]
+  },
+  {
+    id: "mahindra",
+    name: "Mahindra",
+    country: "India",
+    models: [
+      "Thar", "Thar Roxx", "Scorpio N", "Scorpio Classic", "XUV700", "XUV400",
+      "XUV300", "XUV3XO", "Bolero", "Bolero Neo", "Marazzo", "BE 6e", "XEV 9e"
+    ]
+  },
+  {
+    id: "hyundai",
+    name: "Hyundai",
+    country: "South Korea",
+    models: [
+      "Grand i10 Nios", "i20", "i20 N Line", "Aura", "Verna", "Exter",
+      "Venue", "Venue N Line", "Creta", "Creta N Line", "Alcazar", "Tucson",
+      "Kona Electric", "Ioniq 5"
+    ]
+  },
+  {
+    id: "honda",
+    name: "Honda",
+    country: "Japan",
+    models: ["Amaze", "City", "City Hybrid", "Elevate"]
+  },
+  {
+    id: "toyota",
+    name: "Toyota",
+    country: "Japan",
+    models: [
+      "Glanza", "Urban Cruiser Taisor", "Rumion", "Urban Cruiser Hyryder",
+      "Innova Crysta", "Innova Hycross", "Fortuner", "Fortuner Legender",
+      "Hilux", "Camry", "Vellfire", "Land Cruiser"
+    ]
+  },
+  {
+    id: "kia",
+    name: "Kia",
+    country: "South Korea",
+    models: ["Sonet", "Seltos", "Carens", "EV6", "EV9"]
+  },
+  {
+    id: "mg",
+    name: "MG Motor",
+    country: "China",
+    models: ["Comet EV", "Windsor EV", "Astor", "Hector", "Hector Plus", "Gloster", "ZS EV"]
+  },
+  {
+    id: "skoda",
+    name: "Skoda",
+    country: "Czech Republic",
+    models: ["Slavia", "Kushaq", "Kodiaq", "Superb"]
+  },
+  {
+    id: "volkswagen",
+    name: "Volkswagen",
+    country: "Germany",
+    models: ["Virtus", "Taigun", "Tiguan"]
+  },
+  {
+    id: "renault",
+    name: "Renault",
+    country: "France",
+    models: ["Kwid", "Triber", "Kiger"]
+  },
+  {
+    id: "nissan",
+    name: "Nissan",
+    country: "Japan",
+    models: ["Magnite", "X-Trail"]
+  },
+  {
+    id: "jeep",
+    name: "Jeep",
+    country: "USA",
+    models: ["Compass", "Meridian", "Grand Cherokee", "Wrangler"]
+  },
+  {
+    id: "citroen",
+    name: "Citroen",
+    country: "France",
+    models: ["C3", "C3 Aircross", "eC3", "Basalt"]
+  },
+  {
+    id: "mercedes",
+    name: "Mercedes-Benz",
+    country: "Germany",
+    models: [
+      "A-Class Limousine", "C-Class", "E-Class", "S-Class", "Maybach S-Class",
+      "GLA", "GLB", "GLC", "GLC Coupe", "GLE", "GLE Coupe", "GLS", "G-Class",
+      "EQA", "EQB", "EQE", "EQS", "AMG GT", "AMG SL"
+    ]
+  },
+  {
+    id: "bmw",
+    name: "BMW",
+    country: "Germany",
+    models: [
+      "2 Series Gran Coupe", "3 Series", "3 Series Gran Limousine", "5 Series",
+      "7 Series", "X1", "X3", "X5", "X7", "XM", "Z4",
+      "iX1", "i4", "i5", "i7", "iX", "M2", "M3", "M4", "M5", "M8"
+    ]
+  },
+  {
+    id: "audi",
+    name: "Audi",
+    country: "Germany",
+    models: [
+      "A4", "A6", "A8", "Q3", "Q5", "Q7", "Q8",
+      "e-tron GT", "Q8 e-tron", "RS5", "RS Q8", "S5"
+    ]
+  },
+  {
+    id: "lexus",
+    name: "Lexus",
+    country: "Japan",
+    models: ["ES", "LS", "NX", "RX", "LX", "LC"]
+  },
+  {
+    id: "volvo",
+    name: "Volvo",
+    country: "Sweden",
+    models: ["S90", "XC40", "XC60", "XC90", "C40 Recharge", "XC40 Recharge"]
+  },
+  {
+    id: "porsche",
+    name: "Porsche",
+    country: "Germany",
+    models: ["718 Boxster", "718 Cayman", "911", "Panamera", "Macan", "Cayenne", "Taycan"]
+  },
+  {
+    id: "land_rover",
+    name: "Land Rover",
+    country: "UK",
+    models: [
+      "Defender", "Discovery Sport", "Discovery", "Range Rover Evoque",
+      "Range Rover Velar", "Range Rover Sport", "Range Rover"
+    ]
+  },
+  {
+    id: "jaguar",
+    name: "Jaguar",
+    country: "UK",
+    models: ["XE", "XF", "F-Pace", "I-Pace", "F-Type"]
+  },
+  {
+    id: "byd",
+    name: "BYD",
+    country: "China",
+    models: ["Atto 3", "Seal", "e6"]
+  },
+  {
+    id: "mini",
+    name: "Mini",
+    country: "UK",
+    models: ["Cooper", "Cooper S", "Countryman", "Countryman Electric"]
+  },
+  {
+    id: "isuzu",
+    name: "Isuzu",
+    country: "Japan",
+    models: ["D-Max", "D-Max V-Cross", "MU-X"]
+  },
+  {
+    id: "force",
+    name: "Force Motors",
+    country: "India",
+    models: ["Gurkha", "Traveller", "Urbania"]
+  }
+];
+
+async function seedDatabase() {
+  console.log('Starting to seed vehicle_makes collection...\n');
+
+  const batch = db.batch();
+
+  for (const make of vehicleMakes) {
+    const docRef = db.collection('vehicle_makes').doc(make.id);
+    batch.set(docRef, {
+      name: make.name,
+      country: make.country,
+      models: make.models,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+    console.log(`  Added: ${make.name} (${make.models.length} models)`);
+  }
+
+  await batch.commit();
+  console.log(`\n✓ Successfully seeded ${vehicleMakes.length} makes to Firestore!`);
+  process.exit(0);
+}
+
+seedDatabase().catch((error) => {
+  console.error('Error seeding database:', error);
+  process.exit(1);
+});

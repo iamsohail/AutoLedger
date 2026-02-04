@@ -1,11 +1,16 @@
 import SwiftUI
 import SwiftData
+import FirebaseCore
 
 @main
 struct AutoLedgerApp: App {
     let modelContainer: ModelContainer
+    @StateObject private var vehicleService = FirebaseVehicleService.shared
 
     init() {
+        // Initialize Firebase
+        FirebaseApp.configure()
+
         do {
             let schema = Schema([
                 Vehicle.self,
@@ -33,6 +38,13 @@ struct AutoLedgerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(vehicleService)
+                .task {
+                    // Fetch vehicle makes on app launch
+                    if vehicleService.makes.isEmpty || vehicleService.isCacheStale {
+                        await vehicleService.fetchMakes()
+                    }
+                }
         }
         .modelContainer(modelContainer)
     }
