@@ -7,8 +7,8 @@ struct AddVehicleView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var name = ""
-    @State private var make = ""
-    @State private var model = ""
+    @State private var selectedMake: VehicleMake?
+    @State private var selectedModel: VehicleModel?
     @State private var year = Calendar.current.component(.year, from: Date())
     @State private var vin = ""
     @State private var licensePlate = ""
@@ -20,15 +20,31 @@ struct AddVehicleView: View {
     @State private var vehicleImage: Data?
     @State private var notes = ""
 
+    // API data
+    @State private var availableMakes: [VehicleMake] = []
+    @State private var availableModels: [VehicleModel] = []
+    @State private var isLoadingMakes = false
+    @State private var isLoadingModels = false
+    @State private var apiError: String?
+
+    // Manual entry fallback
+    @State private var manualMake = ""
+    @State private var manualModel = ""
+    @State private var useManualEntry = false
+
     @State private var showingValidationError = false
     @State private var validationErrorMessage = ""
 
+    private let vehicleDataService = VehicleDataService.shared
     private let currentYear = Calendar.current.component(.year, from: Date())
-    private var yearRange: ClosedRange<Int> { 1900...(currentYear + 1) }
+    private var yearRange: [Int] {
+        Array((1990...(currentYear + 1)).reversed())
+    }
 
     var body: some View {
         NavigationStack {
             Form {
+                // Photo Section
                 Section {
                     PhotosPicker(selection: $selectedPhoto, matching: .images) {
                         if let vehicleImage,
@@ -54,25 +70,82 @@ struct AddVehicleView: View {
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(Color.clear)
 
+                // Vehicle Information Section
                 Section("Vehicle Information") {
                     TextField("Nickname (optional)", text: $name)
-                    TextField("Make", text: $make)
-                    TextField("Model", text: $model)
+
+                    // Year Picker
                     Picker("Year", selection: $year) {
-                        ForEach(yearRange.reversed(), id: \.self) { year in
-                            Text(String(year)).tag(year)
+                        ForEach(yearRange, id: \.self) { yr in
+                            Text(String(yr)).tag(yr)
                         }
                     }
+                    .onChange(of: year) { _, _ in
+                        loadMakes()
+                    }
+
+                    // Make Selection
+                    if useManualEntry {
+                        TextField("Make", text: $manualMake)
+                        TextField("Model", text: $manualModel)
+                    } else {
+                        // Make Picker
+                        HStack {
+                            Picker("Make", selection: $selectedMake) {
+                                Text("Select Make").tag(nil as VehicleMake?)
+                                ForEach(availableMakes) { make in
+                                    Text(make.makeDisplay).tag(make as VehicleMake?)
+                                }
+                            }
+                            if isLoadingMakes {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                            }
+                        }
+                        .onChange(of: selectedMake) { _, _ in
+                            selectedModel = nil
+                            loadModels()
+                        }
+
+                        // Model Picker
+                        HStack {
+                            Picker("Model", selection: $selectedModel) {
+                                Text("Select Model").tag(nil as VehicleModel?)
+                                ForEach(availableModels) { model in
+                                    Text(model.modelName).tag(model as VehicleModel?)
+                                }
+                            }
+                            .disabled(selectedMake == nil)
+                            if isLoadingModels {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                            }
+                        }
+                    }
+
+                    // Toggle for manual entry
+                    Toggle("Enter manually", isOn: $useManualEntry)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    if let error = apiError {
+                        Text(error)
+                            .font(.caption)
+                            .foregroundColor(.red)
+                    }
+
                     TextField("VIN (optional)", text: $vin)
                     TextField("License Plate (optional)", text: $licensePlate)
                 }
 
+                // Specifications Section
                 Section("Specifications") {
                     Picker("Fuel Type", selection: $fuelType) {
                         ForEach(FuelType.allCases, id: \.self) { type in
                             Text(type.rawValue).tag(type)
                         }
                     }
+
                     HStack {
                         TextField("Current Odometer", text: $currentOdometer)
                             .keyboardType(.decimalPad)
@@ -84,10 +157,12 @@ struct AddVehicleView: View {
                         .pickerStyle(.segmented)
                         .frame(width: 120)
                     }
-                    TextField("Tank Capacity (optional)", text: $tankCapacity)
+
+                    TextField("Tank Capacity (gallons)", text: $tankCapacity)
                         .keyboardType(.decimalPad)
                 }
 
+                // Notes Section
                 Section("Notes") {
                     TextEditor(text: $notes)
                         .frame(minHeight: 80)
@@ -108,6 +183,9 @@ struct AddVehicleView: View {
                     .disabled(!isValid)
                 }
             }
+            .onAppear {
+                loadMakes()
+            }
             .onChange(of: selectedPhoto) { _, newValue in
                 Task {
                     if let data = try? await newValue?.loadTransferable(type: Data.self) {
@@ -123,22 +201,102 @@ struct AddVehicleView: View {
         }
     }
 
+    // MARK: - Computed Properties
+
     private var isValid: Bool {
-        !make.trimmingCharacters(in: .whitespaces).isEmpty &&
-        !model.trimmingCharacters(in: .whitespaces).isEmpty
+        if useManualEntry {
+            return !manualMake.trimmingCharacters(in: .whitespaces).isEmpty &&
+                   !manualModel.trimmingCharacters(in: .whitespaces).isEmpty
+        } else {
+            return selectedMake != nil && selectedModel != nil
+        }
     }
+
+    private var makeValue: String {
+        if useManualEntry {
+            return manualMake.trimmingCharacters(in: .whitespaces)
+        }
+        return selectedMake?.makeDisplay ?? ""
+    }
+
+    private var modelValue: String {
+        if useManualEntry {
+            return manualModel.trimmingCharacters(in: .whitespaces)
+        }
+        return selectedModel?.modelName ?? ""
+    }
+
+    // MARK: - API Calls
+
+    private func loadMakes() {
+        guard !useManualEntry else { return }
+
+        isLoadingMakes = true
+        apiError = nil
+
+        Task {
+            do {
+                let makes = try await vehicleDataService.getMakes(year: year)
+                await MainActor.run {
+                    availableMakes = makes
+                    isLoadingMakes = false
+
+                    // If previously selected make is not available for this year, reset
+                    if let selected = selectedMake,
+                       !makes.contains(where: { $0.makeId == selected.makeId }) {
+                        selectedMake = nil
+                        selectedModel = nil
+                        availableModels = []
+                    }
+                }
+            } catch {
+                await MainActor.run {
+                    isLoadingMakes = false
+                    apiError = "Failed to load makes. You can enter manually."
+                    useManualEntry = true
+                }
+            }
+        }
+    }
+
+    private func loadModels() {
+        guard !useManualEntry,
+              let make = selectedMake else {
+            availableModels = []
+            return
+        }
+
+        isLoadingModels = true
+
+        Task {
+            do {
+                let models = try await vehicleDataService.getModels(make: make.makeId, year: year)
+                await MainActor.run {
+                    availableModels = models
+                    isLoadingModels = false
+                }
+            } catch {
+                await MainActor.run {
+                    isLoadingModels = false
+                    apiError = "Failed to load models."
+                }
+            }
+        }
+    }
+
+    // MARK: - Save
 
     private func saveVehicle() {
         guard isValid else {
-            validationErrorMessage = "Please enter the vehicle make and model."
+            validationErrorMessage = "Please select or enter the vehicle make and model."
             showingValidationError = true
             return
         }
 
         let vehicle = Vehicle(
             name: name.trimmingCharacters(in: .whitespaces),
-            make: make.trimmingCharacters(in: .whitespaces),
-            model: model.trimmingCharacters(in: .whitespaces),
+            make: makeValue,
+            model: modelValue,
             year: year,
             currentOdometer: Double(currentOdometer) ?? 0,
             odometerUnit: odometerUnit,
