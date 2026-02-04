@@ -1,0 +1,571 @@
+/**
+ * Firebase Seed Script - Auto-generated from CarDekho scrape
+ * Generated on: 2026-02-04T19:55:10.349Z
+ *
+ * Usage:
+ * 1. npm install firebase-admin
+ * 2. export GOOGLE_APPLICATION_CREDENTIALS="./serviceAccountKey.json"
+ * 3. node seed_firebase_scraped.js
+ */
+
+const admin = require('firebase-admin');
+
+admin.initializeApp({
+    credential: admin.credential.applicationDefault()
+});
+
+const db = admin.firestore();
+
+const vehicleMakes = [
+  {
+    "id": "maruti_suzuki",
+    "name": "Maruti Suzuki",
+    "country": "India",
+    "models": [
+      "Alto 800 Tour",
+      "Alto K10",
+      "Alto Tour H1",
+      "Brezza",
+      "Dzire",
+      "Dzire Tour S",
+      "Eeco Cargo",
+      "Ertiga Tour",
+      "Fronx",
+      "Invicto",
+      "Jimny",
+      "S Presso",
+      "Super Carry",
+      "Swift",
+      "Swift Dzire",
+      "Swift Dzire Tour",
+      "Victoris",
+      "Wagon R",
+      "Wagon R Tour",
+      "Xl6"
+    ]
+  },
+  {
+    "id": "tata",
+    "name": "Tata",
+    "country": "India",
+    "models": [
+      "Altroz",
+      "Altroz Racer",
+      "Curvv",
+      "Curvv EV",
+      "Harrier",
+      "Harrier EV",
+      "Nexon",
+      "Nexon EV",
+      "Punch",
+      "Punch EV",
+      "Tiago EV",
+      "Tiago Nrg",
+      "Tigor",
+      "Tigor EV",
+      "Xpres",
+      "Xpres T EV",
+      "Yodha Pickup"
+    ]
+  },
+  {
+    "id": "mahindra",
+    "name": "Mahindra",
+    "country": "India",
+    "models": [
+      "BE 6",
+      "Bolero",
+      "Bolero Camper",
+      "Bolero Maxi Truck Plus",
+      "Bolero Neo",
+      "Bolero Neo Plus",
+      "Bolero Pik UP",
+      "Bolero Pik UP Extra Strong",
+      "Kuv 100 Nxt",
+      "Marazzo",
+      "Scorpio",
+      "Scorpio N",
+      "Thar",
+      "Thar Roxx",
+      "Xev 9E",
+      "Xev 9S",
+      "XUV 3xo",
+      "XUV 3xo EV",
+      "XUV 7xo",
+      "Xuv300",
+      "Xuv400 EV",
+      "Xuv700"
+    ]
+  },
+  {
+    "id": "hyundai",
+    "name": "Hyundai",
+    "country": "South Korea",
+    "models": [
+      "Alcazar",
+      "Aura",
+      "Creta",
+      "Creta Electric",
+      "Creta N Line",
+      "Exter",
+      "Grand I10 Nios",
+      "I20",
+      "I20 N Line",
+      "Ioniq 5",
+      "Kona",
+      "Prime HB",
+      "Prime SD",
+      "Tucson",
+      "Venue",
+      "Venue N Line",
+      "Verna"
+    ]
+  },
+  {
+    "id": "honda",
+    "name": "Honda",
+    "country": "Japan",
+    "models": [
+      "Amaze",
+      "City",
+      "City Hybrid",
+      "Elevate",
+      "Jazz",
+      "WR V"
+    ]
+  },
+  {
+    "id": "toyota",
+    "name": "Toyota",
+    "country": "Japan",
+    "models": [
+      "Camry",
+      "Fortuner Legender",
+      "Glanza",
+      "Hilux",
+      "Hyryder",
+      "Innova Crysta",
+      "Innova Hycross",
+      "Taisor",
+      "Urban Cruiser",
+      "Vellfire"
+    ]
+  },
+  {
+    "id": "kia",
+    "name": "Kia",
+    "country": "South Korea",
+    "models": [
+      "Carens",
+      "Carens Clavis",
+      "Carens Clavis EV",
+      "Carnival",
+      "Ev6",
+      "Ev9",
+      "Seltos",
+      "Sonet",
+      "Syros"
+    ]
+  },
+  {
+    "id": "mg",
+    "name": "MG",
+    "country": "China",
+    "models": [
+      "Astor",
+      "Comet EV",
+      "Cyberster",
+      "Gloster",
+      "Hector",
+      "Hector Plus",
+      "M9",
+      "Windsor EV",
+      "ZS EV"
+    ]
+  },
+  {
+    "id": "skoda",
+    "name": "Skoda",
+    "country": "Czech Republic",
+    "models": [
+      "Kodiaq",
+      "Kushaq",
+      "Kylaq",
+      "Octavia",
+      "Octavia RS",
+      "Superb"
+    ]
+  },
+  {
+    "id": "volkswagen",
+    "name": "Volkswagen",
+    "country": "Germany",
+    "models": [
+      "Golf Gti",
+      "Polo",
+      "T Roc",
+      "Taigun",
+      "Tiguan",
+      "Tiguan Allspace",
+      "Tiguan R Line",
+      "Vento",
+      "Virtus"
+    ]
+  },
+  {
+    "id": "renault",
+    "name": "Renault",
+    "country": "France",
+    "models": [
+      "Captur",
+      "Duster",
+      "Kiger",
+      "Triber"
+    ]
+  },
+  {
+    "id": "nissan",
+    "name": "Nissan",
+    "country": "Japan",
+    "models": [
+      "Gtr",
+      "Kicks",
+      "Magnite",
+      "Micra",
+      "Micra Active"
+    ]
+  },
+  {
+    "id": "jeep",
+    "name": "Jeep",
+    "country": "USA",
+    "models": [
+      "Compass",
+      "Compass Trailhawk",
+      "Grand Cherokee",
+      "Meridian",
+      "Trailhawk",
+      "Wrangler"
+    ]
+  },
+  {
+    "id": "citroen",
+    "name": "Citroen",
+    "country": "France",
+    "models": [
+      "Aircross",
+      "Basalt",
+      "C3",
+      "C5 Aircross",
+      "Ec3"
+    ]
+  },
+  {
+    "id": "mercedes_benz",
+    "name": "Mercedes-Benz",
+    "country": "Germany",
+    "models": [
+      "A Class Limousine",
+      "AMG A 45 S",
+      "AMG C 63",
+      "AMG C43",
+      "AMG Cle 53",
+      "AMG E 53 Cabriolet",
+      "AMG Eqs",
+      "AMG Gla 35",
+      "AMG Glc 43",
+      "AMG Gle 53",
+      "AMG GT 4 Door Coupe",
+      "AMG GT Coupe",
+      "AMG S 63",
+      "AMG SL",
+      "Cle Cabriolet",
+      "E Class",
+      "Eqa",
+      "Eqb",
+      "Eqe SUV",
+      "Eqs",
+      "Eqs SUV",
+      "G Class",
+      "G Class Electric",
+      "Gla",
+      "Glb",
+      "Glc",
+      "Gle",
+      "Gls",
+      "Maybach Eqs SUV",
+      "Maybach Gls",
+      "Maybach S Class",
+      "Maybach SL 680",
+      "S Class"
+    ]
+  },
+  {
+    "id": "bmw",
+    "name": "BMW",
+    "country": "Germany",
+    "models": [
+      "2 Series",
+      "2 Series Gran Coupe",
+      "3 Series",
+      "5 Series",
+      "7 Series",
+      "I4",
+      "I5",
+      "I7",
+      "IX",
+      "Ix1",
+      "M2",
+      "M4 Competition",
+      "M4 CS",
+      "M5",
+      "M8 Coupe Competition",
+      "X1",
+      "X3",
+      "X4",
+      "X5",
+      "X7",
+      "XM",
+      "Z4"
+    ]
+  },
+  {
+    "id": "audi",
+    "name": "Audi",
+    "country": "Germany",
+    "models": [
+      "A4",
+      "A8 L",
+      "E Tron",
+      "E Tron GT",
+      "Q3",
+      "Q3 Sportback",
+      "Q5",
+      "Q7",
+      "Q8",
+      "Q8 E Tron",
+      "Q8 Sportback E Tron",
+      "RS E Tron GT",
+      "RS Q8",
+      "S5 Sportback"
+    ]
+  },
+  {
+    "id": "lexus",
+    "name": "Lexus",
+    "country": "Japan",
+    "models": [
+      "ES",
+      "LC 500h",
+      "LM",
+      "LS",
+      "LX",
+      "NX",
+      "RX"
+    ]
+  },
+  {
+    "id": "volvo",
+    "name": "Volvo",
+    "country": "Sweden",
+    "models": [
+      "Ec40",
+      "Ex30",
+      "Ex40",
+      "S60",
+      "S90",
+      "Xc40",
+      "Xc60",
+      "Xc90"
+    ]
+  },
+  {
+    "id": "porsche",
+    "name": "Porsche",
+    "country": "Germany",
+    "models": [
+      "Cayenne",
+      "Cayenne Coupe",
+      "Cayenne Electric",
+      "Macan EV",
+      "Panamera",
+      "Taycan"
+    ]
+  },
+  {
+    "id": "land_rover",
+    "name": "Land Rover",
+    "country": "UK",
+    "models": [
+      "Defender",
+      "Discovery",
+      "Range Rover",
+      "Range Rover Evoque",
+      "Range Rover Sport",
+      "Range Rover Velar"
+    ]
+  },
+  {
+    "id": "jaguar",
+    "name": "Jaguar",
+    "country": "UK",
+    "models": [
+      "F Pace",
+      "F Type",
+      "I Pace",
+      "XE",
+      "XF"
+    ]
+  },
+  {
+    "id": "byd",
+    "name": "BYD",
+    "country": "China",
+    "models": [
+      "Atto 3",
+      "E6",
+      "Emax 7",
+      "Seal",
+      "Sealion 7"
+    ]
+  },
+  {
+    "id": "mini",
+    "name": "Mini",
+    "country": "UK",
+    "models": [
+      "Cooper Countryman",
+      "Cooper S",
+      "Cooper SE",
+      "Countryman",
+      "Countryman Electric",
+      "John Cooper Works"
+    ]
+  },
+  {
+    "id": "isuzu",
+    "name": "Isuzu",
+    "country": "Japan",
+    "models": [
+      "D Max",
+      "D Max V Cross",
+      "HI Lander",
+      "MU X",
+      "S Cab",
+      "S Cab Z",
+      "V Cross"
+    ]
+  },
+  {
+    "id": "force",
+    "name": "Force Motors",
+    "country": "India",
+    "models": [
+      "Gurkha",
+      "Gurkha 5 Door",
+      "Urbania"
+    ]
+  },
+  {
+    "id": "ferrari",
+    "name": "Ferrari",
+    "country": "Italy",
+    "models": [
+      "296 Gtb",
+      "812 Superfast",
+      "F8 Tributo",
+      "Gtc4lusso",
+      "Portofino",
+      "Roma",
+      "Sf90 Stradale"
+    ]
+  },
+  {
+    "id": "lamborghini",
+    "name": "Lamborghini",
+    "country": "Italy",
+    "models": [
+      "Huracan Evo",
+      "Revuelto",
+      "Temerario",
+      "Urus"
+    ]
+  },
+  {
+    "id": "bentley",
+    "name": "Bentley",
+    "country": "UK",
+    "models": [
+      "Bentayga",
+      "Bentayga Ewb"
+    ]
+  },
+  {
+    "id": "rolls_royce",
+    "name": "Rolls-Royce",
+    "country": "UK",
+    "models": [
+      "Cullinan",
+      "Dawn",
+      "Ghost Series II",
+      "Spectre"
+    ]
+  },
+  {
+    "id": "maserati",
+    "name": "Maserati",
+    "country": "Italy",
+    "models": [
+      "Ghibli",
+      "Grecale",
+      "Levante"
+    ]
+  },
+  {
+    "id": "aston_martin",
+    "name": "Aston Martin",
+    "country": "UK",
+    "models": [
+      "Db11",
+      "Db12",
+      "Dbx",
+      "Vanquish",
+      "Vantage"
+    ]
+  },
+  {
+    "id": "mclaren",
+    "name": "McLaren",
+    "country": "UK",
+    "models": [
+      "750s",
+      "GT"
+    ]
+  }
+];
+
+async function seedDatabase() {
+    console.log('Starting to seed vehicle_makes collection...\n');
+
+    const batch = db.batch();
+
+    for (const make of vehicleMakes) {
+        const docRef = db.collection('vehicle_makes').doc(make.id);
+        batch.set(docRef, {
+            name: make.name,
+            country: make.country,
+            models: make.models,
+            updatedAt: admin.firestore.FieldValue.serverTimestamp()
+        });
+        console.log(`  Added: ${make.name} (${make.models.length} models)`);
+    }
+
+    await batch.commit();
+    console.log(`\n✓ Successfully seeded ${vehicleMakes.length} makes to Firestore!`);
+    process.exit(0);
+}
+
+seedDatabase().catch((error) => {
+    console.error('Error seeding database:', error);
+    process.exit(1);
+});
