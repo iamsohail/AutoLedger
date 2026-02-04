@@ -19,9 +19,18 @@ final class VehicleDataService {
 
     // MARK: - Get Years
 
+    /// CarQuery API has data up to ~2020, so we limit the range
     func getAvailableYears() -> [Int] {
-        let currentYear = Calendar.current.component(.year, from: Date())
-        return Array((1990...(currentYear + 1)).reversed())
+        return Array((1990...2022).reversed())
+    }
+
+    // MARK: - Create Request with Headers
+
+    private func createRequest(url: URL) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.setValue("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15", forHTTPHeaderField: "User-Agent")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        return request
     }
 
     // MARK: - Get Makes
@@ -42,10 +51,15 @@ final class VehicleDataService {
             throw VehicleDataError.invalidURL
         }
 
-        let (data, response) = try await session.data(from: url)
+        let request = createRequest(url: url)
+        let (data, response) = try await session.data(for: request)
 
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw VehicleDataError.serverError
+        }
+
+        guard httpResponse.statusCode == 200 else {
+            print("CarQuery API error: HTTP \(httpResponse.statusCode)")
             throw VehicleDataError.serverError
         }
 
@@ -54,6 +68,11 @@ final class VehicleDataService {
 
         let makes = result.Makes.sorted { $0.makeDisplay < $1.makeDisplay }
         makesCache[year] = makes
+
+        // If no makes found, the API might not have data for this year
+        if makes.isEmpty {
+            throw VehicleDataError.noData
+        }
 
         return makes
     }
@@ -79,7 +98,8 @@ final class VehicleDataService {
             throw VehicleDataError.invalidURL
         }
 
-        let (data, response) = try await session.data(from: url)
+        let request = createRequest(url: url)
+        let (data, response) = try await session.data(for: request)
 
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
@@ -110,7 +130,8 @@ final class VehicleDataService {
             throw VehicleDataError.invalidURL
         }
 
-        let (data, response) = try await session.data(from: url)
+        let request = createRequest(url: url)
+        let (data, response) = try await session.data(for: request)
 
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
@@ -190,8 +211,8 @@ struct VehicleTrim: Codable, Identifiable {
     let modelDoors: String?
     let modelSeats: String?
     let modelWeight: String?
-    let modelLkm: String? // Fuel consumption L/100km
-    let modelFuelCap: String? // Fuel tank capacity
+    let modelLkm: String?
+    let modelFuelCap: String?
 
     var id: String { modelId ?? UUID().uuidString }
 
@@ -249,7 +270,7 @@ enum VehicleDataError: LocalizedError {
         case .serverError:
             return "Server error. Please try again."
         case .noData:
-            return "No data received"
+            return "No data available for this year"
         case .decodingError:
             return "Failed to decode response"
         }

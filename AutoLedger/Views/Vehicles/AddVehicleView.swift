@@ -9,7 +9,7 @@ struct AddVehicleView: View {
     @State private var name = ""
     @State private var selectedMake: VehicleMake?
     @State private var selectedModel: VehicleModel?
-    @State private var year = Calendar.current.component(.year, from: Date())
+    @State private var year = 2020 // Default to a year with API data
     @State private var vin = ""
     @State private var licensePlate = ""
     @State private var currentOdometer = ""
@@ -36,9 +36,8 @@ struct AddVehicleView: View {
     @State private var validationErrorMessage = ""
 
     private let vehicleDataService = VehicleDataService.shared
-    private let currentYear = Calendar.current.component(.year, from: Date())
     private var yearRange: [Int] {
-        Array((1990...(currentYear + 1)).reversed())
+        vehicleDataService.getAvailableYears()
     }
 
     var body: some View {
