@@ -192,9 +192,17 @@ node seed_firebase_scraped.js
 
 ## Known Issues
 
-1. **Firebase not configured** - App uses local fallback data until Firebase is set up
+1. **Firebase SDK disabled** - SPM has submodule clone failures; using local data only for now
 2. **Some models may be missing** - Scraper may not capture all models due to dynamic page loading
 3. **CloudKit disabled** - Disabled due to SwiftData compatibility issues
+
+### Firebase SPM Issue Details
+The Firebase iOS SDK package fails to resolve due to git submodule cloning errors:
+```
+Failed to clone 'Sources/protobuf/protobuf'
+Couldn't update repository submodules
+```
+**Workaround:** Firebase is commented out in `project.yml`. App uses local `IndianVehicleData.json`.
 
 ---
 
@@ -207,15 +215,16 @@ node seed_firebase_scraped.js
 4. Scraped 33 vehicle brands with 294 models
 5. Fixed scraper issues (Maruti URL pattern, noise filtering, year ranges)
 6. Generated Firebase seed script from scraped data
-7. Ran app in iPhone 17 simulator
-8. Committed all changes to GitHub
+7. Encountered Firebase SDK SPM resolution issues (submodule clone failures)
+8. Temporarily disabled Firebase, app now uses local JSON data
+9. Successfully ran app in iPhone 17 simulator
+10. Committed all changes to GitHub
 
 ### Tomorrow's First Steps:
-1. Set up Firebase project (if not done)
-2. Add `GoogleService-Info.plist` to the project
-3. Seed Firestore with vehicle data
-4. Test vehicle make/model dropdowns with live Firebase data
-5. Continue with remaining feature implementation
+1. Try to resolve Firebase SPM issues (clear caches, try different network)
+2. If Firebase still fails, consider CocoaPods as alternative
+3. Test the app functionality with local vehicle data
+4. Continue with remaining feature implementation
 
 ---
 
