@@ -1,17 +1,16 @@
 import SwiftUI
 import SwiftData
-
-// Firebase temporarily disabled due to SPM resolution issues
-// import FirebaseCore
+import FirebaseCore
 
 @main
 struct AutoLedgerApp: App {
     let modelContainer: ModelContainer
     @StateObject private var vehicleService = FirebaseVehicleService.shared
+    @StateObject private var authService = AuthenticationService()
 
     init() {
-        // Firebase temporarily disabled
-        // FirebaseApp.configure()
+        // Initialize Firebase
+        FirebaseApp.configure()
 
         // Configure navigation bar appearance for dark mode
         let navAppearance = UINavigationBarAppearance()
@@ -53,6 +52,7 @@ struct AutoLedgerApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(vehicleService)
+                .environmentObject(authService)
                 .task {
                     // Fetch vehicle makes on app launch
                     if vehicleService.makes.isEmpty || vehicleService.isCacheStale {

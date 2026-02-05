@@ -3,6 +3,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var authService: AuthenticationService
     @Query(filter: #Predicate<Vehicle> { $0.isActive }, sort: \Vehicle.createdAt, order: .reverse)
     private var vehicles: [Vehicle]
 
@@ -46,7 +47,9 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if vehicles.isEmpty {
+            if !authService.isAuthenticated {
+                SignInView()
+            } else if vehicles.isEmpty {
                 OnboardingView(showingAddVehicle: $showingAddVehicle)
             } else {
                 mainTabView

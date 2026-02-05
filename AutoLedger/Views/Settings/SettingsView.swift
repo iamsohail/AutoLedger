@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct SettingsView: View {
+    @EnvironmentObject var authService: AuthenticationService
     @AppStorage("preferredOdometerUnit") private var odometerUnit = "miles"
     @AppStorage("preferredVolumeUnit") private var volumeUnit = "gallons"
     @AppStorage("enableNotifications") private var enableNotifications = true
@@ -11,6 +12,7 @@ struct SettingsView: View {
 
     @State private var showingExportOptions = false
     @State private var showingAbout = false
+    @State private var showingSignOutConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -97,6 +99,41 @@ struct SettingsView: View {
                 }
 
                 Section {
+                    HStack {
+                        Image(systemName: "person.circle.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.primaryPurple)
+
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(authService.user?.displayName ?? (userName.isEmpty ? "User" : userName))
+                                .font(.headline)
+                                .foregroundColor(.textPrimary)
+
+                            Text(authService.user?.email ?? authService.user?.phoneNumber ?? "Signed in")
+                                .font(.caption)
+                                .foregroundColor(.textSecondary)
+                        }
+                        Spacer()
+                    }
+                    .darkListRowStyle()
+
+                    Button(role: .destructive) {
+                        showingSignOutConfirmation = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "rectangle.portrait.and.arrow.right")
+                                .foregroundColor(.red)
+                            Text("Sign Out")
+                                .foregroundColor(.red)
+                        }
+                    }
+                    .darkListRowStyle()
+                } header: {
+                    Text("Account")
+                        .foregroundColor(.textSecondary)
+                }
+
+                Section {
                     Button {
                         showingAbout = true
                     } label: {
@@ -145,6 +182,14 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showingAbout) {
                 AboutView()
+            }
+            .confirmationDialog("Sign Out", isPresented: $showingSignOutConfirmation, titleVisibility: .visible) {
+                Button("Sign Out", role: .destructive) {
+                    authService.signOut()
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("Are you sure you want to sign out?")
             }
         }
     }
