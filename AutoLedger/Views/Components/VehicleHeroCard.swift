@@ -44,19 +44,32 @@ struct VehicleHeroCard: View {
                         )
                     )
 
-                // Large vehicle icon
-                Image(systemName: vehicleIcon)
-                    .font(.system(size: 80))
-                    .foregroundStyle(
-                        LinearGradient(
-                            colors: [fuelTypeColor, fuelTypeColor.opacity(0.6)],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                    .shadow(color: fuelTypeColor.opacity(0.5), radius: 20, x: 0, y: 10)
+                // Car image from API
+                if let imageURL = CarImageService.imageURL(for: vehicle) {
+                    AsyncImage(url: imageURL) { phase in
+                        switch phase {
+                        case .empty:
+                            // Loading state
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: fuelTypeColor))
+                                .scaleEffect(1.5)
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .padding(Theme.Spacing.md)
+                        case .failure:
+                            // Fallback to icon on error
+                            fallbackIcon
+                        @unknown default:
+                            fallbackIcon
+                        }
+                    }
+                } else {
+                    fallbackIcon
+                }
             }
-            .frame(height: 160)
+            .frame(height: 180)
 
             // Vehicle info
             VStack(spacing: Theme.Spacing.sm) {
@@ -101,6 +114,19 @@ struct VehicleHeroCard: View {
             RoundedRectangle(cornerRadius: Theme.CornerRadius.card)
                 .stroke(Color.white.opacity(0.05), lineWidth: 1)
         )
+    }
+
+    private var fallbackIcon: some View {
+        Image(systemName: vehicleIcon)
+            .font(.system(size: 80))
+            .foregroundStyle(
+                LinearGradient(
+                    colors: [fuelTypeColor, fuelTypeColor.opacity(0.6)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            )
+            .shadow(color: fuelTypeColor.opacity(0.5), radius: 20, x: 0, y: 10)
     }
 }
 

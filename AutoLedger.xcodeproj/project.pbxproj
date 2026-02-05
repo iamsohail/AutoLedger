@@ -46,6 +46,7 @@
 		C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5929CE3B7E4DBC8E2263B528 /* FuelEntry.swift */; };
 		D7E08A1C6170053C7327F7CD /* VehicleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F1A81ED31E578B34E8363 /* VehicleDetailView.swift */; };
 		EF92DAC569D9D26ACBBFA577 /* DataExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0339704F614A6AFE01B92 /* DataExportService.swift */; };
+		F5865DCDDD00EAE8FBEB889A /* CarImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F6D621FA06DFC5D3D60DB /* CarImageService.swift */; };
 		FF2B1D873D2BDF9D52BB7E09 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2B4DB7993257B90B60DC5 /* Vehicle.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerGaugeView.swift; sourceTree = "<group>"; };
+		D53F6D621FA06DFC5D3D60DB /* CarImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarImageService.swift; sourceTree = "<group>"; };
 		D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVehicleView.swift; sourceTree = "<group>"; };
 		D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGaugeView.swift; sourceTree = "<group>"; };
 		DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkFeatureRow.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		BC51B5534891BD069EFC9208 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D53F6D621FA06DFC5D3D60DB /* CarImageService.swift */,
 				4FA0339704F614A6AFE01B92 /* DataExportService.swift */,
 				C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */,
 				51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */,
@@ -441,6 +444,7 @@
 				75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */,
 				1CC188CEDD500C9F2FD21B19 /* AddVehicleView.swift in Sources */,
 				2433486ACA0AA2997F149AF6 /* AutoLedgerApp.swift in Sources */,
+				F5865DCDDD00EAE8FBEB889A /* CarImageService.swift in Sources */,
 				7FBED3A18A4C05895A497A08 /* CircularGaugeView.swift in Sources */,
 				448B5C3FD3CBD079FB977392 /* Constants.swift in Sources */,
 				C0135D9732D76DB6D7E41614 /* ContentView.swift in Sources */,

@@ -62,10 +62,7 @@ struct DashboardView: View {
                 }
             }
             .background(Color.darkBackground)
-            .navigationTitle("Dashboard")
-            .toolbarBackground(Color.darkBackground, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarColorScheme(.dark, for: .navigationBar)
+            .navigationBarHidden(true)
         }
     }
 
