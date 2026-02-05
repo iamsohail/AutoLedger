@@ -11,10 +11,38 @@ struct DashboardView: View {
         NavigationStack {
             ScrollView {
                 if let vehicle = selectedVehicle {
-                    VStack(spacing: 16) {
+                    VStack(spacing: Theme.Spacing.md) {
+                        GreetingHeaderView()
+
                         vehiclePicker
 
-                        VehicleSummaryCard(vehicle: vehicle)
+                        VehicleHeroCard(vehicle: vehicle)
+
+                        // Gauge row
+                        HStack(spacing: Theme.Spacing.md) {
+                            SpeedometerGaugeView(
+                                value: vehicle.currentOdometer,
+                                maxValue: max(vehicle.currentOdometer * 1.5, 100000),
+                                title: "Odometer",
+                                unit: vehicle.odometerUnit.abbreviation,
+                                color: .primaryPurple
+                            )
+                            .frame(maxWidth: .infinity)
+                            .darkCardStyle()
+
+                            if let avgMPG = vehicle.averageFuelEconomy {
+                                CircularGaugeView(
+                                    value: avgMPG,
+                                    maxValue: 50,
+                                    title: "Avg Fuel Economy",
+                                    unit: "MPG",
+                                    color: .greenAccent,
+                                    size: 100
+                                )
+                                .frame(maxWidth: .infinity)
+                                .darkCardStyle()
+                            }
+                        }
 
                         QuickActionsView(vehicle: vehicle)
 
@@ -22,11 +50,9 @@ struct DashboardView: View {
                             FuelEconomyChartView(entries: entries)
                         }
 
-                        UpcomingMaintenanceView(vehicle: vehicle)
-
                         RecentActivityView(vehicle: vehicle)
                     }
-                    .padding()
+                    .padding(Theme.Spacing.md)
                 } else {
                     ContentUnavailableView(
                         "No Vehicle Selected",
@@ -35,8 +61,11 @@ struct DashboardView: View {
                     )
                 }
             }
+            .background(Color.darkBackground)
             .navigationTitle("Dashboard")
-            .background(Color(.systemGroupedBackground))
+            .toolbarBackground(Color.darkBackground, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
         }
     }
 
@@ -60,77 +89,21 @@ struct DashboardView: View {
                     VehicleIconView(vehicle: vehicle)
                     Text(vehicle.displayName)
                         .font(.headline)
+                        .foregroundColor(.textPrimary)
                 }
                 Image(systemName: "chevron.down")
                     .font(.caption)
+                    .foregroundColor(.textSecondary)
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 8)
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(20)
+            .padding(.horizontal, Theme.Spacing.md)
+            .padding(.vertical, Theme.Spacing.sm)
+            .background(Color.cardBackground)
+            .cornerRadius(Theme.CornerRadius.pill)
+            .overlay(
+                RoundedRectangle(cornerRadius: Theme.CornerRadius.pill)
+                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+            )
         }
-    }
-}
-
-struct VehicleSummaryCard: View {
-    let vehicle: Vehicle
-
-    var body: some View {
-        VStack(spacing: 12) {
-            HStack {
-                Text(vehicle.displayName)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Spacer()
-                Text("\(vehicle.year)")
-                    .foregroundColor(.secondary)
-            }
-
-            Divider()
-
-            HStack(spacing: 24) {
-                StatView(
-                    title: "Odometer",
-                    value: vehicle.currentOdometer.asMileage(unit: vehicle.odometerUnit),
-                    icon: "speedometer"
-                )
-
-                if let avgMPG = vehicle.averageFuelEconomy {
-                    StatView(
-                        title: "Avg MPG",
-                        value: String(format: "%.1f", avgMPG),
-                        icon: "fuelpump.fill"
-                    )
-                }
-
-                StatView(
-                    title: "Total Spent",
-                    value: (vehicle.totalFuelCost + vehicle.totalMaintenanceCost).asCurrency,
-                    icon: "dollarsign.circle.fill"
-                )
-            }
-        }
-        .cardStyle()
-    }
-}
-
-struct StatView: View {
-    let title: String
-    let value: String
-    let icon: String
-
-    var body: some View {
-        VStack(spacing: 4) {
-            Image(systemName: icon)
-                .font(.title3)
-                .foregroundColor(.accentColor)
-            Text(value)
-                .font(.headline)
-            Text(title)
-                .font(.caption)
-                .foregroundColor(.secondary)
-        }
-        .frame(maxWidth: .infinity)
     }
 }
 
@@ -140,7 +113,7 @@ struct VehicleIconView: View {
     var body: some View {
         Image(systemName: vehicleIcon)
             .font(.title3)
-            .foregroundColor(.accentColor)
+            .foregroundColor(.primaryPurple)
     }
 
     private var vehicleIcon: String {
@@ -162,15 +135,16 @@ struct QuickActionsView: View {
     @State private var showingStartTrip = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
             Text("Quick Actions")
-                .font(.headline)
+                .font(Theme.Typography.cardSubtitle)
+                .foregroundColor(.textSecondary)
 
-            HStack(spacing: 12) {
+            HStack(spacing: Theme.Spacing.sm) {
                 QuickActionButton(
                     title: "Add Fuel",
                     icon: "fuelpump.fill",
-                    color: .fuelColor
+                    color: .greenAccent
                 ) {
                     showingAddFuel = true
                 }
@@ -178,7 +152,7 @@ struct QuickActionsView: View {
                 QuickActionButton(
                     title: "Log Service",
                     icon: "wrench.fill",
-                    color: .maintenanceColor
+                    color: .primaryPurple
                 ) {
                     showingAddMaintenance = true
                 }
@@ -186,7 +160,7 @@ struct QuickActionsView: View {
                 QuickActionButton(
                     title: "Start Trip",
                     icon: "location.fill",
-                    color: .tripColor
+                    color: .pinkAccent
                 ) {
                     showingStartTrip = true
                 }
@@ -212,18 +186,15 @@ struct QuickActionButton: View {
 
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 8) {
+            VStack(spacing: Theme.Spacing.sm) {
                 Image(systemName: icon)
                     .font(.title2)
                     .foregroundColor(color)
                 Text(title)
-                    .font(.caption)
-                    .foregroundColor(.primary)
+                    .font(Theme.Typography.caption)
+                    .foregroundColor(.textPrimary)
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 16)
-            .background(color.opacity(0.1))
-            .cornerRadius(12)
+            .quickActionStyle(color: color)
         }
     }
 }
@@ -242,13 +213,14 @@ struct FuelEconomyChartView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
             Text("Fuel Economy Trend")
-                .font(.headline)
+                .font(Theme.Typography.cardSubtitle)
+                .foregroundColor(.textSecondary)
 
             if chartData.isEmpty {
                 Text("Not enough data to display chart")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.textSecondary)
                     .frame(maxWidth: .infinity)
                     .padding()
             } else {
@@ -257,46 +229,46 @@ struct FuelEconomyChartView: View {
                         x: .value("Date", item.date),
                         y: .value("MPG", item.mpg)
                     )
-                    .foregroundStyle(Color.fuelColor)
+                    .foregroundStyle(Color.greenAccent)
+                    .lineStyle(StrokeStyle(lineWidth: 2))
+
+                    AreaMark(
+                        x: .value("Date", item.date),
+                        y: .value("MPG", item.mpg)
+                    )
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [Color.greenAccent.opacity(0.3), Color.clear],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
 
                     PointMark(
                         x: .value("Date", item.date),
                         y: .value("MPG", item.mpg)
                     )
-                    .foregroundStyle(Color.fuelColor)
+                    .foregroundStyle(Color.greenAccent)
+                    .symbolSize(40)
                 }
                 .frame(height: 150)
                 .chartYAxis {
-                    AxisMarks(position: .leading)
+                    AxisMarks(position: .leading) { _ in
+                        AxisGridLine(stroke: StrokeStyle(lineWidth: 0.5))
+                            .foregroundStyle(Color.white.opacity(0.1))
+                        AxisValueLabel()
+                            .foregroundStyle(Color.textSecondary)
+                    }
+                }
+                .chartXAxis {
+                    AxisMarks { _ in
+                        AxisValueLabel()
+                            .foregroundStyle(Color.textSecondary)
+                    }
                 }
             }
         }
-        .cardStyle()
-    }
-}
-
-struct UpcomingMaintenanceView: View {
-    let vehicle: Vehicle
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Text("Upcoming Maintenance")
-                    .font(.headline)
-                Spacer()
-                NavigationLink("See All") {
-                    MaintenanceListView(selectedVehicle: .constant(vehicle))
-                }
-                .font(.subheadline)
-            }
-
-            // Placeholder for upcoming maintenance items
-            Text("No upcoming maintenance scheduled")
-                .foregroundColor(.secondary)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding()
-        }
-        .cardStyle()
+        .darkCardStyle()
     }
 }
 
@@ -311,37 +283,61 @@ struct RecentActivityView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
             Text("Recent Activity")
-                .font(.headline)
+                .font(Theme.Typography.cardSubtitle)
+                .foregroundColor(.textSecondary)
 
             if recentFuelEntries.isEmpty {
-                Text("No recent activity")
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding()
+                HStack {
+                    Spacer()
+                    VStack(spacing: Theme.Spacing.sm) {
+                        Image(systemName: "clock")
+                            .font(.largeTitle)
+                            .foregroundColor(.textSecondary.opacity(0.5))
+                        Text("No recent activity")
+                            .foregroundColor(.textSecondary)
+                    }
+                    .padding(.vertical, Theme.Spacing.lg)
+                    Spacer()
+                }
             } else {
                 ForEach(recentFuelEntries) { entry in
-                    HStack {
-                        Image(systemName: "fuelpump.fill")
-                            .foregroundColor(.fuelColor)
-                        VStack(alignment: .leading) {
-                            Text("Fuel Fill-up")
-                                .font(.subheadline)
-                            Text(entry.date.formatted(style: .medium))
-                                .font(.caption)
-                                .foregroundColor(.secondary)
+                    HStack(spacing: Theme.Spacing.sm) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.greenAccent.opacity(0.15))
+                                .frame(width: 36, height: 36)
+                            Image(systemName: "fuelpump.fill")
+                                .foregroundColor(.greenAccent)
+                                .font(.system(size: 14))
                         }
+
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Fuel Fill-up")
+                                .font(Theme.Typography.cardSubtitle)
+                                .foregroundColor(.textPrimary)
+                            Text(entry.date.formatted(style: .medium))
+                                .font(Theme.Typography.caption)
+                                .foregroundColor(.textSecondary)
+                        }
+
                         Spacer()
+
                         Text(entry.totalCost.asCurrency)
-                            .font(.subheadline)
-                            .fontWeight(.medium)
+                            .font(Theme.Typography.cardSubtitle)
+                            .foregroundColor(.greenAccent)
                     }
-                    .padding(.vertical, 4)
+                    .padding(.vertical, Theme.Spacing.xs)
+
+                    if entry.id != recentFuelEntries.last?.id {
+                        Divider()
+                            .background(Color.white.opacity(0.1))
+                    }
                 }
             }
         }
-        .cardStyle()
+        .darkCardStyle()
     }
 }
 

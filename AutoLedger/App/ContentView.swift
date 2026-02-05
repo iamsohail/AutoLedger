@@ -30,6 +30,20 @@ struct ContentView: View {
         }
     }
 
+    init() {
+        // Configure tab bar appearance for dark mode
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(Color.darkBackground)
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.textSecondary)
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(Color.textSecondary)]
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.primaryPurple)
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color.primaryPurple)]
+
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
+
     var body: some View {
         Group {
             if vehicles.isEmpty {
@@ -46,6 +60,7 @@ struct ContentView: View {
                 selectedVehicle = vehicles.first
             }
         }
+        .preferredColorScheme(.dark)
     }
 
     private var mainTabView: some View {

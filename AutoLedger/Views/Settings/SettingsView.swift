@@ -7,6 +7,7 @@ struct SettingsView: View {
     @AppStorage("enableNotifications") private var enableNotifications = true
     @AppStorage("maintenanceReminderDays") private var maintenanceReminderDays = 7
     @AppStorage("documentExpirationReminderDays") private var documentExpirationReminderDays = 30
+    @AppStorage("userName") private var userName = ""
 
     @State private var showingExportOptions = false
     @State private var showingAbout = false
@@ -14,65 +15,131 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Units") {
+                Section {
+                    HStack {
+                        Text("Name")
+                            .foregroundColor(.textPrimary)
+                        Spacer()
+                        TextField("Your name", text: $userName)
+                            .foregroundColor(.textSecondary)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    .darkListRowStyle()
+                } header: {
+                    Text("Profile")
+                        .foregroundColor(.textSecondary)
+                } footer: {
+                    Text("Used for personalized greetings on the dashboard")
+                        .foregroundColor(.textSecondary.opacity(0.7))
+                }
+
+                Section {
                     Picker("Distance", selection: $odometerUnit) {
                         Text("Miles").tag("miles")
                         Text("Kilometers").tag("km")
                     }
+                    .darkListRowStyle()
 
                     Picker("Volume", selection: $volumeUnit) {
                         Text("Gallons").tag("gallons")
                         Text("Liters").tag("liters")
                     }
+                    .darkListRowStyle()
+                } header: {
+                    Text("Units")
+                        .foregroundColor(.textSecondary)
                 }
 
-                Section("Notifications") {
+                Section {
                     Toggle("Enable Notifications", isOn: $enableNotifications)
+                        .tint(.primaryPurple)
+                        .darkListRowStyle()
 
                     if enableNotifications {
                         Stepper("Maintenance reminder: \(maintenanceReminderDays) days before", value: $maintenanceReminderDays, in: 1...30)
+                            .darkListRowStyle()
 
                         Stepper("Document expiration: \(documentExpirationReminderDays) days before", value: $documentExpirationReminderDays, in: 7...90)
+                            .darkListRowStyle()
                     }
+                } header: {
+                    Text("Notifications")
+                        .foregroundColor(.textSecondary)
                 }
 
-                Section("Data") {
+                Section {
                     Button {
                         showingExportOptions = true
                     } label: {
-                        Label("Export Data", systemImage: "square.and.arrow.up")
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.primaryPurple)
+                            Text("Export Data")
+                                .foregroundColor(.textPrimary)
+                        }
                     }
+                    .darkListRowStyle()
 
                     NavigationLink {
                         BackupSettingsView()
                     } label: {
-                        Label("Backup & Sync", systemImage: "icloud")
+                        HStack {
+                            Image(systemName: "icloud")
+                                .foregroundColor(.primaryPurple)
+                            Text("Backup & Sync")
+                                .foregroundColor(.textPrimary)
+                        }
                     }
+                    .darkListRowStyle()
+                } header: {
+                    Text("Data")
+                        .foregroundColor(.textSecondary)
                 }
 
-                Section("About") {
+                Section {
                     Button {
                         showingAbout = true
                     } label: {
                         HStack {
                             Text("About Auto Ledger")
+                                .foregroundColor(.textPrimary)
                             Spacer()
                             Text(Bundle.main.appVersionString)
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.textSecondary)
                         }
                     }
-                    .foregroundColor(.primary)
+                    .darkListRowStyle()
 
                     Link(destination: URL(string: "https://apple.com")!) {
-                        Label("Privacy Policy", systemImage: "hand.raised.fill")
+                        HStack {
+                            Image(systemName: "hand.raised.fill")
+                                .foregroundColor(.primaryPurple)
+                            Text("Privacy Policy")
+                                .foregroundColor(.textPrimary)
+                        }
                     }
+                    .darkListRowStyle()
 
                     Link(destination: URL(string: "https://apple.com")!) {
-                        Label("Terms of Service", systemImage: "doc.text.fill")
+                        HStack {
+                            Image(systemName: "doc.text.fill")
+                                .foregroundColor(.primaryPurple)
+                            Text("Terms of Service")
+                                .foregroundColor(.textPrimary)
+                        }
                     }
+                    .darkListRowStyle()
+                } header: {
+                    Text("About")
+                        .foregroundColor(.textSecondary)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.darkBackground)
             .navigationTitle("Settings")
+            .toolbarBackground(Color.darkBackground, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
             .sheet(isPresented: $showingExportOptions) {
                 ExportOptionsView()
             }
@@ -90,21 +157,34 @@ struct BackupSettingsView: View {
         List {
             Section {
                 Toggle("iCloud Sync", isOn: $iCloudSyncEnabled)
+                    .tint(.primaryPurple)
+                    .darkListRowStyle()
             } footer: {
                 Text("When enabled, your data will automatically sync across all your devices signed into the same iCloud account.")
+                    .foregroundColor(.textSecondary.opacity(0.7))
             }
 
-            Section("Last Sync") {
+            Section {
                 HStack {
                     Text("Status")
+                        .foregroundColor(.textPrimary)
                     Spacer()
                     Text("Up to date")
-                        .foregroundColor(.green)
+                        .foregroundColor(.greenAccent)
                 }
+                .darkListRowStyle()
+            } header: {
+                Text("Last Sync")
+                    .foregroundColor(.textSecondary)
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.darkBackground)
         .navigationTitle("Backup & Sync")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color.darkBackground, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
     }
 }
 
@@ -131,28 +211,37 @@ struct ExportOptionsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Vehicle") {
+                Section {
                     Picker("Select Vehicle", selection: $selectedVehicle) {
                         Text("All Vehicles").tag(nil as Vehicle?)
                         ForEach(vehicles) { vehicle in
                             Text(vehicle.displayName).tag(vehicle as Vehicle?)
                         }
                     }
+                    .darkListRowStyle()
+                } header: {
+                    Text("Vehicle")
+                        .foregroundColor(.textSecondary)
                 }
 
-                Section("Export Options") {
+                Section {
                     Picker("Format", selection: $exportFormat) {
                         ForEach(ExportFormat.allCases, id: \.self) { format in
                             Text(format.rawValue).tag(format)
                         }
                     }
                     .pickerStyle(.segmented)
+                    .darkListRowStyle()
 
                     Picker("Data Type", selection: $exportType) {
                         ForEach(ExportType.allCases, id: \.self) { type in
                             Text(type.rawValue).tag(type)
                         }
                     }
+                    .darkListRowStyle()
+                } header: {
+                    Text("Export Options")
+                        .foregroundColor(.textSecondary)
                 }
 
                 Section {
@@ -161,19 +250,34 @@ struct ExportOptionsView: View {
                     } label: {
                         HStack {
                             Spacer()
-                            Label("Export", systemImage: "square.and.arrow.up")
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Export")
                             Spacer()
                         }
+                        .foregroundColor(.white)
                     }
+                    .listRowBackground(
+                        LinearGradient(
+                            colors: [Color.primaryPurple, Color.pinkAccent.opacity(0.8)],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.darkBackground)
             .navigationTitle("Export Data")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.darkBackground, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
                     }
+                    .foregroundColor(.primaryPurple)
                 }
             }
         }
@@ -190,62 +294,102 @@ struct AboutView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    VStack(spacing: 16) {
-                        Image(systemName: "car.fill")
-                            .font(.system(size: 60))
-                            .foregroundColor(.accentColor)
+            ZStack {
+                Color.darkBackground.ignoresSafeArea()
 
-                        Text("Auto Ledger")
-                            .font(.title)
-                            .fontWeight(.bold)
+                ScrollView {
+                    VStack(spacing: Theme.Spacing.lg) {
+                        // App icon
+                        VStack(spacing: Theme.Spacing.md) {
+                            ZStack {
+                                Circle()
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color.primaryPurple, Color.pinkAccent],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                    )
+                                    .frame(width: 80, height: 80)
+                                    .shadow(color: Color.primaryPurple.opacity(0.5), radius: 15, x: 0, y: 8)
 
-                        Text("Version \(Bundle.main.appVersionString)")
-                            .foregroundColor(.secondary)
+                                Image(systemName: "car.fill")
+                                    .font(.system(size: 36))
+                                    .foregroundColor(.white)
+                            }
+
+                            Text("Auto Ledger")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.textPrimary)
+
+                            Text("Version \(Bundle.main.appVersionString)")
+                                .foregroundColor(.textSecondary)
+                        }
+                        .padding(.top, Theme.Spacing.xl)
+
+                        Text("Auto Ledger helps you track fuel expenses, maintenance schedules, trips, and more for all your vehicles.")
+                            .font(Theme.Typography.cardSubtitle)
+                            .foregroundColor(.textSecondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, Theme.Spacing.lg)
+
+                        // Features
+                        VStack(alignment: .leading, spacing: Theme.Spacing.xs) {
+                            Text("Features")
+                                .font(Theme.Typography.cardSubtitle)
+                                .foregroundColor(.textSecondary)
+                                .padding(.horizontal, Theme.Spacing.md)
+                                .padding(.bottom, Theme.Spacing.xs)
+
+                            DarkFeatureRow(
+                                icon: "fuelpump.fill",
+                                title: "Fuel Tracking",
+                                description: "Log fill-ups and track efficiency",
+                                iconColor: .greenAccent
+                            )
+                            DarkFeatureRow(
+                                icon: "wrench.and.screwdriver.fill",
+                                title: "Maintenance Management",
+                                description: "Schedule and track services",
+                                iconColor: .primaryPurple
+                            )
+                            DarkFeatureRow(
+                                icon: "map.fill",
+                                title: "Trip Logging",
+                                description: "Track business and personal trips",
+                                iconColor: .pinkAccent
+                            )
+                            DarkFeatureRow(
+                                icon: "chart.bar.fill",
+                                title: "Cost Analytics",
+                                description: "View spending trends",
+                                iconColor: .orange
+                            )
+                            DarkFeatureRow(
+                                icon: "icloud.fill",
+                                title: "iCloud Sync",
+                                description: "Sync across all your devices",
+                                iconColor: .cyan
+                            )
+                        }
+                        .padding(.horizontal, Theme.Spacing.md)
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 24)
-                }
-                .listRowBackground(Color.clear)
-
-                Section {
-                    Text("Auto Ledger helps you track fuel expenses, maintenance schedules, trips, and more for all your vehicles.")
-                        .font(.body)
-                }
-
-                Section("Features") {
-                    FeatureListItem(icon: "fuelpump.fill", title: "Fuel Tracking", color: .orange)
-                    FeatureListItem(icon: "wrench.and.screwdriver.fill", title: "Maintenance Management", color: .blue)
-                    FeatureListItem(icon: "map.fill", title: "Trip Logging", color: .green)
-                    FeatureListItem(icon: "chart.bar.fill", title: "Cost Analytics", color: .purple)
-                    FeatureListItem(icon: "icloud.fill", title: "iCloud Sync", color: .cyan)
                 }
             }
             .navigationTitle("About")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.darkBackground, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         dismiss()
                     }
+                    .foregroundColor(.primaryPurple)
                 }
             }
-        }
-    }
-}
-
-struct FeatureListItem: View {
-    let icon: String
-    let title: String
-    let color: Color
-
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: icon)
-                .foregroundColor(color)
-                .frame(width: 24)
-            Text(title)
         }
     }
 }

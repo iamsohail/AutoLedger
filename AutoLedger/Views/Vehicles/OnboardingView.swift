@@ -4,76 +4,115 @@ struct OnboardingView: View {
     @Binding var showingAddVehicle: Bool
 
     var body: some View {
-        VStack(spacing: 32) {
-            Spacer()
+        ZStack {
+            // Dark background with gradient
+            Color.darkBackground
+                .ignoresSafeArea()
 
-            VStack(spacing: 16) {
-                Image(systemName: "car.fill")
-                    .font(.system(size: 80))
-                    .foregroundColor(.accentColor)
+            // Purple gradient at top
+            VStack {
+                LinearGradient(
+                    colors: [
+                        Color.primaryPurple.opacity(0.4),
+                        Color.primaryPurple.opacity(0.1),
+                        Color.clear
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 300)
+                .ignoresSafeArea()
 
-                Text("Auto Ledger")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-
-                Text("Track fuel, maintenance, trips, and expenses for all your vehicles in one place.")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
+                Spacer()
             }
 
-            VStack(spacing: 16) {
-                FeatureRow(icon: "fuelpump.fill", title: "Fuel Tracking", description: "Log fill-ups and track MPG")
-                FeatureRow(icon: "wrench.and.screwdriver.fill", title: "Maintenance", description: "Schedule and track services")
-                FeatureRow(icon: "map.fill", title: "Trip Logging", description: "Track business and personal trips")
-                FeatureRow(icon: "chart.bar.fill", title: "Analytics", description: "View costs and trends")
+            // Content
+            VStack(spacing: Theme.Spacing.xl) {
+                Spacer()
+
+                // App icon and title
+                VStack(spacing: Theme.Spacing.md) {
+                    ZStack {
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    colors: [Color.primaryPurple, Color.pinkAccent],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .frame(width: 120, height: 120)
+                            .shadow(color: Color.primaryPurple.opacity(0.5), radius: 20, x: 0, y: 10)
+
+                        Image(systemName: "car.fill")
+                            .font(.system(size: 50))
+                            .foregroundColor(.white)
+                    }
+
+                    Text("Auto Ledger")
+                        .font(.system(size: 32, weight: .bold))
+                        .foregroundColor(.textPrimary)
+
+                    Text("Track fuel, maintenance, trips, and expenses for all your vehicles in one place.")
+                        .font(Theme.Typography.cardSubtitle)
+                        .foregroundColor(.textSecondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, Theme.Spacing.xl)
+                }
+
+                // Features
+                VStack(spacing: Theme.Spacing.xs) {
+                    DarkFeatureRow(
+                        icon: "fuelpump.fill",
+                        title: "Fuel Tracking",
+                        description: "Log fill-ups and track MPG",
+                        iconColor: .greenAccent
+                    )
+                    DarkFeatureRow(
+                        icon: "wrench.and.screwdriver.fill",
+                        title: "Maintenance",
+                        description: "Schedule and track services",
+                        iconColor: .primaryPurple
+                    )
+                    DarkFeatureRow(
+                        icon: "map.fill",
+                        title: "Trip Logging",
+                        description: "Track business and personal trips",
+                        iconColor: .pinkAccent
+                    )
+                    DarkFeatureRow(
+                        icon: "chart.bar.fill",
+                        title: "Analytics",
+                        description: "View costs and trends",
+                        iconColor: .orange
+                    )
+                }
+                .padding(.horizontal, Theme.Spacing.md)
+
+                Spacer()
+
+                // CTA Button
+                Button {
+                    showingAddVehicle = true
+                } label: {
+                    Text("Add Your First Vehicle")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(
+                            LinearGradient(
+                                colors: [Color.primaryPurple, Color.pinkAccent.opacity(0.8)],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .cornerRadius(Theme.CornerRadius.medium)
+                        .shadow(color: Color.primaryPurple.opacity(0.4), radius: 10, x: 0, y: 5)
+                }
+                .padding(.horizontal, Theme.Spacing.xl)
+                .padding(.bottom, Theme.Spacing.xl)
             }
-            .padding(.horizontal)
-
-            Spacer()
-
-            Button {
-                showingAddVehicle = true
-            } label: {
-                Text("Add Your First Vehicle")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.accentColor)
-                    .cornerRadius(12)
-            }
-            .padding(.horizontal, 32)
-            .padding(.bottom, 32)
-        }
-        .background(Color(.systemBackground))
-    }
-}
-
-struct FeatureRow: View {
-    let icon: String
-    let title: String
-    let description: String
-
-    var body: some View {
-        HStack(spacing: 16) {
-            Image(systemName: icon)
-                .font(.title2)
-                .foregroundColor(.accentColor)
-                .frame(width: 44, height: 44)
-                .background(Color.accentColor.opacity(0.1))
-                .cornerRadius(10)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(title)
-                    .font(.headline)
-                Text(description)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-
-            Spacer()
         }
     }
 }

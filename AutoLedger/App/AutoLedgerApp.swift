@@ -13,6 +13,18 @@ struct AutoLedgerApp: App {
         // Firebase temporarily disabled
         // FirebaseApp.configure()
 
+        // Configure navigation bar appearance for dark mode
+        let navAppearance = UINavigationBarAppearance()
+        navAppearance.configureWithOpaqueBackground()
+        navAppearance.backgroundColor = UIColor(Color.darkBackground)
+        navAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color.textPrimary)]
+        navAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.textPrimary)]
+
+        UINavigationBar.appearance().standardAppearance = navAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
+        UINavigationBar.appearance().compactAppearance = navAppearance
+        UINavigationBar.appearance().tintColor = UIColor(Color.primaryPurple)
+
         do {
             let schema = Schema([
                 Vehicle.self,

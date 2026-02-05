@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0038F43DA3DB78A92BD1B1D2 /* GreetingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */; };
 		01FC5BDA91520931C0464110 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */; };
 		11BFA22DD48E29D522C3D562 /* MaintenanceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA8BAD1F3D6AA9C136A03E9 /* MaintenanceRecord.swift */; };
 		127F3774D34039AB26EEC7D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1502A3223494025EB034E /* DashboardView.swift */; };
@@ -25,16 +26,21 @@
 		5525CC79041F54A6281C4B9A /* VehicleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4461F8EEA30EE3B7ADACD /* VehicleListView.swift */; };
 		604AFCAED279A3581A331650 /* VehicleDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBADA860666FD93A0B100E2 /* VehicleDataService.swift */; };
 		6807E9E5CF587CE24225D4E4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */; };
+		6BB467C146627890EEE34DE4 /* DarkFeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */; };
+		6EA504887712C2B1FB9B3416 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB1BD4C59C9A1206559DF71 /* Theme.swift */; };
 		70F8D21CAE161A3C5066B1DE /* AutoLedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1FE1E0A200F4A7577AA37 /* AutoLedgerTests.swift */; };
 		75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */; };
+		79520BBB224E135186B64076 /* SpeedometerGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */; };
 		79B268EAE7061AB8F3700A81 /* FirebaseVehicleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */; };
 		7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8382852832C2DDBCF01EE4B /* Expense.swift */; };
+		7FBED3A18A4C05895A497A08 /* CircularGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */; };
 		8FD42BBAE67CF96C876D15E8 /* IndianVehicleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */; };
 		951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */; };
 		96999C78D5C59FF61295C9B5 /* EndTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E49F8926722B0E627FCB /* EndTripView.swift */; };
 		9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */; };
 		B763E2DA9884082361AD38BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A7EAC88EDBB427C8817FC3 /* Assets.xcassets */; };
 		BC6237269CB50C7B97C58280 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE6DACF280AA130D8BF0D2 /* Document.swift */; };
+		BE09F57B632E5D5D64E49075 /* VehicleHeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580125A61DEDA6617F9E001 /* VehicleHeroCard.swift */; };
 		BFE0FE3F7740AF54B9AAC408 /* MaintenanceSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E312FC81776CDCFD7EE38 /* MaintenanceSchedule.swift */; };
 		C0135D9732D76DB6D7E41614 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */; };
 		C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5929CE3B7E4DBC8E2263B528 /* FuelEntry.swift */; };
@@ -62,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		045E312FC81776CDCFD7EE38 /* MaintenanceSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceSchedule.swift; sourceTree = "<group>"; };
+		0580125A61DEDA6617F9E001 /* VehicleHeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleHeroCard.swift; sourceTree = "<group>"; };
 		058CD5DDDA17D19EDC7E8182 /* AddVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleView.swift; sourceTree = "<group>"; };
 		0760DCDCB5DAE24E9F9996AB /* AutoLedgerUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AutoLedgerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
@@ -80,6 +87,7 @@
 		6DFFBDD4F481108521AFCCFE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		72A7EAC88EDBB427C8817FC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E38B958D6C3347ADF253F85 /* AutoLedger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoLedger.entitlements; sourceTree = "<group>"; };
+		7EB1BD4C59C9A1206559DF71 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		81A2B4DB7993257B90B60DC5 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMaintenanceRecordView.swift; sourceTree = "<group>"; };
 		9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IndianVehicleData.json; sourceTree = "<group>"; };
@@ -93,9 +101,13 @@
 		C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseVehicleService.swift; sourceTree = "<group>"; };
 		CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerGaugeView.swift; sourceTree = "<group>"; };
 		D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVehicleView.swift; sourceTree = "<group>"; };
+		D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGaugeView.swift; sourceTree = "<group>"; };
+		DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkFeatureRow.swift; sourceTree = "<group>"; };
 		E082AD9638F53A596940EBD8 /* AutoLedgerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AutoLedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E098F81FCA6B418E64E73B63 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
+		E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderView.swift; sourceTree = "<group>"; };
 		E8382852832C2DDBCF01EE4B /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		E919BD8E48FF6A02480DFA0B /* AutoLedger.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AutoLedger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerUITests.swift; sourceTree = "<group>"; };
@@ -219,7 +231,12 @@
 		8F4B0AD32CFC8659C141E4A2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */,
+				DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */,
 				1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */,
+				E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */,
+				CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */,
+				0580125A61DEDA6617F9E001 /* VehicleHeroCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -292,6 +309,7 @@
 			children = (
 				2BDED06B19B8E85E661E7AA6 /* Constants.swift */,
 				4E7ADB10E04B94276A50506B /* Extensions.swift */,
+				7EB1BD4C59C9A1206559DF71 /* Theme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -423,8 +441,10 @@
 				75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */,
 				1CC188CEDD500C9F2FD21B19 /* AddVehicleView.swift in Sources */,
 				2433486ACA0AA2997F149AF6 /* AutoLedgerApp.swift in Sources */,
+				7FBED3A18A4C05895A497A08 /* CircularGaugeView.swift in Sources */,
 				448B5C3FD3CBD079FB977392 /* Constants.swift in Sources */,
 				C0135D9732D76DB6D7E41614 /* ContentView.swift in Sources */,
+				6BB467C146627890EEE34DE4 /* DarkFeatureRow.swift in Sources */,
 				127F3774D34039AB26EEC7D1 /* DashboardView.swift in Sources */,
 				EF92DAC569D9D26ACBBFA577 /* DataExportService.swift in Sources */,
 				BC6237269CB50C7B97C58280 /* Document.swift in Sources */,
@@ -436,18 +456,22 @@
 				79B268EAE7061AB8F3700A81 /* FirebaseVehicleService.swift in Sources */,
 				C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */,
 				224DA8CAF727AF626A24D498 /* FuelLogView.swift in Sources */,
+				0038F43DA3DB78A92BD1B1D2 /* GreetingHeaderView.swift in Sources */,
 				951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */,
 				11BFA22DD48E29D522C3D562 /* MaintenanceRecord.swift in Sources */,
 				BFE0FE3F7740AF54B9AAC408 /* MaintenanceSchedule.swift in Sources */,
 				9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */,
 				6807E9E5CF587CE24225D4E4 /* OnboardingView.swift in Sources */,
 				1E5C208EEE484E0952C932AB /* SettingsView.swift in Sources */,
+				79520BBB224E135186B64076 /* SpeedometerGaugeView.swift in Sources */,
 				2B715D63642B3492A306E767 /* StartTripView.swift in Sources */,
+				6EA504887712C2B1FB9B3416 /* Theme.swift in Sources */,
 				27D8606DD3384980F545E810 /* Trip.swift in Sources */,
 				1C6CE821D7682F1EFC0C1F74 /* TripListView.swift in Sources */,
 				FF2B1D873D2BDF9D52BB7E09 /* Vehicle.swift in Sources */,
 				604AFCAED279A3581A331650 /* VehicleDataService.swift in Sources */,
 				D7E08A1C6170053C7327F7CD /* VehicleDetailView.swift in Sources */,
+				BE09F57B632E5D5D64E49075 /* VehicleHeroCard.swift in Sources */,
 				5525CC79041F54A6281C4B9A /* VehicleListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
