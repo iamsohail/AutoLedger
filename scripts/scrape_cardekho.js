@@ -18,9 +18,10 @@ const BASE_URL = 'https://www.cardekho.com';
 // Delay helper
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// All Indian market car brands
+// All Indian market car brands (current + discontinued)
 // Note: urlSlug is for the page URL, linkSlug is for model links within the page
 const BRANDS = [
+    // Current major brands
     { name: 'Maruti Suzuki', slug: 'maruti-suzuki', linkSlug: 'maruti', country: 'India' },
     { name: 'Tata', slug: 'tata', country: 'India' },
     { name: 'Mahindra', slug: 'mahindra', country: 'India' },
@@ -54,6 +55,16 @@ const BRANDS = [
     { name: 'Maserati', slug: 'maserati', country: 'Italy' },
     { name: 'Aston Martin', slug: 'aston-martin', country: 'UK' },
     { name: 'McLaren', slug: 'mclaren', country: 'UK' },
+    // Discontinued brands (still have owners in India)
+    { name: 'Ford', slug: 'ford', country: 'USA', discontinued: true },
+    { name: 'Chevrolet', slug: 'chevrolet', country: 'USA', discontinued: true },
+    { name: 'Fiat', slug: 'fiat', country: 'Italy', discontinued: true },
+    { name: 'Datsun', slug: 'datsun', country: 'Japan', discontinued: true },
+    { name: 'Mitsubishi', slug: 'mitsubishi', country: 'Japan', discontinued: true },
+    { name: 'Opel', slug: 'opel', country: 'Germany', discontinued: true },
+    { name: 'Hindustan Motors', slug: 'hindustan-motors', linkSlug: 'hindustan', country: 'India', discontinued: true },
+    { name: 'Premier', slug: 'premier', country: 'India', discontinued: true },
+    { name: 'San Motors', slug: 'san', country: 'India', discontinued: true },
 ];
 
 // All brand names for filtering (don't include other brands in a brand's model list)
@@ -190,8 +201,61 @@ function cleanModelName(model, brandName) {
     return cleaned;
 }
 
+async function scrapeModelsFromPage(page, brandSlug) {
+    const linkSlug = brandSlug;
+    return await page.evaluate((brandSlug) => {
+        const models = new Set();
+
+        // Method 1: Extract from model links (most reliable)
+        document.querySelectorAll(`a[href^="/${brandSlug}/"]`).forEach(link => {
+            const href = link.getAttribute('href');
+            const parts = href.split('/').filter(p => p && p !== brandSlug);
+
+            if (parts.length >= 1) {
+                const modelSlug = parts[0];
+                // Only get direct model pages, not sub-pages
+                if (modelSlug &&
+                    !modelSlug.includes('price') &&
+                    !modelSlug.includes('review') &&
+                    !modelSlug.includes('images') &&
+                    !modelSlug.includes('specs') &&
+                    !modelSlug.includes('mileage') &&
+                    !modelSlug.includes('colours') &&
+                    !modelSlug.includes('variants') &&
+                    !modelSlug.includes('on-road-price') &&
+                    !modelSlug.includes('discontinued') &&
+                    modelSlug.length > 1) {
+
+                    // Convert slug to name: "grand-vitara" -> "Grand Vitara"
+                    const modelName = modelSlug
+                        .split('-')
+                        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+                        .join(' ');
+                    models.add(modelName);
+                }
+            }
+        });
+
+        // Method 2: Extract from JSON-LD ItemList (if available)
+        document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            try {
+                const data = JSON.parse(script.textContent);
+                if (data['@type'] === 'ItemList' && data.itemListElement) {
+                    data.itemListElement.forEach(item => {
+                        if (item.name && item.item && item.item['@type'] === 'Car') {
+                            models.add(item.name);
+                        }
+                    });
+                }
+            } catch (e) {}
+        });
+
+        return Array.from(models);
+    }, linkSlug);
+}
+
 async function scrapeCarDekho() {
-    console.log('🚗 Starting CarDekho Scraper...\n');
+    console.log('🚗 Starting CarDekho Scraper (with discontinued models)...\n');
 
     const browser = await puppeteer.launch({
         headless: 'new',
@@ -208,62 +272,35 @@ async function scrapeCarDekho() {
         console.log(`[${i + 1}/${BRANDS.length}] Scraping ${brand.name}...`);
 
         try {
-            const url = `${BASE_URL}/${brand.slug}-cars`;
-            await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
+            const allModels = new Set();
+            const linkSlug = brand.linkSlug || brand.slug;
+
+            // Scrape current models
+            const currentUrl = `${BASE_URL}/${brand.slug}-cars`;
+            await page.goto(currentUrl, { waitUntil: 'networkidle2', timeout: 60000 });
             await delay(1500 + Math.random() * 1000);
 
-            // Extract models - primarily from URL paths
-            const linkSlug = brand.linkSlug || brand.slug;
-            const rawModels = await page.evaluate((brandSlug) => {
-                const models = new Set();
+            const currentModels = await scrapeModelsFromPage(page, linkSlug);
+            currentModels.forEach(m => allModels.add(m));
+            console.log(`   ✓ Found ${currentModels.length} current models`);
 
-                // Method 1: Extract from model links (most reliable)
-                document.querySelectorAll(`a[href^="/${brandSlug}/"]`).forEach(link => {
-                    const href = link.getAttribute('href');
-                    const parts = href.split('/').filter(p => p && p !== brandSlug);
+            // Scrape discontinued models
+            try {
+                const discontinuedUrl = `${BASE_URL}/${brand.slug}-cars/discontinued`;
+                await page.goto(discontinuedUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+                await delay(1000 + Math.random() * 500);
 
-                    if (parts.length >= 1) {
-                        const modelSlug = parts[0];
-                        // Only get direct model pages, not sub-pages
-                        if (modelSlug &&
-                            !modelSlug.includes('price') &&
-                            !modelSlug.includes('review') &&
-                            !modelSlug.includes('images') &&
-                            !modelSlug.includes('specs') &&
-                            !modelSlug.includes('mileage') &&
-                            !modelSlug.includes('colours') &&
-                            !modelSlug.includes('variants') &&
-                            !modelSlug.includes('on-road-price') &&
-                            modelSlug.length > 1) {
-
-                            // Convert slug to name: "grand-vitara" -> "Grand Vitara"
-                            const modelName = modelSlug
-                                .split('-')
-                                .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-                                .join(' ');
-                            models.add(modelName);
-                        }
-                    }
-                });
-
-                // Method 2: Extract from JSON-LD ItemList (if available)
-                document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
-                    try {
-                        const data = JSON.parse(script.textContent);
-                        if (data['@type'] === 'ItemList' && data.itemListElement) {
-                            data.itemListElement.forEach(item => {
-                                if (item.name && item.item && item.item['@type'] === 'Car') {
-                                    models.add(item.name);
-                                }
-                            });
-                        }
-                    } catch (e) {}
-                });
-
-                return Array.from(models);
-            }, linkSlug);
+                const discontinuedModels = await scrapeModelsFromPage(page, linkSlug);
+                discontinuedModels.forEach(m => allModels.add(m));
+                if (discontinuedModels.length > 0) {
+                    console.log(`   ✓ Found ${discontinuedModels.length} discontinued models`);
+                }
+            } catch (e) {
+                // No discontinued page or error - that's okay
+            }
 
             // Clean and filter models
+            const rawModels = Array.from(allModels);
             const cleanedModels = rawModels
                 .map(m => cleanModelName(m, brand.name))
                 .filter(m => m !== null && m.length > 1);
@@ -282,21 +319,23 @@ async function scrapeCarDekho() {
             // Sort alphabetically
             uniqueModels.sort((a, b) => a.localeCompare(b));
 
-            console.log(`   ✓ Found ${uniqueModels.length} models`);
+            console.log(`   → Total: ${uniqueModels.length} models\n`);
 
             vehicleData.push({
                 id: brand.slug.replace(/-/g, '_'),
                 name: brand.name,
                 country: brand.country,
+                discontinued: brand.discontinued || false,
                 models: uniqueModels.length > 0 ? uniqueModels : ['Other']
             });
 
         } catch (error) {
-            console.log(`   ✗ Error: ${error.message}`);
+            console.log(`   ✗ Error: ${error.message}\n`);
             vehicleData.push({
                 id: brand.slug.replace(/-/g, '_'),
                 name: brand.name,
                 country: brand.country,
+                discontinued: brand.discontinued || false,
                 models: ['Other']
             });
         }

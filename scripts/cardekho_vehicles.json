@@ -3,6 +3,7 @@
     "id": "maruti_suzuki",
     "name": "Maruti Suzuki",
     "country": "India",
+    "discontinued": false,
     "models": [
       "Alto 800 Tour",
       "Alto K10",
@@ -30,6 +31,7 @@
     "id": "tata",
     "name": "Tata",
     "country": "India",
+    "discontinued": false,
     "models": [
       "Altroz",
       "Altroz Racer",
@@ -54,6 +56,7 @@
     "id": "mahindra",
     "name": "Mahindra",
     "country": "India",
+    "discontinued": false,
     "models": [
       "BE 6",
       "Bolero",
@@ -83,6 +86,7 @@
     "id": "hyundai",
     "name": "Hyundai",
     "country": "South Korea",
+    "discontinued": false,
     "models": [
       "Alcazar",
       "Aura",
@@ -107,6 +111,7 @@
     "id": "honda",
     "name": "Honda",
     "country": "Japan",
+    "discontinued": false,
     "models": [
       "Amaze",
       "City",
@@ -120,6 +125,7 @@
     "id": "toyota",
     "name": "Toyota",
     "country": "Japan",
+    "discontinued": false,
     "models": [
       "Camry",
       "Fortuner Legender",
@@ -137,6 +143,7 @@
     "id": "kia",
     "name": "Kia",
     "country": "South Korea",
+    "discontinued": false,
     "models": [
       "Carens",
       "Carens Clavis",
@@ -153,6 +160,7 @@
     "id": "mg",
     "name": "MG",
     "country": "China",
+    "discontinued": false,
     "models": [
       "Astor",
       "Comet EV",
@@ -169,6 +177,7 @@
     "id": "skoda",
     "name": "Skoda",
     "country": "Czech Republic",
+    "discontinued": false,
     "models": [
       "Kodiaq",
       "Kushaq",
@@ -182,6 +191,7 @@
     "id": "volkswagen",
     "name": "Volkswagen",
     "country": "Germany",
+    "discontinued": false,
     "models": [
       "Golf Gti",
       "Polo",
@@ -198,6 +208,7 @@
     "id": "renault",
     "name": "Renault",
     "country": "France",
+    "discontinued": false,
     "models": [
       "Captur",
       "Duster",
@@ -209,6 +220,7 @@
     "id": "nissan",
     "name": "Nissan",
     "country": "Japan",
+    "discontinued": false,
     "models": [
       "Gtr",
       "Kicks",
@@ -221,6 +233,7 @@
     "id": "jeep",
     "name": "Jeep",
     "country": "USA",
+    "discontinued": false,
     "models": [
       "Compass",
       "Compass Trailhawk",
@@ -234,6 +247,7 @@
     "id": "citroen",
     "name": "Citroen",
     "country": "France",
+    "discontinued": false,
     "models": [
       "Aircross",
       "Basalt",
@@ -246,6 +260,7 @@
     "id": "mercedes_benz",
     "name": "Mercedes-Benz",
     "country": "Germany",
+    "discontinued": false,
     "models": [
       "A Class Limousine",
       "AMG A 45 S",
@@ -286,6 +301,7 @@
     "id": "bmw",
     "name": "BMW",
     "country": "Germany",
+    "discontinued": false,
     "models": [
       "2 Series",
       "2 Series Gran Coupe",
@@ -315,6 +331,7 @@
     "id": "audi",
     "name": "Audi",
     "country": "Germany",
+    "discontinued": false,
     "models": [
       "A4",
       "A8 L",
@@ -336,6 +353,7 @@
     "id": "lexus",
     "name": "Lexus",
     "country": "Japan",
+    "discontinued": false,
     "models": [
       "ES",
       "LC 500h",
@@ -350,6 +368,7 @@
     "id": "volvo",
     "name": "Volvo",
     "country": "Sweden",
+    "discontinued": false,
     "models": [
       "Ec40",
       "Ex30",
@@ -365,6 +384,7 @@
     "id": "porsche",
     "name": "Porsche",
     "country": "Germany",
+    "discontinued": false,
     "models": [
       "Cayenne",
       "Cayenne Coupe",
@@ -378,6 +398,7 @@
     "id": "land_rover",
     "name": "Land Rover",
     "country": "UK",
+    "discontinued": false,
     "models": [
       "Defender",
       "Discovery",
@@ -391,6 +412,7 @@
     "id": "jaguar",
     "name": "Jaguar",
     "country": "UK",
+    "discontinued": false,
     "models": [
       "F Pace",
       "F Type",
@@ -403,6 +425,7 @@
     "id": "byd",
     "name": "BYD",
     "country": "China",
+    "discontinued": false,
     "models": [
       "Atto 3",
       "E6",
@@ -415,6 +438,7 @@
     "id": "mini",
     "name": "Mini",
     "country": "UK",
+    "discontinued": false,
     "models": [
       "Cooper Countryman",
       "Cooper S",
@@ -428,6 +452,7 @@
     "id": "isuzu",
     "name": "Isuzu",
     "country": "Japan",
+    "discontinued": false,
     "models": [
       "D Max",
       "D Max V Cross",
@@ -442,6 +467,7 @@
     "id": "force",
     "name": "Force Motors",
     "country": "India",
+    "discontinued": false,
     "models": [
       "Gurkha",
       "Gurkha 5 Door",
@@ -452,6 +478,7 @@
     "id": "ferrari",
     "name": "Ferrari",
     "country": "Italy",
+    "discontinued": false,
     "models": [
       "296 Gtb",
       "812 Superfast",
@@ -466,6 +493,7 @@
     "id": "lamborghini",
     "name": "Lamborghini",
     "country": "Italy",
+    "discontinued": false,
     "models": [
       "Huracan Evo",
       "Revuelto",
@@ -477,6 +505,7 @@
     "id": "bentley",
     "name": "Bentley",
     "country": "UK",
+    "discontinued": false,
     "models": [
       "Bentayga",
       "Bentayga Ewb"
@@ -486,6 +515,7 @@
     "id": "rolls_royce",
     "name": "Rolls-Royce",
     "country": "UK",
+    "discontinued": false,
     "models": [
       "Cullinan",
       "Dawn",
@@ -497,6 +527,7 @@
     "id": "maserati",
     "name": "Maserati",
     "country": "Italy",
+    "discontinued": false,
     "models": [
       "Ghibli",
       "Grecale",
@@ -507,6 +538,7 @@
     "id": "aston_martin",
     "name": "Aston Martin",
     "country": "UK",
+    "discontinued": false,
     "models": [
       "Db11",
       "Db12",
@@ -519,9 +551,96 @@
     "id": "mclaren",
     "name": "McLaren",
     "country": "UK",
+    "discontinued": false,
     "models": [
       "750s",
       "GT"
+    ]
+  },
+  {
+    "id": "ford",
+    "name": "Ford",
+    "country": "USA",
+    "discontinued": true,
+    "models": [
+      "Aspire",
+      "Endeavour",
+      "Freestyle"
+    ]
+  },
+  {
+    "id": "chevrolet",
+    "name": "Chevrolet",
+    "country": "USA",
+    "discontinued": true,
+    "models": [
+      "Tavera"
+    ]
+  },
+  {
+    "id": "fiat",
+    "name": "Fiat",
+    "country": "Italy",
+    "discontinued": true,
+    "models": [
+      "Avventura Urban Cross",
+      "Punto"
+    ]
+  },
+  {
+    "id": "datsun",
+    "name": "Datsun",
+    "country": "Japan",
+    "discontinued": true,
+    "models": [
+      "Other"
+    ]
+  },
+  {
+    "id": "mitsubishi",
+    "name": "Mitsubishi",
+    "country": "Japan",
+    "discontinued": true,
+    "models": [
+      "Montero",
+      "Outlander",
+      "Pajero"
+    ]
+  },
+  {
+    "id": "opel",
+    "name": "Opel",
+    "country": "Germany",
+    "discontinued": true,
+    "models": [
+      "Other"
+    ]
+  },
+  {
+    "id": "hindustan_motors",
+    "name": "Hindustan Motors",
+    "country": "India",
+    "discontinued": true,
+    "models": [
+      "Other"
+    ]
+  },
+  {
+    "id": "premier",
+    "name": "Premier",
+    "country": "India",
+    "discontinued": true,
+    "models": [
+      "Other"
+    ]
+  },
+  {
+    "id": "san",
+    "name": "San Motors",
+    "country": "India",
+    "discontinued": true,
+    "models": [
+      "Other"
     ]
   }
 ]
