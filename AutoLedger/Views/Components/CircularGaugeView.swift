@@ -71,10 +71,10 @@ struct CircularGaugeView: View {
         Color.darkBackground.ignoresSafeArea()
         HStack(spacing: 32) {
             CircularGaugeView(
-                value: 28.5,
-                maxValue: 50,
-                title: "Avg MPG",
-                unit: "MPG",
+                value: 15.5,
+                maxValue: 25,
+                title: "Avg Mileage",
+                unit: "km/l",
                 color: .greenAccent
             )
             CircularGaugeView(

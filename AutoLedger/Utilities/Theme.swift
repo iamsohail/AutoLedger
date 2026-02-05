@@ -5,14 +5,45 @@ import SwiftUI
 enum Theme {
     // MARK: - Typography
     enum Typography {
+        // Titles
+        static let largeTitle: Font = .system(size: 34, weight: .bold)
+        static let title: Font = .system(size: 28, weight: .bold)
+        static let title2: Font = .system(size: 22, weight: .bold)
+        static let title3: Font = .system(size: 20, weight: .semibold)
+
+        // Headlines & Body
+        static let headline: Font = .system(size: 17, weight: .semibold)
+        static let body: Font = .system(size: 17, weight: .regular)
+        static let bodyMedium: Font = .system(size: 17, weight: .medium)
+        static let bodyBold: Font = .system(size: 17, weight: .bold)
+
+        // Subheadlines
+        static let subheadline: Font = .system(size: 15, weight: .regular)
+        static let subheadlineMedium: Font = .system(size: 15, weight: .medium)
+        static let subheadlineSemibold: Font = .system(size: 15, weight: .semibold)
+
+        // Small Text
+        static let footnote: Font = .system(size: 13, weight: .regular)
+        static let caption: Font = .system(size: 12, weight: .regular)
+        static let captionMedium: Font = .system(size: 12, weight: .medium)
+        static let caption2: Font = .system(size: 11, weight: .regular)
+
+        // Stats (rounded design)
         static let statValue: Font = .system(size: 48, weight: .bold, design: .rounded)
         static let statValueMedium: Font = .system(size: 36, weight: .bold, design: .rounded)
         static let statValueSmall: Font = .system(size: 24, weight: .bold, design: .rounded)
+
+        // Special
         static let greeting: Font = .system(size: 24, weight: .semibold)
         static let cardTitle: Font = .system(size: 18, weight: .semibold)
         static let cardSubtitle: Font = .system(size: 14, weight: .medium)
         static let label: Font = .system(size: 12, weight: .medium)
-        static let caption: Font = .system(size: 11, weight: .regular)
+
+        // Icons
+        static let iconLarge: Font = .system(size: 50)
+        static let iconMedium: Font = .system(size: 40)
+        static let iconSmall: Font = .system(size: 22)
+        static let iconTiny: Font = .system(size: 18)
     }
 
     // MARK: - Spacing

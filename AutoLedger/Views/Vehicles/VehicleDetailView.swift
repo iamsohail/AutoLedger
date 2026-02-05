@@ -59,7 +59,7 @@ struct VehicleDetailView: View {
                 DetailRow(label: "Total Maintenance Cost", value: vehicle.totalMaintenanceCost.asCurrency)
                 DetailRow(label: "Total Cost", value: (vehicle.totalFuelCost + vehicle.totalMaintenanceCost).asCurrency)
                 if let avgMPG = vehicle.averageFuelEconomy {
-                    DetailRow(label: "Average Fuel Economy", value: String(format: "%.1f MPG", avgMPG))
+                    DetailRow(label: "Average Fuel Economy", value: String(format: "%.1f km/l", avgMPG))
                 }
                 DetailRow(label: "Fuel Entries", value: "\(vehicle.fuelEntries?.count ?? 0)")
                 DetailRow(label: "Maintenance Records", value: "\(vehicle.maintenanceRecords?.count ?? 0)")
@@ -69,7 +69,7 @@ struct VehicleDetailView: View {
             if let notes = vehicle.notes, !notes.isEmpty {
                 Section("Notes") {
                     Text(notes)
-                        .font(.body)
+                        .font(Theme.Typography.body)
                 }
             }
         }
@@ -107,12 +107,17 @@ struct VehicleHeaderView: View {
                         .fill(Color.accentColor.opacity(0.1))
                         .frame(height: 120)
 
-                    VStack {
-                        Image(systemName: "car.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(.accentColor)
+                    VStack(spacing: 12) {
+                        BrandLogoView(
+                            make: vehicle.make,
+                            size: 60,
+                            type: .icon,
+                            fallbackIcon: "car.fill",
+                            fallbackColor: .accentColor
+                        )
+
                         Text(vehicle.displayName)
-                            .font(.headline)
+                            .font(Theme.Typography.headline)
                             .foregroundColor(.secondary)
                     }
                 }

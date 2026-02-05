@@ -31,7 +31,7 @@ struct SettingsView: View {
                     Text("Profile")
                         .foregroundColor(.textSecondary)
                 } footer: {
-                    Text("Used for personalized greetings on the dashboard")
+                    Text("Used for Personalized Greetings on the Dashboard")
                         .foregroundColor(.textSecondary.opacity(0.7))
                 }
 
@@ -101,16 +101,16 @@ struct SettingsView: View {
                 Section {
                     HStack {
                         Image(systemName: "person.circle.fill")
-                            .font(.system(size: 40))
+                            .font(Theme.Typography.iconMedium)
                             .foregroundColor(.primaryPurple)
 
                         VStack(alignment: .leading, spacing: 2) {
                             Text(authService.user?.displayName ?? (userName.isEmpty ? "User" : userName))
-                                .font(.headline)
+                                .font(Theme.Typography.headline)
                                 .foregroundColor(.textPrimary)
 
                             Text(authService.user?.email ?? authService.user?.phoneNumber ?? "Signed in")
-                                .font(.caption)
+                                .font(Theme.Typography.caption)
                                 .foregroundColor(.textSecondary)
                         }
                         Spacer()
@@ -205,7 +205,7 @@ struct BackupSettingsView: View {
                     .tint(.primaryPurple)
                     .darkListRowStyle()
             } footer: {
-                Text("When enabled, your data will automatically sync across all your devices signed into the same iCloud account.")
+                Text("When Enabled, Your Data Will Automatically Sync Across All Your Devices Signed into the Same iCloud Account.")
                     .foregroundColor(.textSecondary.opacity(0.7))
             }
 
@@ -359,12 +359,12 @@ struct AboutView: View {
                                     .shadow(color: Color.primaryPurple.opacity(0.5), radius: 15, x: 0, y: 8)
 
                                 Image(systemName: "car.fill")
-                                    .font(.system(size: 36))
+                                    .font(Theme.Typography.statValueMedium)
                                     .foregroundColor(.white)
                             }
 
                             Text("Auto Ledger")
-                                .font(.title)
+                                .font(Theme.Typography.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.textPrimary)
 
@@ -373,7 +373,7 @@ struct AboutView: View {
                         }
                         .padding(.top, Theme.Spacing.xl)
 
-                        Text("Auto Ledger helps you track fuel expenses, maintenance schedules, trips, and more for all your vehicles.")
+                        Text("Auto Ledger Helps You Track Fuel Expenses, Maintenance Schedules, Trips, and More for All Your Vehicles.")
                             .font(Theme.Typography.cardSubtitle)
                             .foregroundColor(.textSecondary)
                             .multilineTextAlignment(.center)
@@ -390,31 +390,31 @@ struct AboutView: View {
                             DarkFeatureRow(
                                 icon: "fuelpump.fill",
                                 title: "Fuel Tracking",
-                                description: "Log fill-ups and track efficiency",
+                                description: "Log Fill-Ups and Track Efficiency",
                                 iconColor: .greenAccent
                             )
                             DarkFeatureRow(
                                 icon: "wrench.and.screwdriver.fill",
                                 title: "Maintenance Management",
-                                description: "Schedule and track services",
+                                description: "Schedule and Track Services",
                                 iconColor: .primaryPurple
                             )
                             DarkFeatureRow(
                                 icon: "map.fill",
                                 title: "Trip Logging",
-                                description: "Track business and personal trips",
+                                description: "Track Business and Personal Trips",
                                 iconColor: .pinkAccent
                             )
                             DarkFeatureRow(
                                 icon: "chart.bar.fill",
                                 title: "Cost Analytics",
-                                description: "View spending trends",
+                                description: "View Spending Trends",
                                 iconColor: .orange
                             )
                             DarkFeatureRow(
                                 icon: "icloud.fill",
                                 title: "iCloud Sync",
-                                description: "Sync across all your devices",
+                                description: "Sync Across All Your Devices",
                                 iconColor: .cyan
                             )
                         }

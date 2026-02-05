@@ -1,122 +1,210 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @Binding var showingAddVehicle: Bool
+    let onComplete: () -> Void
+    @State private var currentPage = 0
+
+    private let pages: [OnboardingPage] = [
+        OnboardingPage(
+            icon: "fuelpump.fill",
+            title: "Fuel Tracking",
+            subtitle: "Monitor Every Fill-Up",
+            description: "Log Fuel Purchases, Track Mileage,\nand See Spending Trends Over Time.",
+            color: .greenAccent
+        ),
+        OnboardingPage(
+            icon: "wrench.and.screwdriver.fill",
+            title: "Maintenance",
+            subtitle: "Never Miss a Service",
+            description: "Schedule Oil Changes, Tire Rotations,\nand Track Your Service History.",
+            color: .orange
+        ),
+        OnboardingPage(
+            icon: "location.fill",
+            title: "Trip Logging",
+            subtitle: "Track Every Journey",
+            description: "Log Business Trips for Tax Deductions\nand Monitor Your Driving Patterns.",
+            color: .primaryPurple
+        )
+    ]
 
     var body: some View {
         ZStack {
-            // Dark background with gradient
             Color.darkBackground
                 .ignoresSafeArea()
 
-            // Purple gradient at top
-            VStack {
-                LinearGradient(
-                    colors: [
-                        Color.primaryPurple.opacity(0.4),
-                        Color.primaryPurple.opacity(0.1),
-                        Color.clear
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .frame(height: 300)
-                .ignoresSafeArea()
-
-                Spacer()
-            }
-
-            // Content
-            VStack(spacing: Theme.Spacing.xl) {
-                Spacer()
-
-                // App icon and title
-                VStack(spacing: Theme.Spacing.md) {
-                    ZStack {
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [Color.primaryPurple, Color.pinkAccent],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 120, height: 120)
-                            .shadow(color: Color.primaryPurple.opacity(0.5), radius: 20, x: 0, y: 10)
-
-                        Image(systemName: "car.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(.white)
+            VStack(spacing: 0) {
+                // Skip button
+                HStack {
+                    Spacer()
+                    Button("Skip") {
+                        onComplete()
                     }
-
-                    Text("Auto Ledger")
-                        .font(.system(size: 32, weight: .bold))
-                        .foregroundColor(.textPrimary)
-
-                    Text("Track fuel, maintenance, trips, and expenses for all your vehicles in one place.")
-                        .font(Theme.Typography.cardSubtitle)
-                        .foregroundColor(.textSecondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, Theme.Spacing.xl)
+                    .font(Theme.Typography.subheadline)
+                    .foregroundColor(.textSecondary)
+                    .padding(.horizontal, Theme.Spacing.md)
+                    .padding(.vertical, Theme.Spacing.sm)
+                    .background(Color.cardBackground)
+                    .cornerRadius(Theme.CornerRadius.pill)
+                    .padding(.trailing, Theme.Spacing.lg)
+                    .padding(.top, Theme.Spacing.md)
                 }
 
-                // Features
-                VStack(spacing: Theme.Spacing.xs) {
-                    DarkFeatureRow(
-                        icon: "fuelpump.fill",
-                        title: "Fuel Tracking",
-                        description: "Log fill-ups and track MPG",
-                        iconColor: .greenAccent
-                    )
-                    DarkFeatureRow(
-                        icon: "wrench.and.screwdriver.fill",
-                        title: "Maintenance",
-                        description: "Schedule and track services",
-                        iconColor: .primaryPurple
-                    )
-                    DarkFeatureRow(
-                        icon: "map.fill",
-                        title: "Trip Logging",
-                        description: "Track business and personal trips",
-                        iconColor: .pinkAccent
-                    )
-                    DarkFeatureRow(
-                        icon: "chart.bar.fill",
-                        title: "Analytics",
-                        description: "View costs and trends",
-                        iconColor: .orange
-                    )
+                // Swipeable pages
+                TabView(selection: $currentPage) {
+                    ForEach(0..<pages.count, id: \.self) { index in
+                        OnboardingPageView(page: pages[index])
+                            .tag(index)
+                    }
                 }
-                .padding(.horizontal, Theme.Spacing.md)
+                .tabViewStyle(.page(indexDisplayMode: .never))
 
-                Spacer()
+                // Page indicators
+                HStack(spacing: Theme.Spacing.sm) {
+                    ForEach(0..<pages.count, id: \.self) { index in
+                        if index == currentPage {
+                            Capsule()
+                                .fill(pages[currentPage].color)
+                                .frame(width: Theme.Spacing.lg, height: Theme.Spacing.sm)
+                        } else {
+                            Circle()
+                                .fill(Color.textSecondary.opacity(0.3))
+                                .frame(width: Theme.Spacing.sm, height: Theme.Spacing.sm)
+                        }
+                    }
+                }
+                .animation(.easeInOut(duration: 0.2), value: currentPage)
+                .padding(.bottom, Theme.Spacing.xl)
 
                 // CTA Button
                 Button {
-                    showingAddVehicle = true
+                    if currentPage < pages.count - 1 {
+                        withAnimation {
+                            currentPage += 1
+                        }
+                    } else {
+                        onComplete()
+                    }
                 } label: {
-                    Text("Add Your First Vehicle")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            LinearGradient(
-                                colors: [Color.primaryPurple, Color.pinkAccent.opacity(0.8)],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
+                    HStack(spacing: Theme.Spacing.sm) {
+                        Text(currentPage < pages.count - 1 ? "Next" : "Get Started")
+                            .font(Theme.Typography.cardTitle)
+
+                        Image(systemName: "arrow.right")
+                            .font(Theme.Typography.iconTiny)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, Theme.Spacing.md)
+                    .background(
+                        LinearGradient(
+                            colors: [pages[currentPage].color, pages[currentPage].color.opacity(0.7)],
+                            startPoint: .leading,
+                            endPoint: .trailing
                         )
-                        .cornerRadius(Theme.CornerRadius.medium)
-                        .shadow(color: Color.primaryPurple.opacity(0.4), radius: 10, x: 0, y: 5)
+                    )
+                    .cornerRadius(Theme.CornerRadius.large)
                 }
-                .padding(.horizontal, Theme.Spacing.xl)
-                .padding(.bottom, Theme.Spacing.xl)
+                .animation(.easeInOut(duration: 0.2), value: currentPage)
+                .padding(.horizontal, Theme.Spacing.lg)
+                .padding(.bottom, Theme.Spacing.xxl)
             }
         }
     }
 }
 
+// MARK: - Onboarding Page Model
+
+struct OnboardingPage {
+    let icon: String
+    let title: String
+    let subtitle: String
+    let description: String
+    let color: Color
+}
+
+// MARK: - Onboarding Page View
+
+struct OnboardingPageView: View {
+    let page: OnboardingPage
+
+    var body: some View {
+        ZStack {
+            // Floating particles
+            FloatingParticle(size: 4, offset: CGPoint(x: -150, y: -300), color: page.color, delay: 0)
+            FloatingParticle(size: 3, offset: CGPoint(x: 120, y: -280), color: page.color, delay: 0.2)
+            FloatingParticle(size: 5, offset: CGPoint(x: -80, y: -200), color: page.color, delay: 0.4)
+            FloatingParticle(size: 3, offset: CGPoint(x: 160, y: -150), color: page.color, delay: 0.6)
+            FloatingParticle(size: 4, offset: CGPoint(x: -140, y: -100), color: page.color, delay: 0.8)
+            FloatingParticle(size: 3, offset: CGPoint(x: 100, y: -50), color: page.color, delay: 1.0)
+            FloatingParticle(size: 5, offset: CGPoint(x: -160, y: 0), color: page.color, delay: 1.2)
+            FloatingParticle(size: 4, offset: CGPoint(x: 140, y: 50), color: page.color, delay: 0.3)
+            FloatingParticle(size: 3, offset: CGPoint(x: -100, y: 100), color: page.color, delay: 0.5)
+            FloatingParticle(size: 4, offset: CGPoint(x: 170, y: 150), color: page.color, delay: 0.7)
+
+            VStack(spacing: 0) {
+                Spacer()
+
+                // Icon - clean and bright
+                Image(systemName: page.icon)
+                    .font(.system(size: 100, weight: .medium))
+                    .foregroundColor(page.color)
+                    .frame(height: 280)
+
+                Spacer().frame(height: Theme.Spacing.xxl)
+
+                // Text Content
+                VStack(spacing: Theme.Spacing.md) {
+                    Text(page.title)
+                        .font(Theme.Typography.largeTitle)
+                        .foregroundColor(.textPrimary)
+
+                    Text(page.subtitle)
+                        .font(Theme.Typography.title3)
+                        .foregroundColor(page.color)
+
+                    Text(page.description)
+                        .font(Theme.Typography.subheadline)
+                        .foregroundColor(.textSecondary)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(Theme.Spacing.xs)
+                }
+                .padding(.horizontal, Theme.Spacing.xl)
+
+                Spacer()
+            }
+        }
+    }
+}
+
+// MARK: - Floating Particle
+
+struct FloatingParticle: View {
+    let size: CGFloat
+    let offset: CGPoint
+    let color: Color
+    let delay: Double
+
+    @State private var isAnimating = false
+
+    var body: some View {
+        Circle()
+            .fill(color.opacity(0.6))
+            .frame(width: size, height: size)
+            .offset(x: offset.x, y: offset.y)
+            .offset(y: isAnimating ? -8 : 8)
+            .animation(
+                Animation.easeInOut(duration: 2)
+                    .repeatForever(autoreverses: true)
+                    .delay(delay),
+                value: isAnimating
+            )
+            .onAppear {
+                isAnimating = true
+            }
+    }
+}
+
 #Preview {
-    OnboardingView(showingAddVehicle: .constant(false))
+    OnboardingView(onComplete: {})
 }

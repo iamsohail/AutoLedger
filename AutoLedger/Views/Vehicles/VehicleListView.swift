@@ -68,7 +68,7 @@ struct VehicleListView: View {
                     ContentUnavailableView {
                         Label("No Vehicles", systemImage: "car.fill")
                     } description: {
-                        Text("Add your first vehicle to start tracking.")
+                        Text("Add Your First Vehicle to Start Tracking.")
                     } actions: {
                         Button("Add Vehicle") {
                             showingAddVehicle = true
@@ -94,23 +94,28 @@ struct VehicleRowView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            VehicleIconView(vehicle: vehicle)
-                .frame(width: 44, height: 44)
-                .background(Color.accentColor.opacity(0.1))
-                .cornerRadius(10)
+            BrandLogoView(
+                make: vehicle.make,
+                size: 44,
+                type: .icon,
+                fallbackIcon: "car.fill",
+                fallbackColor: .accentColor
+            )
+            .background(Color.accentColor.opacity(0.1))
+            .cornerRadius(10)
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
                     Text(vehicle.displayName)
-                        .font(.headline)
+                        .font(Theme.Typography.headline)
                     if isSelected {
                         Image(systemName: "checkmark.circle.fill")
                             .foregroundColor(.green)
-                            .font(.caption)
+                            .font(Theme.Typography.caption)
                     }
                 }
                 Text("\(vehicle.make) \(vehicle.model)")
-                    .font(.subheadline)
+                    .font(Theme.Typography.subheadline)
                     .foregroundColor(.secondary)
             }
 
@@ -118,11 +123,11 @@ struct VehicleRowView: View {
 
             VStack(alignment: .trailing, spacing: 4) {
                 Text(vehicle.currentOdometer.asMileage(unit: vehicle.odometerUnit))
-                    .font(.subheadline)
+                    .font(Theme.Typography.subheadline)
                     .fontWeight(.medium)
                 if let avgMPG = vehicle.averageFuelEconomy {
-                    Text("\(String(format: "%.1f", avgMPG)) MPG")
-                        .font(.caption)
+                    Text("\(String(format: "%.1f", avgMPG)) km/l")
+                        .font(Theme.Typography.caption)
                         .foregroundColor(.secondary)
                 }
             }

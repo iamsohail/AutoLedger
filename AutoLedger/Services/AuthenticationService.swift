@@ -1,17 +1,27 @@
 import SwiftUI
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 import AuthenticationServices
 import CryptoKit
+import GoogleSignIn
 
 @MainActor
 class AuthenticationService: ObservableObject {
     @Published var user: User?
+    @Published var userProfile: UserProfile?
     @Published var isAuthenticated = false
     @Published var isLoading = false
     @Published var errorMessage: String?
+    @Published var needsProfileCompletion = false
 
     private var authStateHandler: AuthStateDidChangeListenerHandle?
     private var currentNonce: String?
+    private var pendingAppleName: PersonNameComponents?
+    private var pendingAuthProvider: UserProfile.AuthProvider?
+    private var pendingPhoneNumber: String?
+
+    private let db = Firestore.firestore()
 
     init() {
         registerAuthStateHandler()
@@ -19,8 +29,115 @@ class AuthenticationService: ObservableObject {
 
     private func registerAuthStateHandler() {
         authStateHandler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
-            self?.user = user
-            self?.isAuthenticated = user != nil
+            guard let self = self else { return }
+            self.user = user
+            self.isAuthenticated = user != nil
+
+            if let user = user {
+                Task {
+                    await self.fetchOrCreateUserProfile(for: user)
+                }
+            } else {
+                self.userProfile = nil
+                self.needsProfileCompletion = false
+            }
+        }
+    }
+
+    // MARK: - User Profile Management
+
+    private func fetchOrCreateUserProfile(for user: User) async {
+        let docRef = db.collection("users").document(user.uid)
+
+        do {
+            let document = try await docRef.getDocument()
+
+            if document.exists {
+                // Fetch existing profile
+                userProfile = try document.data(as: UserProfile.self)
+                needsProfileCompletion = !(userProfile?.isProfileComplete ?? false)
+            } else {
+                // Create new profile
+                let provider = pendingAuthProvider ?? determineAuthProvider(for: user)
+                var newProfile = UserProfile(
+                    id: user.uid,
+                    name: pendingAppleName?.formatted() ?? user.displayName ?? "",
+                    email: user.email,
+                    phone: pendingPhoneNumber ?? user.phoneNumber,
+                    photoURL: user.photoURL?.absoluteString,
+                    authProvider: provider
+                )
+
+                // Save to Firestore
+                try docRef.setData(from: newProfile)
+                userProfile = newProfile
+                needsProfileCompletion = !newProfile.isProfileComplete
+
+                // Clear pending data
+                pendingAppleName = nil
+                pendingAuthProvider = nil
+                pendingPhoneNumber = nil
+            }
+        } catch {
+            print("Error fetching/creating user profile: \(error)")
+            // Create a basic profile from auth data
+            let provider = pendingAuthProvider ?? determineAuthProvider(for: user)
+            userProfile = UserProfile(
+                id: user.uid,
+                name: user.displayName ?? "",
+                email: user.email,
+                phone: user.phoneNumber,
+                photoURL: user.photoURL?.absoluteString,
+                authProvider: provider
+            )
+            needsProfileCompletion = !(userProfile?.isProfileComplete ?? false)
+        }
+    }
+
+    private func determineAuthProvider(for user: User) -> UserProfile.AuthProvider {
+        for info in user.providerData {
+            switch info.providerID {
+            case "google.com":
+                return .google
+            case "apple.com":
+                return .apple
+            case "phone":
+                return .phone
+            default:
+                continue
+            }
+        }
+        return .email
+    }
+
+    func updateUserProfile(name: String, email: String?, phone: String?) async -> Bool {
+        guard let userId = user?.uid else { return false }
+
+        isLoading = true
+
+        do {
+            let docRef = db.collection("users").document(userId)
+            try await docRef.updateData([
+                "name": name,
+                "email": email as Any,
+                "phone": phone as Any,
+                "updatedAt": Date()
+            ])
+
+            // Update local profile
+            userProfile?.name = name
+            userProfile?.email = email
+            userProfile?.phone = phone
+            userProfile?.updatedAt = Date()
+            needsProfileCompletion = false
+
+            isLoading = false
+            return true
+        } catch {
+            print("Error updating profile: \(error)")
+            errorMessage = error.localizedDescription
+            isLoading = false
+            return false
         }
     }
 
@@ -29,6 +146,7 @@ class AuthenticationService: ObservableObject {
     func signIn(email: String, password: String) async {
         isLoading = true
         errorMessage = nil
+        pendingAuthProvider = .email
 
         do {
             try await Auth.auth().signIn(withEmail: email, password: password)
@@ -39,12 +157,19 @@ class AuthenticationService: ObservableObject {
         isLoading = false
     }
 
-    func signUp(email: String, password: String) async {
+    func signUp(email: String, password: String, name: String) async {
         isLoading = true
         errorMessage = nil
+        pendingAuthProvider = .email
 
         do {
-            try await Auth.auth().createUser(withEmail: email, password: password)
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+
+            // Update display name
+            let changeRequest = result.user.createProfileChangeRequest()
+            changeRequest.displayName = name
+            try await changeRequest.commitChanges()
+
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -78,6 +203,10 @@ class AuthenticationService: ObservableObject {
                     return
                 }
 
+                // Save Apple name immediately (only provided on first sign-in!)
+                pendingAppleName = appleIDCredential.fullName
+                pendingAuthProvider = .apple
+
                 let credential = OAuthProvider.appleCredential(
                     withIDToken: idTokenString,
                     rawNonce: nonce,
@@ -106,19 +235,75 @@ class AuthenticationService: ObservableObject {
         isLoading = false
     }
 
+    // MARK: - Google Sign In
+
+    func signInWithGoogle() async {
+        isLoading = true
+        errorMessage = nil
+        pendingAuthProvider = .google
+
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            errorMessage = "Missing Google Client ID"
+            isLoading = false
+            return
+        }
+
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootViewController = windowScene.windows.first?.rootViewController else {
+            errorMessage = "Cannot find root view controller"
+            isLoading = false
+            return
+        }
+
+        do {
+            let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+            guard let idToken = result.user.idToken?.tokenString else {
+                errorMessage = "Failed to get ID token"
+                isLoading = false
+                return
+            }
+
+            let credential = GoogleAuthProvider.credential(
+                withIDToken: idToken,
+                accessToken: result.user.accessToken.tokenString
+            )
+
+            try await Auth.auth().signIn(with: credential)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+
+        isLoading = false
+    }
+
     // MARK: - Phone Auth
 
     func sendVerificationCode(to phoneNumber: String) async -> String? {
         isLoading = true
         errorMessage = nil
+        pendingPhoneNumber = phoneNumber
+        pendingAuthProvider = .phone
+
+        // Enable app verification disabled for testing on simulator
+        #if targetEnvironment(simulator)
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+        #endif
 
         do {
-            let verificationID = try await PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil)
+            let verificationID = try await PhoneAuthProvider.provider().verifyPhoneNumber(
+                phoneNumber,
+                uiDelegate: nil
+            )
             isLoading = false
             return verificationID
         } catch {
-            errorMessage = error.localizedDescription
             isLoading = false
+            let nsError = error as NSError
+            print("Firebase Phone Auth Error: \(nsError.domain) - \(nsError.code) - \(nsError.localizedDescription)")
+            errorMessage = error.localizedDescription
             return nil
         }
     }
@@ -146,6 +331,9 @@ class AuthenticationService: ObservableObject {
     func signOut() {
         do {
             try Auth.auth().signOut()
+            GIDSignIn.sharedInstance.signOut()
+            userProfile = nil
+            needsProfileCompletion = false
         } catch {
             errorMessage = error.localizedDescription
         }

@@ -44,27 +44,14 @@ struct VehicleHeroCard: View {
                         )
                     )
 
-                // Car image from API
-                if let imageURL = CarImageService.imageURL(for: vehicle) {
-                    AsyncImage(url: imageURL) { phase in
-                        switch phase {
-                        case .empty:
-                            // Loading state
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: fuelTypeColor))
-                                .scaleEffect(1.5)
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .padding(Theme.Spacing.md)
-                        case .failure:
-                            // Fallback to icon on error
-                            fallbackIcon
-                        @unknown default:
-                            fallbackIcon
-                        }
-                    }
+                // Car image from bundled assets or placeholder
+                if CarImageService.hasImage(make: vehicle.make, model: vehicle.model) {
+                    CarImageView(
+                        make: vehicle.make,
+                        model: vehicle.model,
+                        size: 160,
+                        cornerRadius: Theme.CornerRadius.medium
+                    )
                 } else {
                     fallbackIcon
                 }
@@ -74,6 +61,17 @@ struct VehicleHeroCard: View {
             // Vehicle info
             VStack(spacing: Theme.Spacing.sm) {
                 HStack {
+                    // Brand logo
+                    BrandLogoView(
+                        make: vehicle.make,
+                        size: 44,
+                        type: .icon,
+                        fallbackIcon: vehicleIcon,
+                        fallbackColor: fuelTypeColor
+                    )
+                    .background(Color.white.opacity(0.1))
+                    .cornerRadius(Theme.CornerRadius.small)
+
                     VStack(alignment: .leading, spacing: Theme.Spacing.xs) {
                         Text(vehicle.displayName)
                             .font(Theme.Typography.cardTitle)
@@ -118,7 +116,7 @@ struct VehicleHeroCard: View {
 
     private var fallbackIcon: some View {
         Image(systemName: vehicleIcon)
-            .font(.system(size: 80))
+            .font(Theme.Typography.statValue)
             .foregroundStyle(
                 LinearGradient(
                     colors: [fuelTypeColor, fuelTypeColor.opacity(0.6)],
@@ -138,7 +136,7 @@ struct VehicleHeroCard: View {
             make: "Toyota",
             model: "Camry",
             year: 2023,
-            fuelType: .gasoline
+            fuelType: .petrol
         ))
         .padding()
     }

@@ -1,7 +1,6 @@
 import Foundation
 
-/// Service to fetch vehicle makes and models
-/// Currently uses local bundled data. Firebase integration can be re-enabled later.
+/// Service to fetch vehicle makes and models from bundled JSON data
 @MainActor
 final class FirebaseVehicleService: ObservableObject {
     static let shared = FirebaseVehicleService()
@@ -17,20 +16,26 @@ final class FirebaseVehicleService: ObservableObject {
     func fetchMakes() async {
         isLoading = true
         error = nil
-
-        // Load from bundled data
         loadBundledData()
-
         isLoading = false
     }
 
-    // MARK: - Fetch Models for Make
+    // MARK: - Get Models for Make
 
-    func fetchModels(forMakeId makeId: String) async -> [String] {
-        if let make = makes.first(where: { $0.id == makeId }) {
-            return make.models
+    func getModels(forMake makeName: String) -> [VehicleModelData] {
+        guard let make = makes.first(where: { $0.name == makeName }) else {
+            return []
         }
-        return []
+        return make.models
+    }
+
+    // MARK: - Get Model Details
+
+    func getModelDetails(make makeName: String, model modelName: String) -> VehicleModelData? {
+        guard let make = makes.first(where: { $0.name == makeName }) else {
+            return nil
+        }
+        return make.models.first(where: { $0.name == modelName })
     }
 
     // MARK: - Search
@@ -41,7 +46,7 @@ final class FirebaseVehicleService: ObservableObject {
         return makes.filter { $0.name.lowercased().contains(lowercased) }
     }
 
-    // MARK: - Local Data
+    // MARK: - Local Data Loading
 
     private func loadBundledData() {
         guard let url = Bundle.main.url(forResource: "IndianVehicleData", withExtension: "json"),
@@ -51,23 +56,13 @@ final class FirebaseVehicleService: ObservableObject {
         }
 
         do {
-            let localData = try JSONDecoder().decode(LocalVehicleData.self, from: data)
-
-            // Convert bundled format to VehicleMakeData format
-            self.makes = localData.makes.map { make in
-                VehicleMakeData(
-                    id: make.id,
-                    name: make.name,
-                    country: make.country,
-                    models: make.models
-                )
-            }
+            let vehicleData = try JSONDecoder().decode(VehicleDatabase.self, from: data)
+            self.makes = vehicleData.makes
         } catch {
             self.error = "Failed to parse vehicle data: \(error.localizedDescription)"
+            print("JSON Parse Error: \(error)")
         }
     }
-
-    // MARK: - Check if cache is stale
 
     var isCacheStale: Bool {
         return makes.isEmpty
@@ -76,33 +71,82 @@ final class FirebaseVehicleService: ObservableObject {
 
 // MARK: - Data Models
 
+/// Root structure for the vehicle database JSON
+struct VehicleDatabase: Codable {
+    let version: String
+    let lastUpdated: String
+    let makes: [VehicleMakeData]
+}
+
+/// Vehicle make (manufacturer) with all its models
 struct VehicleMakeData: Codable, Identifiable, Hashable {
-    var id: String?
     let name: String
-    let country: String
-    let models: [String]
+    let models: [VehicleModelData]
 
-    var documentId: String {
-        id ?? UUID().uuidString
-    }
+    var id: String { name }
 
+    // Hashable conformance
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(name)
     }
 
     static func == (lhs: VehicleMakeData, rhs: VehicleMakeData) -> Bool {
-        lhs.id == rhs.id
+        lhs.name == rhs.name
     }
 }
 
-// Local JSON structure
-private struct LocalVehicleData: Codable {
-    let makes: [LocalVehicleMake]
-}
-
-private struct LocalVehicleMake: Codable {
-    let id: String
+/// Vehicle model with specifications
+struct VehicleModelData: Codable, Identifiable, Hashable {
     let name: String
-    let country: String
-    let models: [String]
+    let fuelTypes: [String]
+    let transmission: String
+    let tankL: Double?
+    let batteryKWh: Double?
+    let discontinued: Bool?
+
+    var id: String { name }
+
+    /// Available fuel types as FuelType enums
+    var availableFuelTypes: [FuelType] {
+        fuelTypes.map { FuelType.from($0) }
+    }
+
+    /// Check if model supports both Manual and Automatic
+    var hasBothTransmissions: Bool {
+        transmission == "Both"
+    }
+
+    /// Available transmission options
+    var transmissionOptions: [String] {
+        switch transmission {
+        case "Both": return ["Manual", "Automatic"]
+        case "Manual": return ["Manual"]
+        case "Automatic": return ["Automatic"]
+        default: return ["Manual"]
+        }
+    }
+
+    /// Tank capacity (for petrol/diesel/cng)
+    var tankCapacity: Double? {
+        tankL
+    }
+
+    /// Battery capacity (for electric vehicles)
+    var batteryCapacity: Double? {
+        batteryKWh
+    }
+
+    /// Is this model discontinued?
+    var isDiscontinued: Bool {
+        discontinued ?? false
+    }
+
+    // Hashable conformance
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+
+    static func == (lhs: VehicleModelData, rhs: VehicleModelData) -> Bool {
+        lhs.name == rhs.name
+    }
 }

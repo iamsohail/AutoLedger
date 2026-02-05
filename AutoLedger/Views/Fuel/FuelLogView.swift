@@ -21,9 +21,9 @@ struct FuelLogView: View {
                         FuelSummaryView(vehicle: vehicle)
                     }
 
-                    Section("Fill-ups") {
+                    Section("Fill-Ups") {
                         if fuelEntries.isEmpty {
-                            Text("No fuel entries yet")
+                            Text("No Fuel Entries Yet")
                                 .foregroundColor(.secondary)
                         } else {
                             ForEach(fuelEntries) { entry in
@@ -76,7 +76,7 @@ struct FuelLogView: View {
                     ContentUnavailableView(
                         "No Vehicle Selected",
                         systemImage: "car.fill",
-                        description: Text("Select a vehicle to view fuel logs")
+                        description: Text("Select a Vehicle to View Fuel Logs")
                     )
                 }
             }
@@ -114,7 +114,7 @@ struct FuelSummaryView: View {
 
                 if let avgMPG = vehicle.averageFuelEconomy {
                     SummaryStatView(
-                        title: "Avg MPG",
+                        title: "Avg km/l",
                         value: String(format: "%.1f", avgMPG),
                         color: .green
                     )
@@ -122,8 +122,8 @@ struct FuelSummaryView: View {
             }
 
             if averagePricePerGallon > 0 {
-                Text("Avg price: \(averagePricePerGallon.asCurrency)/gal")
-                    .font(.caption)
+                Text("Avg Price: \(averagePricePerGallon.asCurrency)/gal")
+                    .font(Theme.Typography.caption)
                     .foregroundColor(.secondary)
             }
         }
@@ -139,10 +139,10 @@ struct SummaryStatView: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(value)
-                .font(.headline)
+                .font(Theme.Typography.headline)
                 .foregroundColor(color)
             Text(title)
-                .font(.caption)
+                .font(Theme.Typography.caption)
                 .foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity)
@@ -157,14 +157,14 @@ struct FuelEntryRowView: View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
                 Text(entry.date.formatted(style: .medium))
-                    .font(.headline)
+                    .font(Theme.Typography.headline)
                 HStack(spacing: 8) {
                     Text("\(String(format: "%.1f", entry.quantity)) gal")
                     Text("@")
                         .foregroundColor(.secondary)
                     Text("\(entry.pricePerUnit.asCurrency)/gal")
                 }
-                .font(.subheadline)
+                .font(Theme.Typography.subheadline)
                 .foregroundColor(.secondary)
             }
 
@@ -172,10 +172,10 @@ struct FuelEntryRowView: View {
 
             VStack(alignment: .trailing, spacing: 4) {
                 Text(entry.totalCost.asCurrency)
-                    .font(.headline)
+                    .font(Theme.Typography.headline)
                 if let mpg = entry.fuelEconomy {
-                    Text("\(String(format: "%.1f", mpg)) MPG")
-                        .font(.caption)
+                    Text("\(String(format: "%.1f", mpg)) km/l")
+                        .font(Theme.Typography.caption)
                         .foregroundColor(.green)
                 }
             }

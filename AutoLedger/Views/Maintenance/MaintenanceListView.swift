@@ -23,7 +23,7 @@ struct MaintenanceListView: View {
 
                     Section("Service History") {
                         if maintenanceRecords.isEmpty {
-                            Text("No maintenance records yet")
+                            Text("No Maintenance Records Yet")
                                 .foregroundColor(.secondary)
                         } else {
                             ForEach(maintenanceRecords) { record in
@@ -76,7 +76,7 @@ struct MaintenanceListView: View {
                     ContentUnavailableView(
                         "No Vehicle Selected",
                         systemImage: "car.fill",
-                        description: Text("Select a vehicle to view maintenance history")
+                        description: Text("Select a Vehicle to View Maintenance History")
                     )
                 }
             }
@@ -115,13 +115,13 @@ struct MaintenanceRecordRowView: View {
     var body: some View {
         HStack {
             Image(systemName: record.serviceType.icon)
-                .font(.title2)
+                .font(Theme.Typography.title2)
                 .foregroundColor(.maintenanceColor)
                 .frame(width: 40)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(record.displayName)
-                    .font(.headline)
+                    .font(Theme.Typography.headline)
                 HStack {
                     Text(record.date.formatted(style: .medium))
                     if record.odometer > 0 {
@@ -129,14 +129,14 @@ struct MaintenanceRecordRowView: View {
                         Text("\(String(format: "%.0f", record.odometer)) mi")
                     }
                 }
-                .font(.caption)
+                .font(Theme.Typography.caption)
                 .foregroundColor(.secondary)
             }
 
             Spacer()
 
             Text(record.cost.asCurrency)
-                .font(.headline)
+                .font(Theme.Typography.headline)
         }
         .padding(.vertical, 4)
     }

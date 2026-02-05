@@ -10,6 +10,7 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .dashboard
     @State private var selectedVehicle: Vehicle?
     @State private var showingAddVehicle = false
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
 
     enum Tab: String, CaseIterable {
         case dashboard = "Dashboard"
@@ -47,11 +48,22 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if !authService.isAuthenticated {
+            if !hasSeenOnboarding {
+                // Step 1: First-time users see feature showcase
+                OnboardingView(onComplete: {
+                    hasSeenOnboarding = true
+                })
+            } else if !authService.isAuthenticated {
+                // Step 2: Login
                 SignInView()
+            } else if authService.needsProfileCompletion {
+                // Step 3: Complete profile if needed
+                ProfileCompletionView()
             } else if vehicles.isEmpty {
-                OnboardingView(showingAddVehicle: $showingAddVehicle)
+                // Step 4: No vehicles - show add vehicle prompt
+                emptyVehicleState
             } else {
+                // Step 5: Main app
                 mainTabView
             }
         }
@@ -64,6 +76,44 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(.dark)
+    }
+
+    private var emptyVehicleState: some View {
+        ZStack {
+            Color.darkBackground.ignoresSafeArea()
+
+            VStack(spacing: 24) {
+                Image(systemName: "car.fill")
+                    .font(.system(size: 80))
+                    .foregroundColor(.primaryPurple.opacity(0.5))
+
+                Text("No Vehicles Yet")
+                    .font(Theme.Typography.title)
+                    .foregroundColor(.textPrimary)
+
+                Text("Add your first vehicle to start tracking fuel, maintenance, and trips.")
+                    .font(Theme.Typography.subheadline)
+                    .foregroundColor(.textSecondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 40)
+
+                Button {
+                    showingAddVehicle = true
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "plus.circle.fill")
+                        Text("Add Vehicle")
+                    }
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 16)
+                    .background(Color.primaryPurple)
+                    .cornerRadius(12)
+                }
+                .padding(.top, 16)
+            }
+        }
     }
 
     private var mainTabView: some View {

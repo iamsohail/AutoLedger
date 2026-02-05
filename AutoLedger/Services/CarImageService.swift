@@ -1,59 +1,84 @@
-import Foundation
+import SwiftUI
+import UIKit
 
-enum CarImageAngle: Int {
-    case front = 1
-    case frontQuarter = 29
-    case side = 13
-    case rear = 5
-    case rearQuarter = 17
+/// Service for loading pre-generated car images from bundled assets
+enum CarImageService {
+
+    /// Get the asset name for a car image
+    /// - Parameters:
+    ///   - make: Vehicle manufacturer (e.g., "Hyundai")
+    ///   - model: Vehicle model (e.g., "Creta")
+    /// - Returns: Asset name for the car image
+    static func assetName(make: String, model: String) -> String {
+        let safeMake = make.lowercased()
+            .trimmingCharacters(in: .whitespaces)
+            .replacingOccurrences(of: " ", with: "_")
+            .replacingOccurrences(of: "-", with: "_")
+
+        let safeModel = model.lowercased()
+            .trimmingCharacters(in: .whitespaces)
+            .replacingOccurrences(of: " ", with: "_")
+            .replacingOccurrences(of: "-", with: "_")
+
+        return "\(safeMake)_\(safeModel)"
+    }
+
+    /// Check if a car image exists in assets
+    static func hasImage(make: String, model: String) -> Bool {
+        UIImage(named: assetName(make: make, model: model)) != nil
+    }
+
+    /// Load car image from assets
+    static func loadImage(make: String, model: String) -> UIImage? {
+        UIImage(named: assetName(make: make, model: model))
+    }
 }
 
-enum CarImageService {
-    private static let baseURL = "https://cdn.imagin.studio/getimage"
-    private static let customer = "hrjavascript-mastery"
+// MARK: - SwiftUI View
 
-    /// Generates a URL for a car image from Imagin.studio
-    /// - Parameters:
-    ///   - make: Vehicle manufacturer (e.g., "Toyota", "Volkswagen")
-    ///   - model: Vehicle model (e.g., "Camry", "Taigun")
-    ///   - year: Model year (e.g., 2024)
-    ///   - angle: Camera angle for the image
-    ///   - color: Optional paint color description
-    /// - Returns: URL for the car image
-    static func imageURL(
-        make: String,
-        model: String,
-        year: Int,
-        angle: CarImageAngle = .frontQuarter,
-        color: String? = nil
-    ) -> URL? {
-        var components = URLComponents(string: baseURL)
+struct CarImageView: View {
+    let make: String
+    let model: String
+    var size: CGFloat = 200
+    var cornerRadius: CGFloat = 16
 
-        var queryItems = [
-            URLQueryItem(name: "customer", value: customer),
-            URLQueryItem(name: "make", value: make),
-            URLQueryItem(name: "modelFamily", value: model),
-            URLQueryItem(name: "modelYear", value: String(year)),
-            URLQueryItem(name: "angle", value: String(angle.rawValue)),
-            URLQueryItem(name: "zoomType", value: "fullscreen")
-        ]
+    var body: some View {
+        if let uiImage = CarImageService.loadImage(make: make, model: model) {
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFit()
+                .frame(height: size)
+                .cornerRadius(cornerRadius)
+        } else {
+            // Placeholder when image not available
+            ZStack {
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .fill(Color.cardBackground)
+                    .frame(height: size)
 
-        if let color = color {
-            queryItems.append(URLQueryItem(name: "paintdescription", value: color))
+                VStack(spacing: 12) {
+                    Image(systemName: "car.fill")
+                        .font(.system(size: size * 0.25))
+                        .foregroundColor(.textSecondary.opacity(0.4))
+
+                    Text("\(make) \(model)")
+                        .font(Theme.Typography.caption)
+                        .foregroundColor(.textSecondary)
+                        .multilineTextAlignment(.center)
+                }
+                .padding()
+            }
         }
-
-        components?.queryItems = queryItems
-        return components?.url
     }
+}
 
-    /// Generates a URL for a car image from a Vehicle object
-    static func imageURL(for vehicle: Vehicle, angle: CarImageAngle = .frontQuarter) -> URL? {
-        return imageURL(
-            make: vehicle.make,
-            model: vehicle.model,
-            year: vehicle.year,
-            angle: angle,
-            color: vehicle.color?.lowercased().replacingOccurrences(of: " ", with: "-")
-        )
+// MARK: - Preview
+
+#Preview {
+    VStack(spacing: 20) {
+        CarImageView(make: "Hyundai", model: "Creta", size: 200)
+        CarImageView(make: "Tata", model: "Nexon", size: 200)
     }
+    .padding()
+    .background(Color.darkBackground)
 }

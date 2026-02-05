@@ -10,7 +10,13 @@ options:
 packages:
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
-    exactVersion: "10.25.0"
+    version: 11.0.0
+  GoogleSignIn:
+    url: https://github.com/google/GoogleSignIn-iOS
+    exactVersion: "7.1.0"
+  Lottie:
+    url: https://github.com/airbnb/lottie-ios
+    from: "4.4.0"
 
 settings:
   base:
@@ -32,6 +38,12 @@ targets:
     dependencies:
       - package: Firebase
         product: FirebaseAuth
+      - package: Firebase
+        product: FirebaseFirestore
+      - package: GoogleSignIn
+        product: GoogleSignIn
+      - package: Lottie
+        product: Lottie
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.iamsohail.AutoLedger
@@ -51,6 +63,16 @@ targets:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: "DEBUG"
         Release:
           SWIFT_OPTIMIZATION_LEVEL: "-O"
+    info:
+      path: AutoLedger/Info.plist
+      properties:
+        CFBundleURLTypes:
+          - CFBundleURLSchemes:
+              - com.googleusercontent.apps.1013117272910-ud922geoj2orufaa3okfo8kh0rule5u6
+            CFBundleURLName: Google Sign-In
+          - CFBundleURLSchemes:
+              - com.iamsohail.AutoLedger
+            CFBundleURLName: Firebase Phone Auth
     entitlements:
       path: AutoLedger/AutoLedger.entitlements
       properties:

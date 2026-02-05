@@ -23,7 +23,7 @@ struct AddFuelEntryView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Fill-up Details") {
+                Section("Fill-Up Details") {
                     DatePicker("Date", selection: $date, displayedComponents: [.date, .hourAndMinute])
 
                     HStack {
@@ -122,13 +122,13 @@ struct AddFuelEntryView: View {
         guard let odo = Double(odometer),
               let qty = Double(quantity),
               let price = Double(pricePerUnit) else {
-            validationErrorMessage = "Please enter valid numbers for odometer, quantity, and price."
+            validationErrorMessage = "Please Enter Valid Numbers for Odometer, Quantity, and Price."
             showingValidationError = true
             return
         }
 
         if odo < vehicle.currentOdometer {
-            validationErrorMessage = "Odometer reading cannot be less than the current odometer (\(vehicle.currentOdometer.asMileage(unit: vehicle.odometerUnit)))."
+            validationErrorMessage = "Odometer Reading Cannot Be Less Than the Current Odometer (\(vehicle.currentOdometer.asMileage(unit: vehicle.odometerUnit)))."
             showingValidationError = true
             return
         }

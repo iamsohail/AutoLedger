@@ -14,7 +14,7 @@ struct EditVehicleView: View {
     @State private var licensePlate: String = ""
     @State private var currentOdometer: String = ""
     @State private var odometerUnit: OdometerUnit = .miles
-    @State private var fuelType: FuelType = .gasoline
+    @State private var fuelType: FuelType = .petrol
     @State private var tankCapacity: String = ""
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var vehicleImage: Data?

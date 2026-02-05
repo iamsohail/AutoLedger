@@ -58,7 +58,7 @@ final class Vehicle {
         year: Int,
         currentOdometer: Double = 0,
         odometerUnit: OdometerUnit = .miles,
-        fuelType: FuelType = .gasoline
+        fuelType: FuelType = .petrol
     ) {
         self.id = UUID()
         self.name = name
@@ -119,11 +119,33 @@ enum OdometerUnit: String, Codable, CaseIterable {
 }
 
 enum FuelType: String, Codable, CaseIterable {
-    case gasoline = "Gasoline"
+    case petrol = "Petrol"
+    case gasoline = "Gasoline"  // Backward compatibility
     case diesel = "Diesel"
+    case cng = "CNG"
     case electric = "Electric"
     case hybrid = "Hybrid"
     case plugInHybrid = "Plug-in Hybrid"
     case hydrogen = "Hydrogen"
     case flexFuel = "Flex Fuel"
+
+    /// Display name (maps gasoline to Petrol for display)
+    var displayName: String {
+        switch self {
+        case .gasoline: return "Petrol"
+        default: return self.rawValue
+        }
+    }
+
+    /// Map from JSON fuel type string to FuelType enum
+    static func from(_ jsonString: String) -> FuelType {
+        switch jsonString.lowercased() {
+        case "petrol", "gasoline": return .petrol
+        case "diesel": return .diesel
+        case "cng": return .cng
+        case "electric": return .electric
+        case "hybrid": return .hybrid
+        default: return .petrol
+        }
+    }
 }

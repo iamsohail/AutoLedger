@@ -15,7 +15,7 @@ struct DarkFeatureRow: View {
                     .frame(width: 48, height: 48)
 
                 Image(systemName: icon)
-                    .font(.system(size: 22))
+                    .font(Theme.Typography.iconSmall)
                     .foregroundColor(iconColor)
             }
 
@@ -42,25 +42,25 @@ struct DarkFeatureRow: View {
             DarkFeatureRow(
                 icon: "fuelpump.fill",
                 title: "Fuel Tracking",
-                description: "Log fill-ups and track MPG",
+                description: "Log Fill-Ups and Track Mileage",
                 iconColor: .greenAccent
             )
             DarkFeatureRow(
                 icon: "wrench.and.screwdriver.fill",
                 title: "Maintenance",
-                description: "Schedule and track services",
+                description: "Schedule and Track Services",
                 iconColor: .primaryPurple
             )
             DarkFeatureRow(
                 icon: "map.fill",
                 title: "Trip Logging",
-                description: "Track business and personal trips",
+                description: "Track Business and Personal Trips",
                 iconColor: .pinkAccent
             )
             DarkFeatureRow(
                 icon: "chart.bar.fill",
                 title: "Analytics",
-                description: "View costs and trends",
+                description: "View Costs and Trends",
                 iconColor: .orange
             )
         }

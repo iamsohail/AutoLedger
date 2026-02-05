@@ -73,9 +73,8 @@ extension Double {
         if odometerUnit == .miles && volumeUnit == .gallons {
             return "\(value) MPG"
         } else if odometerUnit == .kilometers && volumeUnit == .liters {
-            // Convert to L/100km
-            let lPer100km = 100.0 / self
-            return "\(lPer100km.formatted(as: .decimal, maximumFractionDigits: 1)) L/100km"
+            // km/l format (common in India)
+            return "\(value) km/l"
         }
         return "\(value) \(odometerUnit.abbreviation)/\(volumeUnit.abbreviation)"
     }

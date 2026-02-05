@@ -38,24 +38,24 @@ struct StartTripView: View {
                             Image(systemName: "checkmark.seal.fill")
                                 .foregroundColor(.green)
                             Text("Tax Deductible")
-                                .font(.caption)
+                                .font(Theme.Typography.caption)
                                 .foregroundColor(.green)
                         }
                     }
                 }
 
                 Section("Purpose (Optional)") {
-                    TextField("Trip purpose or description", text: $purpose)
+                    TextField("Trip Purpose or Description", text: $purpose)
                 }
 
                 Section("Start Location (Optional)") {
-                    TextField("Starting location", text: $startLocation)
+                    TextField("Starting Location", text: $startLocation)
                 }
 
                 if tripType == .business {
                     Section {
                         Text("IRS Rate: \(String(format: "$%.2f", Trip.businessMileageRate))/mile")
-                            .font(.caption)
+                            .font(Theme.Typography.caption)
                             .foregroundColor(.secondary)
                     }
                 }

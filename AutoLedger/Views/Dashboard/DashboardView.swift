@@ -35,7 +35,7 @@ struct DashboardView: View {
                                     value: avgMPG,
                                     maxValue: 50,
                                     title: "Avg Fuel Economy",
-                                    unit: "MPG",
+                                    unit: "km/l",
                                     color: .greenAccent,
                                     size: 100
                                 )
@@ -57,7 +57,7 @@ struct DashboardView: View {
                     ContentUnavailableView(
                         "No Vehicle Selected",
                         systemImage: "car.fill",
-                        description: Text("Select a vehicle to view its dashboard")
+                        description: Text("Select a Vehicle to View Its Dashboard")
                     )
                 }
             }
@@ -85,11 +85,11 @@ struct DashboardView: View {
                 if let vehicle = selectedVehicle {
                     VehicleIconView(vehicle: vehicle)
                     Text(vehicle.displayName)
-                        .font(.headline)
+                        .font(Theme.Typography.headline)
                         .foregroundColor(.textPrimary)
                 }
                 Image(systemName: "chevron.down")
-                    .font(.caption)
+                    .font(Theme.Typography.caption)
                     .foregroundColor(.textSecondary)
             }
             .padding(.horizontal, Theme.Spacing.md)
@@ -108,9 +108,13 @@ struct VehicleIconView: View {
     let vehicle: Vehicle
 
     var body: some View {
-        Image(systemName: vehicleIcon)
-            .font(.title3)
-            .foregroundColor(.primaryPurple)
+        BrandLogoView(
+            make: vehicle.make,
+            size: 28,
+            type: .icon,
+            fallbackIcon: vehicleIcon,
+            fallbackColor: .primaryPurple
+        )
     }
 
     private var vehicleIcon: String {
@@ -185,7 +189,7 @@ struct QuickActionButton: View {
         Button(action: action) {
             VStack(spacing: Theme.Spacing.sm) {
                 Image(systemName: icon)
-                    .font(.title2)
+                    .font(Theme.Typography.title2)
                     .foregroundColor(color)
                 Text(title)
                     .font(Theme.Typography.caption)
@@ -216,7 +220,7 @@ struct FuelEconomyChartView: View {
                 .foregroundColor(.textSecondary)
 
             if chartData.isEmpty {
-                Text("Not enough data to display chart")
+                Text("Not Enough Data to Display Chart")
                     .foregroundColor(.textSecondary)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -224,14 +228,14 @@ struct FuelEconomyChartView: View {
                 Chart(chartData, id: \.date) { item in
                     LineMark(
                         x: .value("Date", item.date),
-                        y: .value("MPG", item.mpg)
+                        y: .value("km/l", item.mpg)
                     )
                     .foregroundStyle(Color.greenAccent)
                     .lineStyle(StrokeStyle(lineWidth: 2))
 
                     AreaMark(
                         x: .value("Date", item.date),
-                        y: .value("MPG", item.mpg)
+                        y: .value("km/l", item.mpg)
                     )
                     .foregroundStyle(
                         LinearGradient(
@@ -243,7 +247,7 @@ struct FuelEconomyChartView: View {
 
                     PointMark(
                         x: .value("Date", item.date),
-                        y: .value("MPG", item.mpg)
+                        y: .value("km/l", item.mpg)
                     )
                     .foregroundStyle(Color.greenAccent)
                     .symbolSize(40)
@@ -290,9 +294,9 @@ struct RecentActivityView: View {
                     Spacer()
                     VStack(spacing: Theme.Spacing.sm) {
                         Image(systemName: "clock")
-                            .font(.largeTitle)
+                            .font(Theme.Typography.largeTitle)
                             .foregroundColor(.textSecondary.opacity(0.5))
-                        Text("No recent activity")
+                        Text("No Recent Activity")
                             .foregroundColor(.textSecondary)
                     }
                     .padding(.vertical, Theme.Spacing.lg)
@@ -307,11 +311,11 @@ struct RecentActivityView: View {
                                 .frame(width: 36, height: 36)
                             Image(systemName: "fuelpump.fill")
                                 .foregroundColor(.greenAccent)
-                                .font(.system(size: 14))
+                                .font(Theme.Typography.cardSubtitle)
                         }
 
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Fuel Fill-up")
+                            Text("Fuel Fill-Up")
                                 .font(Theme.Typography.cardSubtitle)
                                 .foregroundColor(.textPrimary)
                             Text(entry.date.formatted(style: .medium))

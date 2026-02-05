@@ -33,7 +33,7 @@ struct TripListView: View {
 
                     Section("Trip History") {
                         if trips.filter({ !$0.isActive }).isEmpty {
-                            Text("No completed trips yet")
+                            Text("No Completed Trips Yet")
                                 .foregroundColor(.secondary)
                         } else {
                             ForEach(trips.filter { !$0.isActive }) { trip in
@@ -86,7 +86,7 @@ struct TripListView: View {
                     ContentUnavailableView(
                         "No Vehicle Selected",
                         systemImage: "car.fill",
-                        description: Text("Select a vehicle to view trips")
+                        description: Text("Select a Vehicle to View Trips")
                     )
                 }
             }
@@ -149,10 +149,10 @@ struct ActiveTripRowView: View {
                 Image(systemName: trip.tripType.icon)
                     .foregroundColor(.tripColor)
                 Text(trip.tripType.rawValue)
-                    .font(.headline)
+                    .font(Theme.Typography.headline)
                 Spacer()
                 Text("In Progress")
-                    .font(.caption)
+                    .font(Theme.Typography.caption)
                     .foregroundColor(.white)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
@@ -161,7 +161,7 @@ struct ActiveTripRowView: View {
             }
 
             Text("Started: \(trip.date.formatted(style: .medium))")
-                .font(.caption)
+                .font(Theme.Typography.caption)
                 .foregroundColor(.secondary)
 
             Button("End Trip") {
@@ -183,22 +183,22 @@ struct TripRowView: View {
     var body: some View {
         HStack {
             Image(systemName: trip.tripType.icon)
-                .font(.title2)
+                .font(Theme.Typography.title2)
                 .foregroundColor(.tripColor)
                 .frame(width: 40)
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
                     Text(trip.tripType.rawValue)
-                        .font(.headline)
+                        .font(Theme.Typography.headline)
                     if trip.tripType.isTaxDeductible {
                         Image(systemName: "checkmark.seal.fill")
-                            .font(.caption)
+                            .font(Theme.Typography.caption)
                             .foregroundColor(.green)
                     }
                 }
                 Text(trip.date.formatted(style: .medium))
-                    .font(.caption)
+                    .font(Theme.Typography.caption)
                     .foregroundColor(.secondary)
             }
 
@@ -206,10 +206,10 @@ struct TripRowView: View {
 
             VStack(alignment: .trailing, spacing: 4) {
                 Text("\(String(format: "%.1f", trip.calculatedDistance)) mi")
-                    .font(.headline)
+                    .font(Theme.Typography.headline)
                 if let reimbursement = trip.reimbursementAmount {
                     Text(reimbursement.asCurrency)
-                        .font(.caption)
+                        .font(Theme.Typography.caption)
                         .foregroundColor(.green)
                 }
             }

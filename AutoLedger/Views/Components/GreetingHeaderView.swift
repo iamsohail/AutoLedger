@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct GreetingHeaderView: View {
-    @AppStorage("userName") private var userName = ""
+    @EnvironmentObject var authService: AuthenticationService
 
     private var greeting: String {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -18,7 +18,8 @@ struct GreetingHeaderView: View {
     }
 
     private var displayName: String {
-        userName.isEmpty ? "Driver" : userName
+        let name = authService.userProfile?.name ?? ""
+        return name.isEmpty ? "Driver" : name
     }
 
     var body: some View {
@@ -46,9 +47,24 @@ struct GreetingHeaderView: View {
                     )
                     .frame(width: 44, height: 44)
 
-                Text(displayName.prefix(1).uppercased())
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(.white)
+                if let photoURL = authService.userProfile?.photoURL,
+                   let url = URL(string: photoURL) {
+                    AsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        Text(displayName.prefix(1).uppercased())
+                            .font(Theme.Typography.cardTitle)
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+                } else {
+                    Text(displayName.prefix(1).uppercased())
+                        .font(Theme.Typography.cardTitle)
+                        .foregroundColor(.white)
+                }
             }
         }
         .padding(.horizontal, Theme.Spacing.md)
@@ -60,5 +76,6 @@ struct GreetingHeaderView: View {
     ZStack {
         Color.darkBackground.ignoresSafeArea()
         GreetingHeaderView()
+            .environmentObject(AuthenticationService())
     }
 }

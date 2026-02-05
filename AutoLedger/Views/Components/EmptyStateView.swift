@@ -24,14 +24,14 @@ struct EmptyStateView: View {
     var body: some View {
         VStack(spacing: 16) {
             Image(systemName: icon)
-                .font(.system(size: 50))
+                .font(Theme.Typography.iconLarge)
                 .foregroundColor(.secondary)
 
             Text(title)
-                .font(.headline)
+                .font(Theme.Typography.headline)
 
             Text(message)
-                .font(.subheadline)
+                .font(Theme.Typography.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
