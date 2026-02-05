@@ -1,0 +1,232 @@
+name: Update Vehicle Data
+
+on:
+  # Run every Tuesday at 6 AM IST (00:30 UTC)
+  # The job checks if it's the last Tuesday of the month
+  schedule:
+    - cron: '30 0 * * 2'
+
+  # Allow manual trigger (bypasses last-Tuesday check)
+  workflow_dispatch:
+    inputs:
+      force_run:
+        description: 'Run even if not last Tuesday'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if last Tuesday of month
+        id: check_date
+        run: |
+          # Get current day and days in month
+          current_day=$(date +%d)
+          days_in_month=$(date -d "$(date +%Y-%m-01) +1 month -1 day" +%d)
+
+          # Last Tuesday is within last 7 days of month
+          days_remaining=$((days_in_month - current_day))
+
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "is_last_tuesday=true" >> $GITHUB_OUTPUT
+            echo "📅 Manual trigger - running regardless of date"
+          elif [ $days_remaining -lt 7 ]; then
+            echo "is_last_tuesday=true" >> $GITHUB_OUTPUT
+            echo "📅 This is the last Tuesday of the month"
+          else
+            echo "is_last_tuesday=false" >> $GITHUB_OUTPUT
+            echo "📅 Not the last Tuesday - skipping"
+          fi
+
+      - name: Checkout repository
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        run: |
+          cd scripts
+          npm install puppeteer
+
+      - name: Backup existing data
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        run: |
+          cp AutoLedger/Resources/IndianVehicleData.json /tmp/IndianVehicleData_backup.json
+
+      - name: Run scraper
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        run: |
+          cd scripts
+          node scrape_vehicles.js
+
+      - name: Validate scraped data
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        id: validate
+        run: |
+          cd scripts
+          node -e "
+            const fs = require('fs');
+            const data = JSON.parse(fs.readFileSync('../AutoLedger/Resources/IndianVehicleData.json', 'utf8'));
+            const backup = JSON.parse(fs.readFileSync('/tmp/IndianVehicleData_backup.json', 'utf8'));
+
+            // Validation checks
+            const errors = [];
+
+            // 1. Must have makes array
+            if (!data.makes || !Array.isArray(data.makes)) {
+              errors.push('Missing or invalid makes array');
+            }
+
+            // 2. Must not lose more than 10% of makes
+            if (data.makes.length < backup.makes.length * 0.9) {
+              errors.push('Lost more than 10% of makes - possible scraping failure');
+            }
+
+            // 3. Each make must have models
+            let totalModels = 0;
+            data.makes.forEach(make => {
+              if (!make.models || make.models.length === 0) {
+                errors.push('Make ' + make.name + ' has no models');
+              }
+              totalModels += make.models?.length || 0;
+
+              // 4. Each model must have required fields
+              make.models?.forEach(model => {
+                if (!model.name) errors.push('Model missing name in ' + make.name);
+                if (!model.fuelTypes || model.fuelTypes.length === 0) {
+                  errors.push('Model ' + model.name + ' missing fuelTypes');
+                }
+              });
+            });
+
+            // 5. Must not lose more than 20% of models
+            let backupModels = 0;
+            backup.makes.forEach(m => backupModels += m.models?.length || 0);
+            if (totalModels < backupModels * 0.8) {
+              errors.push('Lost more than 20% of models - possible scraping failure');
+            }
+
+            if (errors.length > 0) {
+              console.log('VALIDATION_ERRORS=' + JSON.stringify(errors));
+              process.exit(1);
+            }
+
+            // Generate change summary
+            const newMakes = data.makes.filter(m => !backup.makes.find(b => b.name === m.name));
+            let newModels = [];
+            data.makes.forEach(make => {
+              const backupMake = backup.makes.find(b => b.name === make.name);
+              if (backupMake) {
+                const existingNames = backupMake.models.map(m => m.name);
+                const added = make.models.filter(m => !existingNames.includes(m.name));
+                added.forEach(m => newModels.push(make.name + ' ' + m.name));
+              }
+            });
+
+            console.log('New makes: ' + newMakes.map(m => m.name).join(', '));
+            console.log('New models: ' + newModels.join(', '));
+            console.log('Total makes: ' + data.makes.length);
+            console.log('Total models: ' + totalModels);
+
+            // Save summary for later
+            fs.writeFileSync('/tmp/change_summary.txt', JSON.stringify({
+              newMakes: newMakes.map(m => m.name),
+              newModels: newModels,
+              totalMakes: data.makes.length,
+              totalModels: totalModels,
+              previousModels: backupModels
+            }));
+          "
+
+      - name: Restore backup on validation failure
+        if: failure() && steps.check_date.outputs.is_last_tuesday == 'true'
+        run: |
+          cp /tmp/IndianVehicleData_backup.json AutoLedger/Resources/IndianVehicleData.json
+          echo "⚠️ Validation failed - restored backup data"
+
+      - name: Check for changes
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        id: check_changes
+        run: |
+          if git diff --quiet AutoLedger/Resources/IndianVehicleData.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.check_date.outputs.is_last_tuesday == 'true' && steps.check_changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update vehicle data - $(date +'%Y-%m-%d')"
+          branch: auto-update-vehicle-data
+          delete-branch: true
+          title: "🚗 Vehicle Data Update - $(date +'%B %Y')"
+          body: |
+            ## Automated Vehicle Data Update
+
+            This PR was automatically generated by the monthly vehicle data scraper.
+
+            ### Changes
+            - Run date: $(date +'%Y-%m-%d')
+            - Data source: CarDekho
+
+            ### Validation
+            ✅ All validation checks passed
+
+            ### Review Checklist
+            - [ ] Check new models look correct
+            - [ ] Verify fuel types are accurate
+            - [ ] Confirm no data was incorrectly removed
+
+            ---
+            *Auto-generated by GitHub Actions*
+          labels: |
+            automated
+            data-update
+
+      - name: Create summary
+        if: steps.check_date.outputs.is_last_tuesday == 'true'
+        run: |
+          echo "## 🚗 Vehicle Data Update" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Run Date:** $(date +'%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f /tmp/change_summary.txt ]; then
+            node -e "
+              const summary = JSON.parse(require('fs').readFileSync('/tmp/change_summary.txt', 'utf8'));
+              console.log('### Statistics');
+              console.log('- Total Makes: ' + summary.totalMakes);
+              console.log('- Total Models: ' + summary.totalModels + ' (was ' + summary.previousModels + ')');
+              console.log('');
+              if (summary.newMakes.length > 0) {
+                console.log('### New Makes');
+                summary.newMakes.forEach(m => console.log('- ' + m));
+                console.log('');
+              }
+              if (summary.newModels.length > 0) {
+                console.log('### New Models');
+                summary.newModels.forEach(m => console.log('- ' + m));
+              }
+            " >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check_changes.outputs.changed }}" == "true" ]; then
+            echo "✅ **Changes detected** - Pull request created for review" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ **No changes** - Vehicle data is up to date" >> $GITHUB_STEP_SUMMARY
+          fi

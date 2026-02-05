@@ -7,11 +7,10 @@ options:
   generateEmptyDirectories: true
   groupSortPosition: top
 
-# Firebase temporarily disabled due to SPM resolution issues
-# packages:
-#   Firebase:
-#     url: https://github.com/firebase/firebase-ios-sdk
-#     from: "11.6.0"
+packages:
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk
+    exactVersion: "10.25.0"
 
 settings:
   base:
@@ -30,9 +29,9 @@ targets:
       - path: AutoLedger
         excludes:
           - "**/.DS_Store"
-    # dependencies:
-    #   - package: Firebase
-    #     product: FirebaseFirestore
+    dependencies:
+      - package: Firebase
+        product: FirebaseAuth
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.iamsohail.AutoLedger

@@ -1,5 +1,14 @@
 {
+  "name": "autoledger-scripts",
+  "version": "1.0.0",
+  "description": "Vehicle data scraping scripts for AutoLedger",
+  "scripts": {
+    "scrape": "node scrape_vehicles.js",
+    "validate": "node validate_data.js",
+    "validate:verbose": "node validate_data.js --verbose",
+    "export-csv": "node export_csv.js"
+  },
   "dependencies": {
-    "puppeteer": "^24.36.1"
+    "puppeteer": "^21.0.0"
   }
 }
