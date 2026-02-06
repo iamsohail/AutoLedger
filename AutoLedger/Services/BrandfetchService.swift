@@ -6,6 +6,26 @@ class CarBrandLogoService {
 
     private init() {}
 
+    // MARK: - Detailed Logos (render with original colors)
+
+    /// Brands whose SVGs contain multiple distinct colors that benefit from original rendering
+    private let detailedLogoBrands: Set<String> = [
+        "porsche",          // Gold, red, cream, brown crest (12+ colors + gradients)
+        "bmw",              // White ring + Blue (#0066B1) quadrants
+        "mercedes-benz",    // Gradient grays (#333E46 to #FFFFFF), 3D metallic star
+        "mercedes",         // Alternate name
+        "maruti suzuki",    // Blue (#003399) + Red (#e20a17) dual-color S
+        "maruti",           // Alternate name
+        "mg",               // Red (#cd1316) octagon on transparent
+        "mitsubishi",       // Near-black + Red (#E40012) diamonds
+    ]
+
+    /// Check if a brand should render with original colors
+    func isDetailedLogo(for make: String) -> Bool {
+        let normalized = make.lowercased().trimmingCharacters(in: .whitespaces)
+        return detailedLogoBrands.contains(normalized)
+    }
+
     // MARK: - Brand Colors (for consistent fallback styling)
 
     /// Brand-specific colors for initials fallback
@@ -110,19 +130,34 @@ struct BrandLogoView: View {
     var body: some View {
         // Check for local asset first
         if let uiImage = UIImage(named: service.assetName(for: make)) {
-            ZStack {
-                // Pitch black circle
-                Circle()
-                    .fill(Color.black)
+            if service.isDetailedLogo(for: make) {
+                // Detailed logos: show original colors on dark background
+                ZStack {
+                    Circle()
+                        .fill(Color(white: 0.15))
 
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .renderingMode(.template)
-                    .foregroundColor(.white)
-                    .scaledToFit()
-                    .padding(size * 0.18)
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .renderingMode(.original)
+                        .scaledToFit()
+                        .padding(size * 0.15)
+                }
+                .frame(width: size, height: size)
+            } else {
+                // Simple logos: white template on black circle
+                ZStack {
+                    Circle()
+                        .fill(Color.black)
+
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(.white)
+                        .scaledToFit()
+                        .padding(size * 0.18)
+                }
+                .frame(width: size, height: size)
             }
-            .frame(width: size, height: size)
         } else {
             // Consistent initials fallback
             initialsView
@@ -146,7 +181,7 @@ struct BrandLogoView: View {
 
 #Preview {
     VStack(spacing: 20) {
-        Text("Brand Logos (Initials Fallback)")
+        Text("Simple Logos (White Template)")
             .font(.headline)
             .foregroundColor(.white)
 
@@ -156,7 +191,27 @@ struct BrandLogoView: View {
             GridItem(.flexible()),
             GridItem(.flexible())
         ], spacing: 16) {
-            ForEach(["Toyota", "Maruti", "Hyundai", "Honda", "Tata", "BMW", "Kia", "Ford"], id: \.self) { brand in
+            ForEach(["Toyota", "Honda", "BMW", "Audi", "Hyundai", "Kia", "Ford", "Tata"], id: \.self) { brand in
+                VStack(spacing: 8) {
+                    BrandLogoView(make: brand, size: 50)
+                    Text(brand)
+                        .font(.caption)
+                        .foregroundColor(.textSecondary)
+                }
+            }
+        }
+
+        Text("Detailed Logos (Original Colors)")
+            .font(.headline)
+            .foregroundColor(.white)
+
+        LazyVGrid(columns: [
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ], spacing: 16) {
+            ForEach(["Porsche", "BMW", "Mercedes-Benz", "Maruti Suzuki", "MG", "Mitsubishi", "Volkswagen", "Hyundai"], id: \.self) { brand in
                 VStack(spacing: 8) {
                     BrandLogoView(make: brand, size: 50)
                     Text(brand)
