@@ -46,19 +46,29 @@ REQUEST_DELAY = 15
 MAX_RETRIES = 3
 
 RESTYLE_PROMPT = (
-    "Recreate this exact car model accurately in a dark charcoal studio "
-    "with subtle gradient background, rim light highlights on body panels, "
-    "professional automotive photography, photorealistic. "
+    "Recreate this exact car model accurately, facing left (front-left three-quarter view), "
+    "in a dark gray studio with a subtle gradient background. "
+    "Show the ENTIRE car fully visible from bumper to bumper with generous space around it — "
+    "do NOT crop any part of the car. "
+    "Use strong key lighting from the front-left to illuminate the bumper, grille, and side panels clearly. "
+    "Add soft rim light highlights along the edges. "
+    "All car details — grille, headlights, bumper, wheels, rear — must be clearly visible. "
+    "The brand logo and badge on the grille must match the reference as closely as possible — "
+    "copy the exact shape, proportions, and placement of the emblem from the reference image. "
+    "Professional automotive photography, photorealistic. "
     "Keep the car design exactly as shown in the reference. "
-    "No text, no watermarks, no logos, no labels."
+    "No text, no watermarks, no labels."
 )
 
 FALLBACK_PROMPT_TEMPLATE = (
     "Professional studio photograph of a {year} {make} {model}, "
-    "front three-quarter view, dark charcoal studio background with subtle gradient, "
-    "rim light highlights on body panels, professional automotive photography, "
-    "high resolution, photorealistic, the actual real {make} {model} car model. "
-    "No text, no watermarks, no logos, no labels."
+    "facing left, front-left three-quarter view, "
+    "in a dark gray studio with a subtle gradient background. "
+    "Show the ENTIRE car fully visible from bumper to bumper with generous space around it. "
+    "Use strong key lighting from the front-left to illuminate all details clearly. "
+    "Add soft rim light highlights along the edges. "
+    "Professional automotive photography, photorealistic, the actual real {make} {model} car model. "
+    "No text, no watermarks, no labels."
 )
 
 
@@ -137,7 +147,7 @@ def generate_with_reference(ref_data: bytes) -> bytes:
             "model": "gpt-image-1",
             "prompt": RESTYLE_PROMPT,
             "n": "1",
-            "size": "1024x1024",
+            "size": "1536x1024",
         },
         files={
             "image": ("reference.png", ref_data, "image/png"),
@@ -167,7 +177,7 @@ def generate_text_only(make: str, model: str, year: int = 2026) -> bytes:
         "model": "gpt-image-1",
         "prompt": prompt,
         "n": 1,
-        "size": "1024x1024",
+        "size": "1536x1024",
     }).encode()
 
     req = urllib.request.Request(

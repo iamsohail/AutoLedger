@@ -26,7 +26,8 @@ except ImportError:
 # Configuration
 INPUT_DIR = Path("/Users/sohail/AutoLedger/CarImages")
 OUTPUT_DIR = INPUT_DIR / "optimized"
-MAX_SIZE = 800
+MAX_WIDTH = 1200
+MAX_HEIGHT = 800
 JPEG_QUALITY = 82
 
 
@@ -46,9 +47,9 @@ def optimize_image(src: Path, dst: Path) -> tuple[int, int]:
         elif img.mode != "RGB":
             img = img.convert("RGB")
 
-        # Resize if larger than MAX_SIZE
-        if img.width > MAX_SIZE or img.height > MAX_SIZE:
-            img.thumbnail((MAX_SIZE, MAX_SIZE), Image.LANCZOS)
+        # Resize if larger than max dimensions (landscape-aware)
+        if img.width > MAX_WIDTH or img.height > MAX_HEIGHT:
+            img.thumbnail((MAX_WIDTH, MAX_HEIGHT), Image.LANCZOS)
 
         # Save as JPEG
         img.save(dst, "JPEG", quality=JPEG_QUALITY, optimize=True)
@@ -73,7 +74,7 @@ def main():
         return
 
     print(f"Found {len(png_files)} images to optimize")
-    print(f"Settings: max {MAX_SIZE}px, JPEG quality {JPEG_QUALITY}")
+    print(f"Settings: max {MAX_WIDTH}x{MAX_HEIGHT}px, JPEG quality {JPEG_QUALITY}")
     print(f"Output: {OUTPUT_DIR}")
     print("-" * 50)
 
