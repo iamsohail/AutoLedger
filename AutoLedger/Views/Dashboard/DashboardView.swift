@@ -544,6 +544,17 @@ struct DashboardView: View {
             ))
         }
 
+        for expense in (vehicle.expenses ?? []) {
+            items.append(ActivityItem(
+                id: expense.id,
+                icon: expense.category.icon,
+                iconColor: .expenseColor,
+                title: expense.displayCategory,
+                value: expense.amount.asCurrency,
+                date: expense.date
+            ))
+        }
+
         return items.sorted { $0.date > $1.date }.prefix(5).map { $0 }
     }
 }
@@ -580,6 +591,7 @@ struct QuickActionsView: View {
     @State private var showingAddFuel = false
     @State private var showingAddMaintenance = false
     @State private var showingStartTrip = false
+    @State private var showingAddExpense = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.sm) {
@@ -611,6 +623,14 @@ struct QuickActionsView: View {
                 ) {
                     showingStartTrip = true
                 }
+
+                QuickActionButton(
+                    title: "Expense",
+                    icon: "indianrupeesign.circle.fill",
+                    color: .expenseColor
+                ) {
+                    showingAddExpense = true
+                }
             }
         }
         .sheet(isPresented: $showingAddFuel) {
@@ -621,6 +641,9 @@ struct QuickActionsView: View {
         }
         .sheet(isPresented: $showingStartTrip) {
             StartTripView(vehicle: vehicle)
+        }
+        .sheet(isPresented: $showingAddExpense) {
+            AddExpenseView(vehicle: vehicle)
         }
     }
 }

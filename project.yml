@@ -66,6 +66,7 @@ targets:
     info:
       path: AutoLedger/Info.plist
       properties:
+        NSLocationWhenInUseUsageDescription: "AutoLedger uses your location to find nearby fuel stations, EV chargers, and save parking spots."
         CFBundleURLTypes:
           - CFBundleURLSchemes:
               - com.googleusercontent.apps.1013117272910-ud922geoj2orufaa3okfo8kh0rule5u6

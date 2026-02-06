@@ -80,7 +80,8 @@ struct AutoLedgerApp: App {
                 MaintenanceSchedule.self,
                 Trip.self,
                 Expense.self,
-                Document.self
+                Document.self,
+                ParkingSpot.self
             ])
             let modelConfiguration = ModelConfiguration(
                 schema: schema,

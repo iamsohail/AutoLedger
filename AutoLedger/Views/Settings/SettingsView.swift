@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct SettingsView: View {
+    @Binding var selectedVehicle: Vehicle?
     @EnvironmentObject var authService: AuthenticationService
     @AppStorage("preferredOdometerUnit") private var odometerUnit = "miles"
     @AppStorage("preferredVolumeUnit") private var volumeUnit = "gallons"
@@ -33,6 +34,29 @@ struct SettingsView: View {
                 } footer: {
                     Text("Used for Personalized Greetings on the Dashboard")
                         .foregroundColor(.textSecondary.opacity(0.7))
+                }
+
+                Section {
+                    NavigationLink {
+                        VehicleListView(selectedVehicle: $selectedVehicle)
+                    } label: {
+                        HStack {
+                            Image(systemName: "car.2.fill")
+                                .foregroundColor(.primaryPurple)
+                            Text("Manage Vehicles")
+                                .foregroundColor(.textPrimary)
+                            Spacer()
+                            if let vehicle = selectedVehicle {
+                                Text(vehicle.displayName)
+                                    .font(Theme.Typography.caption)
+                                    .foregroundColor(.textSecondary)
+                            }
+                        }
+                    }
+                    .darkListRowStyle()
+                } header: {
+                    Text("Vehicles")
+                        .foregroundColor(.textSecondary)
                 }
 
                 Section {
@@ -723,6 +747,6 @@ extension Bundle {
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(selectedVehicle: .constant(nil))
         .modelContainer(for: Vehicle.self, inMemory: true)
 }

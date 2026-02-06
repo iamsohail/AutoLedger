@@ -7,26 +7,24 @@ struct ContentView: View {
     @Query(filter: #Predicate<Vehicle> { $0.isActive }, sort: \Vehicle.createdAt, order: .reverse)
     private var vehicles: [Vehicle]
 
-    @State private var selectedTab: Tab = .dashboard
+    @State private var selectedTab: Tab = .home
     @State private var selectedVehicle: Vehicle?
     @State private var showingAddVehicle = false
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
 
     enum Tab: String, CaseIterable {
-        case dashboard = "Dashboard"
-        case vehicles = "Vehicles"
-        case fuel = "Fuel"
-        case maintenance = "Maintenance"
-        case trips = "Trips"
+        case home = "Home"
+        case log = "Log"
+        case explore = "Explore"
+        case vault = "Vault"
         case settings = "Settings"
 
         var icon: String {
             switch self {
-            case .dashboard: return "gauge.with.dots.needle.33percent"
-            case .vehicles: return "car.2.fill"
-            case .fuel: return "fuelpump.fill"
-            case .maintenance: return "wrench.and.screwdriver.fill"
-            case .trips: return "map.fill"
+            case .home: return "house.fill"
+            case .log: return "list.bullet.clipboard.fill"
+            case .explore: return "map.fill"
+            case .vault: return "folder.fill"
             case .settings: return "gearshape.fill"
             }
         }
@@ -130,35 +128,29 @@ struct ContentView: View {
         TabView(selection: $selectedTab) {
             DashboardView(selectedVehicle: $selectedVehicle)
                 .tabItem {
-                    Label(Tab.dashboard.rawValue, systemImage: Tab.dashboard.icon)
+                    Label(Tab.home.rawValue, systemImage: Tab.home.icon)
                 }
-                .tag(Tab.dashboard)
+                .tag(Tab.home)
 
-            VehicleListView(selectedVehicle: $selectedVehicle)
+            LogView(selectedVehicle: $selectedVehicle)
                 .tabItem {
-                    Label(Tab.vehicles.rawValue, systemImage: Tab.vehicles.icon)
+                    Label(Tab.log.rawValue, systemImage: Tab.log.icon)
                 }
-                .tag(Tab.vehicles)
+                .tag(Tab.log)
 
-            FuelLogView(selectedVehicle: $selectedVehicle)
+            ExploreView()
                 .tabItem {
-                    Label(Tab.fuel.rawValue, systemImage: Tab.fuel.icon)
+                    Label(Tab.explore.rawValue, systemImage: Tab.explore.icon)
                 }
-                .tag(Tab.fuel)
+                .tag(Tab.explore)
 
-            MaintenanceListView(selectedVehicle: $selectedVehicle)
+            VaultView(selectedVehicle: $selectedVehicle)
                 .tabItem {
-                    Label(Tab.maintenance.rawValue, systemImage: Tab.maintenance.icon)
+                    Label(Tab.vault.rawValue, systemImage: Tab.vault.icon)
                 }
-                .tag(Tab.maintenance)
+                .tag(Tab.vault)
 
-            TripListView(selectedVehicle: $selectedVehicle)
-                .tabItem {
-                    Label(Tab.trips.rawValue, systemImage: Tab.trips.icon)
-                }
-                .tag(Tab.trips)
-
-            SettingsView()
+            SettingsView(selectedVehicle: $selectedVehicle)
                 .tabItem {
                     Label(Tab.settings.rawValue, systemImage: Tab.settings.icon)
                 }

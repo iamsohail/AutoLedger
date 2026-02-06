@@ -51,6 +51,9 @@ final class Vehicle {
     @Relationship(deleteRule: .cascade, inverse: \MaintenanceSchedule.vehicle)
     var maintenanceSchedules: [MaintenanceSchedule]? = []
 
+    @Relationship(deleteRule: .cascade, inverse: \ParkingSpot.vehicle)
+    var parkingSpots: [ParkingSpot]? = []
+
     init(
         name: String,
         make: String,

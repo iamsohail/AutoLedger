@@ -61,6 +61,7 @@ enum DocumentType: String, Codable, CaseIterable {
     case leaseAgreement = "lease_agreement"
     case inspectionReport = "inspection_report"
     case emissionsCertificate = "emissions_certificate"
+    case fasTag = "fas_tag"
     case other = "other"
 
     var displayName: String {
@@ -75,7 +76,8 @@ enum DocumentType: String, Codable, CaseIterable {
         case .loanDocument: return "Loan Document"
         case .leaseAgreement: return "Lease Agreement"
         case .inspectionReport: return "Inspection Report"
-        case .emissionsCertificate: return "Emissions Certificate"
+        case .emissionsCertificate: return "PUC Certificate"
+        case .fasTag: return "FASTag"
         case .other: return "Other"
         }
     }
@@ -93,13 +95,14 @@ enum DocumentType: String, Codable, CaseIterable {
         case .leaseAgreement: return "signature"
         case .inspectionReport: return "checklist"
         case .emissionsCertificate: return "leaf.fill"
+        case .fasTag: return "antenna.radiowaves.left.and.right"
         case .other: return "doc.fill"
         }
     }
 
     var hasExpiration: Bool {
         switch self {
-        case .insuranceCard, .registration, .driversLicense, .warranty, .inspectionReport, .emissionsCertificate:
+        case .insuranceCard, .registration, .driversLicense, .warranty, .inspectionReport, .emissionsCertificate, .fasTag:
             return true
         default:
             return false
