@@ -16,11 +16,9 @@
 		127F3774D34039AB26EEC7D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1502A3223494025EB034E /* DashboardView.swift */; };
 		1352C42996990E0723F74C5F /* BrandfetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519AF040D4B84BFD5E77D83 /* BrandfetchService.swift */; };
 		1618419C7928C375D83CA83E /* DocumentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B31494F286A9D178B5584 /* DocumentDetailView.swift */; };
-		1C6CE821D7682F1EFC0C1F74 /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098F81FCA6B418E64E73B63 /* TripListView.swift */; };
 		1CC188CEDD500C9F2FD21B19 /* AddVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058CD5DDDA17D19EDC7E8182 /* AddVehicleView.swift */; };
 		1E5C208EEE484E0952C932AB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFBDD4F481108521AFCCFE /* SettingsView.swift */; };
 		1E8DE00234A28B926171DC9B /* ProfileCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474664B186638D3A36F7999E /* ProfileCompletionView.swift */; };
-		224DA8CAF727AF626A24D498 /* FuelLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603E0D4354BED6354751686 /* FuelLogView.swift */; };
 		2433486ACA0AA2997F149AF6 /* AutoLedgerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C2C92121535B9E9AC66AD /* AutoLedgerApp.swift */; };
 		27D8606DD3384980F545E810 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15D71AA269C7C442B1F5BC /* Trip.swift */; };
 		2AE87F76F890EBBA0C3500F9 /* VaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98B5E36847B874C006F1479 /* VaultView.swift */; };
@@ -53,11 +51,11 @@
 		7F3492F64CC44B41E49B64A7 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C3669187271BBCF4684DAA /* AddExpenseView.swift */; };
 		7FBED3A18A4C05895A497A08 /* CircularGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */; };
 		8FD42BBAE67CF96C876D15E8 /* IndianVehicleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */; };
-		951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */; };
 		96999C78D5C59FF61295C9B5 /* EndTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E49F8926722B0E627FCB /* EndTripView.swift */; };
 		9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */; };
 		A0F131B85197977AF0CB9F02 /* TripContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEECACE3256A88F9CA6A67A3 /* TripContentView.swift */; };
 		AB93659A719BE96818C995C1 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07606BAFDEC3D6D2CCA6B9C2 /* ExpenseListView.swift */; };
+		ABA32F20B103EB7842C7D26F /* SummaryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1A418A8E8C4C8E0006275 /* SummaryStatView.swift */; };
 		AC7A8672C13AA51CCBFD4330 /* CarImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715888947401D58B9715B2B /* CarImageGalleryView.swift */; };
 		AE3B1C4BE22B5F336107DA6F /* SaveParkingSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC85E122AA57493816C7EB66 /* SaveParkingSpotView.swift */; };
 		B24C0577B931525829794F74 /* ParkingSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B020D8855C6664638836D1E /* ParkingSpot.swift */; };
@@ -115,7 +113,6 @@
 		2519AF040D4B84BFD5E77D83 /* BrandfetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandfetchService.swift; sourceTree = "<group>"; };
 		2A64F02FDC5DF339C1BFA6C4 /* DocumentScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScannerView.swift; sourceTree = "<group>"; };
 		2BDED06B19B8E85E661E7AA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceListView.swift; sourceTree = "<group>"; };
 		32B4FDF7E2498B4F88E2381A /* StartTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripView.swift; sourceTree = "<group>"; };
 		3D0C2C92121535B9E9AC66AD /* AutoLedgerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerApp.swift; sourceTree = "<group>"; };
 		3D854A8B060ADED8565BCFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -145,7 +142,6 @@
 		AE15D71AA269C7C442B1F5BC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		B370E49F8926722B0E627FCB /* EndTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTripView.swift; sourceTree = "<group>"; };
 		B5D1502A3223494025EB034E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		B603E0D4354BED6354751686 /* FuelLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelLogView.swift; sourceTree = "<group>"; };
 		B83776E39CF79FB4096860DC /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		B98B5E36847B874C006F1479 /* VaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultView.swift; sourceTree = "<group>"; };
 		BAA8BAD1F3D6AA9C136A03E9 /* MaintenanceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceRecord.swift; sourceTree = "<group>"; };
@@ -161,9 +157,9 @@
 		D8218A31483B01FCC829BD88 /* MaintenanceContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceContentView.swift; sourceTree = "<group>"; };
 		D8A15FEBFCF7F36E4F3E312D /* CarLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarLoadingView.swift; sourceTree = "<group>"; };
 		D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGaugeView.swift; sourceTree = "<group>"; };
+		DDE1A418A8E8C4C8E0006275 /* SummaryStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryStatView.swift; sourceTree = "<group>"; };
 		DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkFeatureRow.swift; sourceTree = "<group>"; };
 		E082AD9638F53A596940EBD8 /* AutoLedgerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AutoLedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E098F81FCA6B418E64E73B63 /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
 		E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderView.swift; sourceTree = "<group>"; };
 		E8382852832C2DDBCF01EE4B /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		E919BD8E48FF6A02480DFA0B /* AutoLedger.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AutoLedger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -347,6 +343,7 @@
 				E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */,
 				106983CE85DA6F1D7346194C /* LottieView.swift */,
 				CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */,
+				DDE1A418A8E8C4C8E0006275 /* SummaryStatView.swift */,
 				0580125A61DEDA6617F9E001 /* VehicleHeroCard.swift */,
 			);
 			path = Components;
@@ -418,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */,
-				2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */,
 			);
 			path = Maintenance;
 			sourceTree = "<group>";
@@ -435,7 +431,6 @@
 			isa = PBXGroup;
 			children = (
 				BC08DB07410401B4E8894BB3 /* AddFuelEntryView.swift */,
-				B603E0D4354BED6354751686 /* FuelLogView.swift */,
 			);
 			path = Fuel;
 			sourceTree = "<group>";
@@ -455,7 +450,6 @@
 			children = (
 				B370E49F8926722B0E627FCB /* EndTripView.swift */,
 				32B4FDF7E2498B4F88E2381A /* StartTripView.swift */,
-				E098F81FCA6B418E64E73B63 /* TripListView.swift */,
 			);
 			path = Trips;
 			sourceTree = "<group>";
@@ -615,13 +609,11 @@
 				11D05CC35CF2BA762A286659 /* FirestoreSyncService.swift in Sources */,
 				C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */,
 				36CE1DD71CDD0188B9798F4C /* FuelLogContentView.swift in Sources */,
-				224DA8CAF727AF626A24D498 /* FuelLogView.swift in Sources */,
 				0038F43DA3DB78A92BD1B1D2 /* GreetingHeaderView.swift in Sources */,
 				32C4059119D9A4FB09EAE88C /* LocationService.swift in Sources */,
 				6C07C8FB8B9B5B099A03E806 /* LogView.swift in Sources */,
 				0E06DC8C0726E5A6E37D7D2A /* LottieView.swift in Sources */,
 				5EFAFB9580C5A330B6A6B012 /* MaintenanceContentView.swift in Sources */,
-				951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */,
 				11BFA22DD48E29D522C3D562 /* MaintenanceRecord.swift in Sources */,
 				BFE0FE3F7740AF54B9AAC408 /* MaintenanceSchedule.swift in Sources */,
 				9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */,
@@ -635,11 +627,11 @@
 				C1FEC5D66A25B2EA97944CBF /* SignInView.swift in Sources */,
 				79520BBB224E135186B64076 /* SpeedometerGaugeView.swift in Sources */,
 				2B715D63642B3492A306E767 /* StartTripView.swift in Sources */,
+				ABA32F20B103EB7842C7D26F /* SummaryStatView.swift in Sources */,
 				E050F72883BC6C845EAD4F99 /* TankCapacityService.swift in Sources */,
 				6EA504887712C2B1FB9B3416 /* Theme.swift in Sources */,
 				27D8606DD3384980F545E810 /* Trip.swift in Sources */,
 				A0F131B85197977AF0CB9F02 /* TripContentView.swift in Sources */,
-				1C6CE821D7682F1EFC0C1F74 /* TripListView.swift in Sources */,
 				4ABECDB3EB0C1EC1E440B254 /* UserProfile.swift in Sources */,
 				2AE87F76F890EBBA0C3500F9 /* VaultView.swift in Sources */,
 				FF2B1D873D2BDF9D52BB7E09 /* Vehicle.swift in Sources */,

@@ -28,11 +28,12 @@ struct ExpenseListView: View {
                     Section {
                         ExpenseSummaryRow(total: totalExpenses, thisMonth: thisMonthTotal)
                     }
+                    .darkListRowStyle()
 
                     Section("Expenses") {
                         if expenses.isEmpty {
                             Text("No Expenses Yet")
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.textSecondary)
                         } else {
                             ForEach(expenses) { expense in
                                 ExpenseRowView(expense: expense)
@@ -47,6 +48,7 @@ struct ExpenseListView: View {
                             }
                         }
                     }
+                    .darkListRowStyle()
                 }
                 .scrollContentBackground(.hidden)
                 .background(Color.darkBackground)
@@ -136,7 +138,7 @@ struct ExpenseRowView: View {
                     }
                 }
                 .font(Theme.Typography.caption)
-                .foregroundColor(.secondary)
+                .foregroundColor(.textSecondary)
             }
 
             Spacer()

@@ -20,11 +20,12 @@ struct FuelLogContentView: View {
                     Section {
                         FuelSummaryView(vehicle: vehicle)
                     }
+                    .darkListRowStyle()
 
                     Section("Fill-Ups") {
                         if fuelEntries.isEmpty {
                             Text("No Fuel Entries Yet")
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.textSecondary)
                         } else {
                             ForEach(fuelEntries) { entry in
                                 FuelEntryRowView(entry: entry, vehicle: vehicle)
@@ -39,6 +40,7 @@ struct FuelLogContentView: View {
                             }
                         }
                     }
+                    .darkListRowStyle()
                 }
                 .scrollContentBackground(.hidden)
                 .background(Color.darkBackground)
@@ -79,5 +81,91 @@ struct FuelLogContentView: View {
                 .disabled(selectedVehicle == nil)
             }
         }
+    }
+}
+
+// MARK: - Fuel Summary
+
+struct FuelSummaryView: View {
+    let vehicle: Vehicle
+
+    private var totalGallons: Double {
+        (vehicle.fuelEntries ?? []).reduce(0) { $0 + $1.quantity }
+    }
+
+    private var averagePricePerGallon: Double {
+        let entries = vehicle.fuelEntries ?? []
+        guard !entries.isEmpty else { return 0 }
+        return entries.reduce(0) { $0 + $1.pricePerUnit } / Double(entries.count)
+    }
+
+    var body: some View {
+        VStack(spacing: 12) {
+            HStack(spacing: 24) {
+                SummaryStatView(
+                    title: "Total Cost",
+                    value: vehicle.totalFuelCost.asCurrency,
+                    color: .fuelColor
+                )
+
+                SummaryStatView(
+                    title: "Total Gallons",
+                    value: String(format: "%.1f", totalGallons),
+                    color: .fuelColor
+                )
+
+                if let avgMPG = vehicle.averageFuelEconomy {
+                    SummaryStatView(
+                        title: "Avg km/l",
+                        value: String(format: "%.1f", avgMPG),
+                        color: .green
+                    )
+                }
+            }
+
+            if averagePricePerGallon > 0 {
+                Text("Avg Price: \(averagePricePerGallon.asCurrency)/gal")
+                    .font(Theme.Typography.caption)
+                    .foregroundColor(.textSecondary)
+            }
+        }
+        .padding(.vertical, 8)
+    }
+}
+
+// MARK: - Fuel Entry Row
+
+struct FuelEntryRowView: View {
+    let entry: FuelEntry
+    let vehicle: Vehicle
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(entry.date.formatted(style: .medium))
+                    .font(Theme.Typography.headline)
+                HStack(spacing: 8) {
+                    Text("\(String(format: "%.1f", entry.quantity)) gal")
+                    Text("@")
+                        .foregroundColor(.textSecondary)
+                    Text("\(entry.pricePerUnit.asCurrency)/gal")
+                }
+                .font(Theme.Typography.subheadline)
+                .foregroundColor(.textSecondary)
+            }
+
+            Spacer()
+
+            VStack(alignment: .trailing, spacing: 4) {
+                Text(entry.totalCost.asCurrency)
+                    .font(Theme.Typography.headline)
+                if let mpg = entry.fuelEconomy {
+                    Text("\(String(format: "%.1f", mpg)) km/l")
+                        .font(Theme.Typography.caption)
+                        .foregroundColor(.green)
+                }
+            }
+        }
+        .padding(.vertical, 4)
     }
 }

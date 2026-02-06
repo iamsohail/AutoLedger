@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "filename": "lamborghini_aventador.jpg",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

@@ -8,7 +8,10 @@
         {
           "name": "DB11",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 78.0
@@ -16,7 +19,10 @@
         {
           "name": "DB12",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 78.0
@@ -24,14 +30,20 @@
         {
           "name": "DBX",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Vanquish",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 82.0
@@ -39,7 +51,10 @@
         {
           "name": "Vantage",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 73.0
@@ -47,7 +62,10 @@
         {
           "name": "Rapide",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.5
@@ -61,23 +79,85 @@
           "name": "A3",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
         },
         {
+          "name": "A3 Cabriolet",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 50.0
+        },
+        {
+          "name": "A4",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 54.0
+        },
+        {
+          "name": "A5",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual"
+        },
+        {
+          "name": "A5 Cabriolet",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 58.0
+        },
+        {
           "name": "A6",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 73.0
         },
         {
+          "name": "A7",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Automatic",
+          "tankL": 63.0
+        },
+        {
           "name": "A8 L",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 72.0
@@ -86,7 +166,9 @@
           "name": "Q3",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 62.4
@@ -94,7 +176,10 @@
         {
           "name": "Q3 Sportback",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 62.4
@@ -103,7 +188,9 @@
           "name": "Q5",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 70.0
@@ -112,7 +199,9 @@
           "name": "Q7",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 85.0
@@ -120,7 +209,10 @@
         {
           "name": "Q8",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 85.0
@@ -142,17 +234,67 @@
           "batteryKWh": 95.0
         },
         {
+          "name": "R8",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 75.0
+        },
+        {
           "name": "RS Q8",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 85.0
         },
         {
+          "name": "RS5",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 58.0
+        },
+        {
+          "name": "RS7",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 75.0
+        },
+        {
+          "name": "S5",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 58.0
+        },
+        {
           "name": "S5 Sportback",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 58.0
@@ -171,70 +313,6 @@
             "electric"
           ],
           "transmission": "Manual"
-        },
-        {
-          "name": "A3 Cabriolet",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 50.0
-        },
-        {
-          "name": "A4",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 54.0
-        },
-        {
-          "name": "A5",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual"
-        },
-        {
-          "name": "A5 Cabriolet",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 58.0
-        },
-        {
-          "name": "R8",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 75.0
-        },
-        {
-          "name": "RS5",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 58.0
-        },
-        {
-          "name": "RS7",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 75.0
-        },
-        {
-          "name": "S5",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 58.0
         }
       ]
     },
@@ -244,7 +322,10 @@
         {
           "name": "2 Series Gran Coupe",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -252,7 +333,9 @@
           "name": "3 Series",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 59.0
@@ -260,7 +343,10 @@
         {
           "name": "3 Series GT",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -268,7 +354,9 @@
           "name": "5 Series",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -277,7 +365,9 @@
           "name": "6 Series",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -285,37 +375,30 @@
           "name": "7 Series",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "M2",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 52.0
         },
         {
-          "name": "M4 CS",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual"
-        },
-        {
-          "name": "M4 Competition",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 59.0
-        },
-        {
           "name": "M5",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 68.0
@@ -324,7 +407,9 @@
           "name": "X1",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 51.0
@@ -333,7 +418,9 @@
           "name": "X3",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 68.0
@@ -342,7 +429,9 @@
           "name": "X4",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -351,7 +440,9 @@
           "name": "X5",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -360,7 +451,9 @@
           "name": "X7",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -368,7 +461,10 @@
         {
           "name": "XM",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 69.0
@@ -376,7 +472,10 @@
         {
           "name": "Z4",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 52.0
@@ -419,28 +518,15 @@
           "transmission": "Manual"
         },
         {
-          "name": "M2 Competition",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 52.0
-        },
-        {
           "name": "M4",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
-        },
-        {
-          "name": "Z4 Roadster",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 52.0
         }
       ]
     },
@@ -487,7 +573,10 @@
         {
           "name": "Bentayga",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 85.0
@@ -495,7 +584,10 @@
         {
           "name": "Continental GT",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -503,7 +595,10 @@
         {
           "name": "Flying Spur",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -511,7 +606,10 @@
         {
           "name": "Mulsanne",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -524,7 +622,10 @@
         {
           "name": "Chiron",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         }
@@ -537,7 +638,9 @@
           "name": "Beat",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -545,7 +648,9 @@
           "name": "Cruze",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -553,7 +658,9 @@
           "name": "Enjoy",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -561,7 +668,9 @@
           "name": "Sail",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         }
@@ -573,14 +682,20 @@
         {
           "name": "Aircross",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Basalt",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -588,7 +703,10 @@
         {
           "name": "C5 Aircross",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 52.5
@@ -605,7 +723,9 @@
           "name": "C3",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -618,14 +738,20 @@
         {
           "name": "Go Cross",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Go",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 35.0
@@ -633,7 +759,10 @@
         {
           "name": "redi-GO",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 28.0
@@ -646,7 +775,10 @@
         {
           "name": "296 GTB",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 65.0
@@ -654,7 +786,10 @@
         {
           "name": "F8 Tributo",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 78.0
@@ -662,7 +797,10 @@
         {
           "name": "Portofino",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -670,7 +808,10 @@
         {
           "name": "Roma",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -678,7 +819,10 @@
         {
           "name": "458 Speciale",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 86.0
@@ -686,7 +830,10 @@
         {
           "name": "458 Spider",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 86.0
@@ -694,7 +841,10 @@
         {
           "name": "488 GTB",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 78.0
@@ -702,7 +852,10 @@
         {
           "name": "GTC4Lusso",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 91.0
@@ -715,14 +868,20 @@
         {
           "name": "Abarth Avventura",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Abarth Punto",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -730,7 +889,9 @@
           "name": "Avventura",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -739,7 +900,9 @@
           "name": "Linea",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -748,7 +911,9 @@
           "name": "Punto",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -756,7 +921,9 @@
           "name": "Punto Evo",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -764,7 +931,10 @@
         {
           "name": "Punto Evo Pure",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -773,7 +943,9 @@
           "name": "Urban Cross",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -786,7 +958,10 @@
         {
           "name": "Figo Aspire",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -795,7 +970,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 42.0
@@ -804,7 +980,9 @@
           "name": "EcoSport",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 52.0
@@ -812,7 +990,10 @@
         {
           "name": "Endeavour",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 80.0
@@ -821,7 +1002,9 @@
           "name": "Figo",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 42.0
@@ -830,7 +1013,9 @@
           "name": "Freestyle",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 40.0
@@ -838,7 +1023,10 @@
         {
           "name": "Mustang",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.9
@@ -852,7 +1040,9 @@
           "name": "Amaze",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 35.0
@@ -861,7 +1051,9 @@
           "name": "City",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 40.0
@@ -869,7 +1061,10 @@
         {
           "name": "City Hybrid",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 40.0
@@ -877,7 +1072,10 @@
         {
           "name": "Elevate",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 40.0
@@ -886,7 +1084,9 @@
           "name": "WR-V",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 40.0
@@ -894,7 +1094,10 @@
         {
           "name": "Accord Hybrid",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -903,7 +1106,9 @@
           "name": "BR-V",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -911,7 +1116,9 @@
           "name": "CR-V",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 57.0
@@ -920,7 +1127,9 @@
           "name": "Civic",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 47.0
@@ -929,7 +1138,9 @@
           "name": "Jazz",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 40.0
@@ -937,7 +1148,10 @@
         {
           "name": "Brio",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 35.0
@@ -946,7 +1160,9 @@
           "name": "Mobilio",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 42.0
@@ -960,7 +1176,9 @@
           "name": "Alcazar",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -970,7 +1188,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 37.0
@@ -979,7 +1198,9 @@
           "name": "Creta",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -995,7 +1216,10 @@
         {
           "name": "Creta N Line",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 50.0
@@ -1004,7 +1228,9 @@
           "name": "Elite i20",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -1013,7 +1239,9 @@
           "name": "Exter",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 37.0
@@ -1023,7 +1251,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 37.0
@@ -1039,7 +1268,10 @@
         {
           "name": "Santa Fe",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -1047,7 +1279,9 @@
           "name": "Venue",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -1055,7 +1289,10 @@
         {
           "name": "Venue N Line",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -1064,7 +1301,9 @@
           "name": "Verna",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -1073,7 +1312,9 @@
           "name": "i20",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 37.0
@@ -1081,7 +1322,10 @@
         {
           "name": "i20 N Line",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 37.0
@@ -1090,7 +1334,9 @@
           "name": "Elantra",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -1098,7 +1344,10 @@
         {
           "name": "Eon",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -1107,7 +1356,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 43.0
@@ -1123,7 +1373,9 @@
           "name": "Santro",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 35.0
@@ -1132,7 +1384,9 @@
           "name": "Tucson",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 62.0
@@ -1141,7 +1395,9 @@
           "name": "Xcent",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 43.0
@@ -1150,7 +1406,9 @@
           "name": "i20 Active",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 40.0
@@ -1159,7 +1417,9 @@
           "name": "Getz",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -1168,7 +1428,9 @@
           "name": "Accent",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -1177,7 +1439,9 @@
           "name": "Sonata",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 70.0
@@ -1190,22 +1454,20 @@
         {
           "name": "D-Max",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "MU-X",
           "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Both",
-          "tankL": 55.0
-        },
-        {
-          "name": "D-Max V-Cross",
-          "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
@@ -1219,7 +1481,9 @@
           "name": "F-Pace",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -1227,7 +1491,10 @@
         {
           "name": "F-Type",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 72.0
@@ -1236,7 +1503,9 @@
           "name": "XE",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 61.0
@@ -1245,7 +1514,9 @@
           "name": "XF",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 74.0
@@ -1254,7 +1525,9 @@
           "name": "XJ",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 82.0
@@ -1268,7 +1541,9 @@
           "name": "Compass",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 60.0
@@ -1277,7 +1552,9 @@
           "name": "Grand Cherokee",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 87.0
@@ -1285,7 +1562,10 @@
         {
           "name": "Meridian",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 60.0
@@ -1294,7 +1574,9 @@
           "name": "Wrangler",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 85.0
@@ -1308,7 +1590,9 @@
           "name": "Carens",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -1316,7 +1600,10 @@
         {
           "name": "Carens Clavis",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -1333,7 +1620,9 @@
           "name": "Carnival",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 72.0
@@ -1357,7 +1646,9 @@
           "name": "Seltos",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 47.0
@@ -1366,7 +1657,9 @@
           "name": "Sonet",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -1374,7 +1667,10 @@
         {
           "name": "Syros",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -1387,7 +1683,10 @@
         {
           "name": "Revuelto",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -1395,14 +1694,20 @@
         {
           "name": "Temerario",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Aventador",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -1410,7 +1715,10 @@
         {
           "name": "Huracán",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -1418,7 +1726,10 @@
         {
           "name": "Urus",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 75.0
@@ -1432,7 +1743,9 @@
           "name": "Defender",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -1440,7 +1753,9 @@
           "name": "Discovery",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 85.0
@@ -1449,7 +1764,9 @@
           "name": "Range Rover",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both"
         },
@@ -1457,7 +1774,9 @@
           "name": "Range Rover Evoque",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic"
         },
@@ -1465,7 +1784,9 @@
           "name": "Range Rover Sport",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both"
         },
@@ -1473,7 +1794,9 @@
           "name": "Range Rover Velar",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 82.0
@@ -1481,7 +1804,10 @@
         {
           "name": "Discovery Sport",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 70.0
@@ -1495,7 +1821,9 @@
           "name": "ES",
           "fuelTypes": [
             "petrol",
-            "hybrid"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -1503,7 +1831,10 @@
         {
           "name": "LM",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -1512,7 +1843,9 @@
           "name": "LX",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -1521,7 +1854,9 @@
           "name": "NX",
           "fuelTypes": [
             "petrol",
-            "hybrid"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 55.0
@@ -1530,7 +1865,9 @@
           "name": "RX",
           "fuelTypes": [
             "petrol",
-            "hybrid"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 65.0
@@ -1538,7 +1875,10 @@
         {
           "name": "LS",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 82.0
@@ -1551,7 +1891,10 @@
         {
           "name": "Astor",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 48.0
@@ -1574,7 +1917,10 @@
         {
           "name": "Gloster",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 75.0
@@ -1584,7 +1930,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "hybrid"
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 60.0
@@ -1593,7 +1940,9 @@
           "name": "Hector Plus",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 60.0
@@ -1638,7 +1987,9 @@
           "name": "Bolero",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -1646,7 +1997,10 @@
         {
           "name": "Bolero Neo",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -1654,7 +2008,10 @@
         {
           "name": "Bolero Neo Plus",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -1663,7 +2020,9 @@
           "name": "Logan",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -1671,7 +2030,9 @@
           "name": "Marazzo",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -1680,7 +2041,9 @@
           "name": "NuvoSport",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -1688,7 +2051,10 @@
         {
           "name": "Quanto",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -1696,16 +2062,9 @@
           "name": "Scorpio",
           "fuelTypes": [
             "petrol",
-            "diesel"
-          ],
-          "transmission": "Both",
-          "tankL": 60.0
-        },
-        {
-          "name": "Scorpio Classic",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 60.0
@@ -1714,24 +2073,20 @@
           "name": "Scorpio N",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 57.0
         },
         {
-          "name": "TUV300 Plus",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 60.0
-        },
-        {
           "name": "Thar",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 57.0
@@ -1739,7 +2094,10 @@
         {
           "name": "Thar ROXX",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 57.0
@@ -1747,7 +2105,10 @@
         {
           "name": "Verito Vibe",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -1772,7 +2133,9 @@
           "name": "XUV 3XO",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 42.0
@@ -1789,7 +2152,9 @@
           "name": "XUV300",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 42.0
@@ -1805,7 +2170,9 @@
           "name": "XUV700",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 60.0
@@ -1813,18 +2180,13 @@
         {
           "name": "Alturas G4",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 70.0
-        },
-        {
-          "name": "Bolero Power Plus",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 60.0
         },
         {
           "name": "E Verito",
@@ -1845,14 +2207,19 @@
           "name": "KUV100",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "TUV300",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -1861,7 +2228,9 @@
           "name": "Verito",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -1869,7 +2238,10 @@
         {
           "name": "XUV500",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 70.0
@@ -1877,29 +2249,21 @@
         {
           "name": "Xylo",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
         },
         {
-          "name": "CL 500",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual"
-        },
-        {
-          "name": "CL 550",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual"
-        },
-        {
           "name": "Armada",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 55.0
@@ -1907,7 +2271,20 @@
         {
           "name": "Major",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual"
+        },
+        {
+          "name": "CL",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         }
@@ -1920,7 +2297,9 @@
           "name": "Alto K10",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 27.0
@@ -1930,7 +2309,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 37.0
@@ -1939,7 +2319,9 @@
           "name": "Brezza",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 48.0
@@ -1949,7 +2331,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 32.0
@@ -1958,7 +2341,9 @@
           "name": "Ciaz",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 43.0
@@ -1968,7 +2353,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 37.0
@@ -1978,7 +2364,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -1987,7 +2374,9 @@
           "name": "Fronx",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 37.0
@@ -1996,8 +2385,9 @@
           "name": "Grand Vitara",
           "fuelTypes": [
             "petrol",
+            "diesel",
             "cng",
-            "hybrid"
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -2006,7 +2396,9 @@
           "name": "Ignis",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 32.0
@@ -2014,7 +2406,10 @@
         {
           "name": "Invicto",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 52.0
@@ -2022,7 +2417,10 @@
         {
           "name": "Jimny",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 40.0
@@ -2031,7 +2429,9 @@
           "name": "S-Cross",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 48.0
@@ -2040,7 +2440,9 @@
           "name": "S-Presso",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 27.0
@@ -2050,7 +2452,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 37.0
@@ -2059,7 +2462,9 @@
           "name": "Victoris",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -2068,7 +2473,9 @@
           "name": "WagonR",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 32.0
@@ -2077,7 +2484,9 @@
           "name": "XL6",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -2085,7 +2494,10 @@
         {
           "name": "Zen Estilo",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -2093,7 +2505,9 @@
           "name": "Alto",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 35.0
@@ -2101,7 +2515,10 @@
         {
           "name": "Baleno RS",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 37.0
@@ -2109,7 +2526,10 @@
         {
           "name": "Celerio X",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 35.0
@@ -2118,7 +2538,9 @@
           "name": "Eeco",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Manual",
           "tankL": 40.0
@@ -2126,7 +2548,10 @@
         {
           "name": "Gypsy",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 40.0
@@ -2134,14 +2559,20 @@
         {
           "name": "Kizashi",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both"
         },
         {
           "name": "Omni",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 35.0
@@ -2150,7 +2581,9 @@
           "name": "Ritz",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -2158,14 +2591,19 @@
           "name": "SX4",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Vitara Brezza",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 48.0
@@ -2180,7 +2618,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "hybrid"
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -2188,7 +2627,10 @@
         {
           "name": "Grecale",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 64.0
@@ -2198,7 +2640,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "hybrid"
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -2206,7 +2649,10 @@
         {
           "name": "GranCabrio",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 75.0
@@ -2214,7 +2660,10 @@
         {
           "name": "GranTurismo",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 86.0
@@ -2222,7 +2671,10 @@
         {
           "name": "Quattroporte",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 70.0
@@ -2235,7 +2687,10 @@
         {
           "name": "750S",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 72.0
@@ -2243,7 +2698,10 @@
         {
           "name": "GT",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 72.0
@@ -2257,7 +2715,9 @@
           "name": "A-Class Limousine",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 43.0
@@ -2272,7 +2732,10 @@
         {
           "name": "AMG GLA 35",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 51.0
@@ -2280,7 +2743,10 @@
         {
           "name": "AMG GT 4-Door Coupe",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 65.0
@@ -2289,7 +2755,9 @@
           "name": "C-Class",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 66.0
@@ -2297,7 +2765,10 @@
         {
           "name": "CLE Cabriolet",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 66.0
@@ -2306,7 +2777,9 @@
           "name": "E-Class",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 66.0
@@ -2352,7 +2825,9 @@
           "name": "G-Class",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 100.0
@@ -2361,7 +2836,9 @@
           "name": "GLA",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 51.0
@@ -2370,7 +2847,9 @@
           "name": "GLC",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 62.0
@@ -2379,7 +2858,9 @@
           "name": "GLE",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 85.0
@@ -2388,7 +2869,9 @@
           "name": "GLS",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -2403,7 +2886,10 @@
         {
           "name": "Mercedes-Maybach GLS",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -2411,7 +2897,10 @@
         {
           "name": "Mercedes-Maybach S-Class",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 76.0
@@ -2419,7 +2908,10 @@
         {
           "name": "Mercedes-Maybach SL 680",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 70.0
@@ -2428,7 +2920,9 @@
           "name": "S-Class",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 65.0
@@ -2441,7 +2935,10 @@
         {
           "name": "Cooper S",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 44.0
@@ -2457,7 +2954,9 @@
           "name": "Countryman",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 54.0
@@ -2472,14 +2971,20 @@
         {
           "name": "Clubman",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Convertible",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 44.0
@@ -2488,7 +2993,9 @@
           "name": "Cooper 3-Door",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 44.0
@@ -2496,7 +3003,10 @@
         {
           "name": "Cooper 5-Door",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 44.0
@@ -2509,7 +3019,10 @@
         {
           "name": "Pajero Sport",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 70.0
@@ -2517,7 +3030,10 @@
         {
           "name": "Montero",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 88.0
@@ -2526,7 +3042,9 @@
           "name": "Outlander",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -2534,7 +3052,10 @@
         {
           "name": "Pajero",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 88.0
@@ -2548,7 +3069,9 @@
           "name": "Magnite",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 40.0
@@ -2556,7 +3079,10 @@
         {
           "name": "X-Trail",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 55.0
@@ -2564,7 +3090,10 @@
         {
           "name": "GT-R",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 74.0
@@ -2573,7 +3102,9 @@
           "name": "Kicks",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -2582,15 +3113,9 @@
           "name": "Micra",
           "fuelTypes": [
             "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 41.0
-        },
-        {
-          "name": "Micra Active",
-          "fuelTypes": [
-            "petrol"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 41.0
@@ -2599,7 +3124,9 @@
           "name": "Sunny",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 41.0
@@ -2608,7 +3135,9 @@
           "name": "Terrano",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -2622,7 +3151,9 @@
           "name": "Cayenne",
           "fuelTypes": [
             "petrol",
-            "hybrid"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -2630,7 +3161,10 @@
         {
           "name": "Cayenne Coupe",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -2638,7 +3172,10 @@
         {
           "name": "Panamera",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 90.0
@@ -2654,7 +3191,10 @@
         {
           "name": "718",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 54.0
@@ -2662,7 +3202,10 @@
         {
           "name": "911",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 64.0
@@ -2671,7 +3214,9 @@
           "name": "Macan",
           "fuelTypes": [
             "petrol",
-            "electric"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 65.0
@@ -2685,7 +3230,9 @@
           "name": "Rio",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 46.0
@@ -2699,7 +3246,9 @@
           "name": "Duster",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -2708,7 +3257,9 @@
           "name": "KWID",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 28.0
@@ -2717,7 +3268,9 @@
           "name": "Kiger",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 40.0
@@ -2726,7 +3279,9 @@
           "name": "Triber",
           "fuelTypes": [
             "petrol",
-            "cng"
+            "diesel",
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 40.0
@@ -2735,7 +3290,9 @@
           "name": "Captur",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -2743,7 +3300,10 @@
         {
           "name": "Lodgy",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -2756,7 +3316,10 @@
         {
           "name": "Cullinan",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 100.0
@@ -2778,7 +3341,9 @@
           "name": "Kodiaq",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 62.0
@@ -2786,7 +3351,10 @@
         {
           "name": "Kushaq",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -2794,7 +3362,10 @@
         {
           "name": "Kylaq",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -2802,7 +3373,10 @@
         {
           "name": "Octavia vRS",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -2810,24 +3384,20 @@
           "name": "Superb",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 66.0
         },
         {
-          "name": "Kodiaq Scout",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Automatic",
-          "tankL": 63.0
-        },
-        {
           "name": "Octavia",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -2836,7 +3406,9 @@
           "name": "Rapid",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
@@ -2845,7 +3417,9 @@
           "name": "Fabia",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -2854,7 +3428,9 @@
           "name": "Laura",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
@@ -2869,7 +3445,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 37.0
@@ -2877,15 +3454,31 @@
         {
           "name": "Altroz Racer",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
+        },
+        {
+          "name": "Bolt",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 44.0
         },
         {
           "name": "Curvv",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 44.0
@@ -2901,7 +3494,10 @@
         {
           "name": "Harrier",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -2915,10 +3511,33 @@
           "batteryKWh": 65.0
         },
         {
+          "name": "Hexa",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Both",
+          "tankL": 60.0
+        },
+        {
+          "name": "Nano",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Both"
+        },
+        {
           "name": "Nexon",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 44.0
@@ -2936,7 +3555,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both"
         },
@@ -2949,10 +3569,34 @@
           "batteryKWh": 25.0
         },
         {
+          "name": "Safari",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 50.0
+        },
+        {
+          "name": "Safari Storme",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Manual",
+          "tankL": 63.0
+        },
+        {
           "name": "Sierra",
           "fuelTypes": [
             "petrol",
-            "electric"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -2961,7 +3605,9 @@
           "name": "Tiago",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 35.0
@@ -2975,11 +3621,23 @@
           "batteryKWh": 19.2
         },
         {
+          "name": "Tiago NRG",
+          "fuelTypes": [
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
+          ],
+          "transmission": "Both",
+          "tankL": 35.0
+        },
+        {
           "name": "Tigor",
           "fuelTypes": [
             "petrol",
             "diesel",
-            "cng"
+            "cng",
+            "strong hybrid"
           ],
           "transmission": "Both",
           "tankL": 35.0
@@ -2996,74 +3654,20 @@
         {
           "name": "Xenon",
           "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual"
-        },
-        {
-          "name": "Bolt",
-          "fuelTypes": [
             "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 44.0
-        },
-        {
-          "name": "Hexa",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Both",
-          "tankL": 60.0
-        },
-        {
-          "name": "Nano",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Both"
-        },
-        {
-          "name": "Nano GenX",
-          "fuelTypes": [
-            "petrol",
+            "diesel",
+            "strong hybrid",
             "cng"
           ],
-          "transmission": "Both",
-          "tankL": 24.0
-        },
-        {
-          "name": "Safari Storme",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 63.0
-        },
-        {
-          "name": "Tiago NRG",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Both",
-          "tankL": 35.0
-        },
-        {
-          "name": "Winger",
-          "fuelTypes": [
-            "diesel",
-            "electric"
-          ],
-          "transmission": "Manual",
-          "tankL": 60.0
+          "transmission": "Manual"
         },
         {
           "name": "Zest",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 44.0
@@ -3076,7 +3680,10 @@
         {
           "name": "Camry",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -3085,7 +3692,9 @@
           "name": "Etios",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
@@ -3093,7 +3702,9 @@
           "name": "Etios Cross",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -3101,7 +3712,10 @@
         {
           "name": "Glanza",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 37.0
@@ -3109,7 +3723,10 @@
         {
           "name": "Hilux",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -3118,7 +3735,9 @@
           "name": "Hyryder",
           "fuelTypes": [
             "petrol",
-            "hybrid"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -3127,7 +3746,9 @@
           "name": "Innova Crysta",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 65.0
@@ -3136,7 +3757,9 @@
           "name": "Innova Hycross",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 52.0
@@ -3144,7 +3767,10 @@
         {
           "name": "Taisor",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 37.0
@@ -3152,7 +3778,10 @@
         {
           "name": "Vellfire",
           "fuelTypes": [
-            "hybrid"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -3161,7 +3790,9 @@
           "name": "Corolla Altis",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
@@ -3170,7 +3801,9 @@
           "name": "Etios Liva",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -3179,7 +3812,9 @@
           "name": "Fortuner",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 80.0
@@ -3188,7 +3823,9 @@
           "name": "Fortuner Legender",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -3196,7 +3833,10 @@
         {
           "name": "Land Cruiser",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 93.0
@@ -3204,7 +3844,10 @@
         {
           "name": "Yaris",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 42.0
@@ -3213,7 +3856,9 @@
           "name": "Corolla",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
@@ -3221,7 +3866,10 @@
         {
           "name": "Qualis",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 55.0
@@ -3234,22 +3882,21 @@
         {
           "name": "Golf GTI",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
         },
         {
-          "name": "Polo GT",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual"
-        },
-        {
           "name": "Taigun",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -3257,7 +3904,10 @@
         {
           "name": "Tiguan R-Line",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -3266,7 +3916,9 @@
           "name": "Ameo",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -3274,7 +3926,10 @@
         {
           "name": "Passat",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 55.0
@@ -3283,7 +3938,9 @@
           "name": "Polo",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -3291,7 +3948,10 @@
         {
           "name": "Tiguan",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Automatic",
           "tankL": 71.0
@@ -3300,7 +3960,9 @@
           "name": "Vento",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
@@ -3308,7 +3970,10 @@
         {
           "name": "Virtus",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 45.0
@@ -3317,7 +3982,9 @@
           "name": "Jetta",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Both",
           "tankL": 55.0
@@ -3352,7 +4019,9 @@
           "name": "XC60",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 71.0
@@ -3362,7 +4031,8 @@
           "fuelTypes": [
             "petrol",
             "diesel",
-            "hybrid"
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 71.0
@@ -3371,7 +4041,9 @@
           "name": "S60",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 67.0
@@ -3379,7 +4051,10 @@
         {
           "name": "S60 Cross Country",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 67.0
@@ -3387,14 +4062,20 @@
         {
           "name": "S90",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual"
         },
         {
           "name": "V40",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -3403,7 +4084,9 @@
           "name": "V40 Cross Country",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -3411,7 +4094,10 @@
         {
           "name": "V90 Cross Country",
           "fuelTypes": [
-            "diesel"
+            "petrol",
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -3420,7 +4106,9 @@
           "name": "XC40",
           "fuelTypes": [
             "petrol",
-            "diesel"
+            "diesel",
+            "strong hybrid",
+            "cng"
           ],
           "transmission": "Manual",
           "tankL": 54.0

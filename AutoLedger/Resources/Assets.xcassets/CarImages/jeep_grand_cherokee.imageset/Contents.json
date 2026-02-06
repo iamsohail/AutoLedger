@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "filename": "jeep_grand_cherokee.jpg",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}

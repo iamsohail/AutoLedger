@@ -11,17 +11,45 @@ struct LogView: View {
     }
 
     @State private var selectedSegment: LogSegment = .fuel
+    @Namespace private var segmentAnimation
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Segmented picker
-                Picker("Log Type", selection: $selectedSegment) {
+                // Custom dark pill-style segmented picker
+                HStack(spacing: 4) {
                     ForEach(LogSegment.allCases, id: \.self) { segment in
-                        Text(segment.rawValue).tag(segment)
+                        Button {
+                            withAnimation(.snappy(duration: 0.25)) {
+                                selectedSegment = segment
+                            }
+                        } label: {
+                            Text(segment.rawValue)
+                                .font(Theme.Typography.subheadlineMedium)
+                                .foregroundColor(selectedSegment == segment ? .white : .textSecondary)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .background {
+                                    if selectedSegment == segment {
+                                        Capsule()
+                                            .fill(Color.primaryPurple)
+                                            .matchedGeometryEffect(id: "segment", in: segmentAnimation)
+                                    }
+                                }
+                                .contentShape(Capsule())
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
-                .pickerStyle(.segmented)
+                .padding(4)
+                .background(
+                    Capsule()
+                        .fill(Color.cardBackground)
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.white.opacity(0.05), lineWidth: 1)
+                        )
+                )
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
 
