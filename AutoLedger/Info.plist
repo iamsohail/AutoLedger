@@ -37,5 +37,7 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSCameraUsageDescription</key>
+	<string>AutoLedger uses the camera to scan fuel receipts and auto-fill entry details.</string>
 </dict>
 </plist>

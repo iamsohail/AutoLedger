@@ -45,22 +45,12 @@
           "tankL": 73.0
         },
         {
-          "name": "Db 11",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 80.0,
-          "discontinued": true
-        },
-        {
           "name": "Rapide",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 90.5,
-          "discontinued": true
+          "tankL": 90.5
         }
       ]
     },
@@ -188,8 +178,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         },
         {
           "name": "A4",
@@ -197,25 +186,23 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 54.0,
-          "discontinued": true
+          "tankL": 54.0
         },
         {
           "name": "A5",
           "fuelTypes": [
+            "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "A5 Cabriolet",
           "fuelTypes": [
-            "diesel"
+            "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 58.0,
-          "discontinued": true
+          "tankL": 58.0
         },
         {
           "name": "R8",
@@ -223,26 +210,23 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 75.0,
-          "discontinued": true
+          "tankL": 75.0
         },
         {
-          "name": "Rs5",
+          "name": "RS5",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 58.0,
-          "discontinued": true
+          "tankL": 58.0
         },
         {
-          "name": "Rs7",
+          "name": "RS7",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 75.0,
-          "discontinued": true
+          "tankL": 75.0
         },
         {
           "name": "S5",
@@ -250,8 +234,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 58.0,
-          "discontinued": true
+          "tankL": 58.0
         }
       ]
     },
@@ -268,7 +251,8 @@
         {
           "name": "3 Series",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual",
           "tankL": 59.0
@@ -283,7 +267,8 @@
         {
           "name": "5 Series",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -291,14 +276,16 @@
         {
           "name": "6 Series",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual"
         },
         {
           "name": "7 Series",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual"
         },
@@ -432,54 +419,12 @@
           "transmission": "Manual"
         },
         {
-          "name": "3-Series",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 40.0,
-          "discontinued": true
-        },
-        {
-          "name": "5-Series",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 70.0,
-          "discontinued": true
-        },
-        {
-          "name": "6-Series",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 88.0,
-          "discontinued": true
-        },
-        {
-          "name": "7-Series",
-          "fuelTypes": [
-            "petrol",
-            "diesel",
-            "hybrid"
-          ],
-          "transmission": "Manual",
-          "tankL": 78.0,
-          "discontinued": true
-        },
-        {
           "name": "M2 Competition",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 52.0,
-          "discontinued": true
+          "tankL": 52.0
         },
         {
           "name": "M4",
@@ -487,8 +432,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "Z4 Roadster",
@@ -496,8 +440,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 52.0,
-          "discontinued": true
+          "tankL": 52.0
         }
       ]
     },
@@ -550,13 +493,12 @@
           "tankL": 85.0
         },
         {
-          "name": "Continental Gt",
+          "name": "Continental GT",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 90.0,
-          "discontinued": true
+          "tankL": 90.0
         },
         {
           "name": "Flying Spur",
@@ -564,8 +506,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 90.0,
-          "discontinued": true
+          "tankL": 90.0
         },
         {
           "name": "Mulsanne",
@@ -573,8 +514,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 90.0,
-          "discontinued": true
+          "tankL": 90.0
         }
       ]
     },
@@ -586,8 +526,7 @@
           "fuelTypes": [
             "petrol"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         }
       ]
     },
@@ -600,8 +539,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Cruze",
@@ -609,8 +547,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Enjoy",
@@ -618,8 +555,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Sail",
@@ -627,13 +563,12 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         }
       ]
     },
     {
-      "name": "Citroen",
+      "name": "Citroën",
       "models": [
         {
           "name": "Aircross",
@@ -659,7 +594,7 @@
           "tankL": 52.5
         },
         {
-          "name": "EC3",
+          "name": "ëC3",
           "fuelTypes": [
             "electric"
           ],
@@ -673,8 +608,7 @@
             "cng"
           ],
           "transmission": "Both",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         }
       ]
     },
@@ -694,17 +628,15 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 35.0,
-          "discontinued": true
+          "tankL": 35.0
         },
         {
-          "name": "Redi-Go",
+          "name": "redi-GO",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 28.0,
-          "discontinued": true
+          "tankL": 28.0
         }
       ]
     },
@@ -749,8 +681,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 86.0,
-          "discontinued": true
+          "tankL": 86.0
         },
         {
           "name": "458 Spider",
@@ -758,26 +689,23 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 86.0,
-          "discontinued": true
+          "tankL": 86.0
         },
         {
-          "name": "488 Gtb",
+          "name": "488 GTB",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 78.0,
-          "discontinued": true
+          "tankL": 78.0
         },
         {
-          "name": "Gtc4 Lusso",
+          "name": "GTC4Lusso",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 91.0,
-          "discontinued": true
+          "tankL": 91.0
         }
       ]
     },
@@ -789,16 +717,14 @@
           "fuelTypes": [
             "petrol"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Abarth Punto",
           "fuelTypes": [
             "petrol"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Avventura",
@@ -807,8 +733,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         },
         {
           "name": "Linea",
@@ -817,17 +742,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
-        },
-        {
-          "name": "Linea Classic",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         },
         {
           "name": "Punto",
@@ -835,8 +750,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Punto Evo",
@@ -845,8 +759,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         },
         {
           "name": "Punto Evo Pure",
@@ -854,8 +767,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         },
         {
           "name": "Urban Cross",
@@ -864,8 +776,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         }
       ]
     },
@@ -887,8 +798,7 @@
             "cng"
           ],
           "transmission": "Manual",
-          "tankL": 42.0,
-          "discontinued": true
+          "tankL": 42.0
         },
         {
           "name": "EcoSport",
@@ -897,8 +807,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 52.0,
-          "discontinued": true
+          "tankL": 52.0
         },
         {
           "name": "Endeavour",
@@ -906,8 +815,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 80.0,
-          "discontinued": true
+          "tankL": 80.0
         },
         {
           "name": "Figo",
@@ -916,8 +824,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 42.0,
-          "discontinued": true
+          "tankL": 42.0
         },
         {
           "name": "Freestyle",
@@ -926,8 +833,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 40.0,
-          "discontinued": true
+          "tankL": 40.0
         },
         {
           "name": "Mustang",
@@ -935,8 +841,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 60.9,
-          "discontinued": true
+          "tankL": 60.9
         }
       ]
     },
@@ -964,7 +869,7 @@
         {
           "name": "City Hybrid",
           "fuelTypes": [
-            "petrol"
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 40.0
@@ -989,11 +894,10 @@
         {
           "name": "Accord Hybrid",
           "fuelTypes": [
-            "petrol"
+            "hybrid"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "BR-V",
@@ -1001,18 +905,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
-        },
-        {
-          "name": "Brv",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 42.0,
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "CR-V",
@@ -1021,8 +914,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 57.0,
-          "discontinued": true
+          "tankL": 57.0
         },
         {
           "name": "Civic",
@@ -1031,8 +923,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 47.0,
-          "discontinued": true
+          "tankL": 47.0
         },
         {
           "name": "Jazz",
@@ -1041,8 +932,24 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 40.0,
-          "discontinued": true
+          "tankL": 40.0
+        },
+        {
+          "name": "Brio",
+          "fuelTypes": [
+            "petrol"
+          ],
+          "transmission": "Both",
+          "tankL": 35.0
+        },
+        {
+          "name": "Mobilio",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Both",
+          "tankL": 42.0
         }
       ]
     },
@@ -1132,7 +1039,7 @@
         {
           "name": "Santa Fe",
           "fuelTypes": [
-            "petrol"
+            "diesel"
           ],
           "transmission": "Manual"
         },
@@ -1186,16 +1093,14 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         },
         {
           "name": "Eon",
           "fuelTypes": [
             "petrol"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Grand i10",
@@ -1205,26 +1110,14 @@
             "cng"
           ],
           "transmission": "Manual",
-          "tankL": 43.0,
-          "discontinued": true
-        },
-        {
-          "name": "I20 Active",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 40.0,
-          "discontinued": true
+          "tankL": 43.0
         },
         {
           "name": "Kona Electric",
           "fuelTypes": [
             "electric"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Santro",
@@ -1233,8 +1126,7 @@
             "cng"
           ],
           "transmission": "Manual",
-          "tankL": 35.0,
-          "discontinued": true
+          "tankL": 35.0
         },
         {
           "name": "Tucson",
@@ -1243,8 +1135,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 62.0,
-          "discontinued": true
+          "tankL": 62.0
         },
         {
           "name": "Xcent",
@@ -1253,8 +1144,43 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 43.0,
-          "discontinued": true
+          "tankL": 43.0
+        },
+        {
+          "name": "i20 Active",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Manual",
+          "tankL": 40.0
+        },
+        {
+          "name": "Getz",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Manual",
+          "tankL": 45.0
+        },
+        {
+          "name": "Accent",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Manual",
+          "tankL": 45.0
+        },
+        {
+          "name": "Sonata",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Both",
+          "tankL": 70.0
         }
       ]
     },
@@ -1264,42 +1190,25 @@
         {
           "name": "D-Max",
           "fuelTypes": [
-            "petrol"
+            "diesel"
           ],
           "transmission": "Manual"
         },
         {
-          "name": "D-Max V-Cross",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 55.0
-        },
-        {
           "name": "MU-X",
           "fuelTypes": [
-            "petrol",
             "diesel"
           ],
           "transmission": "Both",
           "tankL": 55.0
         },
         {
-          "name": "V-Cross",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Both",
-          "tankL": 55.0
-        },
-        {
-          "name": "Dmax V-Cross",
+          "name": "D-Max V-Cross",
           "fuelTypes": [
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Both",
+          "tankL": 55.0
         }
       ]
     },
@@ -1321,37 +1230,34 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 72.0,
-          "discontinued": true
+          "tankL": 72.0
         },
         {
-          "name": "Xe",
+          "name": "XE",
           "fuelTypes": [
             "petrol",
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 61.0,
-          "discontinued": true
+          "tankL": 61.0
         },
         {
-          "name": "Xf",
+          "name": "XF",
           "fuelTypes": [
             "petrol",
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 74.0,
-          "discontinued": true
+          "tankL": 74.0
         },
         {
-          "name": "Xj",
+          "name": "XJ",
           "fuelTypes": [
+            "petrol",
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 82.0,
-          "discontinued": true
+          "tankL": 82.0
         }
       ]
     },
@@ -1387,7 +1293,8 @@
         {
           "name": "Wrangler",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual",
           "tankL": 85.0
@@ -1498,17 +1405,15 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 90.0,
-          "discontinued": true
+          "tankL": 90.0
         },
         {
-          "name": "Huracan",
+          "name": "Huracán",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 90.0,
-          "discontinued": true
+          "tankL": 90.0
         },
         {
           "name": "Urus",
@@ -1516,8 +1421,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 75.0,
-          "discontinued": true
+          "tankL": 75.0
         }
       ]
     },
@@ -1580,55 +1484,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 70.0,
-          "discontinued": true
-        },
-        {
-          "name": "Range",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Both",
-          "tankL": 105.0,
-          "discontinued": true
-        },
-        {
-          "name": "Range Evoque",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "discontinued": true
-        },
-        {
-          "name": "Range Evoque Convertible",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "discontinued": true
-        },
-        {
-          "name": "Range Sport",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Both",
-          "tankL": 105.0,
-          "discontinued": true
-        },
-        {
-          "name": "Range Velar",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 65.0,
-          "discontinued": true
+          "tankL": 70.0
         }
       ]
     },
@@ -1647,7 +1503,7 @@
         {
           "name": "LM",
           "fuelTypes": [
-            "petrol"
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -1655,7 +1511,8 @@
         {
           "name": "LX",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -1663,7 +1520,8 @@
         {
           "name": "NX",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 55.0
@@ -1671,64 +1529,19 @@
         {
           "name": "RX",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 65.0
         },
         {
-          "name": "Lc 500H",
+          "name": "LS",
           "fuelTypes": [
             "hybrid"
           ],
           "transmission": "Manual",
-          "tankL": 82.0,
-          "discontinued": true
-        },
-        {
-          "name": "Ls 500H",
-          "fuelTypes": [
-            "hybrid"
-          ],
-          "transmission": "Manual",
-          "tankL": 82.0,
-          "discontinued": true
-        },
-        {
-          "name": "Lx 450D",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 93.0,
-          "discontinued": true
-        },
-        {
-          "name": "Lx 570",
-          "fuelTypes": [
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 93.0,
-          "discontinued": true
-        },
-        {
-          "name": "Nx 300H",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 56.0,
-          "discontinued": true
-        },
-        {
-          "name": "Rx 450H",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual",
-          "tankL": 65.0,
-          "discontinued": true
+          "tankL": 82.0
         }
       ]
     },
@@ -1754,14 +1567,14 @@
         {
           "name": "Cyberster",
           "fuelTypes": [
-            "petrol"
+            "electric"
           ],
           "transmission": "Manual"
         },
         {
           "name": "Gloster",
           "fuelTypes": [
-            "petrol"
+            "diesel"
           ],
           "transmission": "Manual",
           "tankL": 75.0
@@ -1788,7 +1601,7 @@
         {
           "name": "M9",
           "fuelTypes": [
-            "petrol"
+            "electric"
           ],
           "transmission": "Manual"
         },
@@ -1847,16 +1660,10 @@
           "tankL": 60.0
         },
         {
-          "name": "CL",
-          "fuelTypes": [
-            "petrol"
-          ],
-          "transmission": "Manual"
-        },
-        {
           "name": "Logan",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual"
         },
@@ -1882,13 +1689,6 @@
           "name": "Quanto",
           "fuelTypes": [
             "diesel"
-          ],
-          "transmission": "Manual"
-        },
-        {
-          "name": "Reva",
-          "fuelTypes": [
-            "petrol"
           ],
           "transmission": "Manual"
         },
@@ -2016,8 +1816,7 @@
             "diesel"
           ],
           "transmission": "Automatic",
-          "tankL": 70.0,
-          "discontinued": true
+          "tankL": 70.0
         },
         {
           "name": "Bolero Power Plus",
@@ -2025,25 +1824,22 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "E Verito",
           "fuelTypes": [
             "electric"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
-          "name": "E2O Plus",
+          "name": "e2o Plus",
           "fuelTypes": [
             "electric"
           ],
           "transmission": "Manual",
-          "batteryKWh": 10.08,
-          "discontinued": true
+          "batteryKWh": 10.08
         },
         {
           "name": "KUV100",
@@ -2051,18 +1847,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
-        },
-        {
-          "name": "Kuv100 Nxt",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 35.0,
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "TUV300",
@@ -2070,8 +1855,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "Verito",
@@ -2080,8 +1864,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         },
         {
           "name": "XUV500",
@@ -2089,8 +1872,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 70.0,
-          "discontinued": true
+          "tankL": 70.0
         },
         {
           "name": "Xylo",
@@ -2098,8 +1880,36 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 55.0,
-          "discontinued": true
+          "tankL": 55.0
+        },
+        {
+          "name": "CL 500",
+          "fuelTypes": [
+            "diesel"
+          ],
+          "transmission": "Manual"
+        },
+        {
+          "name": "CL 550",
+          "fuelTypes": [
+            "diesel"
+          ],
+          "transmission": "Manual"
+        },
+        {
+          "name": "Armada",
+          "fuelTypes": [
+            "diesel"
+          ],
+          "transmission": "Manual",
+          "tankL": 55.0
+        },
+        {
+          "name": "Major",
+          "fuelTypes": [
+            "diesel"
+          ],
+          "transmission": "Manual"
         }
       ]
     },
@@ -2204,7 +2014,7 @@
         {
           "name": "Invicto",
           "fuelTypes": [
-            "petrol"
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 52.0
@@ -2286,17 +2096,15 @@
             "cng"
           ],
           "transmission": "Manual",
-          "tankL": 35.0,
-          "discontinued": true
+          "tankL": 35.0
         },
         {
-          "name": "Baleno Rs",
+          "name": "Baleno RS",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 37.0,
-          "discontinued": true
+          "tankL": 37.0
         },
         {
           "name": "Celerio X",
@@ -2304,8 +2112,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 35.0,
-          "discontinued": true
+          "tankL": 35.0
         },
         {
           "name": "Eeco",
@@ -2314,8 +2121,7 @@
             "cng"
           ],
           "transmission": "Manual",
-          "tankL": 40.0,
-          "discontinued": true
+          "tankL": 40.0
         },
         {
           "name": "Gypsy",
@@ -2323,16 +2129,14 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 40.0,
-          "discontinued": true
+          "tankL": 40.0
         },
         {
           "name": "Kizashi",
           "fuelTypes": [
             "petrol"
           ],
-          "transmission": "Both",
-          "discontinued": true
+          "transmission": "Both"
         },
         {
           "name": "Omni",
@@ -2340,8 +2144,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 35.0,
-          "discontinued": true
+          "tankL": 35.0
         },
         {
           "name": "Ritz",
@@ -2349,8 +2152,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "SX4",
@@ -2358,8 +2160,7 @@
             "petrol",
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Vitara Brezza",
@@ -2367,18 +2168,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 48.0,
-          "discontinued": true
-        },
-        {
-          "name": "Wagon",
-          "fuelTypes": [
-            "petrol",
-            "cng"
-          ],
-          "transmission": "Manual",
-          "tankL": 32.0,
-          "discontinued": true
+          "tankL": 48.0
         }
       ]
     },
@@ -2414,22 +2204,20 @@
           "tankL": 80.0
         },
         {
-          "name": "Grancabrio",
+          "name": "GranCabrio",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 75.0,
-          "discontinued": true
+          "tankL": 75.0
         },
         {
-          "name": "Granturismo",
+          "name": "GranTurismo",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 86.0,
-          "discontinued": true
+          "tankL": 86.0
         },
         {
           "name": "Quattroporte",
@@ -2437,8 +2225,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 70.0,
-          "discontinued": true
+          "tankL": 70.0
         }
       ]
     },
@@ -2491,7 +2278,7 @@
           "tankL": 51.0
         },
         {
-          "name": "AMG GT 4 Door Coupe",
+          "name": "AMG GT 4-Door Coupe",
           "fuelTypes": [
             "petrol"
           ],
@@ -2564,6 +2351,7 @@
         {
           "name": "G-Class",
           "fuelTypes": [
+            "petrol",
             "diesel"
           ],
           "transmission": "Manual",
@@ -2606,14 +2394,14 @@
           "tankL": 90.0
         },
         {
-          "name": "Maybach EQS SUV",
+          "name": "Mercedes-Maybach EQS SUV",
           "fuelTypes": [
             "electric"
           ],
           "transmission": "Manual"
         },
         {
-          "name": "Maybach GLS",
+          "name": "Mercedes-Maybach GLS",
           "fuelTypes": [
             "petrol"
           ],
@@ -2621,7 +2409,7 @@
           "tankL": 90.0
         },
         {
-          "name": "Maybach S-Class",
+          "name": "Mercedes-Maybach S-Class",
           "fuelTypes": [
             "petrol"
           ],
@@ -2629,7 +2417,7 @@
           "tankL": 76.0
         },
         {
-          "name": "Maybach SL 680",
+          "name": "Mercedes-Maybach SL 680",
           "fuelTypes": [
             "petrol"
           ],
@@ -2643,13 +2431,12 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 65.0,
-          "discontinued": true
+          "tankL": 65.0
         }
       ]
     },
     {
-      "name": "Mini",
+      "name": "MINI",
       "models": [
         {
           "name": "Cooper S",
@@ -2687,8 +2474,7 @@
           "fuelTypes": [
             "petrol"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "Convertible",
@@ -2696,27 +2482,24 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 44.0,
-          "discontinued": true
+          "tankL": 44.0
         },
         {
-          "name": "Cooper 3 Door",
+          "name": "Cooper 3-Door",
           "fuelTypes": [
             "petrol",
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 44.0,
-          "discontinued": true
+          "tankL": 44.0
         },
         {
-          "name": "Cooper 5 Door",
+          "name": "Cooper 5-Door",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 44.0,
-          "discontinued": true
+          "tankL": 44.0
         }
       ]
     },
@@ -2734,20 +2517,27 @@
         {
           "name": "Montero",
           "fuelTypes": [
-            "petrol"
+            "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 88.0,
-          "discontinued": true
+          "tankL": 88.0
         },
         {
           "name": "Outlander",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
+        },
+        {
+          "name": "Pajero",
+          "fuelTypes": [
+            "diesel"
+          ],
+          "transmission": "Both",
+          "tankL": 88.0
         }
       ]
     },
@@ -2772,13 +2562,12 @@
           "tankL": 55.0
         },
         {
-          "name": "Gtr",
+          "name": "GT-R",
           "fuelTypes": [
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 74.0,
-          "discontinued": true
+          "tankL": 74.0
         },
         {
           "name": "Kicks",
@@ -2787,8 +2576,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         },
         {
           "name": "Micra",
@@ -2797,8 +2585,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 41.0,
-          "discontinued": true
+          "tankL": 41.0
         },
         {
           "name": "Micra Active",
@@ -2806,8 +2593,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 41.0,
-          "discontinued": true
+          "tankL": 41.0
         },
         {
           "name": "Sunny",
@@ -2816,8 +2602,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 41.0,
-          "discontinued": true
+          "tankL": 41.0
         },
         {
           "name": "Terrano",
@@ -2826,8 +2611,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         }
       ]
     },
@@ -2873,8 +2657,7 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 54.0,
-          "discontinued": true
+          "tankL": 54.0
         },
         {
           "name": "911",
@@ -2882,17 +2665,16 @@
             "petrol"
           ],
           "transmission": "Manual",
-          "tankL": 64.0,
-          "discontinued": true
+          "tankL": 64.0
         },
         {
           "name": "Macan",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "electric"
           ],
           "transmission": "Manual",
-          "tankL": 65.0,
-          "discontinued": true
+          "tankL": 65.0
         }
       ]
     },
@@ -2906,8 +2688,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 46.0,
-          "discontinued": true
+          "tankL": 46.0
         }
       ]
     },
@@ -2918,8 +2699,7 @@
           "name": "Duster",
           "fuelTypes": [
             "petrol",
-            "diesel",
-            "hybrid"
+            "diesel"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -2958,8 +2738,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         },
         {
           "name": "Lodgy",
@@ -2967,8 +2746,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         }
       ]
     },
@@ -2994,7 +2772,7 @@
       ]
     },
     {
-      "name": "Skoda",
+      "name": "Škoda",
       "models": [
         {
           "name": "Kodiaq",
@@ -3043,18 +2821,7 @@
             "diesel"
           ],
           "transmission": "Automatic",
-          "tankL": 63.0,
-          "discontinued": true
-        },
-        {
-          "name": "Monte Carlo",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Automatic",
-          "tankL": 55.0,
-          "discontinued": true
+          "tankL": 63.0
         },
         {
           "name": "Octavia",
@@ -3063,8 +2830,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 50.0,
-          "discontinued": true
+          "tankL": 50.0
         },
         {
           "name": "Rapid",
@@ -3073,18 +2839,25 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 55.0,
-          "discontinued": true
+          "tankL": 55.0
         },
         {
-          "name": "Superb Sportline",
+          "name": "Fabia",
           "fuelTypes": [
             "petrol",
             "diesel"
           ],
-          "transmission": "Automatic",
-          "tankL": 66.0,
-          "discontinued": true
+          "transmission": "Both",
+          "tankL": 45.0
+        },
+        {
+          "name": "Laura",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Both",
+          "tankL": 55.0
         }
       ]
     },
@@ -3128,7 +2901,6 @@
         {
           "name": "Harrier",
           "fuelTypes": [
-            "petrol",
             "diesel"
           ],
           "transmission": "Both",
@@ -3179,7 +2951,8 @@
         {
           "name": "Sierra",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "electric"
           ],
           "transmission": "Both",
           "tankL": 50.0
@@ -3194,7 +2967,7 @@
           "tankL": 35.0
         },
         {
-          "name": "Tiago.ev",
+          "name": "Tiago EV",
           "fuelTypes": [
             "electric"
           ],
@@ -3212,7 +2985,7 @@
           "tankL": 35.0
         },
         {
-          "name": "Tigor.ev",
+          "name": "Tigor EV",
           "fuelTypes": [
             "electric"
           ],
@@ -3223,7 +2996,7 @@
         {
           "name": "Xenon",
           "fuelTypes": [
-            "petrol"
+            "diesel"
           ],
           "transmission": "Manual"
         },
@@ -3234,8 +3007,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 44.0,
-          "discontinued": true
+          "tankL": 44.0
         },
         {
           "name": "Hexa",
@@ -3243,26 +3015,23 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "Nano",
           "fuelTypes": [
             "petrol"
           ],
-          "transmission": "Both",
-          "discontinued": true
+          "transmission": "Both"
         },
         {
-          "name": "Nano Genx",
+          "name": "Nano GenX",
           "fuelTypes": [
             "petrol",
             "cng"
           ],
           "transmission": "Both",
-          "tankL": 24.0,
-          "discontinued": true
+          "tankL": 24.0
         },
         {
           "name": "Safari Storme",
@@ -3270,8 +3039,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 63.0,
-          "discontinued": true
+          "tankL": 63.0
         },
         {
           "name": "Tiago NRG",
@@ -3280,17 +3048,16 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 35.0,
-          "discontinued": true
+          "tankL": 35.0
         },
         {
           "name": "Winger",
           "fuelTypes": [
-            "diesel"
+            "diesel",
+            "electric"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "Zest",
@@ -3299,8 +3066,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 44.0,
-          "discontinued": true
+          "tankL": 44.0
         }
       ]
     },
@@ -3310,7 +3076,7 @@
         {
           "name": "Camry",
           "fuelTypes": [
-            "petrol"
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 50.0
@@ -3343,7 +3109,7 @@
         {
           "name": "Hilux",
           "fuelTypes": [
-            "petrol"
+            "diesel"
           ],
           "transmission": "Manual",
           "tankL": 80.0
@@ -3351,7 +3117,8 @@
         {
           "name": "Hyryder",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 45.0
@@ -3385,7 +3152,7 @@
         {
           "name": "Vellfire",
           "fuelTypes": [
-            "petrol"
+            "hybrid"
           ],
           "transmission": "Manual",
           "tankL": 60.0
@@ -3397,8 +3164,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 55.0,
-          "discontinued": true
+          "tankL": 55.0
         },
         {
           "name": "Etios Liva",
@@ -3407,8 +3173,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         },
         {
           "name": "Fortuner",
@@ -3417,17 +3182,16 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 80.0,
-          "discontinued": true
+          "tankL": 80.0
         },
         {
           "name": "Fortuner Legender",
           "fuelTypes": [
-            "petrol"
+            "petrol",
+            "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 80.0,
-          "discontinued": true
+          "tankL": 80.0
         },
         {
           "name": "Land Cruiser",
@@ -3435,27 +3199,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 93.0,
-          "discontinued": true
-        },
-        {
-          "name": "Platinum Etios",
-          "fuelTypes": [
-            "petrol",
-            "diesel"
-          ],
-          "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
-        },
-        {
-          "name": "Prius",
-          "fuelTypes": [
-            "hybrid"
-          ],
-          "transmission": "Manual",
-          "tankL": 43.0,
-          "discontinued": true
+          "tankL": 93.0
         },
         {
           "name": "Yaris",
@@ -3463,8 +3207,24 @@
             "petrol"
           ],
           "transmission": "Automatic",
-          "tankL": 42.0,
-          "discontinued": true
+          "tankL": 42.0
+        },
+        {
+          "name": "Corolla",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Both",
+          "tankL": 55.0
+        },
+        {
+          "name": "Qualis",
+          "fuelTypes": [
+            "diesel"
+          ],
+          "transmission": "Manual",
+          "tankL": 55.0
         }
       ]
     },
@@ -3489,14 +3249,13 @@
         {
           "name": "Taigun",
           "fuelTypes": [
-            "petrol",
-            "electric"
+            "petrol"
           ],
           "transmission": "Both",
           "tankL": 50.0
         },
         {
-          "name": "Tiguan R Line",
+          "name": "Tiguan R-Line",
           "fuelTypes": [
             "petrol"
           ],
@@ -3510,8 +3269,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         },
         {
           "name": "Passat",
@@ -3519,8 +3277,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 55.0,
-          "discontinued": true
+          "tankL": 55.0
         },
         {
           "name": "Polo",
@@ -3529,8 +3286,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
         },
         {
           "name": "Tiguan",
@@ -3538,8 +3294,7 @@
             "diesel"
           ],
           "transmission": "Automatic",
-          "tankL": 71.0,
-          "discontinued": true
+          "tankL": 71.0
         },
         {
           "name": "Vento",
@@ -3548,8 +3303,7 @@
             "diesel"
           ],
           "transmission": "Both",
-          "tankL": 55.0,
-          "discontinued": true
+          "tankL": 55.0
         },
         {
           "name": "Virtus",
@@ -3557,8 +3311,16 @@
             "petrol"
           ],
           "transmission": "Both",
-          "tankL": 45.0,
-          "discontinued": true
+          "tankL": 45.0
+        },
+        {
+          "name": "Jetta",
+          "fuelTypes": [
+            "petrol",
+            "diesel"
+          ],
+          "transmission": "Both",
+          "tankL": 55.0
         }
       ]
     },
@@ -3612,8 +3374,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 67.0,
-          "discontinued": true
+          "tankL": 67.0
         },
         {
           "name": "S60 Cross Country",
@@ -3621,16 +3382,14 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 67.0,
-          "discontinued": true
+          "tankL": 67.0
         },
         {
           "name": "S90",
           "fuelTypes": [
             "diesel"
           ],
-          "transmission": "Manual",
-          "discontinued": true
+          "transmission": "Manual"
         },
         {
           "name": "V40",
@@ -3638,8 +3397,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "V40 Cross Country",
@@ -3648,8 +3406,7 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
           "name": "V90 Cross Country",
@@ -3657,18 +3414,61 @@
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 60.0,
-          "discontinued": true
+          "tankL": 60.0
         },
         {
-          "name": "Xc40",
+          "name": "XC40",
           "fuelTypes": [
             "petrol",
             "diesel"
           ],
           "transmission": "Manual",
-          "tankL": 54.0,
-          "discontinued": true
+          "tankL": 54.0
+        }
+      ]
+    },
+    {
+      "name": "Tesla",
+      "models": [
+        {
+          "name": "Model S",
+          "fuelTypes": [
+            "electric"
+          ],
+          "transmission": "Automatic",
+          "batteryKWh": 100.0
+        },
+        {
+          "name": "Model 3",
+          "fuelTypes": [
+            "electric"
+          ],
+          "transmission": "Automatic",
+          "batteryKWh": 60.0
+        },
+        {
+          "name": "Model X",
+          "fuelTypes": [
+            "electric"
+          ],
+          "transmission": "Automatic",
+          "batteryKWh": 100.0
+        },
+        {
+          "name": "Model Y",
+          "fuelTypes": [
+            "electric"
+          ],
+          "transmission": "Automatic",
+          "batteryKWh": 75.0
+        },
+        {
+          "name": "Cybertruck",
+          "fuelTypes": [
+            "electric"
+          ],
+          "transmission": "Automatic",
+          "batteryKWh": 123.0
         }
       ]
     }

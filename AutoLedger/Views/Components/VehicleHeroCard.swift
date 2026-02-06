@@ -78,7 +78,7 @@ struct VehicleHeroCard: View {
                             .foregroundColor(.textPrimary)
 
                         HStack(spacing: Theme.Spacing.sm) {
-                            Text("\(vehicle.year)")
+                            Text(String(vehicle.year))
                                 .font(Theme.Typography.cardSubtitle)
                                 .foregroundColor(.textSecondary)
 

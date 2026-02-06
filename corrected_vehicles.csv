@@ -1,0 +1,390 @@
+Brand,Country,Model
+Hyundai,South Korea,Accent
+Hyundai,South Korea,Active i20
+Hyundai,South Korea,Alcazar
+Hyundai,South Korea,Aura
+Hyundai,South Korea,Creta
+Hyundai,South Korea,Creta Electric
+Hyundai,South Korea,Creta N Line
+Hyundai,South Korea,Elantra
+Hyundai,South Korea,Elite i20
+Hyundai,South Korea,Eon
+Hyundai,South Korea,Exter
+Hyundai,South Korea,Getz
+Hyundai,South Korea,Getz Prime
+Hyundai,South Korea,Grand i10
+Hyundai,South Korea,Grand i10 Nios
+Hyundai,South Korea,i10
+Hyundai,South Korea,i20
+Hyundai,South Korea,i20 N Line
+Hyundai,South Korea,IONIQ 5
+Hyundai,South Korea,Kona
+Hyundai,South Korea,Prime HB
+Hyundai,South Korea,Prime SD
+Hyundai,South Korea,Santa Fe
+Hyundai,South Korea,Santro
+Hyundai,South Korea,Santro Xing
+Hyundai,South Korea,Sonata
+Hyundai,South Korea,Sonata Embera
+Hyundai,South Korea,Terracan
+Hyundai,South Korea,Tucson
+Hyundai,South Korea,Venue
+Hyundai,South Korea,Venue N Line
+Hyundai,South Korea,Verna
+Hyundai,South Korea,Verna Transform
+Hyundai,South Korea,Xcent
+Honda,Japan,Accord
+Honda,Japan,Amaze
+Honda,Japan,BR-V
+Honda,Japan,Brio
+Honda,Japan,City
+Honda,Japan,City (Gen 1-4)
+Honda,Japan,City Hybrid
+Honda,Japan,City VTEC
+Honda,Japan,City ZX
+Honda,Japan,Civic
+Honda,Japan,CR-V
+Honda,Japan,Elevate
+Honda,Japan,Jazz
+Honda,Japan,Jazz (Old)
+Honda,Japan,Mobilio
+Honda,Japan,WR-V
+Toyota,Japan,Camry
+Toyota,Japan,Corolla
+Toyota,Japan,Corolla Altis
+Toyota,Japan,Etios
+Toyota,Japan,Etios Cross
+Toyota,Japan,Etios Liva
+Toyota,Japan,Fortuner Legender
+Toyota,Japan,Glanza
+Toyota,Japan,Hilux
+Toyota,Japan,Hyryder
+Toyota,Japan,Innova (Old)
+Toyota,Japan,Innova Crysta
+Toyota,Japan,Innova Hycross
+Toyota,Japan,Land Cruiser Prado
+Toyota,Japan,Prado
+Toyota,Japan,Prius
+Toyota,Japan,Qualis
+Toyota,Japan,Taisor
+Toyota,Japan,Urban Cruiser
+Toyota,Japan,Vellfire
+Kia,South Korea,Carens
+Kia,South Korea,Carens Clavis
+Kia,South Korea,Carens Clavis EV
+Kia,South Korea,Carnival
+Kia,South Korea,EV6
+Kia,South Korea,EV9
+Kia,South Korea,Seltos
+Kia,South Korea,Sonet
+Kia,South Korea,Syros
+MG,China,Astor
+MG,China,Comet EV
+MG,China,Cyberster
+MG,China,Gloster
+MG,China,Hector
+MG,China,Hector Plus
+MG,China,M9
+MG,China,Windsor EV
+MG,China,ZS EV
+Skoda,Czech Republic,Fabia
+Skoda,Czech Republic,Fabia Scout
+Skoda,Czech Republic,Kodiaq
+Skoda,Czech Republic,Kushaq
+Skoda,Czech Republic,Kylaq
+Skoda,Czech Republic,Laura
+Skoda,Czech Republic,Octavia
+Skoda,Czech Republic,Octavia RS
+Skoda,Czech Republic,Octavia vRS
+Skoda,Czech Republic,Rapid
+Skoda,Czech Republic,Superb
+Skoda,Czech Republic,Yeti
+Volkswagen,Germany,Ameo
+Volkswagen,Germany,Beetle
+Volkswagen,Germany,Cross Polo
+Volkswagen,Germany,Golf GTI
+Volkswagen,Germany,Jetta
+Volkswagen,Germany,Passat
+Volkswagen,Germany,Polo
+Volkswagen,Germany,Polo GT
+Volkswagen,Germany,Polo GTI
+Volkswagen,Germany,T-Roc
+Volkswagen,Germany,Taigun
+Volkswagen,Germany,Tiguan
+Volkswagen,Germany,Tiguan Allspace
+Volkswagen,Germany,Tiguan R Line
+Volkswagen,Germany,Vento
+Volkswagen,Germany,Virtus
+Renault,France,Captur
+Renault,France,Duster
+Renault,France,Fluence
+Renault,France,Kiger
+Renault,France,Koleos
+Renault,France,KWID
+Renault,France,Lodgy
+Renault,France,Pulse
+Renault,France,Scala
+Renault,France,Triber
+Nissan,Japan,370Z
+Nissan,Japan,Evalia
+Nissan,Japan,GT-R
+Nissan,Japan,Kicks
+Nissan,Japan,Magnite
+Nissan,Japan,Micra
+Nissan,Japan,Micra Active
+Nissan,Japan,Sunny
+Nissan,Japan,Teana
+Nissan,Japan,Terrano
+Nissan,Japan,X-Trail
+Jeep,USA,Compass
+Jeep,USA,Compass Trailhawk
+Jeep,USA,Grand Cherokee
+Jeep,USA,Meridian
+Jeep,USA,Trailhawk
+Jeep,USA,Wrangler
+Citroen,France,Aircross
+Citroen,France,Basalt
+Citroen,France,C3
+Citroen,France,C5 Aircross
+Citroen,France,EC3
+Mercedes-Benz,Germany,A-Class Limousine
+Mercedes-Benz,Germany,A-Class
+Mercedes-Benz,Germany,AMG A 45 S
+Mercedes-Benz,Germany,AMG C 63
+Mercedes-Benz,Germany,AMG C43
+Mercedes-Benz,Germany,AMG CLE 53
+Mercedes-Benz,Germany,AMG E 53 Cabriolet
+Mercedes-Benz,Germany,AMG EQS
+Mercedes-Benz,Germany,AMG GLA 35
+Mercedes-Benz,Germany,AMG GLC 43
+Mercedes-Benz,Germany,AMG GLE 53
+Mercedes-Benz,Germany,AMG GT 4 Door Coupe
+Mercedes-Benz,Germany,AMG GT Coupe
+Mercedes-Benz,Germany,AMG S 63
+Mercedes-Benz,Germany,AMG SL
+Mercedes-Benz,Germany,B-Class
+Mercedes-Benz,Germany,C-Class
+Mercedes-Benz,Germany,CLA
+Mercedes-Benz,Germany,CLE Cabriolet
+Mercedes-Benz,Germany,CLS
+Mercedes-Benz,Germany,E-Class
+Mercedes-Benz,Germany,EQA
+Mercedes-Benz,Germany,EQB
+Mercedes-Benz,Germany,EQE SUV
+Mercedes-Benz,Germany,EQS
+Mercedes-Benz,Germany,EQS SUV
+Mercedes-Benz,Germany,G-Class
+Mercedes-Benz,Germany,G-Class Electric
+Mercedes-Benz,Germany,GL-Class
+Mercedes-Benz,Germany,GLA
+Mercedes-Benz,Germany,GLB
+Mercedes-Benz,Germany,GLC
+Mercedes-Benz,Germany,GLE
+Mercedes-Benz,Germany,GLS
+Mercedes-Benz,Germany,M-Class
+Mercedes-Benz,Germany,Maybach EQS SUV
+Mercedes-Benz,Germany,Maybach GLS
+Mercedes-Benz,Germany,Maybach S-Class
+Mercedes-Benz,Germany,Maybach SL 680
+Mercedes-Benz,Germany,R-Class
+Mercedes-Benz,Germany,S-Class
+Mercedes-Benz,Germany,SLC
+Mercedes-Benz,Germany,SLK
+BMW,Germany,1 Series
+BMW,Germany,2 Series
+BMW,Germany,2 Series Gran Coupe
+BMW,Germany,3 Series
+BMW,Germany,3 Series GT
+BMW,Germany,5 Series
+BMW,Germany,5 Series GT
+BMW,Germany,6 Series
+BMW,Germany,6 Series GT
+BMW,Germany,7 Series
+BMW,Germany,i4
+BMW,Germany,i5
+BMW,Germany,i7
+BMW,Germany,iX
+BMW,Germany,iX1
+BMW,Germany,M2
+BMW,Germany,M4 Competition
+BMW,Germany,M4 CS
+BMW,Germany,M5
+BMW,Germany,M8 Coupe Competition
+BMW,Germany,X1
+BMW,Germany,X3
+BMW,Germany,X4
+BMW,Germany,X5
+BMW,Germany,X6
+BMW,Germany,X6 M
+BMW,Germany,X7
+BMW,Germany,XM
+BMW,Germany,Z4
+Audi,Germany,A3
+Audi,Germany,A3 Cabriolet
+Audi,Germany,A4
+Audi,Germany,A5
+Audi,Germany,A5 Cabriolet
+Audi,Germany,A6
+Audi,Germany,A7
+Audi,Germany,A8 L
+Audi,Germany,e-tron
+Audi,Germany,e-tron GT
+Audi,Germany,Q3
+Audi,Germany,Q3 Sportback
+Audi,Germany,Q5
+Audi,Germany,Q7
+Audi,Germany,Q8
+Audi,Germany,Q8 e-tron
+Audi,Germany,Q8 Sportback e-tron
+Audi,Germany,R8
+Audi,Germany,RS e-tron GT
+Audi,Germany,RS Q8
+Audi,Germany,RS 6
+Audi,Germany,RS 7
+Audi,Germany,S5 Sportback
+Audi,Germany,TT
+Lexus,Japan,ES
+Lexus,Japan,LC 500h
+Lexus,Japan,LM
+Lexus,Japan,LS
+Lexus,Japan,LX
+Lexus,Japan,NX
+Lexus,Japan,RX
+Volvo,Sweden,EC40
+Volvo,Sweden,EX30
+Volvo,Sweden,EX40
+Volvo,Sweden,S60
+Volvo,Sweden,S90
+Volvo,Sweden,XC40
+Volvo,Sweden,XC60
+Volvo,Sweden,XC90
+Porsche,Germany,Cayenne
+Porsche,Germany,Cayenne Coupe
+Porsche,Germany,Cayenne Electric
+Porsche,Germany,Macan EV
+Porsche,Germany,Panamera
+Porsche,Germany,Taycan
+Land Rover,UK,Defender
+Land Rover,UK,Discovery
+Land Rover,UK,Range Rover
+Land Rover,UK,Range Rover Evoque
+Land Rover,UK,Range Rover Sport
+Land Rover,UK,Range Rover Velar
+Jaguar,UK,F-Pace
+Jaguar,UK,F-Type
+Jaguar,UK,I-Pace
+Jaguar,UK,XE
+Jaguar,UK,XF
+BYD,China,Atto 3
+BYD,China,E6
+BYD,China,Emax 7
+BYD,China,Seal
+BYD,China,Sealion 7
+Mini,UK,Cooper Countryman
+Mini,UK,Cooper S
+Mini,UK,Cooper SE
+Mini,UK,Countryman
+Mini,UK,Countryman Electric
+Mini,UK,John Cooper Works
+Isuzu,Japan,D-Max
+Isuzu,Japan,D-Max V-Cross
+Isuzu,Japan,HI-Lander
+Isuzu,Japan,MU-X
+Isuzu,Japan,S-Cab
+Isuzu,Japan,S-Cab Z
+Isuzu,Japan,V-Cross
+Force Motors,India,Gurkha
+Force Motors,India,Gurkha 5 Door
+Force Motors,India,Urbania
+Ferrari,Italy,296 GTB
+Ferrari,Italy,812 Superfast
+Ferrari,Italy,F8 Tributo
+Ferrari,Italy,GTC4Lusso
+Ferrari,Italy,Portofino
+Ferrari,Italy,Roma
+Ferrari,Italy,SF90 Stradale
+Lamborghini,Italy,Huracán EVO
+Lamborghini,Italy,Revuelto
+Lamborghini,Italy,Temerario
+Lamborghini,Italy,Urus
+Bentley,UK,Bentayga
+Bentley,UK,Bentayga EWB
+Rolls-Royce,UK,Cullinan
+Rolls-Royce,UK,Dawn
+Rolls-Royce,UK,Ghost Series II
+Rolls-Royce,UK,Spectre
+Maserati,Italy,Ghibli
+Maserati,Italy,Grecale
+Maserati,Italy,Levante
+Aston Martin,UK,DB11
+Aston Martin,UK,DB12
+Aston Martin,UK,DBX
+Aston Martin,UK,Vanquish
+Aston Martin,UK,Vantage
+McLaren,UK,750S
+McLaren,UK,GT
+Ford,USA,Aspire
+Ford,USA,Classic
+Ford,USA,EcoSport
+Ford,USA,Endeavour
+Ford,USA,Escort
+Ford,USA,Fiesta
+Ford,USA,Fiesta Classic
+Ford,USA,Figo
+Ford,USA,Figo Aspire
+Ford,USA,Focus
+Ford,USA,Freestyle
+Ford,USA,Fusion
+Ford,USA,Ikon
+Ford,USA,Mondeo
+Ford,USA,Mustang
+Chevrolet,USA,Aveo
+Chevrolet,USA,Aveo U-VA
+Chevrolet,USA,Beat
+Chevrolet,USA,Captiva
+Chevrolet,USA,Cruze
+Chevrolet,USA,Enjoy
+Chevrolet,USA,Forester
+Chevrolet,USA,Optra
+Chevrolet,USA,Optra Magnum
+Chevrolet,USA,Optra SRV
+Chevrolet,USA,Sail
+Chevrolet,USA,Sail U-VA
+Chevrolet,USA,Spark
+Chevrolet,USA,Tavera
+Chevrolet,USA,Trailblazer
+Fiat,Italy,500
+Fiat,Italy,500 Abarth
+Fiat,Italy,Avventura
+Fiat,Italy,Avventura Urban Cross
+Fiat,Italy,Grande Punto
+Fiat,Italy,Linea
+Fiat,Italy,Linea Classic
+Fiat,Italy,Palio
+Fiat,Italy,Palio Adventure
+Fiat,Italy,Palio Stile
+Fiat,Italy,Petra
+Fiat,Italy,Punto
+Fiat,Italy,Punto Evo
+Fiat,Italy,Siena
+Fiat,Italy,Uno
+Datsun,Japan,Go
+Datsun,Japan,Go Cross
+Datsun,Japan,Go Plus
+Datsun,Japan,redi-GO
+Mitsubishi,Japan,Cedia
+Mitsubishi,Japan,Lancer
+Mitsubishi,Japan,Montero
+Mitsubishi,Japan,Outlander
+Mitsubishi,Japan,Pajero
+Mitsubishi,Japan,Pajero Sport
+Hindustan Motors,India,Ambassador
+Hindustan Motors,India,Ambassador Avigo
+Hindustan Motors,India,Ambassador Classic
+Hindustan Motors,India,Ambassador Grand
+Hindustan Motors,India,Contessa
+Hindustan Motors,India,Contessa Classic
+Premier,India,Padmini
+Premier,India,Premier 118NE
+Premier,India,Premier 137
+Premier,India,Rio

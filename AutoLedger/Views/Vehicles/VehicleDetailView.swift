@@ -18,7 +18,7 @@ struct VehicleDetailView: View {
             Section("Details") {
                 DetailRow(label: "Make", value: vehicle.make)
                 DetailRow(label: "Model", value: vehicle.model)
-                DetailRow(label: "Year", value: "\(vehicle.year)")
+                DetailRow(label: "Year", value: String(vehicle.year))
                 if let vin = vehicle.vin, !vin.isEmpty {
                     DetailRow(label: "VIN", value: vin)
                 }

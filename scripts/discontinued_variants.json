@@ -1,0 +1,444 @@
+{
+  "note": "Discontinued variants for Indian market vehicles. These were available historically but are no longer sold.",
+  "lastUpdated": "2026-02-05",
+  "data": {
+    "Maruti Suzuki": {
+      "Swift": {
+        "diesel": ["VDi", "ZDi", "ZDi+", "VDi AMT", "ZDi AMT"],
+        "discontinuedYear": 2020
+      },
+      "Dzire": {
+        "diesel": ["VDi", "ZDi", "ZDi+", "VDi AMT", "ZDi AMT"],
+        "discontinuedYear": 2020
+      },
+      "Baleno": {
+        "diesel": ["Delta", "Zeta", "Alpha"],
+        "discontinuedYear": 2020
+      },
+      "Ciaz": {
+        "diesel": ["Sigma", "Delta", "Zeta", "Alpha", "Delta AT", "Zeta AT", "Alpha AT"],
+        "discontinuedYear": 2020
+      },
+      "Ertiga": {
+        "diesel": ["VDi", "ZDi", "ZDi+"],
+        "discontinuedYear": 2019
+      },
+      "Vitara Brezza": {
+        "diesel": ["LDi", "VDi", "ZDi", "ZDi+", "ZDi Dual Tone"],
+        "discontinuedYear": 2020
+      },
+      "S-Cross": {
+        "diesel": ["Sigma", "Delta", "Zeta", "Alpha"],
+        "petrol": ["Sigma", "Delta", "Zeta", "Alpha"],
+        "discontinuedYear": 2022
+      },
+      "Ignis": {
+        "diesel": ["Sigma", "Delta", "Zeta", "Alpha"],
+        "discontinuedYear": 2020
+      },
+      "WagonR": {
+        "petrol_old": ["LXi", "VXi", "ZXi", "Stingray VXi", "Stingray VXi AT"],
+        "cng_old": ["LXi CNG", "GreenLXi CNG"],
+        "discontinuedYear": 2019,
+        "note": "Old generation variants before BS6"
+      },
+      "Alto 800": {
+        "petrol": ["Std", "LXi", "VXi", "LXi CNG", "VXi Optional"],
+        "discontinuedYear": 2023
+      },
+      "Celerio": {
+        "diesel": ["VDi", "ZDi"],
+        "discontinuedYear": 2017
+      },
+      "Ritz": {
+        "petrol": ["LXi", "VXi", "VXi AT", "ZXi"],
+        "diesel": ["VDi", "VDi ABS", "ZDi"],
+        "discontinuedYear": 2016
+      },
+      "SX4": {
+        "petrol": ["VXi", "ZXi", "ZXi Leather"],
+        "diesel": ["VDi", "ZDi"],
+        "discontinuedYear": 2014
+      },
+      "Kizashi": {
+        "petrol": ["MT", "CVT"],
+        "discontinuedYear": 2014
+      }
+    },
+    "Hyundai": {
+      "i20": {
+        "diesel": ["Magna", "Sportz", "Asta", "Asta (O)"],
+        "discontinuedYear": 2020
+      },
+      "Elite i20": {
+        "petrol": ["Era", "Magna", "Magna+", "Sportz", "Sportz+", "Asta", "Asta (O)"],
+        "diesel": ["Era", "Magna", "Sportz", "Asta", "Asta (O)"],
+        "discontinuedYear": 2020
+      },
+      "Grand i10": {
+        "petrol": ["Era", "Magna", "Sportz", "Sportz AT", "Asta", "Asta AT"],
+        "diesel": ["Era", "Magna", "Sportz", "Asta"],
+        "discontinuedYear": 2019
+      },
+      "Xcent": {
+        "petrol": ["Base", "E", "E+", "S", "SX", "SX AT", "SX (O)", "SX (O) AT"],
+        "diesel": ["Base", "E", "E+", "S", "SX", "SX (O)"],
+        "discontinuedYear": 2020
+      },
+      "Verna": {
+        "diesel": ["S", "S+", "SX", "SX (O)", "SX IVT", "SX (O) IVT"],
+        "discontinuedYear": 2023
+      },
+      "Creta": {
+        "diesel_old": ["E", "EX", "S", "SX", "SX (O)", "SX AT", "SX (O) AT"],
+        "discontinuedYear": 2020,
+        "note": "First gen diesel variants"
+      },
+      "Venue": {
+        "diesel": ["E", "S", "SX", "SX+", "SX (O)"],
+        "discontinuedYear": 2022
+      },
+      "Elantra": {
+        "petrol": ["S", "SX", "SX AT", "SX (O)", "SX (O) AT"],
+        "diesel": ["S", "SX", "SX AT", "SX (O)"],
+        "discontinuedYear": 2023
+      },
+      "Tucson": {
+        "diesel_old": ["GL", "GL AT", "GLS", "GLS AT"],
+        "discontinuedYear": 2020
+      },
+      "Santro": {
+        "petrol": ["Era", "Magna", "Sportz", "Sportz AMT", "Asta", "Asta AMT"],
+        "cng": ["Magna CNG", "Sportz CNG"],
+        "discontinuedYear": 2022
+      },
+      "Eon": {
+        "petrol": ["D-Lite", "D-Lite+", "Era", "Era+", "Magna", "Magna+", "Sportz"],
+        "discontinuedYear": 2019
+      }
+    },
+    "Tata": {
+      "Nexon": {
+        "petrol_old": ["XE", "XM", "XZ", "XZ+", "XZA", "XZA+"],
+        "diesel_old": ["XE", "XM", "XZ", "XZ+", "XZA", "XZA+"],
+        "discontinuedYear": 2020,
+        "note": "Pre-facelift variants"
+      },
+      "Harrier": {
+        "diesel_old": ["XE", "XM", "XT", "XZ", "XZ+"],
+        "discontinuedYear": 2023,
+        "note": "Pre-facelift variants"
+      },
+      "Tiago": {
+        "diesel": ["XE", "XM", "XT", "XZ", "XZ+", "XZA", "XZA+"],
+        "discontinuedYear": 2020
+      },
+      "Tigor": {
+        "diesel": ["XE", "XM", "XT", "XZ", "XZ+", "XZA"],
+        "discontinuedYear": 2020
+      },
+      "Altroz": {
+        "diesel": ["XE", "XM", "XM+", "XT", "XZ", "XZ+", "XZ (O)"],
+        "discontinuedYear": 2024
+      },
+      "Hexa": {
+        "diesel": ["XE", "XM", "XT", "XTA", "XT 4x4", "XTA 4x4"],
+        "discontinuedYear": 2020
+      },
+      "Safari Storme": {
+        "diesel": ["LX", "EX", "VX", "VX 4x4"],
+        "discontinuedYear": 2019
+      },
+      "Bolt": {
+        "petrol": ["XE", "XM", "XMS", "XT", "XMS ABS"],
+        "diesel": ["XE", "XM", "XMS", "XT"],
+        "discontinuedYear": 2019
+      },
+      "Zest": {
+        "petrol": ["XE", "XM", "XMS", "XT", "XTA"],
+        "diesel": ["XE", "XM", "XMS", "XT", "XTA"],
+        "discontinuedYear": 2019
+      },
+      "Nano": {
+        "petrol": ["Std", "XE", "XM", "XT", "Twist XT", "GenX XE", "GenX XM", "GenX XMA", "GenX XT", "GenX XTA"],
+        "discontinuedYear": 2018
+      }
+    },
+    "Mahindra": {
+      "XUV500": {
+        "petrol": ["W5", "W7", "W9", "W11", "W11 (O)"],
+        "diesel": ["W5", "W6", "W7", "W9", "W11", "W11 (O)", "W6 AT", "W9 AT", "W11 AT", "W11 (O) AT"],
+        "discontinuedYear": 2021
+      },
+      "Scorpio": {
+        "diesel_old": ["S3", "S5", "S7", "S9", "S11", "S3+", "S5 BSIV", "S7 140", "S11 BSIV"],
+        "discontinuedYear": 2022,
+        "note": "Old generation before Scorpio N/Classic"
+      },
+      "TUV300": {
+        "diesel": ["T4", "T4+", "T6", "T6+", "T8", "T8 AMT", "T10", "T10 AMT"],
+        "discontinuedYear": 2020
+      },
+      "TUV300 Plus": {
+        "diesel": ["P4", "P6", "P8"],
+        "discontinuedYear": 2020
+      },
+      "KUV100": {
+        "petrol": ["K2", "K4", "K6", "K6+", "K8", "K8 Dual Tone"],
+        "diesel": ["K2", "K4", "K6", "K6+", "K8"],
+        "discontinuedYear": 2020
+      },
+      "Marazzo": {
+        "diesel": ["M2", "M4", "M6", "M6+", "M8"],
+        "discontinuedYear": 2023
+      },
+      "Xylo": {
+        "diesel": ["D2", "D2 BS-IV", "D2 Maxx", "D4", "D4 BS-IV", "E4", "E4 ABS BS-IV", "E8", "E8 ABS", "E9", "H4", "H8", "H9"],
+        "discontinuedYear": 2018
+      },
+      "Quanto": {
+        "diesel": ["C2", "C4", "C6", "C8"],
+        "discontinuedYear": 2019
+      },
+      "Verito": {
+        "petrol": ["D2", "D4", "D6"],
+        "diesel": ["D2", "D4", "D6"],
+        "discontinuedYear": 2017
+      }
+    },
+    "Honda": {
+      "City": {
+        "diesel": ["S", "SV", "V", "VX", "ZX"],
+        "discontinuedYear": 2020
+      },
+      "Amaze": {
+        "diesel": ["E", "S", "S CVT", "V", "V CVT", "VX", "VX CVT"],
+        "discontinuedYear": 2023
+      },
+      "WR-V": {
+        "petrol": ["SV", "VX", "VX i-VTEC"],
+        "diesel": ["SV", "VX"],
+        "discontinuedYear": 2023
+      },
+      "Jazz": {
+        "petrol": ["S", "SV", "V", "VX", "V CVT", "VX CVT"],
+        "diesel": ["S", "SV", "V", "VX"],
+        "discontinuedYear": 2020
+      },
+      "BR-V": {
+        "petrol": ["S", "E", "V", "V CVT", "VX"],
+        "diesel": ["S", "E", "V", "VX"],
+        "discontinuedYear": 2020
+      },
+      "Civic": {
+        "petrol": ["V", "VX", "ZX"],
+        "diesel": ["V", "VX", "ZX"],
+        "discontinuedYear": 2020
+      },
+      "CR-V": {
+        "petrol": ["2WD", "2WD AT", "AWD", "AWD AT"],
+        "diesel": ["2WD AT", "AWD AT"],
+        "discontinuedYear": 2023
+      }
+    },
+    "Toyota": {
+      "Innova Crysta": {
+        "diesel_old": ["G", "G+", "GX", "VX", "ZX"],
+        "discontinuedYear": 2023,
+        "note": "Diesel discontinued, now only petrol"
+      },
+      "Fortuner": {
+        "diesel_old": ["4x2 MT", "4x2 AT", "4x4 MT", "4x4 AT"],
+        "petrol_old": ["4x2 MT", "4x2 AT"],
+        "discontinuedYear": 2021,
+        "note": "Pre-facelift variants"
+      },
+      "Etios": {
+        "petrol": ["J", "JD", "G", "GD", "V", "VD", "VX", "VXD"],
+        "diesel": ["J", "JD", "G", "GD", "V", "VD", "VX", "VXD"],
+        "discontinuedYear": 2020
+      },
+      "Etios Liva": {
+        "petrol": ["J", "JD", "G", "GD", "V", "VD", "VX", "VXD"],
+        "diesel": ["J", "JD", "G", "GD", "V", "VD", "VX", "VXD"],
+        "discontinuedYear": 2020
+      },
+      "Corolla Altis": {
+        "petrol": ["J", "G", "GL", "G AT", "GL AT", "VL AT"],
+        "diesel": ["DJ", "D-4D J", "D-4D G", "D-4D GL", "D-4D GL AT", "D-4D VL AT"],
+        "discontinuedYear": 2020
+      },
+      "Yaris": {
+        "petrol": ["J", "J Optional", "G", "V", "V Optional", "VX", "J CVT", "G CVT", "V CVT", "VX CVT"],
+        "discontinuedYear": 2021
+      }
+    },
+    "Ford": {
+      "EcoSport": {
+        "petrol": ["Ambiente", "Trend", "Trend+", "Titanium", "Titanium+", "S", "Signature"],
+        "diesel": ["Ambiente", "Trend", "Trend+", "Titanium", "Titanium+", "S"],
+        "discontinuedYear": 2021
+      },
+      "Figo": {
+        "petrol": ["Base", "Ambiente", "Trend", "Titanium", "Titanium Blu", "Titanium AT"],
+        "diesel": ["Base", "Ambiente", "Trend", "Titanium", "Titanium Blu"],
+        "discontinuedYear": 2021
+      },
+      "Aspire": {
+        "petrol": ["Ambiente", "Trend", "Trend+", "Titanium", "Titanium+", "Titanium AT"],
+        "diesel": ["Ambiente", "Trend", "Trend+", "Titanium", "Titanium+"],
+        "discontinuedYear": 2021
+      },
+      "Endeavour": {
+        "diesel": ["Titanium 4x2 AT", "Titanium+ 4x2 AT", "Titanium+ 4x4 AT", "Sport 4x4 AT"],
+        "discontinuedYear": 2021
+      },
+      "Freestyle": {
+        "petrol": ["Ambiente", "Trend", "Trend+", "Titanium", "Titanium+"],
+        "diesel": ["Ambiente", "Trend", "Trend+", "Titanium", "Titanium+"],
+        "discontinuedYear": 2021
+      }
+    },
+    "Volkswagen": {
+      "Polo": {
+        "petrol": ["Trendline", "Comfortline", "Highline", "Highline Plus", "GT TSI", "GT TSI AT"],
+        "diesel": ["Trendline", "Comfortline", "Highline", "Highline Plus", "GT TDI"],
+        "discontinuedYear": 2022
+      },
+      "Vento": {
+        "petrol": ["Trendline", "Comfortline", "Comfortline AT", "Highline", "Highline Plus", "Highline Plus AT"],
+        "diesel": ["Trendline", "Comfortline", "Highline", "Highline Plus"],
+        "discontinuedYear": 2022
+      },
+      "Ameo": {
+        "petrol": ["Trendline", "Comfortline", "Highline", "Highline Plus"],
+        "diesel": ["Trendline", "Comfortline", "Highline", "Highline Plus", "GT Line"],
+        "discontinuedYear": 2020
+      }
+    },
+    "Skoda": {
+      "Rapid": {
+        "petrol": ["Rider", "Rider Plus", "Ambition", "Onyx", "Style", "Monte Carlo"],
+        "diesel": ["Rider", "Rider Plus", "Ambition", "Elegance", "Style"],
+        "discontinuedYear": 2022
+      },
+      "Octavia": {
+        "diesel": ["Style", "Style Plus", "L&K"],
+        "discontinuedYear": 2023
+      },
+      "Superb": {
+        "diesel": ["Sportline", "L&K"],
+        "discontinuedYear": 2023
+      }
+    },
+    "Renault": {
+      "Duster": {
+        "diesel": ["RXE", "RXS", "RXS 110", "RXZ", "RXZ 110", "RXZ AWD"],
+        "discontinuedYear": 2022
+      },
+      "Kwid": {
+        "petrol_old": ["Std", "RXE", "RXL", "RXT", "RXT Optional", "Climber"],
+        "discontinuedYear": 2019,
+        "note": "Pre-facelift variants"
+      },
+      "Captur": {
+        "petrol": ["RXE", "RXT", "Platine", "Platine Dual Tone"],
+        "diesel": ["RXE", "RXT", "Platine", "Platine Dual Tone"],
+        "discontinuedYear": 2020
+      },
+      "Lodgy": {
+        "diesel": ["Base 85PS", "STD 85PS", "RxE 85PS", "RxL 85PS", "RxZ 85PS", "STD 110PS", "RxE 110PS", "RxL 110PS", "RxZ 110PS", "World Edition"],
+        "discontinuedYear": 2020
+      }
+    },
+    "Nissan": {
+      "Kicks": {
+        "petrol": ["XL", "XV", "XV Premium", "XV Premium+"],
+        "diesel": ["XL", "XV", "XV Premium"],
+        "discontinuedYear": 2022
+      },
+      "Sunny": {
+        "petrol": ["XE", "XL", "XV", "XV Premium"],
+        "diesel": ["XE", "XL", "XV", "XV Premium"],
+        "discontinuedYear": 2018
+      },
+      "Terrano": {
+        "petrol": ["XE", "XL", "XV", "XV Premium"],
+        "diesel": ["XE", "XL", "XV", "XV Premium"],
+        "discontinuedYear": 2020
+      },
+      "Micra": {
+        "petrol": ["XE", "XL", "XV", "XV CVT", "XV Premium"],
+        "diesel": ["XE", "XL", "XV", "XV Premium"],
+        "discontinuedYear": 2020
+      }
+    },
+    "Jeep": {
+      "Compass": {
+        "diesel_old": ["Sport", "Longitude", "Limited", "Limited Plus", "Limited (O)", "Trailhawk"],
+        "discontinuedYear": 2021,
+        "note": "Pre-facelift diesel variants"
+      }
+    },
+    "Fiat": {
+      "Punto": {
+        "petrol": ["Pure", "Active", "Dynamic", "Emotion"],
+        "diesel": ["Active", "Dynamic", "Emotion"],
+        "discontinuedYear": 2018
+      },
+      "Linea": {
+        "petrol": ["Active", "Dynamic", "Emotion", "T-Jet Emotion"],
+        "diesel": ["Active", "Dynamic", "Emotion"],
+        "discontinuedYear": 2018
+      },
+      "Avventura": {
+        "petrol": ["Active", "Dynamic", "Emotion"],
+        "diesel": ["Active", "Dynamic", "Emotion"],
+        "discontinuedYear": 2019
+      }
+    },
+    "Chevrolet": {
+      "Beat": {
+        "petrol": ["PS", "LS", "LT", "LT Optional"],
+        "diesel": ["PS", "LS", "LT", "LT Optional"],
+        "discontinuedYear": 2017
+      },
+      "Cruze": {
+        "petrol": ["LS", "LT", "LTZ", "LTZ AT"],
+        "diesel": ["LS", "LT", "LTZ", "LTZ AT"],
+        "discontinuedYear": 2017
+      },
+      "Sail": {
+        "petrol": ["1.2 LS", "1.2 LS ABS", "1.2 LT ABS"],
+        "diesel": ["1.3 LS", "1.3 LS ABS", "1.3 LT ABS"],
+        "discontinuedYear": 2017
+      },
+      "Enjoy": {
+        "petrol": ["1.4 LS-7", "1.4 LT-7", "1.4 LT-8", "1.4 LTZ-7", "1.4 LTZ-8"],
+        "diesel": ["1.3 LS-7", "1.3 LT-7", "1.3 LT-8", "1.3 LTZ-7", "1.3 LTZ-8"],
+        "discontinuedYear": 2017
+      }
+    },
+    "Kia": {
+      "Seltos": {
+        "diesel_old": ["HTE", "HTK", "HTK+", "HTX", "HTX+", "GTX", "GTX+"],
+        "discontinuedYear": 2023,
+        "note": "Diesel discontinued in 2023"
+      },
+      "Sonet": {
+        "diesel_old": ["HTE", "HTK", "HTK+", "HTX", "HTX+", "GTX", "GTX+"],
+        "discontinuedYear": 2023
+      }
+    },
+    "MG": {
+      "Hector": {
+        "diesel": ["Style", "Super", "Smart", "Sharp", "Savvy"],
+        "discontinuedYear": 2023
+      },
+      "Hector Plus": {
+        "diesel": ["Style", "Super", "Smart", "Sharp", "Savvy"],
+        "discontinuedYear": 2023
+      }
+    }
+  }
+}

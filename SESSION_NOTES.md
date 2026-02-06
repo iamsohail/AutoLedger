@@ -234,11 +234,44 @@ xcrun simctl launch booted com.iamsohail.AutoLedger
    - Fixed various build issues
    - Tested on physical device
 
+### Session 2 (Feb 6, 2026 — continued):
+
+1. **Dashboard Redesign**
+   - Rewrote DashboardView top sections to match reference screenshot
+   - New hero card: greeting + avatar + search icon + large fuel economy metric + car image in one card
+   - Vehicle info strip: "Car Number" (left) + "Your Vehicle" make (right)
+   - Gradient stat cards: purple-to-pink gradient sub-cards for Fuel Spent and Service costs
+   - Removed old heroCard (centered car with glow), statsRow, statTile
+   - Removed separate GreetingHeaderView() call — greeting now inline in hero card
+   - Added @EnvironmentObject authService to DashboardView for user profile access
+
+2. **Car Image Generation — Batch 1 Complete (242 models)**
+   - 225 reference-based (CarWale og:image + gpt-image-1 restyle)
+   - 17 text-only fallbacks (discontinued/unavailable on CarWale)
+   - All 1536x1024 PNG, glossy black, dark studio background
+
+3. **Car Image Generation — Batch 2 In Progress (151 remaining models)**
+   - Modified generate script: removed discontinued filter to include all 393 models
+   - Resume logic skips the 244 already generated, processes remaining 149
+   - Added "no license plates, no number plates" to both prompts
+   - Estimated cost: ~$6 | Time: ~38 min
+
+4. **Script Updates**
+   - `generate_car_images.py`: removed `discontinued` filter, added no-plate prompt instructions
+   - `optimize_car_images.py`: already handles horizontal flip (mirror to face left)
+
+5. **Housekeeping**
+   - Saved OpenAI API key to `.env` (gitignored)
+   - Set up persistent memory files for Claude context across sessions
+   - New services added: FirestoreSyncService, ReceiptScannerService
+   - New components: CarLoadingView, DocumentScannerView
+
 ### Pending for Next Session:
-1. Find and replace 15 problematic logo SVGs (white outline versions)
-2. Test complete app flow on device
-3. Implement remaining features (documents, expenses, charts)
-4. Add app icon and launch screen
+1. Run optimize + setup scripts after Batch 2 generation completes
+2. Find and replace 15 problematic logo SVGs (white outline versions)
+3. Test complete app flow on device
+4. Implement remaining features (documents, expenses, charts)
+5. Add app icon and launch screen
 
 ---
 

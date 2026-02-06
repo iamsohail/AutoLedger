@@ -19,10 +19,53 @@ struct AddFuelEntryView: View {
 
     @State private var showingValidationError = false
     @State private var validationErrorMessage = ""
+    @State private var showingScanner = false
+    @State private var isScanning = false
+    @State private var scanFeedback: String?
 
     var body: some View {
         NavigationStack {
             Form {
+                // Scan Receipt Section
+                Section {
+                    Button {
+                        showingScanner = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "doc.text.viewfinder")
+                                .font(.title2)
+                                .foregroundColor(.primaryPurple)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Scan Fuel Receipt")
+                                    .font(Theme.Typography.headline)
+                                    .foregroundColor(.textPrimary)
+                                Text("Auto-fill from a photo of your bill")
+                                    .font(Theme.Typography.caption)
+                                    .foregroundColor(.textSecondary)
+                            }
+                            Spacer()
+                            if isScanning {
+                                ProgressView()
+                                    .tint(.primaryPurple)
+                            } else {
+                                Image(systemName: "camera.fill")
+                                    .foregroundColor(.primaryPurple)
+                            }
+                        }
+                    }
+                    .disabled(isScanning)
+
+                    if let feedback = scanFeedback {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.greenAccent)
+                            Text(feedback)
+                                .font(Theme.Typography.caption)
+                                .foregroundColor(.greenAccent)
+                        }
+                    }
+                }
+
                 Section("Fill-Up Details") {
                     DatePicker("Date", selection: $date, displayedComponents: [.date, .hourAndMinute])
 
@@ -102,8 +145,83 @@ struct AddFuelEntryView: View {
             } message: {
                 Text(validationErrorMessage)
             }
+            .fullScreenCover(isPresented: $showingScanner) {
+                DocumentScannerView(
+                    onScan: { image in
+                        showingScanner = false
+                        processScannedImage(image)
+                    },
+                    onCancel: {
+                        showingScanner = false
+                    }
+                )
+                .ignoresSafeArea()
+            }
         }
     }
+
+    // MARK: - Scanner Processing
+
+    private func processScannedImage(_ image: UIImage) {
+        isScanning = true
+        scanFeedback = nil
+
+        Task {
+            let result = await ReceiptScannerService.scanReceipt(image: image)
+            await MainActor.run {
+                applyScannedData(result)
+                isScanning = false
+            }
+        }
+    }
+
+    private func applyScannedData(_ data: ScannedFuelData) {
+        var fieldsFound = 0
+
+        if let scannedDate = data.date {
+            date = scannedDate
+            fieldsFound += 1
+        }
+
+        if let qty = data.quantity {
+            quantity = String(format: "%.2f", qty)
+            fieldsFound += 1
+        }
+
+        if let rate = data.pricePerUnit {
+            pricePerUnit = String(format: "%.2f", rate)
+            fieldsFound += 1
+        }
+
+        if let stationName = data.stationName, station.isEmpty {
+            station = stationName
+            fieldsFound += 1
+        }
+
+        if let fuelTypeStr = data.fuelType {
+            // Map scanned fuel type to FuelGrade
+            let upper = fuelTypeStr.uppercased()
+            if upper.contains("PREMIUM") {
+                fuelGrade = .premium
+            } else if upper.contains("DIESEL") {
+                fuelGrade = .diesel
+            } else {
+                fuelGrade = .regular
+            }
+            fieldsFound += 1
+        }
+
+        if fieldsFound > 0 {
+            let method = data.scanMethod == .ai ? "AI" : "OCR"
+            scanFeedback = "\(fieldsFound) field\(fieldsFound == 1 ? "" : "s") auto-filled (\(method))"
+        } else {
+            scanFeedback = nil
+            validationErrorMessage = "Could not extract data from the receipt. Please enter details manually."
+            showingValidationError = true
+        }
+    }
+
+    // MARK: - Validation & Save
 
     private var calculatedTotal: Double? {
         guard let qty = Double(quantity),

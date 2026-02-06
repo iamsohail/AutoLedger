@@ -42,6 +42,7 @@
 		79B268EAE7061AB8F3700A81 /* FirebaseVehicleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */; };
 		7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8382852832C2DDBCF01EE4B /* Expense.swift */; };
 		7FBED3A18A4C05895A497A08 /* CircularGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */; };
+		B4C8D2E3F5061829394A5B6C /* CarLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7C1D2E4F5061728394A5B /* CarLoadingView.swift */; };
 		8FD42BBAE67CF96C876D15E8 /* IndianVehicleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */; };
 		951E910DFCB83241B0C95D19 /* MaintenanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEDD7A703B012B92485E119 /* MaintenanceListView.swift */; };
 		96999C78D5C59FF61295C9B5 /* EndTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E49F8926722B0E627FCB /* EndTripView.swift */; };
@@ -57,8 +58,11 @@
 		D7E08A1C6170053C7327F7CD /* VehicleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F1A81ED31E578B34E8363 /* VehicleDetailView.swift */; };
 		E050F72883BC6C845EAD4F99 /* TankCapacityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C350CBA4D94BCB682F148261 /* TankCapacityService.swift */; };
 		EF92DAC569D9D26ACBBFA577 /* DataExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0339704F614A6AFE01B92 /* DataExportService.swift */; };
+		E5D1C7A94B2F38160A7E9D53 /* DocumentScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4A8D63C1E59780D4B6A2E /* DocumentScannerView.swift */; };
 		F57D4961EACC7443B170C054 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E45735984155075E0914D /* AuthenticationService.swift */; };
 		F5865DCDDD00EAE8FBEB889A /* CarImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F6D621FA06DFC5D3D60DB /* CarImageService.swift */; };
+		3C8D5E2A1F7B94D60E3A82F1 /* ReceiptScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3E9B1C5D8F42A60E1B73C9 /* ReceiptScannerService.swift */; };
+		32954A13529A139B92FBCC38 /* FirestoreSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF993FBF4F9D7FFFB15859FE /* FirestoreSyncService.swift */; };
 		FF2B1D873D2BDF9D52BB7E09 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2B4DB7993257B90B60DC5 /* Vehicle.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +116,7 @@
 		9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IndianVehicleData.json; sourceTree = "<group>"; };
 		A94E45735984155075E0914D /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		AE15D71AA269C7C442B1F5BC /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		B2F4A8D63C1E59780D4B6A2E /* DocumentScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScannerView.swift; sourceTree = "<group>"; };
 		B370E49F8926722B0E627FCB /* EndTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndTripView.swift; sourceTree = "<group>"; };
 		B5D1502A3223494025EB034E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		B603E0D4354BED6354751686 /* FuelLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelLogView.swift; sourceTree = "<group>"; };
@@ -119,12 +124,15 @@
 		BC08DB07410401B4E8894BB3 /* AddFuelEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelEntryView.swift; sourceTree = "<group>"; };
 		BFCE6DACF280AA130D8BF0D2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		C350CBA4D94BCB682F148261 /* TankCapacityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TankCapacityService.swift; sourceTree = "<group>"; };
+		BF993FBF4F9D7FFFB15859FE /* FirestoreSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreSyncService.swift; sourceTree = "<group>"; };
 		C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseVehicleService.swift; sourceTree = "<group>"; };
 		CDB5F5C89EA05F42FF7D58D9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		CF8E767C4AC7D0F2AA7B9D3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerGaugeView.swift; sourceTree = "<group>"; };
 		D53F6D621FA06DFC5D3D60DB /* CarImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarImageService.swift; sourceTree = "<group>"; };
 		D7BAF56767C3FFBEB838D0A3 /* EditVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVehicleView.swift; sourceTree = "<group>"; };
+		7A3E9B1C5D8F42A60E1B73C9 /* ReceiptScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptScannerService.swift; sourceTree = "<group>"; };
+		A3B7C1D2E4F5061728394A5B /* CarLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarLoadingView.swift; sourceTree = "<group>"; };
 		D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGaugeView.swift; sourceTree = "<group>"; };
 		DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkFeatureRow.swift; sourceTree = "<group>"; };
 		E082AD9638F53A596940EBD8 /* AutoLedgerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AutoLedgerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,7 +289,9 @@
 		8F4B0AD32CFC8659C141E4A2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A3B7C1D2E4F5061728394A5B /* CarLoadingView.swift */,
 				D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */,
+				B2F4A8D63C1E59780D4B6A2E /* DocumentScannerView.swift */,
 				DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */,
 				1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */,
 				E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */,
@@ -334,7 +344,9 @@
 				D53F6D621FA06DFC5D3D60DB /* CarImageService.swift */,
 				4FA0339704F614A6AFE01B92 /* DataExportService.swift */,
 				C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */,
+				BF993FBF4F9D7FFFB15859FE /* FirestoreSyncService.swift */,
 				51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */,
+				7A3E9B1C5D8F42A60E1B73C9 /* ReceiptScannerService.swift */,
 				C350CBA4D94BCB682F148261 /* TankCapacityService.swift */,
 				1BBADA860666FD93A0B100E2 /* VehicleDataService.swift */,
 			);
@@ -508,11 +520,13 @@
 				2433486ACA0AA2997F149AF6 /* AutoLedgerApp.swift in Sources */,
 				1352C42996990E0723F74C5F /* BrandfetchService.swift in Sources */,
 				F5865DCDDD00EAE8FBEB889A /* CarImageService.swift in Sources */,
+				B4C8D2E3F5061829394A5B6C /* CarLoadingView.swift in Sources */,
 				7FBED3A18A4C05895A497A08 /* CircularGaugeView.swift in Sources */,
 				448B5C3FD3CBD079FB977392 /* Constants.swift in Sources */,
 				C0135D9732D76DB6D7E41614 /* ContentView.swift in Sources */,
 				6BB467C146627890EEE34DE4 /* DarkFeatureRow.swift in Sources */,
 				127F3774D34039AB26EEC7D1 /* DashboardView.swift in Sources */,
+				E5D1C7A94B2F38160A7E9D53 /* DocumentScannerView.swift in Sources */,
 				EF92DAC569D9D26ACBBFA577 /* DataExportService.swift in Sources */,
 				BC6237269CB50C7B97C58280 /* Document.swift in Sources */,
 				3FB13D27B54A4D958AE06AC7 /* EditVehicleView.swift in Sources */,
@@ -521,6 +535,7 @@
 				7D8BB6FD1808E37FF5091FD8 /* Expense.swift in Sources */,
 				4805198F95071FFAF53ED129 /* Extensions.swift in Sources */,
 				79B268EAE7061AB8F3700A81 /* FirebaseVehicleService.swift in Sources */,
+				32954A13529A139B92FBCC38 /* FirestoreSyncService.swift in Sources */,
 				C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */,
 				224DA8CAF727AF626A24D498 /* FuelLogView.swift in Sources */,
 				0038F43DA3DB78A92BD1B1D2 /* GreetingHeaderView.swift in Sources */,
@@ -531,6 +546,7 @@
 				9EA6911CBA194FAD820DAE1E /* NotificationService.swift in Sources */,
 				6807E9E5CF587CE24225D4E4 /* OnboardingView.swift in Sources */,
 				1E8DE00234A28B926171DC9B /* ProfileCompletionView.swift in Sources */,
+				3C8D5E2A1F7B94D60E3A82F1 /* ReceiptScannerService.swift in Sources */,
 				1E5C208EEE484E0952C932AB /* SettingsView.swift in Sources */,
 				C1FEC5D66A25B2EA97944CBF /* SignInView.swift in Sources */,
 				79520BBB224E135186B64076 /* SpeedometerGaugeView.swift in Sources */,

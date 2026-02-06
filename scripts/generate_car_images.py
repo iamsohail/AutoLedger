@@ -58,7 +58,8 @@ RESTYLE_PROMPT = (
     "copy the exact shape, proportions, and placement of the emblem from the reference image. "
     "Professional automotive photography, photorealistic. "
     "Keep the car design exactly as shown in the reference. "
-    "No text, no watermarks, no labels."
+    "No text, no watermarks, no labels, no license plates, no number plates — "
+    "the plate area must be blank/body-colored."
 )
 
 FALLBACK_PROMPT_TEMPLATE = (
@@ -69,7 +70,8 @@ FALLBACK_PROMPT_TEMPLATE = (
     "Use strong key lighting from the front-left to illuminate all details clearly. "
     "Add soft rim light highlights along the edges. "
     "Professional automotive photography, photorealistic, the actual real {make} {model} car model. "
-    "No text, no watermarks, no labels."
+    "No text, no watermarks, no labels, no license plates, no number plates — "
+    "the plate area must be blank/body-colored."
 )
 
 
@@ -290,16 +292,15 @@ def main():
     with open(DATA_FILE) as f:
         data = json.load(f)
 
-    # Collect active models
+    # Collect all models (including discontinued)
     models_to_generate = []
     for make in data["makes"]:
         make_name = make["name"]
         for model in make["models"]:
-            if not model.get("discontinued"):
-                models_to_generate.append((make_name, model["name"]))
+            models_to_generate.append((make_name, model["name"]))
 
     total = len(models_to_generate)
-    print(f"Total active models: {total}")
+    print(f"Total models: {total}")
     print(f"Estimated cost: ${total * 0.04:.2f} (gpt-image-1 @ ~$0.04/image)")
     print(f"Estimated time: ~{total * REQUEST_DELAY // 60} minutes")
     print(f"Output directory: {OUTPUT_DIR}")

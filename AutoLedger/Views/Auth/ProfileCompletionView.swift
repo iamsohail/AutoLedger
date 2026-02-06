@@ -270,12 +270,7 @@ struct ProfileCompletionView: View {
 
             // Loading overlay
             if authService.isLoading {
-                Color.black.opacity(0.6)
-                    .ignoresSafeArea()
-
-                ProgressView()
-                    .tint(.white)
-                    .scaleEffect(1.5)
+                CarLoadingOverlay()
             }
         }
         .onAppear {

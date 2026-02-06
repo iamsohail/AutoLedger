@@ -102,7 +102,6 @@ struct VehicleModelData: Codable, Identifiable, Hashable {
     let transmission: String
     let tankL: Double?
     let batteryKWh: Double?
-    let discontinued: Bool?
 
     var id: String { name }
 
@@ -134,11 +133,6 @@ struct VehicleModelData: Codable, Identifiable, Hashable {
     /// Battery capacity (for electric vehicles)
     var batteryCapacity: Double? {
         batteryKWh
-    }
-
-    /// Is this model discontinued?
-    var isDiscontinued: Bool {
-        discontinued ?? false
     }
 
     // Hashable conformance

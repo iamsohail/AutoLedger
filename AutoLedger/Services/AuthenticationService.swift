@@ -11,6 +11,7 @@ class AuthenticationService: ObservableObject {
     @Published var user: User?
     @Published var userProfile: UserProfile?
     @Published var isAuthenticated = false
+    @Published var isCheckingAuth = true
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var needsProfileCompletion = false
@@ -36,10 +37,12 @@ class AuthenticationService: ObservableObject {
             if let user = user {
                 Task {
                     await self.fetchOrCreateUserProfile(for: user)
+                    self.isCheckingAuth = false
                 }
             } else {
                 self.userProfile = nil
                 self.needsProfileCompletion = false
+                self.isCheckingAuth = false
             }
         }
     }

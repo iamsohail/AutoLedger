@@ -1,0 +1,403 @@
+Make,Model,Fuel Types,Transmission,Tank (L),Battery (kWh),Discontinued
+Maruti Suzuki,Alto K10,"petrol, cng",Manual,27,,
+Maruti Suzuki,Baleno,"petrol, diesel, cng",Both,37,,
+Maruti Suzuki,Brezza,"petrol, cng",Both,48,,
+Maruti Suzuki,Celerio,"petrol, diesel, cng",Manual,32,,
+Maruti Suzuki,Celerio X,petrol,Manual,35,,Yes
+Maruti Suzuki,Ciaz,"petrol, diesel",Both,43,,
+Maruti Suzuki,Dzire,"petrol, diesel, cng",Manual,37,,
+Maruti Suzuki,Ertiga,"petrol, diesel, cng",Manual,45,,
+Maruti Suzuki,Fronx,"petrol, cng",Both,37,,
+Maruti Suzuki,Grand Vitara,"petrol, cng, hybrid",Both,45,,
+Maruti Suzuki,Gypsy,petrol,Manual,40,,Yes
+Maruti Suzuki,Ignis,"petrol, diesel",Both,32,,
+Maruti Suzuki,Invicto,petrol,Manual,52,,
+Maruti Suzuki,Jimny,petrol,Automatic,40,,
+Maruti Suzuki,Kizashi,petrol,Both,,,Yes
+Maruti Suzuki,Omni,petrol,Manual,35,,Yes
+Maruti Suzuki,Ritz,"petrol, diesel",Manual,,,Yes
+Maruti Suzuki,S-Presso,"petrol, cng",Manual,27,,
+Maruti Suzuki,S-Cross,"petrol, diesel",Manual,48,,
+Maruti Suzuki,Swift,"petrol, diesel, cng",Manual,37,,
+Maruti Suzuki,SX4,"petrol, diesel",Manual,,,Yes
+Maruti Suzuki,Victoris,"petrol, cng",Both,45,,
+Maruti Suzuki,WagonR,"petrol, cng",Both,32,,
+Maruti Suzuki,XL6,"petrol, cng",Both,45,,
+Maruti Suzuki,Zen Estilo,petrol,Manual,,,
+Maruti Suzuki,Eeco,"petrol, cng",Manual,40,,Yes
+Maruti Suzuki,Alto,"petrol, cng",Manual,35,,Yes
+Maruti Suzuki,Vitara Brezza,diesel,Manual,48,,Yes
+Maruti Suzuki,Baleno Rs,petrol,Manual,37,,Yes
+Maruti Suzuki,Wagon,"petrol, cng",Manual,32,,Yes
+Hyundai,Alcazar,"petrol, diesel",Both,50,,
+Hyundai,Aura,"petrol, diesel, cng",Both,37,,
+Hyundai,Creta,"petrol, diesel",Both,50,,
+Hyundai,Creta Electric,electric,Both,,42,
+Hyundai,Creta N Line,petrol,Automatic,50,,
+Hyundai,Elantra,"petrol, diesel",Manual,50,,Yes
+Hyundai,Elite i20,"petrol, diesel",Manual,45,,
+Hyundai,Eon,petrol,Manual,,,Yes
+Hyundai,Exter,"petrol, cng",Both,37,,
+Hyundai,Grand i10,"petrol, diesel, cng",Manual,43,,Yes
+Hyundai,Grand i10 Nios,"petrol, diesel, cng",Both,37,,
+Hyundai,i20,"petrol, diesel",Both,37,,
+Hyundai,i20 N Line,petrol,Automatic,37,,
+Hyundai,IONIQ 5,electric,Manual,,72.6,
+Hyundai,Santa Fe,petrol,Manual,,,
+Hyundai,Santro,"petrol, cng",Manual,35,,Yes
+Hyundai,Tucson,"petrol, diesel",Both,62,,Yes
+Hyundai,Venue,"petrol, diesel",Both,45,,
+Hyundai,Venue N Line,petrol,Both,45,,
+Hyundai,Verna,"petrol, diesel",Both,45,,
+Hyundai,Xcent,"petrol, diesel",Manual,43,,Yes
+Hyundai,I20 Active,"petrol, diesel",Manual,40,,Yes
+Hyundai,Kona Electric,electric,Manual,,,Yes
+Tata,Altroz,"petrol, diesel, cng",Both,37,,
+Tata,Altroz Racer,petrol,Manual,,,
+Tata,Bolt,"petrol, diesel",Manual,44,,Yes
+Tata,Curvv,"petrol, diesel",Both,44,,
+Tata,Curvv EV,electric,Both,,45,
+Tata,Harrier,"petrol, diesel",Both,50,,
+Tata,Harrier EV,electric,Manual,,65,
+Tata,Hexa,diesel,Both,60,,Yes
+Tata,Nano,petrol,Both,,,Yes
+Tata,Nexon,"petrol, diesel",Both,44,,
+Tata,Nexon EV,electric,Both,,30,
+Tata,Punch,"petrol, diesel, cng",Both,,,
+Tata,Punch EV,electric,Both,,25,
+Tata,Safari Storme,diesel,Manual,63,,Yes
+Tata,Sierra,petrol,Both,50,,
+Tata,Tiago,"petrol, diesel",Both,35,,
+Tata,Tiago EV,electric,Manual,,19.2,
+Tata,Tiago NRG,"petrol, diesel",Both,35,,Yes
+Tata,Tigor,"petrol, diesel, cng",Both,35,,
+Tata,Tigor EV,electric,Manual,35,26,
+Tata,Xenon,petrol,Manual,,,
+Tata,Zest,"petrol, diesel",Both,44,,Yes
+Tata,Nano Genx,"petrol, cng",Both,24,,Yes
+Tata,Winger,diesel,Manual,60,,Yes
+Mahindra,BE 6,electric,Manual,,59,
+Mahindra,Bolero,"petrol, diesel",Manual,60,,
+Mahindra,Bolero Neo,petrol,Manual,50,,
+Mahindra,Bolero Neo Plus,petrol,Manual,60,,
+Mahindra,CL,petrol,Manual,,,
+Mahindra,KUV100,"petrol, diesel",Manual,,,Yes
+Mahindra,Logan,petrol,Manual,,,
+Mahindra,Marazzo,"petrol, diesel",Manual,45,,
+Mahindra,NuvoSport,"petrol, diesel",Manual,60,,
+Mahindra,Quanto,diesel,Manual,,,
+Mahindra,Reva,petrol,Manual,,,
+Mahindra,Scorpio,"petrol, diesel",Both,60,,
+Mahindra,Scorpio Classic,"petrol, diesel",Both,60,,
+Mahindra,Scorpio N,"petrol, diesel",Both,57,,
+Mahindra,Thar,"petrol, diesel",Both,57,,
+Mahindra,Thar ROXX,petrol,Manual,57,,
+Mahindra,TUV300,diesel,Manual,60,,Yes
+Mahindra,TUV300 Plus,diesel,Manual,60,,
+Mahindra,Verito,"petrol, diesel",Manual,50,,Yes
+Mahindra,Verito Vibe,diesel,Manual,50,,
+Mahindra,XEV 9E,electric,Manual,,59,
+Mahindra,XEV 9S,electric,Manual,,59,
+Mahindra,XUV 3XO,"petrol, diesel",Both,42,,
+Mahindra,XUV 3XO EV,electric,Manual,,39.4,
+Mahindra,XUV300,"petrol, diesel",Both,42,,
+Mahindra,XUV400 EV,electric,Manual,,,
+Mahindra,XUV700,"petrol, diesel",Both,60,,
+Mahindra,Xylo,diesel,Both,55,,Yes
+Mahindra,Alturas G4,diesel,Automatic,70,,Yes
+Mahindra,Kuv100 Nxt,"petrol, diesel",Manual,35,,Yes
+Mahindra,Bolero Power Plus,diesel,Manual,60,,Yes
+Mahindra,E2O Plus,electric,Manual,,10.08,Yes
+Mahindra,XUV500,diesel,Manual,70,,Yes
+Mahindra,E Verito,electric,Manual,,,Yes
+Kia,Carens,"petrol, diesel",Both,45,,
+Kia,Carens Clavis,petrol,Manual,45,,
+Kia,Carens Clavis EV,electric,Manual,,42,
+Kia,Carnival,"petrol, diesel",Manual,72,,
+Kia,EV6,electric,Manual,,,
+Kia,EV9,electric,Manual,,99.8,
+Kia,Seltos,"petrol, diesel",Both,47,,
+Kia,Sonet,"petrol, diesel",Both,45,,
+Kia,Syros,petrol,Manual,45,,
+Honda,Amaze,"petrol, diesel",Both,35,,
+Honda,BR-V,"petrol, diesel",Manual,,,Yes
+Honda,City,"petrol, diesel",Both,40,,
+Honda,City Hybrid,petrol,Manual,40,,
+Honda,Civic,"petrol, diesel",Manual,47,,Yes
+Honda,CR-V,"petrol, diesel",Both,57,,Yes
+Honda,Elevate,petrol,Both,40,,
+Honda,Jazz,"petrol, diesel",Both,40,,Yes
+Honda,WR-V,"petrol, diesel",Manual,40,,
+Honda,Brv,"petrol, diesel",Manual,42,,Yes
+Honda,Accord Hybrid,petrol,Manual,60,,Yes
+Toyota,Camry,petrol,Manual,50,,
+Toyota,Corolla Altis,"petrol, diesel",Both,55,,Yes
+Toyota,Etios,"petrol, diesel",Manual,,,
+Toyota,Etios Cross,"petrol, diesel",Manual,45,,
+Toyota,Etios Liva,"petrol, diesel",Manual,45,,Yes
+Toyota,Fortuner Legender,petrol,Manual,80,,Yes
+Toyota,Glanza,petrol,Manual,37,,
+Toyota,Hilux,petrol,Manual,80,,
+Toyota,Hyryder,petrol,Manual,45,,
+Toyota,Innova Crysta,"petrol, diesel",Both,65,,
+Toyota,Innova Hycross,"petrol, diesel",Both,52,,
+Toyota,Prius,hybrid,Manual,43,,Yes
+Toyota,Taisor,petrol,Manual,37,,
+Toyota,Vellfire,petrol,Manual,60,,
+Toyota,Platinum Etios,"petrol, diesel",Manual,45,,Yes
+Toyota,Fortuner,"petrol, diesel",Both,80,,Yes
+Toyota,Land Cruiser,diesel,Manual,93,,Yes
+Toyota,Yaris,petrol,Automatic,42,,Yes
+MG,Astor,petrol,Both,48,,
+MG,Comet EV,electric,Manual,,17.3,
+MG,Cyberster,petrol,Manual,,,
+MG,Gloster,petrol,Manual,75,,
+MG,Hector,"petrol, diesel, hybrid",Both,60,,
+MG,Hector Plus,"petrol, diesel",Both,60,,
+MG,M9,petrol,Manual,,,
+MG,Windsor EV,electric,Manual,,38,
+MG,ZS EV,electric,Manual,,50.3,
+Volkswagen,Ameo,"petrol, diesel",Both,45,,Yes
+Volkswagen,Golf GTI,petrol,Manual,45,,
+Volkswagen,Passat,diesel,Manual,55,,Yes
+Volkswagen,Polo,"petrol, diesel",Manual,45,,Yes
+Volkswagen,Polo GT,petrol,Manual,,,
+Volkswagen,Taigun,"petrol, electric",Both,50,,
+Volkswagen,Tiguan,diesel,Automatic,71,,Yes
+Volkswagen,Tiguan R Line,petrol,Manual,60,,
+Volkswagen,Vento,"petrol, diesel",Both,55,,Yes
+Volkswagen,Virtus,petrol,Both,45,,Yes
+Skoda,Kodiaq,"petrol, diesel",Both,62,,
+Skoda,Kushaq,petrol,Both,50,,
+Skoda,Kylaq,petrol,Both,45,,
+Skoda,Octavia,"petrol, diesel",Both,50,,Yes
+Skoda,Octavia vRS,petrol,Manual,,,
+Skoda,Rapid,"petrol, diesel",Both,55,,Yes
+Skoda,Superb,"petrol, diesel",Both,66,,
+Skoda,Superb Sportline,"petrol, diesel",Automatic,66,,Yes
+Skoda,Monte Carlo,"petrol, diesel",Automatic,55,,Yes
+Skoda,Kodiaq Scout,diesel,Automatic,63,,Yes
+Renault,Captur,"petrol, diesel",Manual,50,,Yes
+Renault,Duster,"petrol, diesel, hybrid",Both,50,,
+Renault,Kiger,"petrol, cng",Both,40,,
+Renault,KWID,"petrol, cng",Both,28,,
+Renault,Lodgy,diesel,Manual,50,,Yes
+Renault,Triber,"petrol, cng",Both,40,,
+Nissan,Kicks,"petrol, diesel",Manual,50,,Yes
+Nissan,Magnite,"petrol, cng",Both,40,,
+Nissan,Micra,"petrol, diesel",Manual,41,,Yes
+Nissan,Micra Active,petrol,Manual,41,,Yes
+Nissan,Sunny,"petrol, diesel",Manual,41,,Yes
+Nissan,Terrano,"petrol, diesel",Both,50,,Yes
+Nissan,X-Trail,hybrid,Automatic,55,,
+Nissan,Gtr,petrol,Manual,74,,Yes
+Jeep,Compass,"petrol, diesel",Both,60,,
+Jeep,Grand Cherokee,"petrol, diesel",Both,87,,
+Jeep,Meridian,petrol,Automatic,60,,
+Jeep,Wrangler,petrol,Manual,85,,
+Citroen,Aircross,petrol,Manual,,,
+Citroen,Basalt,petrol,Manual,45,,
+Citroen,C3,"petrol, cng",Both,45,,Yes
+Citroen,C5 Aircross,petrol,Manual,52.5,,
+Citroen,EC3,electric,Manual,,29.2,
+Mercedes-Benz,A-Class Limousine,"petrol, diesel",Manual,43,,
+Mercedes-Benz,AMG EQS,electric,Manual,,,
+Mercedes-Benz,AMG GLA 35,petrol,Manual,51,,
+Mercedes-Benz,AMG GT 4 Door Coupe,petrol,Manual,65,,
+Mercedes-Benz,C-Class,"petrol, diesel",Manual,66,,
+Mercedes-Benz,CLE Cabriolet,petrol,Manual,66,,
+Mercedes-Benz,E-Class,"petrol, diesel",Manual,66,,
+Mercedes-Benz,EQA,electric,Manual,,,
+Mercedes-Benz,EQB,electric,Manual,,66.5,
+Mercedes-Benz,EQE SUV,electric,Manual,,,
+Mercedes-Benz,EQS,electric,Manual,,,
+Mercedes-Benz,EQS SUV,electric,Manual,,122,
+Mercedes-Benz,G-Class,diesel,Manual,100,,
+Mercedes-Benz,GLA,"petrol, diesel",Manual,51,,
+Mercedes-Benz,GLC,"petrol, diesel",Manual,62,,
+Mercedes-Benz,GLE,"petrol, diesel",Manual,85,,
+Mercedes-Benz,GLS,"petrol, diesel",Manual,90,,
+Mercedes-Benz,Maybach EQS SUV,electric,Manual,,,
+Mercedes-Benz,Maybach GLS,petrol,Manual,90,,
+Mercedes-Benz,Maybach S-Class,petrol,Manual,76,,
+Mercedes-Benz,Maybach SL 680,petrol,Manual,70,,
+Mercedes-Benz,S-Class,"petrol, diesel",Manual,65,,Yes
+BMW,2 Series Gran Coupe,petrol,Manual,,,
+BMW,3 Series,petrol,Manual,59,,
+BMW,3 Series GT,petrol,Manual,,,
+BMW,5 Series,petrol,Manual,60,,
+BMW,6 Series,petrol,Manual,,,
+BMW,7 Series,petrol,Manual,,,
+BMW,i4,electric,Manual,,70.2,
+BMW,i5,electric,Manual,,,
+BMW,i7,electric,Manual,,,
+BMW,iX,electric,Manual,,76.6,
+BMW,iX1,electric,Manual,,,
+BMW,M2,petrol,Manual,52,,
+BMW,M4 Competition,petrol,Manual,59,,
+BMW,M4 CS,petrol,Manual,,,
+BMW,M5,petrol,Manual,68,,
+BMW,X1,"petrol, diesel",Manual,51,,
+BMW,X3,"petrol, diesel",Manual,68,,
+BMW,X4,"petrol, diesel",Manual,60,,
+BMW,X5,"petrol, diesel",Manual,80,,
+BMW,X7,"petrol, diesel",Manual,80,,
+BMW,XM,hybrid,Manual,69,,
+BMW,Z4,petrol,Manual,52,,
+BMW,M2 Competition,petrol,Manual,52,,Yes
+BMW,7-Series,"petrol, diesel, hybrid",Manual,78,,Yes
+BMW,3-Series,"petrol, diesel",Manual,40,,Yes
+BMW,Z4 Roadster,petrol,Manual,52,,Yes
+BMW,M4,petrol,Manual,60,,Yes
+BMW,5-Series,"petrol, diesel",Manual,70,,Yes
+BMW,6-Series,"petrol, diesel",Manual,88,,Yes
+Audi,A3,"petrol, diesel",Manual,50,,
+Audi,A3 Cabriolet,petrol,Manual,50,,Yes
+Audi,A4,petrol,Manual,54,,Yes
+Audi,A5,diesel,Manual,,,Yes
+Audi,A5 Cabriolet,diesel,Manual,58,,Yes
+Audi,A6,petrol,Manual,73,,
+Audi,A8 L,petrol,Manual,72,,
+Audi,e-tron,electric,Manual,,71,
+Audi,e-tron GT,electric,Manual,,,
+Audi,Q3,"petrol, diesel",Manual,62.4,,
+Audi,Q3 Sportback,petrol,Manual,62.4,,
+Audi,Q5,"petrol, diesel",Manual,70,,
+Audi,Q7,"petrol, diesel",Manual,85,,
+Audi,Q8,petrol,Manual,85,,
+Audi,Q8 e-tron,electric,Manual,,95,
+Audi,Q8 Sportback e-tron,electric,Manual,,95,
+Audi,R8,petrol,Manual,75,,Yes
+Audi,RS Q8,petrol,Manual,85,,
+Audi,S5 Sportback,petrol,Manual,58,,
+Audi,S5,petrol,Manual,58,,Yes
+Audi,Rs5,petrol,Manual,58,,Yes
+Audi,Rs7,petrol,Manual,75,,Yes
+Lexus,ES,"petrol, hybrid",Manual,50,,
+Lexus,LM,petrol,Manual,60,,
+Lexus,LX,petrol,Manual,80,,
+Lexus,NX,petrol,Manual,55,,
+Lexus,RX,petrol,Manual,65,,
+Lexus,Rx 450H,petrol,Manual,65,,Yes
+Lexus,Lc 500H,hybrid,Manual,82,,Yes
+Lexus,Lx 450D,diesel,Manual,93,,Yes
+Lexus,Nx 300H,petrol,Manual,56,,Yes
+Lexus,Lx 570,diesel,Manual,93,,Yes
+Lexus,Ls 500H,hybrid,Manual,82,,Yes
+Volvo,EC40,electric,Manual,,,
+Volvo,EX30,electric,Manual,,,
+Volvo,EX40,electric,Manual,,,
+Volvo,S60,"petrol, diesel",Manual,67,,Yes
+Volvo,S90,diesel,Manual,,,Yes
+Volvo,XC60,"petrol, diesel",Manual,71,,
+Volvo,XC90,"petrol, diesel, hybrid",Manual,71,,
+Volvo,Xc40,"petrol, diesel",Manual,54,,Yes
+Volvo,V40,diesel,Manual,60,,Yes
+Volvo,S60 Cross Country,diesel,Manual,67,,Yes
+Volvo,V40 Cross Country,"petrol, diesel",Manual,60,,Yes
+Volvo,V90 Cross Country,diesel,Manual,60,,Yes
+Porsche,Cayenne,"petrol, hybrid",Manual,90,,
+Porsche,Cayenne Coupe,petrol,Manual,90,,
+Porsche,Panamera,petrol,Manual,90,,
+Porsche,Taycan,electric,Manual,,79.2,
+Porsche,718,petrol,Manual,54,,Yes
+Porsche,911,petrol,Manual,64,,Yes
+Porsche,Macan,petrol,Manual,65,,Yes
+Land Rover,Defender,"petrol, diesel",Manual,,,
+Land Rover,Discovery,"petrol, diesel",Manual,85,,
+Land Rover,Range Rover,"petrol, diesel",Both,,,
+Land Rover,Range Rover Evoque,"petrol, diesel",Automatic,,,
+Land Rover,Range Rover Sport,"petrol, diesel",Both,,,
+Land Rover,Range Rover Velar,"petrol, diesel",Both,82,,
+Land Rover,Discovery Sport,diesel,Manual,70,,Yes
+Land Rover,Range Evoque,"petrol, diesel",Manual,,,Yes
+Land Rover,Range Evoque Convertible,petrol,Manual,,,Yes
+Land Rover,Range Velar,"petrol, diesel",Manual,65,,Yes
+Land Rover,Range Sport,"petrol, diesel",Both,105,,Yes
+Land Rover,Range,"petrol, diesel",Both,105,,Yes
+Jaguar,F-Pace,"petrol, diesel",Manual,60,,
+Jaguar,F-Type,petrol,Manual,72,,Yes
+Jaguar,Xe,"petrol, diesel",Manual,61,,Yes
+Jaguar,Xf,"petrol, diesel",Manual,74,,Yes
+Jaguar,Xj,diesel,Manual,82,,Yes
+BYD,Atto 3,electric,Manual,,49.92,
+BYD,Emax 7,electric,Manual,,55.4,
+BYD,Seal,electric,Manual,,61.44,
+BYD,Sealion 7,electric,Manual,,82.56,
+Mini,Cooper S,petrol,Manual,44,,
+Mini,Cooper SE,electric,Manual,,,
+Mini,Countryman,"petrol, diesel",Manual,54,,
+Mini,Countryman Electric,electric,Manual,,,
+Mini,Cooper 5 Door,petrol,Manual,44,,Yes
+Mini,Convertible,petrol,Manual,44,,Yes
+Mini,Clubman,petrol,Manual,,,Yes
+Mini,Cooper 3 Door,"petrol, diesel",Manual,44,,Yes
+Isuzu,D-Max,petrol,Manual,,,
+Isuzu,D-Max V-Cross,petrol,Manual,55,,
+Isuzu,MU-X,"petrol, diesel",Both,55,,
+Isuzu,V-Cross,petrol,Both,55,,
+Isuzu,Dmax V-Cross,diesel,Manual,,,Yes
+Ferrari,296 GTB,petrol,Manual,65,,
+Ferrari,F8 Tributo,petrol,Manual,78,,
+Ferrari,Portofino,petrol,Manual,80,,
+Ferrari,Roma,petrol,Manual,80,,
+Ferrari,458 Speciale,petrol,Manual,86,,Yes
+Ferrari,488 Gtb,petrol,Manual,78,,Yes
+Ferrari,Gtc4 Lusso,petrol,Manual,91,,Yes
+Ferrari,458 Spider,petrol,Manual,86,,Yes
+Lamborghini,Revuelto,petrol,Manual,90,,
+Lamborghini,Temerario,petrol,Manual,,,
+Lamborghini,Urus,petrol,Manual,75,,Yes
+Lamborghini,Huracan,petrol,Manual,90,,Yes
+Lamborghini,Aventador,petrol,Manual,90,,Yes
+Bentley,Bentayga,petrol,Manual,85,,
+Bentley,Continental Gt,petrol,Manual,90,,Yes
+Bentley,Mulsanne,petrol,Manual,90,,Yes
+Bentley,Flying Spur,petrol,Manual,90,,Yes
+Rolls-Royce,Cullinan,petrol,Manual,100,,
+Rolls-Royce,Spectre,electric,Manual,83,,
+Maserati,Ghibli,"petrol, diesel, hybrid",Manual,80,,
+Maserati,Grecale,petrol,Manual,64,,
+Maserati,Levante,"petrol, diesel, hybrid",Manual,80,,
+Maserati,Granturismo,petrol,Manual,86,,Yes
+Maserati,Quattroporte,diesel,Manual,70,,Yes
+Maserati,Grancabrio,petrol,Manual,75,,Yes
+Aston Martin,DB11,petrol,Manual,78,,
+Aston Martin,DB12,petrol,Manual,78,,
+Aston Martin,DBX,petrol,Manual,,,
+Aston Martin,Vanquish,petrol,Manual,82,,
+Aston Martin,Vantage,petrol,Manual,73,,
+Aston Martin,Db 11,petrol,Manual,80,,Yes
+Aston Martin,Rapide,petrol,Manual,90.5,,Yes
+McLaren,750S,petrol,Manual,72,,
+McLaren,GT,petrol,Manual,72,,
+Ford,Aspire,"petrol, diesel, cng",Manual,42,,Yes
+Ford,EcoSport,"petrol, diesel",Both,52,,Yes
+Ford,Endeavour,diesel,Both,80,,Yes
+Ford,Figo,"petrol, diesel",Manual,42,,Yes
+Ford,Figo Aspire,petrol,Manual,,,
+Ford,Freestyle,"petrol, diesel",Manual,40,,Yes
+Ford,Mustang,petrol,Manual,60.9,,Yes
+Chevrolet,Beat,"petrol, diesel",Manual,,,Yes
+Chevrolet,Cruze,"petrol, diesel",Manual,,,Yes
+Chevrolet,Enjoy,"petrol, diesel",Manual,,,Yes
+Chevrolet,Sail,"petrol, diesel",Manual,,,Yes
+Fiat,Avventura,"petrol, diesel",Manual,45,,Yes
+Fiat,Linea,"petrol, diesel",Manual,45,,Yes
+Fiat,Linea Classic,diesel,Manual,45,,Yes
+Fiat,Punto,"petrol, diesel",Manual,,,Yes
+Fiat,Punto Evo,"petrol, diesel",Manual,45,,Yes
+Fiat,Urban Cross,"petrol, diesel",Manual,45,,Yes
+Fiat,Abarth Avventura,petrol,Manual,,,Yes
+Fiat,Punto Evo Pure,petrol,Manual,45,,Yes
+Fiat,Abarth Punto,petrol,Manual,,,Yes
+Datsun,Go,petrol,Manual,35,,Yes
+Datsun,Go Cross,petrol,Manual,,,
+Datsun,Redi-Go,petrol,Manual,28,,Yes
+Mitsubishi,Montero,petrol,Manual,88,,Yes
+Mitsubishi,Outlander,petrol,Manual,60,,Yes
+Mitsubishi,Pajero Sport,diesel,Manual,70,,
+Premier,Rio,"petrol, diesel",Manual,46,,Yes
+Dc,Avanti,petrol,Manual,60,,Yes
+Bugatti,Chiron,petrol,Manual,,,Yes
+ICML,Extreme,diesel,Manual,50,,Yes

@@ -1,0 +1,162 @@
+{
+  "maruti_suzuki": {
+    "name": "Maruti Suzuki",
+    "models": {}
+  },
+  "tata": {
+    "name": "Tata",
+    "models": {}
+  },
+  "mahindra": {
+    "name": "Mahindra",
+    "models": {}
+  },
+  "hyundai": {
+    "name": "Hyundai",
+    "models": {}
+  },
+  "honda": {
+    "name": "Honda",
+    "models": {}
+  },
+  "toyota": {
+    "name": "Toyota",
+    "models": {}
+  },
+  "kia": {
+    "name": "Kia",
+    "models": {}
+  },
+  "mg": {
+    "name": "MG",
+    "models": {}
+  },
+  "skoda": {
+    "name": "Skoda",
+    "models": {}
+  },
+  "volkswagen": {
+    "name": "Volkswagen",
+    "models": {}
+  },
+  "renault": {
+    "name": "Renault",
+    "models": {}
+  },
+  "nissan": {
+    "name": "Nissan",
+    "models": {}
+  },
+  "jeep": {
+    "name": "Jeep",
+    "models": {}
+  },
+  "citroen": {
+    "name": "Citroen",
+    "models": {}
+  },
+  "mercedes_benz": {
+    "name": "Mercedes-Benz",
+    "models": {}
+  },
+  "bmw": {
+    "name": "BMW",
+    "models": {}
+  },
+  "audi": {
+    "name": "Audi",
+    "models": {}
+  },
+  "lexus": {
+    "name": "Lexus",
+    "models": {}
+  },
+  "volvo": {
+    "name": "Volvo",
+    "models": {}
+  },
+  "porsche": {
+    "name": "Porsche",
+    "models": {}
+  },
+  "land_rover": {
+    "name": "Land Rover",
+    "models": {}
+  },
+  "jaguar": {
+    "name": "Jaguar",
+    "models": {}
+  },
+  "byd": {
+    "name": "BYD",
+    "models": {}
+  },
+  "mini": {
+    "name": "Mini",
+    "models": {}
+  },
+  "isuzu": {
+    "name": "Isuzu",
+    "models": {}
+  },
+  "force": {
+    "name": "Force Motors",
+    "models": {}
+  },
+  "ferrari": {
+    "name": "Ferrari",
+    "models": {}
+  },
+  "lamborghini": {
+    "name": "Lamborghini",
+    "models": {}
+  },
+  "bentley": {
+    "name": "Bentley",
+    "models": {}
+  },
+  "rolls_royce": {
+    "name": "Rolls-Royce",
+    "models": {}
+  },
+  "maserati": {
+    "name": "Maserati",
+    "models": {}
+  },
+  "aston_martin": {
+    "name": "Aston Martin",
+    "models": {}
+  },
+  "mclaren": {
+    "name": "McLaren",
+    "models": {}
+  },
+  "ford": {
+    "name": "Ford",
+    "models": {}
+  },
+  "chevrolet": {
+    "name": "Chevrolet",
+    "models": {}
+  },
+  "fiat": {
+    "name": "Fiat",
+    "models": {}
+  },
+  "datsun": {
+    "name": "Datsun",
+    "models": {}
+  },
+  "mitsubishi": {
+    "name": "Mitsubishi",
+    "models": {}
+  },
+  "hindustan_motors": {
+    "name": "Hindustan Motors",
+    "models": {}
+  },
+  "premier": {
+    "name": "Premier",
+    "models": {}
+  }
+}

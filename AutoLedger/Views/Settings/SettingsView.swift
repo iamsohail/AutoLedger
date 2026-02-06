@@ -99,6 +99,32 @@ struct SettingsView: View {
                 }
 
                 Section {
+                    NavigationLink {
+                        AISettingsView()
+                    } label: {
+                        HStack {
+                            Image(systemName: "sparkles")
+                                .foregroundColor(.primaryPurple)
+                            Text("AI Receipt Scanner")
+                                .foregroundColor(.textPrimary)
+                            Spacer()
+                            if KeychainHelper.get(key: "openai_api_key") != nil {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.greenAccent)
+                                    .font(.caption)
+                            }
+                        }
+                    }
+                    .darkListRowStyle()
+                } header: {
+                    Text("AI Features")
+                        .foregroundColor(.textSecondary)
+                } footer: {
+                    Text("Enable AI-powered receipt scanning for more accurate auto-fill.")
+                        .foregroundColor(.textSecondary.opacity(0.7))
+                }
+
+                Section {
                     HStack {
                         Image(systemName: "person.circle.fill")
                             .font(Theme.Typography.iconMedium)
@@ -196,31 +222,133 @@ struct SettingsView: View {
 }
 
 struct BackupSettingsView: View {
-    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = true
+    @EnvironmentObject var syncService: FirestoreSyncService
+    @Environment(\.modelContext) private var modelContext
+    @State private var showingDeleteConfirmation = false
 
     var body: some View {
         List {
-            Section {
-                Toggle("iCloud Sync", isOn: $iCloudSyncEnabled)
-                    .tint(.primaryPurple)
-                    .darkListRowStyle()
-            } footer: {
-                Text("When Enabled, Your Data Will Automatically Sync Across All Your Devices Signed into the Same iCloud Account.")
-                    .foregroundColor(.textSecondary.opacity(0.7))
-            }
-
+            // Status section
             Section {
                 HStack {
                     Text("Status")
                         .foregroundColor(.textPrimary)
                     Spacer()
-                    Text("Up to date")
-                        .foregroundColor(.greenAccent)
+                    if syncService.isSyncing {
+                        HStack(spacing: 8) {
+                            ProgressView()
+                                .tint(.primaryPurple)
+                            Text(syncService.syncProgress ?? "Syncing...")
+                                .font(Theme.Typography.caption)
+                                .foregroundColor(.textSecondary)
+                        }
+                    } else if let lastSync = syncService.lastSyncDate {
+                        Text(lastSync.relativeFormatted)
+                            .foregroundColor(.greenAccent)
+                    } else {
+                        Text("Never synced")
+                            .foregroundColor(.textSecondary)
+                    }
                 }
                 .darkListRowStyle()
+
+                if let error = syncService.syncError {
+                    HStack {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundColor(.orange)
+                        Text(error)
+                            .font(Theme.Typography.caption)
+                            .foregroundColor(.orange)
+                    }
+                    .darkListRowStyle()
+                }
             } header: {
-                Text("Last Sync")
+                Text("Cloud Backup")
                     .foregroundColor(.textSecondary)
+            } footer: {
+                Text("Your data is backed up to Firebase. Binary data (photos, receipts, PDFs) will be synced in a future update.")
+                    .foregroundColor(.textSecondary.opacity(0.7))
+            }
+
+            // Actions section
+            Section {
+                Button {
+                    Task {
+                        await syncService.sync(context: modelContext)
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .foregroundColor(.primaryPurple)
+                        Text("Sync Now")
+                            .foregroundColor(.textPrimary)
+                        Spacer()
+                        if syncService.isSyncing {
+                            ProgressView()
+                                .tint(.primaryPurple)
+                        }
+                    }
+                }
+                .disabled(syncService.isSyncing)
+                .darkListRowStyle()
+
+                Button {
+                    Task {
+                        await syncService.backupToCloud(context: modelContext)
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: "icloud.and.arrow.up")
+                            .foregroundColor(.primaryPurple)
+                        Text("Back Up to Cloud")
+                            .foregroundColor(.textPrimary)
+                    }
+                }
+                .disabled(syncService.isSyncing)
+                .darkListRowStyle()
+
+                Button {
+                    Task {
+                        await syncService.restoreFromCloud(context: modelContext)
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: "icloud.and.arrow.down")
+                            .foregroundColor(.primaryPurple)
+                        Text("Restore from Cloud")
+                            .foregroundColor(.textPrimary)
+                    }
+                }
+                .disabled(syncService.isSyncing)
+                .darkListRowStyle()
+            } header: {
+                Text("Actions")
+                    .foregroundColor(.textSecondary)
+            } footer: {
+                Text("Sync uploads local data and downloads any missing records from the cloud.")
+                    .foregroundColor(.textSecondary.opacity(0.7))
+            }
+
+            // Danger zone
+            Section {
+                Button(role: .destructive) {
+                    showingDeleteConfirmation = true
+                } label: {
+                    HStack {
+                        Image(systemName: "trash")
+                            .foregroundColor(.red)
+                        Text("Delete Cloud Data")
+                            .foregroundColor(.red)
+                    }
+                }
+                .disabled(syncService.isSyncing)
+                .darkListRowStyle()
+            } header: {
+                Text("Danger Zone")
+                    .foregroundColor(.textSecondary)
+            } footer: {
+                Text("This permanently removes all your data from the cloud. Local data on this device will not be affected.")
+                    .foregroundColor(.textSecondary.opacity(0.7))
             }
         }
         .scrollContentBackground(.hidden)
@@ -230,6 +358,16 @@ struct BackupSettingsView: View {
         .toolbarBackground(Color.darkBackground, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarColorScheme(.dark, for: .navigationBar)
+        .confirmationDialog("Delete Cloud Data", isPresented: $showingDeleteConfirmation, titleVisibility: .visible) {
+            Button("Delete All Cloud Data", role: .destructive) {
+                Task {
+                    await syncService.deleteCloudData()
+                }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This will permanently delete all your vehicle data from the cloud. This action cannot be undone.")
+        }
     }
 }
 
@@ -434,6 +572,143 @@ struct AboutView: View {
                     }
                     .foregroundColor(.primaryPurple)
                 }
+            }
+        }
+    }
+}
+
+struct AISettingsView: View {
+    @State private var apiKey: String = ""
+    @State private var isKeyVisible = false
+    @State private var showingSaved = false
+
+    private var hasExistingKey: Bool {
+        KeychainHelper.get(key: "openai_api_key") != nil
+    }
+
+    var body: some View {
+        List {
+            Section {
+                HStack {
+                    Image(systemName: "sparkles")
+                        .foregroundColor(.primaryPurple)
+                        .font(.title2)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("GPT-4o Vision")
+                            .font(Theme.Typography.headline)
+                            .foregroundColor(.textPrimary)
+                        Text("Powered by OpenAI")
+                            .font(Theme.Typography.caption)
+                            .foregroundColor(.textSecondary)
+                    }
+                    Spacer()
+                    if hasExistingKey {
+                        Text("Active")
+                            .font(Theme.Typography.caption)
+                            .foregroundColor(.greenAccent)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.greenAccent.opacity(0.2))
+                            .cornerRadius(6)
+                    }
+                }
+                .darkListRowStyle()
+            } footer: {
+                Text("AI Vision uses GPT-4o to read fuel receipts with high accuracy. It handles any receipt format, faded prints, and multiple languages. Falls back to on-device OCR when offline.")
+                    .foregroundColor(.textSecondary.opacity(0.7))
+            }
+
+            Section {
+                HStack {
+                    if isKeyVisible {
+                        TextField("sk-...", text: $apiKey)
+                            .font(.system(.body, design: .monospaced))
+                            .foregroundColor(.textPrimary)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.never)
+                    } else {
+                        SecureField("sk-...", text: $apiKey)
+                            .foregroundColor(.textPrimary)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.never)
+                    }
+
+                    Button {
+                        isKeyVisible.toggle()
+                    } label: {
+                        Image(systemName: isKeyVisible ? "eye.slash" : "eye")
+                            .foregroundColor(.textSecondary)
+                    }
+                }
+                .darkListRowStyle()
+
+                Button {
+                    if !apiKey.isEmpty {
+                        KeychainHelper.save(key: "openai_api_key", value: apiKey)
+                    } else {
+                        KeychainHelper.delete(key: "openai_api_key")
+                    }
+                    showingSaved = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        showingSaved = false
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: "checkmark.circle")
+                            .foregroundColor(.primaryPurple)
+                        Text(apiKey.isEmpty ? "Remove Key" : "Save Key")
+                            .foregroundColor(.textPrimary)
+                        Spacer()
+                        if showingSaved {
+                            Text("Saved!")
+                                .font(Theme.Typography.caption)
+                                .foregroundColor(.greenAccent)
+                        }
+                    }
+                }
+                .darkListRowStyle()
+            } header: {
+                Text("OpenAI API Key")
+                    .foregroundColor(.textSecondary)
+            } footer: {
+                Text("Your API key is stored securely in the device Keychain. Get one at platform.openai.com. Cost: ~\u{20B9}1-2 per receipt scan.")
+                    .foregroundColor(.textSecondary.opacity(0.7))
+            }
+
+            Section {
+                HStack {
+                    Image(systemName: "lock.shield.fill")
+                        .foregroundColor(.greenAccent)
+                    Text("Key stored in Keychain")
+                        .font(Theme.Typography.caption)
+                        .foregroundColor(.textSecondary)
+                }
+                .darkListRowStyle()
+
+                HStack {
+                    Image(systemName: "wifi.slash")
+                        .foregroundColor(.primaryPurple)
+                    Text("Falls back to on-device OCR when offline")
+                        .font(Theme.Typography.caption)
+                        .foregroundColor(.textSecondary)
+                }
+                .darkListRowStyle()
+            } header: {
+                Text("How It Works")
+                    .foregroundColor(.textSecondary)
+            }
+        }
+        .scrollContentBackground(.hidden)
+        .background(Color.darkBackground)
+        .navigationTitle("AI Receipt Scanner")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color.darkBackground, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .onAppear {
+            // Show masked placeholder if key exists
+            if let existing = KeychainHelper.get(key: "openai_api_key") {
+                apiKey = existing
             }
         }
     }

@@ -1,48 +1,50 @@
-/**
- * Firebase Seed Script - Auto-generated from CarDekho scrape
- * Generated on: 2026-02-05T06:20:35.622Z
- *
- * Usage:
- * 1. npm install firebase-admin
- * 2. export GOOGLE_APPLICATION_CREDENTIALS="./serviceAccountKey.json"
- * 3. node seed_firebase_scraped.js
- */
-
-const admin = require('firebase-admin');
-
-admin.initializeApp({
-    credential: admin.credential.applicationDefault()
-});
-
-const db = admin.firestore();
-
-const vehicleMakes = [
+[
   {
     "id": "maruti_suzuki",
     "name": "Maruti Suzuki",
     "country": "India",
     "discontinued": false,
     "models": [
+      "800",
+      "A-Star",
       "Alto 800 Tour",
       "Alto K10",
       "Alto Tour H1",
+      "Baleno",
       "Brezza",
+      "Celerio",
+      "Celerio X",
+      "Ciaz",
       "Dzire",
       "Dzire Tour S",
       "Eeco Cargo",
+      "Ertiga",
       "Ertiga Tour",
+      "Esteem",
       "Fronx",
+      "Grand Vitara",
+      "Gypsy",
+      "Ignis",
       "Invicto",
       "Jimny",
+      "Kizashi",
+      "Omni",
+      "Ritz",
       "S Presso",
+      "S-Cross",
       "Super Carry",
       "Swift",
       "Swift Dzire",
       "Swift Dzire Tour",
+      "SX4",
+      "Versa",
       "Victoris",
       "Wagon R",
       "Wagon R Tour",
-      "Xl6"
+      "Xl6",
+      "XL6",
+      "Zen",
+      "Zen Estilo"
     ]
   },
   {
@@ -53,21 +55,44 @@ const vehicleMakes = [
     "models": [
       "Altroz",
       "Altroz Racer",
+      "Aria",
+      "Bolt",
       "Curvv",
       "Curvv EV",
+      "Estate",
       "Harrier",
       "Harrier EV",
+      "Hexa",
+      "Indica",
+      "Indica Vista",
+      "Indigo",
+      "Indigo eCS",
+      "Indigo Marina",
+      "Manza",
+      "Movus",
+      "Nano",
+      "Nano GenX",
       "Nexon",
       "Nexon EV",
       "Punch",
       "Punch EV",
+      "Safari Dicor",
+      "Safari Storme",
+      "Sierra",
+      "Sumo",
+      "Sumo Gold",
+      "Sumo Grande",
+      "Tiago",
       "Tiago EV",
       "Tiago Nrg",
       "Tigor",
       "Tigor EV",
+      "Venture",
+      "Xenon",
       "Xpres",
       "Xpres T EV",
-      "Yodha Pickup"
+      "Yodha Pickup",
+      "Zest"
     ]
   },
   {
@@ -76,6 +101,7 @@ const vehicleMakes = [
     "country": "India",
     "discontinued": false,
     "models": [
+      "Armada",
       "BE 6",
       "Bolero",
       "Bolero Camper",
@@ -84,12 +110,34 @@ const vehicleMakes = [
       "Bolero Neo Plus",
       "Bolero Pik UP",
       "Bolero Pik UP Extra Strong",
+      "CL",
+      "Commander",
+      "e2o",
+      "e2o Plus",
+      "Gio",
+      "Jeep",
       "Kuv 100 Nxt",
+      "KUV100",
+      "Logan",
+      "Major",
       "Marazzo",
+      "Marshal",
+      "Maxximo",
+      "MM",
+      "NuvoSport",
+      "Quanto",
+      "Reva",
       "Scorpio",
+      "Scorpio Classic",
+      "Scorpio Getaway",
       "Scorpio N",
+      "Supro",
       "Thar",
       "Thar Roxx",
+      "TUV300",
+      "TUV300 Plus",
+      "Verito",
+      "Verito Vibe",
       "Xev 9E",
       "Xev 9S",
       "XUV 3xo",
@@ -97,7 +145,8 @@ const vehicleMakes = [
       "XUV 7xo",
       "Xuv300",
       "Xuv400 EV",
-      "Xuv700"
+      "Xuv700",
+      "Xylo"
     ]
   },
   {
@@ -106,23 +155,40 @@ const vehicleMakes = [
     "country": "South Korea",
     "discontinued": false,
     "models": [
+      "Accent",
+      "Active i20",
       "Alcazar",
       "Aura",
       "Creta",
       "Creta Electric",
       "Creta N Line",
+      "Elantra",
+      "Elite i20",
+      "Eon",
       "Exter",
+      "Getz",
+      "Getz Prime",
+      "Grand i10",
       "Grand I10 Nios",
+      "i10",
       "I20",
       "I20 N Line",
       "Ioniq 5",
       "Kona",
       "Prime HB",
       "Prime SD",
+      "Santa Fe",
+      "Santro",
+      "Santro Xing",
+      "Sonata",
+      "Sonata Embera",
+      "Terracan",
       "Tucson",
       "Venue",
       "Venue N Line",
-      "Verna"
+      "Verna",
+      "Verna Transform",
+      "Xcent"
     ]
   },
   {
@@ -131,11 +197,21 @@ const vehicleMakes = [
     "country": "Japan",
     "discontinued": false,
     "models": [
+      "Accord",
       "Amaze",
+      "BR-V",
+      "Brio",
       "City",
+      "City (Gen 1-4)",
       "City Hybrid",
+      "City VTEC",
+      "City ZX",
+      "Civic",
+      "CR-V",
       "Elevate",
       "Jazz",
+      "Jazz (Old)",
+      "Mobilio",
       "WR V"
     ]
   },
@@ -146,12 +222,22 @@ const vehicleMakes = [
     "discontinued": false,
     "models": [
       "Camry",
+      "Corolla",
+      "Corolla Altis",
+      "Etios",
+      "Etios Cross",
+      "Etios Liva",
       "Fortuner Legender",
       "Glanza",
       "Hilux",
       "Hyryder",
+      "Innova (Old)",
       "Innova Crysta",
       "Innova Hycross",
+      "Land Cruiser Prado",
+      "Prado",
+      "Prius",
+      "Qualis",
       "Taisor",
       "Urban Cruiser",
       "Vellfire"
@@ -197,12 +283,18 @@ const vehicleMakes = [
     "country": "Czech Republic",
     "discontinued": false,
     "models": [
+      "Fabia",
+      "Fabia Scout",
       "Kodiaq",
       "Kushaq",
       "Kylaq",
+      "Laura",
       "Octavia",
       "Octavia RS",
-      "Superb"
+      "Octavia vRS",
+      "Rapid",
+      "Superb",
+      "Yeti"
     ]
   },
   {
@@ -211,8 +303,15 @@ const vehicleMakes = [
     "country": "Germany",
     "discontinued": false,
     "models": [
+      "Ameo",
+      "Beetle",
+      "Cross Polo",
       "Golf Gti",
+      "Jetta",
+      "Passat",
       "Polo",
+      "Polo GT",
+      "Polo GTI",
       "T Roc",
       "Taigun",
       "Tiguan",
@@ -230,7 +329,13 @@ const vehicleMakes = [
     "models": [
       "Captur",
       "Duster",
+      "Fluence",
       "Kiger",
+      "Koleos",
+      "Kwid",
+      "Lodgy",
+      "Pulse",
+      "Scala",
       "Triber"
     ]
   },
@@ -240,11 +345,18 @@ const vehicleMakes = [
     "country": "Japan",
     "discontinued": false,
     "models": [
+      "370Z",
+      "Evalia",
+      "GT-R",
       "Gtr",
       "Kicks",
       "Magnite",
       "Micra",
-      "Micra Active"
+      "Micra Active",
+      "Sunny",
+      "Teana",
+      "Terrano",
+      "X-Trail"
     ]
   },
   {
@@ -281,6 +393,7 @@ const vehicleMakes = [
     "discontinued": false,
     "models": [
       "A Class Limousine",
+      "A-Class",
       "AMG A 45 S",
       "AMG C 63",
       "AMG C43",
@@ -294,7 +407,11 @@ const vehicleMakes = [
       "AMG GT Coupe",
       "AMG S 63",
       "AMG SL",
+      "B-Class",
+      "C-Class",
+      "CLA",
       "Cle Cabriolet",
+      "CLS",
       "E Class",
       "Eqa",
       "Eqb",
@@ -303,16 +420,21 @@ const vehicleMakes = [
       "Eqs SUV",
       "G Class",
       "G Class Electric",
+      "GL-Class",
       "Gla",
       "Glb",
       "Glc",
       "Gle",
       "Gls",
+      "M-Class",
       "Maybach Eqs SUV",
       "Maybach Gls",
       "Maybach S Class",
       "Maybach SL 680",
-      "S Class"
+      "R-Class",
+      "S Class",
+      "SLC",
+      "SLK"
     ]
   },
   {
@@ -321,10 +443,15 @@ const vehicleMakes = [
     "country": "Germany",
     "discontinued": false,
     "models": [
+      "1 Series",
       "2 Series",
       "2 Series Gran Coupe",
       "3 Series",
+      "3 Series GT",
       "5 Series",
+      "5 Series GT",
+      "6 Series",
+      "6 Series GT",
       "7 Series",
       "I4",
       "I5",
@@ -340,6 +467,8 @@ const vehicleMakes = [
       "X3",
       "X4",
       "X5",
+      "X6",
+      "X6 M",
       "X7",
       "XM",
       "Z4"
@@ -351,20 +480,33 @@ const vehicleMakes = [
     "country": "Germany",
     "discontinued": false,
     "models": [
+      "A3",
+      "A3 Cabriolet",
       "A4",
+      "A5",
+      "A5 Cabriolet",
+      "A6",
+      "A7",
       "A8 L",
       "E Tron",
       "E Tron GT",
       "Q3",
+      "Q3 (Old)",
       "Q3 Sportback",
       "Q5",
+      "Q5 (Old)",
       "Q7",
+      "Q7 (Old)",
       "Q8",
       "Q8 E Tron",
       "Q8 Sportback E Tron",
+      "R8",
       "RS E Tron GT",
       "RS Q8",
-      "S5 Sportback"
+      "RS6",
+      "RS7",
+      "S5 Sportback",
+      "TT"
     ]
   },
   {
@@ -582,8 +724,20 @@ const vehicleMakes = [
     "discontinued": true,
     "models": [
       "Aspire",
+      "Classic",
+      "EcoSport",
       "Endeavour",
-      "Freestyle"
+      "Escort",
+      "Fiesta",
+      "Fiesta Classic",
+      "Figo",
+      "Figo Aspire",
+      "Focus",
+      "Freestyle",
+      "Fusion",
+      "Ikon",
+      "Mondeo",
+      "Mustang"
     ]
   },
   {
@@ -592,7 +746,21 @@ const vehicleMakes = [
     "country": "USA",
     "discontinued": true,
     "models": [
-      "Tavera"
+      "Aveo",
+      "Aveo U-VA",
+      "Beat",
+      "Captiva",
+      "Cruze",
+      "Enjoy",
+      "Forester",
+      "Optra",
+      "Optra Magnum",
+      "Optra SRV",
+      "Sail",
+      "Sail U-VA",
+      "Spark",
+      "Tavera",
+      "Trailblazer"
     ]
   },
   {
@@ -601,8 +769,21 @@ const vehicleMakes = [
     "country": "Italy",
     "discontinued": true,
     "models": [
+      "500",
+      "500 Abarth",
+      "Avventura",
       "Avventura Urban Cross",
-      "Punto"
+      "Grande Punto",
+      "Linea",
+      "Linea Classic",
+      "Palio",
+      "Palio Adventure",
+      "Palio Stile",
+      "Petra",
+      "Punto",
+      "Punto Evo",
+      "Siena",
+      "Uno"
     ]
   },
   {
@@ -611,7 +792,10 @@ const vehicleMakes = [
     "country": "Japan",
     "discontinued": true,
     "models": [
-      "Other"
+      "Go",
+      "Go Cross",
+      "Go Plus",
+      "redi-GO"
     ]
   },
   {
@@ -620,9 +804,12 @@ const vehicleMakes = [
     "country": "Japan",
     "discontinued": true,
     "models": [
+      "Cedia",
+      "Lancer",
       "Montero",
       "Outlander",
-      "Pajero"
+      "Pajero",
+      "Pajero Sport"
     ]
   },
   {
@@ -640,7 +827,12 @@ const vehicleMakes = [
     "country": "India",
     "discontinued": true,
     "models": [
-      "Other"
+      "Ambassador",
+      "Ambassador Avigo",
+      "Ambassador Classic",
+      "Ambassador Grand",
+      "Contessa",
+      "Contessa Classic"
     ]
   },
   {
@@ -649,7 +841,10 @@ const vehicleMakes = [
     "country": "India",
     "discontinued": true,
     "models": [
-      "Other"
+      "Padmini",
+      "Premier 118NE",
+      "Premier 137",
+      "Rio"
     ]
   },
   {
@@ -661,30 +856,4 @@ const vehicleMakes = [
       "Other"
     ]
   }
-];
-
-async function seedDatabase() {
-    console.log('Starting to seed vehicle_makes collection...\n');
-
-    const batch = db.batch();
-
-    for (const make of vehicleMakes) {
-        const docRef = db.collection('vehicle_makes').doc(make.id);
-        batch.set(docRef, {
-            name: make.name,
-            country: make.country,
-            models: make.models,
-            updatedAt: admin.firestore.FieldValue.serverTimestamp()
-        });
-        console.log(`  Added: ${make.name} (${make.models.length} models)`);
-    }
-
-    await batch.commit();
-    console.log(`\n✓ Successfully seeded ${vehicleMakes.length} makes to Firestore!`);
-    process.exit(0);
-}
-
-seedDatabase().catch((error) => {
-    console.error('Error seeding database:', error);
-    process.exit(1);
-});
+]

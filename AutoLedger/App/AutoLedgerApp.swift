@@ -57,6 +57,7 @@ struct AutoLedgerApp: App {
     let modelContainer: ModelContainer
     @StateObject private var vehicleService = FirebaseVehicleService.shared
     @StateObject private var authService = AuthenticationService()
+    @StateObject private var syncService = FirestoreSyncService.shared
 
     init() {
         // Configure navigation bar appearance for dark mode
@@ -100,6 +101,7 @@ struct AutoLedgerApp: App {
             ContentView()
                 .environmentObject(vehicleService)
                 .environmentObject(authService)
+                .environmentObject(syncService)
                 .task {
                     // Fetch vehicle makes on app launch
                     if vehicleService.makes.isEmpty || vehicleService.isCacheStale {

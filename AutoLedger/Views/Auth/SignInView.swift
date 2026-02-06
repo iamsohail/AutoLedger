@@ -338,20 +338,7 @@ struct SignInView: View {
 
             // Loading overlay
             if authService.isLoading {
-                Color.black.opacity(0.6)
-                    .ignoresSafeArea()
-
-                VStack(spacing: 16) {
-                    ProgressView()
-                        .tint(.white)
-                        .scaleEffect(1.2)
-                    Text("Please Wait...")
-                        .font(Theme.Typography.subheadline)
-                        .foregroundColor(.white)
-                }
-                .padding(32)
-                .background(Color.cardBackground)
-                .cornerRadius(16)
+                CarLoadingOverlay(message: "Please Wait...")
             }
         }
         .sheet(isPresented: $showingPhoneAuth) {
@@ -631,11 +618,7 @@ struct PhoneAuthView: View {
                 }
 
                 if authService.isLoading {
-                    Color.black.opacity(0.6)
-                        .ignoresSafeArea()
-                    ProgressView()
-                        .tint(.white)
-                        .scaleEffect(1.5)
+                    CarLoadingOverlay()
                 }
             }
             .navigationTitle(showingVerification ? "Verify OTP" : "Phone Sign-In")

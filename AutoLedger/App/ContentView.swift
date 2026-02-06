@@ -53,6 +53,9 @@ struct ContentView: View {
                 OnboardingView(onComplete: {
                     hasSeenOnboarding = true
                 })
+            } else if authService.isCheckingAuth {
+                // Wait for Firebase to restore session before showing login
+                splashView
             } else if !authService.isAuthenticated {
                 // Step 2: Login
                 SignInView()
@@ -76,6 +79,13 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(.dark)
+    }
+
+    private var splashView: some View {
+        ZStack {
+            Color.darkBackground.ignoresSafeArea()
+            CarLoadingView(size: 52)
+        }
     }
 
     private var emptyVehicleState: some View {

@@ -6,6 +6,16 @@ struct AddVehicleView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var vehicleService: FirebaseVehicleService
 
+    // MARK: - Step Management
+
+    enum Step: Int, CaseIterable {
+        case brand = 0
+        case model = 1
+        case details = 2
+    }
+
+    @State private var currentStep: Step = .brand
+
     // Vehicle Info
     @State private var name = ""
     @State private var year = Calendar.current.component(.year, from: Date())
@@ -28,21 +38,23 @@ struct AddVehicleView: View {
     @State private var manualFuelType: FuelType = .petrol
     @State private var useManualEntry = false
 
-    // Validation
+    // UI State
     @State private var showingValidationError = false
     @State private var validationErrorMessage = ""
+    @State private var brandSearch = ""
 
     private let currentYear = Calendar.current.component(.year, from: Date())
+    private let popularMakeNames = ["Maruti Suzuki", "Hyundai", "Tata", "Mahindra", "Toyota", "Honda", "Kia"]
+
+    // MARK: - Computed Properties
 
     private var yearRange: [Int] {
         Array((2000...(currentYear + 1)).reversed())
     }
 
-    // MARK: - Computed Properties
-
     private var availableModels: [VehicleModelData] {
         guard let make = selectedMake else { return [] }
-        return make.models.filter { !$0.isDiscontinued }
+        return make.models
     }
 
     private var availableFuelTypes: [FuelType] {
@@ -59,50 +71,71 @@ struct AddVehicleView: View {
         selectedModel?.hasBothTransmissions ?? false
     }
 
+    private var filteredMakes: [VehicleMakeData] {
+        if brandSearch.isEmpty { return vehicleService.makes }
+        return vehicleService.makes.filter { $0.name.localizedCaseInsensitiveContains(brandSearch) }
+    }
+
+    private var popularMakes: [VehicleMakeData] {
+        filteredMakes.filter { popularMakeNames.contains($0.name) }
+    }
+
+    private var otherMakes: [VehicleMakeData] {
+        filteredMakes.filter { !popularMakeNames.contains($0.name) }
+    }
+
+    private var navigationTitle: String {
+        switch currentStep {
+        case .brand: return "Add Vehicle"
+        case .model: return selectedMake?.name ?? "Select Model"
+        case .details: return "Vehicle Details"
+        }
+    }
+
+    // MARK: - Body
+
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.darkBackground.ignoresSafeArea()
 
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 28) {
-                        // Car Preview Section (shows when make & model selected)
-                        if selectedMake != nil && selectedModel != nil {
-                            carPreviewSection
-                        }
-
-                        // Vehicle Selection Section
-                        vehicleSelectionSection
-
-                        // Vehicle Details Section
-                        vehicleDetailsSection
-
-                        // Specifications Section
-                        specificationsSection
-
-                        // Notes Section
-                        notesSection
-
-                        Spacer().frame(height: 40)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 16)
+                switch currentStep {
+                case .brand:
+                    brandSelectionView
+                case .model:
+                    modelSelectionView
+                case .details:
+                    detailsFormView
                 }
             }
-            .navigationTitle("Add Vehicle")
+            .navigationTitle(navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color.darkBackground, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
-                        .foregroundColor(.textSecondary)
+                    if currentStep == .brand {
+                        Button("Cancel") { dismiss() }
+                            .foregroundColor(.textSecondary)
+                    } else {
+                        Button {
+                            goBack()
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: "chevron.left")
+                                Text("Back")
+                            }
+                            .foregroundColor(.textSecondary)
+                        }
+                    }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { saveVehicle() }
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(isValid ? .primaryPurple : .textSecondary.opacity(0.5))
-                        .disabled(!isValid)
+                    if currentStep == .details {
+                        Button("Save") { saveVehicle() }
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundColor(isValid ? .primaryPurple : .textSecondary.opacity(0.5))
+                            .disabled(!isValid)
+                    }
                 }
             }
             .alert("Validation Error", isPresented: $showingValidationError) {
@@ -118,12 +151,272 @@ struct AddVehicleView: View {
         }
     }
 
-    // MARK: - Car Preview Section
+    // MARK: - Step 1: Brand Selection
 
-    private var carPreviewSection: some View {
+    private var brandSelectionView: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 24) {
+                // Search bar
+                HStack(spacing: 12) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.textSecondary)
+
+                    TextField("", text: $brandSearch, prompt: Text("Search brands...").foregroundColor(.textSecondary.opacity(0.5)))
+                        .foregroundColor(.textPrimary)
+                        .autocorrectionDisabled()
+                }
+                .padding(14)
+                .background(Color.cardBackground)
+                .cornerRadius(12)
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
+
+                if vehicleService.isLoading {
+                    Spacer().frame(height: 100)
+                    CarLoadingView(size: 36)
+                    Spacer()
+                } else {
+                    // Popular Brands
+                    if !popularMakes.isEmpty && brandSearch.isEmpty {
+                        brandSection(title: "Popular Brands", makes: popularMakes)
+                    }
+
+                    // All/Other Brands
+                    brandSection(
+                        title: brandSearch.isEmpty ? "All Brands" : "Results",
+                        makes: brandSearch.isEmpty ? otherMakes : filteredMakes
+                    )
+
+                    // Manual Entry link
+                    Button {
+                        useManualEntry = true
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            currentStep = .details
+                        }
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "pencil.circle.fill")
+                                .font(.system(size: 18))
+                            Text("Enter Manually Instead")
+                                .font(Theme.Typography.subheadline)
+                        }
+                        .foregroundColor(.textSecondary)
+                    }
+                    .padding(.top, 8)
+                    .padding(.bottom, 40)
+                }
+
+                if let error = vehicleService.error {
+                    Text(error)
+                        .font(Theme.Typography.caption)
+                        .foregroundColor(.red)
+                        .padding(.horizontal, 20)
+                }
+            }
+        }
+    }
+
+    private func brandSection(title: String, makes: [VehicleMakeData]) -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text(title)
+                .font(Theme.Typography.subheadlineMedium)
+                .foregroundColor(.textSecondary)
+                .padding(.horizontal, 20)
+
+            LazyVGrid(
+                columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 4),
+                spacing: 20
+            ) {
+                ForEach(makes) { make in
+                    brandTile(make)
+                }
+            }
+            .padding(.horizontal, 20)
+        }
+    }
+
+    private func brandTile(_ make: VehicleMakeData) -> some View {
+        Button {
+            selectedMake = make
+            selectedModel = nil
+            selectedFuelType = nil
+            selectedTransmission = "Manual"
+            tankCapacity = ""
+            brandSearch = ""
+            withAnimation(.easeInOut(duration: 0.3)) {
+                currentStep = .model
+            }
+        } label: {
+            VStack(spacing: 10) {
+                BrandLogoView(make: make.name, size: 56, fallbackColor: .primaryPurple)
+                    .shadow(color: .primaryPurple.opacity(0.15), radius: 8, y: 2)
+
+                Text(make.name)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundColor(.textSecondary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 12)
+            .background(Color.cardBackground)
+            .cornerRadius(14)
+        }
+    }
+
+    // MARK: - Step 2: Model Selection
+
+    private var modelSelectionView: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 24) {
+                // Brand header
+                if let make = selectedMake {
+                    HStack(spacing: 16) {
+                        BrandLogoView(make: make.name, size: 48, fallbackColor: .primaryPurple)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(make.name)
+                                .font(Theme.Typography.title3)
+                                .foregroundColor(.textPrimary)
+
+                            Text("\(availableModels.count) models available")
+                                .font(Theme.Typography.caption)
+                                .foregroundColor(.textSecondary)
+                        }
+
+                        Spacer()
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
+                }
+
+                // Model grid (2 columns)
+                LazyVGrid(
+                    columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)],
+                    spacing: 16
+                ) {
+                    ForEach(availableModels) { model in
+                        modelCard(model)
+                    }
+                }
+                .padding(.horizontal, 20)
+
+                Spacer().frame(height: 40)
+            }
+        }
+    }
+
+    private func modelCard(_ model: VehicleModelData) -> some View {
+        Button {
+            selectedModel = model
+            selectedFuelType = nil
+            let fuelTypes = model.availableFuelTypes
+            if fuelTypes.count == 1 {
+                selectedFuelType = fuelTypes.first
+            }
+            if !model.hasBothTransmissions {
+                selectedTransmission = model.transmission
+            }
+            autoFillCapacity(from: model)
+            withAnimation(.easeInOut(duration: 0.3)) {
+                currentStep = .details
+            }
+        } label: {
+            VStack(spacing: 0) {
+                // Car image
+                CarImageView(
+                    make: selectedMake?.name ?? "",
+                    model: model.name,
+                    size: 90,
+                    cornerRadius: 0
+                )
+                .frame(maxWidth: .infinity)
+                .frame(height: 90)
+                .clipped()
+
+                // Model info
+                VStack(spacing: 6) {
+                    Text(model.name)
+                        .font(Theme.Typography.subheadlineMedium)
+                        .foregroundColor(.textPrimary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+
+                    // Fuel type tags
+                    HStack(spacing: 4) {
+                        ForEach(model.availableFuelTypes.prefix(3), id: \.self) { fuel in
+                            Text(fuelShortName(fuel))
+                                .font(.system(size: 9, weight: .medium))
+                                .foregroundColor(.primaryPurple)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(Color.primaryPurple.opacity(0.15))
+                                .cornerRadius(4)
+                        }
+                    }
+                }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 10)
+            }
+            .background(Color.cardBackground)
+            .cornerRadius(14)
+            .overlay(
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(Color.textSecondary.opacity(0.1), lineWidth: 1)
+            )
+        }
+    }
+
+    private func fuelShortName(_ fuel: FuelType) -> String {
+        switch fuel {
+        case .petrol, .gasoline: return "Petrol"
+        case .diesel: return "Diesel"
+        case .cng: return "CNG"
+        case .electric: return "EV"
+        case .hybrid: return "Hybrid"
+        case .plugInHybrid: return "PHEV"
+        case .hydrogen: return "H\u{2082}"
+        case .flexFuel: return "Flex"
+        }
+    }
+
+    // MARK: - Step 3: Details Form
+
+    private var detailsFormView: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 24) {
+                if useManualEntry {
+                    manualEntryCard
+                } else {
+                    // Hero section
+                    heroSection
+
+                    // Configuration card (fuel, transmission, year)
+                    configurationCard
+                }
+
+                // Vehicle details card
+                vehicleDetailsCard
+
+                // Specifications card
+                specificationsCard
+
+                // Notes card
+                notesCard
+
+                // Save button
+                saveButton
+
+                Spacer().frame(height: 40)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+        }
+    }
+
+    private var heroSection: some View {
         VStack(spacing: 16) {
             if let make = selectedMake, let model = selectedModel {
-                // Show bundled car image or placeholder
                 CarImageView(
                     make: make.name,
                     model: model.name,
@@ -131,198 +424,128 @@ struct AddVehicleView: View {
                     cornerRadius: 20
                 )
 
-                // Vehicle name
-                Text("\(year) \(make.name) \(model.name)")
+                Text("\(String(year)) \(make.name) \(model.name)")
                     .font(Theme.Typography.headline)
                     .foregroundColor(.textPrimary)
             }
         }
     }
 
-    // MARK: - Vehicle Selection Section
-
-    private var vehicleSelectionSection: some View {
+    private var configurationCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            // Section Header
-            Text("Select Vehicle")
+            Text("Configuration")
                 .font(Theme.Typography.headline)
                 .foregroundColor(.textPrimary)
                 .padding(.leading, 4)
 
-            VStack(spacing: 12) {
-                if useManualEntry {
-                    manualEntryFields
-                } else {
-                    // Make Selection Card with Logo
-                    makeSelectionCard
+            VStack(spacing: 0) {
+                // Fuel Type chips (only if multiple options)
+                if availableFuelTypes.count > 1 {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Fuel Type")
+                            .font(Theme.Typography.caption)
+                            .foregroundColor(.textSecondary)
 
-                    // Model Picker
-                    if selectedMake != nil {
-                        selectionRow(
-                            title: "Model",
-                            value: selectedModel?.name ?? "Select Model",
-                            isSelected: selectedModel != nil
-                        ) {
-                            Button("Select Model") { selectedModel = nil }
-                            ForEach(availableModels) { model in
-                                Button(model.name) { selectedModel = model }
+                        HStack(spacing: 8) {
+                            ForEach(availableFuelTypes, id: \.self) { fuel in
+                                fuelChip(fuel)
                             }
-                        }
-                        .onChange(of: selectedModel) { _, newModel in
-                            selectedFuelType = nil
-                            if let model = newModel {
-                                let fuelTypes = model.availableFuelTypes
-                                if fuelTypes.count == 1 {
-                                    selectedFuelType = fuelTypes.first
-                                }
-                                if !model.hasBothTransmissions {
-                                    selectedTransmission = model.transmission
-                                }
-                                autoFillCapacity(from: model)
-                            }
+                            Spacer()
                         }
                     }
+                    .padding(16)
 
-                    // Fuel Type Picker
-                    if selectedModel != nil {
-                        selectionRow(
-                            title: "Fuel Type",
-                            value: selectedFuelType?.rawValue ?? "Select Fuel",
-                            isSelected: selectedFuelType != nil
-                        ) {
-                            Button("Select Fuel") { selectedFuelType = nil }
-                            ForEach(availableFuelTypes, id: \.self) { fuelType in
-                                Button(fuelType.rawValue) { selectedFuelType = fuelType }
-                            }
-                        }
-                        .onChange(of: selectedFuelType) { _, _ in
-                            if let model = selectedModel {
-                                autoFillCapacity(from: model)
-                            }
-                        }
-                    }
-
-                    // Transmission Picker
-                    if showTransmissionPicker {
-                        selectionRow(
-                            title: "Transmission",
-                            value: selectedTransmission,
-                            isSelected: true
-                        ) {
-                            ForEach(availableTransmissions, id: \.self) { transmission in
-                                Button(transmission) { selectedTransmission = transmission }
-                            }
-                        }
-                    }
+                    dividerLine
                 }
 
-                // Manual Entry Toggle
-                HStack {
-                    Text("Enter Manually")
-                        .font(Theme.Typography.subheadline)
-                        .foregroundColor(.textSecondary)
-                    Spacer()
-                    Toggle("", isOn: $useManualEntry)
-                        .labelsHidden()
-                        .tint(.primaryPurple)
-                }
-                .padding(16)
-                .background(Color.cardBackground)
-                .cornerRadius(14)
-            }
-
-            // Error message
-            if let error = vehicleService.error {
-                Text(error)
-                    .font(Theme.Typography.caption)
-                    .foregroundColor(.red)
-                    .padding(.leading, 4)
-            }
-        }
-    }
-
-    // MARK: - Make Selection Card
-
-    private var makeSelectionCard: some View {
-        Menu {
-            Button("Select Make") { selectedMake = nil }
-            Divider()
-            // Popular makes first
-            let popularMakes = ["Maruti", "Hyundai", "Tata", "Mahindra", "Toyota", "Honda", "Kia"]
-            let popular = vehicleService.makes.filter { popularMakes.contains($0.name) }
-            let others = vehicleService.makes.filter { !popularMakes.contains($0.name) }
-
-            if !popular.isEmpty {
-                Section("Popular") {
-                    ForEach(popular) { make in
-                        Button(make.name) {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                selectedMake = make
-                            }
-                        }
-                    }
-                }
-            }
-            if !others.isEmpty {
-                Section("All Brands") {
-                    ForEach(others) { make in
-                        Button(make.name) {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                selectedMake = make
-                            }
-                        }
-                    }
-                }
-            }
-        } label: {
-            HStack(spacing: 16) {
-                // Brand Logo (no box, just the logo)
-                if let make = selectedMake {
-                    BrandLogoView(make: make.name, size: 44, fallbackColor: .primaryPurple)
-                } else {
-                    Image(systemName: "car.circle.fill")
-                        .font(.system(size: 44))
-                        .foregroundColor(.textSecondary.opacity(0.4))
-                }
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Make")
-                        .font(Theme.Typography.caption)
-                        .foregroundColor(.textSecondary)
-
+                // Transmission toggle
+                if showTransmissionPicker {
                     HStack {
-                        Text(selectedMake?.name ?? "Select Make")
-                            .font(Theme.Typography.bodyMedium)
-                            .foregroundColor(selectedMake != nil ? .textPrimary : .textSecondary)
+                        Text("Transmission")
+                            .font(Theme.Typography.body)
+                            .foregroundColor(.textPrimary)
 
                         Spacer()
 
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundColor(.textSecondary)
+                        HStack(spacing: 0) {
+                            ForEach(availableTransmissions, id: \.self) { trans in
+                                Button {
+                                    selectedTransmission = trans
+                                } label: {
+                                    Text(trans)
+                                        .font(.system(size: 13, weight: .medium))
+                                        .foregroundColor(selectedTransmission == trans ? .white : .textSecondary)
+                                        .padding(.horizontal, 14)
+                                        .padding(.vertical, 8)
+                                        .background(selectedTransmission == trans ? Color.primaryPurple : Color.clear)
+                                        .cornerRadius(8)
+                                }
+                            }
+                        }
+                        .background(Color.darkBackground)
+                        .cornerRadius(8)
                     }
+                    .padding(16)
+
+                    dividerLine
                 }
 
-                if vehicleService.isLoading {
-                    ProgressView()
-                        .scaleEffect(0.8)
-                }
+                // Year
+                yearRow
             }
-            .padding(16)
             .background(Color.cardBackground)
             .cornerRadius(14)
         }
-        .onChange(of: selectedMake) { _, _ in
-            selectedModel = nil
-            selectedFuelType = nil
-            selectedTransmission = "Manual"
-            tankCapacity = ""
+    }
+
+    private func fuelChip(_ fuel: FuelType) -> some View {
+        Button {
+            selectedFuelType = fuel
+            if let model = selectedModel {
+                autoFillCapacity(from: model)
+            }
+        } label: {
+            Text(fuel.rawValue)
+                .font(.system(size: 13, weight: .medium))
+                .foregroundColor(selectedFuelType == fuel ? .white : .textSecondary)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(selectedFuelType == fuel ? Color.primaryPurple : Color.darkBackground)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(selectedFuelType == fuel ? Color.clear : Color.textSecondary.opacity(0.2), lineWidth: 1)
+                )
         }
     }
 
-    // MARK: - Vehicle Details Section
+    private var yearRow: some View {
+        HStack {
+            Text("Year")
+                .font(Theme.Typography.body)
+                .foregroundColor(.textPrimary)
 
-    private var vehicleDetailsSection: some View {
+            Spacer()
+
+            Menu {
+                ForEach(yearRange, id: \.self) { yr in
+                    Button(String(yr)) { year = yr }
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Text(String(year))
+                        .foregroundColor(.primaryPurple)
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundColor(.primaryPurple)
+                }
+                .font(Theme.Typography.bodyMedium)
+            }
+        }
+        .padding(16)
+    }
+
+    private var vehicleDetailsCard: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Vehicle Details")
                 .font(Theme.Typography.headline)
@@ -330,54 +553,18 @@ struct AddVehicleView: View {
                 .padding(.leading, 4)
 
             VStack(spacing: 0) {
-                // Nickname
                 inputField(placeholder: "Nickname (Optional)", text: $name)
-
                 dividerLine
-
-                // Year
-                HStack {
-                    Text("Year")
-                        .font(Theme.Typography.body)
-                        .foregroundColor(.textPrimary)
-
-                    Spacer()
-
-                    Menu {
-                        ForEach(yearRange, id: \.self) { yr in
-                            Button(String(yr)) { year = yr }
-                        }
-                    } label: {
-                        HStack(spacing: 6) {
-                            Text(String(year))
-                                .foregroundColor(.primaryPurple)
-                            Image(systemName: "chevron.down")
-                                .font(.system(size: 10, weight: .medium))
-                                .foregroundColor(.primaryPurple)
-                        }
-                        .font(Theme.Typography.bodyMedium)
-                    }
-                }
-                .padding(16)
-
-                dividerLine
-
-                // VIN
-                inputField(placeholder: "VIN (Optional)", text: $vin)
-
-                dividerLine
-
-                // License Plate
                 inputField(placeholder: "License Plate (Optional)", text: $licensePlate)
+                dividerLine
+                inputField(placeholder: "VIN (Optional)", text: $vin)
             }
             .background(Color.cardBackground)
             .cornerRadius(14)
         }
     }
 
-    // MARK: - Specifications Section
-
-    private var specificationsSection: some View {
+    private var specificationsCard: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Specifications")
                 .font(Theme.Typography.headline)
@@ -422,9 +609,7 @@ struct AddVehicleView: View {
         }
     }
 
-    // MARK: - Notes Section
-
-    private var notesSection: some View {
+    private var notesCard: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Notes")
                 .font(Theme.Typography.headline)
@@ -438,6 +623,103 @@ struct AddVehicleView: View {
                 .padding(12)
                 .background(Color.cardBackground)
                 .cornerRadius(14)
+        }
+    }
+
+    private var saveButton: some View {
+        Button {
+            saveVehicle()
+        } label: {
+            Text("Save Vehicle")
+                .font(Theme.Typography.headline)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .background(
+                    LinearGradient(
+                        colors: [Color.primaryPurple, Color.pinkAccent],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                    .opacity(isValid ? 1 : 0.5)
+                )
+                .cornerRadius(14)
+        }
+        .disabled(!isValid)
+    }
+
+    // MARK: - Manual Entry Card
+
+    private var manualEntryCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Vehicle Info")
+                .font(Theme.Typography.headline)
+                .foregroundColor(.textPrimary)
+                .padding(.leading, 4)
+
+            VStack(spacing: 0) {
+                inputField(placeholder: "Make", text: $manualMake)
+                dividerLine
+                inputField(placeholder: "Model", text: $manualModel)
+                dividerLine
+
+                // Fuel Type
+                HStack {
+                    Text("Fuel Type")
+                        .font(Theme.Typography.body)
+                        .foregroundColor(.textPrimary)
+
+                    Spacer()
+
+                    Menu {
+                        ForEach(FuelType.allCases, id: \.self) { type in
+                            Button(type.rawValue) { manualFuelType = type }
+                        }
+                    } label: {
+                        HStack(spacing: 6) {
+                            Text(manualFuelType.rawValue)
+                                .foregroundColor(.primaryPurple)
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 10, weight: .medium))
+                                .foregroundColor(.primaryPurple)
+                        }
+                        .font(Theme.Typography.body)
+                    }
+                }
+                .padding(16)
+
+                dividerLine
+
+                // Transmission
+                HStack {
+                    Text("Transmission")
+                        .font(Theme.Typography.body)
+                        .foregroundColor(.textPrimary)
+
+                    Spacer()
+
+                    Menu {
+                        Button("Manual") { selectedTransmission = "Manual" }
+                        Button("Automatic") { selectedTransmission = "Automatic" }
+                    } label: {
+                        HStack(spacing: 6) {
+                            Text(selectedTransmission)
+                                .foregroundColor(.primaryPurple)
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 10, weight: .medium))
+                                .foregroundColor(.primaryPurple)
+                        }
+                        .font(Theme.Typography.body)
+                    }
+                }
+                .padding(16)
+
+                dividerLine
+
+                yearRow
+            }
+            .background(Color.cardBackground)
+            .cornerRadius(14)
         }
     }
 
@@ -455,97 +737,24 @@ struct AddVehicleView: View {
             .padding(16)
     }
 
-    private func selectionRow<Content: View>(
-        title: String,
-        value: String,
-        isSelected: Bool,
-        @ViewBuilder content: @escaping () -> Content
-    ) -> some View {
-        Menu {
-            content()
-        } label: {
-            HStack {
-                Text(title)
-                    .font(Theme.Typography.body)
-                    .foregroundColor(.textPrimary)
+    // MARK: - Navigation
 
-                Spacer()
-
-                HStack(spacing: 6) {
-                    Text(value)
-                        .foregroundColor(isSelected ? .primaryPurple : .textSecondary)
-                    Image(systemName: "chevron.down")
-                        .font(.system(size: 10, weight: .medium))
-                        .foregroundColor(isSelected ? .primaryPurple : .textSecondary)
+    private func goBack() {
+        withAnimation(.easeInOut(duration: 0.3)) {
+            switch currentStep {
+            case .brand:
+                break
+            case .model:
+                currentStep = .brand
+            case .details:
+                if useManualEntry {
+                    useManualEntry = false
+                    currentStep = .brand
+                } else {
+                    currentStep = .model
                 }
-                .font(Theme.Typography.body)
             }
-            .padding(16)
-            .background(Color.cardBackground)
-            .cornerRadius(14)
         }
-    }
-
-    private var manualEntryFields: some View {
-        VStack(spacing: 0) {
-            inputField(placeholder: "Make", text: $manualMake)
-            dividerLine
-            inputField(placeholder: "Model", text: $manualModel)
-            dividerLine
-
-            // Fuel Type
-            HStack {
-                Text("Fuel Type")
-                    .font(Theme.Typography.body)
-                    .foregroundColor(.textPrimary)
-
-                Spacer()
-
-                Menu {
-                    ForEach(FuelType.allCases, id: \.self) { type in
-                        Button(type.rawValue) { manualFuelType = type }
-                    }
-                } label: {
-                    HStack(spacing: 6) {
-                        Text(manualFuelType.rawValue)
-                            .foregroundColor(.primaryPurple)
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 10, weight: .medium))
-                            .foregroundColor(.primaryPurple)
-                    }
-                    .font(Theme.Typography.body)
-                }
-            }
-            .padding(16)
-
-            dividerLine
-
-            // Transmission
-            HStack {
-                Text("Transmission")
-                    .font(Theme.Typography.body)
-                    .foregroundColor(.textPrimary)
-
-                Spacer()
-
-                Menu {
-                    Button("Manual") { selectedTransmission = "Manual" }
-                    Button("Automatic") { selectedTransmission = "Automatic" }
-                } label: {
-                    HStack(spacing: 6) {
-                        Text(selectedTransmission)
-                            .foregroundColor(.primaryPurple)
-                        Image(systemName: "chevron.down")
-                            .font(.system(size: 10, weight: .medium))
-                            .foregroundColor(.primaryPurple)
-                    }
-                    .font(Theme.Typography.body)
-                }
-            }
-            .padding(16)
-        }
-        .background(Color.cardBackground)
-        .cornerRadius(14)
     }
 
     // MARK: - Helper Properties
