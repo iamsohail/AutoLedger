@@ -46,8 +46,9 @@ REQUEST_DELAY = 15
 MAX_RETRIES = 3
 
 RESTYLE_PROMPT = (
-    "Recreate this exact car model accurately, facing left (front-left three-quarter view), "
-    "in a dark gray studio with a subtle gradient background. "
+    "Recreate this exact car model accurately, front three-quarter view. "
+    "The car must be painted in glossy black color. "
+    "Place it in a dark gray studio with a subtle gradient background. "
     "Show the ENTIRE car fully visible from bumper to bumper with generous space around it — "
     "do NOT crop any part of the car. "
     "Use strong key lighting from the front-left to illuminate the bumper, grille, and side panels clearly. "
@@ -61,7 +62,7 @@ RESTYLE_PROMPT = (
 )
 
 FALLBACK_PROMPT_TEMPLATE = (
-    "Professional studio photograph of a {year} {make} {model}, "
+    "Professional studio photograph of a {year} {make} {model} in glossy black color, "
     "facing left, front-left three-quarter view, "
     "in a dark gray studio with a subtle gradient background. "
     "Show the ENTIRE car fully visible from bumper to bumper with generous space around it. "

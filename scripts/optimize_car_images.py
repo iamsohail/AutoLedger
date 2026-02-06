@@ -47,6 +47,9 @@ def optimize_image(src: Path, dst: Path) -> tuple[int, int]:
         elif img.mode != "RGB":
             img = img.convert("RGB")
 
+        # Flip horizontally so all cars face left
+        img = img.transpose(Image.FLIP_LEFT_RIGHT)
+
         # Resize if larger than max dimensions (landscape-aware)
         if img.width > MAX_WIDTH or img.height > MAX_HEIGHT:
             img.thumbnail((MAX_WIDTH, MAX_HEIGHT), Image.LANCZOS)
