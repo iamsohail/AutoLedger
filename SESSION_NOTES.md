@@ -1,6 +1,6 @@
 # Auto Ledger - Session Notes
 
-**Last Updated:** February 6, 2026
+**Last Updated:** February 7, 2026
 **Repository:** https://github.com/iamsohail/AutoLedger
 
 ---
@@ -52,14 +52,16 @@ All models created in `/AutoLedger/Models/`:
 
 ### 3. Views ✅
 Created views in `/AutoLedger/Views/`:
-- **Dashboard:** `DashboardView.swift` - Main overview with gauges
-- **Vehicles:** `AddVehicleView.swift`, `EditVehicleView.swift`, `VehicleListView.swift`, `VehicleDetailView.swift`, `OnboardingView.swift`
-- **Fuel:** `FuelLogView.swift`, `AddFuelEntryView.swift`
-- **Maintenance:** `MaintenanceListView.swift`, `AddMaintenanceRecordView.swift`
-- **Trips:** `TripListView.swift`, `StartTripView.swift`, `EndTripView.swift`
-- **Settings:** `SettingsView.swift`
+- **Dashboard:** `DashboardView.swift` - Hero card + stats + quick actions + alerts + chart + activity
+- **Vehicles:** `AddVehicleView.swift` (3-step wizard), `EditVehicleView.swift`, `VehicleListView.swift`, `VehicleDetailView.swift`, `OnboardingView.swift`
+- **Log (unified):** `LogView.swift` (4-segment picker) → `FuelLogContentView.swift`, `MaintenanceContentView.swift`, `TripContentView.swift`
+- **Expenses:** `ExpenseListView.swift`, `AddExpenseView.swift`
+- **Explore:** `ExploreView.swift` (map), `SaveParkingSpotView.swift`, `ParkingSpotDetailView.swift`
+- **Vault:** `VaultView.swift` (grid/list), `AddDocumentView.swift`, `DocumentDetailView.swift`
+- **Settings:** `SettingsView.swift`, `BackupSettingsView.swift`, `AISettingsView.swift`, `AboutView.swift`
 - **Auth:** `SignInView.swift`, `ProfileCompletionView.swift`, `PhoneAuthView.swift`
-- **Components:** `EmptyStateView.swift`, `StatCard.swift`, `CircularGaugeView.swift`, `SpeedometerGaugeView.swift`, `GreetingHeaderView.swift`, `VehicleHeroCard.swift`, `DarkFeatureRow.swift`
+- **Components:** `SummaryStatView.swift`, `CarLoadingView.swift`, `DarkFeatureRow.swift`
+- **Debug:** `CarImageGalleryView.swift`
 
 ### 4. Services ✅
 - `FirebaseVehicleService.swift` - Fetches vehicle makes/models from Firestore
@@ -266,12 +268,45 @@ xcrun simctl launch booted com.iamsohail.AutoLedger
    - New services added: FirestoreSyncService, ReceiptScannerService
    - New components: CarLoadingView, DocumentScannerView
 
+### Session 3 (Feb 7, 2026):
+
+1. **Plus Jakarta Sans Custom Font — Attempted & Reverted**
+   - Downloaded 4 TTF weights (Regular, Medium, SemiBold, Bold) from Google Fonts
+   - Added to `Resources/Fonts/`, registered in `project.yml` via `UIAppFonts`
+   - Updated `Theme.swift` with `font(size:weight:)` helper mapping SwiftUI weights to PostScript names
+   - Updated ~13 view files replacing inline `.font(.system(...))` with custom font calls
+   - Updated `UINavigationBarAppearance` and `UITabBarAppearance` with custom UIFont
+   - Added runtime font verification (`NSLog` in `#if DEBUG`) — all 4 fonts confirmed loading
+   - **Reverted:** Log page and other UIKit-rendered elements (nav bar titles, List section headers, tab bar labels) still showed system font. UIKit appearance APIs don't fully cover all elements. Decided to stick with SF Pro for consistency.
+
+2. **Car Image Assets Committed**
+   - 380+ AI-generated car images added to `xcassets/CarImages/` (JPG, optimized from PNG sources)
+   - Covers all supported Indian market vehicles across 30+ brands
+
+3. **Log Tab Content Views Committed**
+   - Replaced old separate views (`FuelLogView`, `MaintenanceListView`, `TripListView`) with unified Log tab
+   - `LogView.swift` with 4-segment picker: Fuel, Service, Expenses, Trips
+   - New shared `SummaryStatView` component used across all segments
+   - New `CarImageGalleryView` debug view for auditing car images
+
+4. **Commits & Push**
+   - `e116e21` — Restructure from 6 tabs to 5: Home, Log, Explore, Vault, Settings
+   - `93b1b5a` — Add car image assets, Log tab content views, and utility scripts (782 files)
+   - Both pushed to GitHub
+
+### Lessons Learned (Feb 7):
+- **Custom fonts in iOS** require overriding UIKit appearance APIs separately from SwiftUI `.font()`
+- **`print()` doesn't appear in `log stream`** — use `NSLog()` or `os.Logger`
+- **SwiftUI `.custom()` silently falls back** to system font if PostScript name is wrong
+- Some UIKit elements (List section headers, search bars, alerts) **cannot be overridden** via appearance proxies
+
 ### Pending for Next Session:
-1. Run optimize + setup scripts after Batch 2 generation completes
-2. Find and replace 15 problematic logo SVGs (white outline versions)
-3. Test complete app flow on device
-4. Implement remaining features (documents, expenses, charts)
-5. Add app icon and launch screen
+1. Find and replace 15 problematic logo SVGs (white outline versions)
+2. Test complete app flow on device
+3. UI polish — spacing, layout tweaks (without custom fonts)
+4. Add app icon and launch screen
+5. `CarImages/` root directory (387 source PNGs) — add to `.gitignore` or separate storage
+6. Implement remaining features (data export, fuel efficiency charts)
 
 ---
 
