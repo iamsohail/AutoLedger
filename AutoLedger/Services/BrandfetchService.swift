@@ -8,16 +8,14 @@ class CarBrandLogoService {
 
     // MARK: - Detailed Logos (render with original colors)
 
-    /// Brands whose SVGs contain multiple distinct colors that benefit from original rendering
+    /// Brands whose assets contain multiple distinct colors that benefit from original rendering
     private let detailedLogoBrands: Set<String> = [
         "porsche",          // Gold, red, cream, brown crest (12+ colors + gradients)
         "bmw",              // White ring + Blue (#0066B1) quadrants
         "mercedes-benz",    // Gradient grays (#333E46 to #FFFFFF), 3D metallic star
         "mercedes",         // Alternate name
-        "maruti suzuki",    // Blue (#003399) + Red (#e20a17) dual-color S
-        "maruti",           // Alternate name
-        "mg",               // Red (#cd1316) octagon on transparent
-        "mitsubishi",       // Near-black + Red (#E40012) diamonds
+        "datsun",           // Multi-color 3D badge PNG
+        "bentley",          // White wings + dark B detail SVG (two-tone)
     ]
 
     /// Check if a brand should render with original colors
@@ -127,36 +125,44 @@ struct BrandLogoView: View {
 
     private let service = CarBrandLogoService.shared
 
+    private var assetName: String {
+        service.assetName(for: make)
+    }
+
     var body: some View {
-        // Check for local asset first
-        if let uiImage = UIImage(named: service.assetName(for: make)) {
+        // Check for local asset existence, then use SwiftUI Image for sharp vector rendering
+        if service.hasLocalAsset(for: make) {
             if service.isDetailedLogo(for: make) {
-                // Detailed logos: show original colors on dark background
+                // Detailed logos: show original colors on black background
                 ZStack {
                     Circle()
-                        .fill(Color(white: 0.15))
+                        .fill(Color.black)
 
-                    Image(uiImage: uiImage)
+                    Image(assetName)
                         .resizable()
                         .renderingMode(.original)
+                        .interpolation(.high)
                         .scaledToFit()
-                        .padding(size * 0.15)
+                        .padding(size * 0.18)
                 }
                 .frame(width: size, height: size)
+                .clipShape(Circle())
             } else {
                 // Simple logos: white template on black circle
                 ZStack {
                     Circle()
                         .fill(Color.black)
 
-                    Image(uiImage: uiImage)
+                    Image(assetName)
                         .resizable()
                         .renderingMode(.template)
+                        .interpolation(.high)
                         .foregroundColor(.white)
                         .scaledToFit()
                         .padding(size * 0.18)
                 }
                 .frame(width: size, height: size)
+                .clipShape(Circle())
             }
         } else {
             // Consistent initials fallback
