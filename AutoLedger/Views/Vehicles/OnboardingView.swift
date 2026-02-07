@@ -25,6 +25,13 @@ struct OnboardingView: View {
             subtitle: "Track Every Journey",
             description: "Log Business Trips for Tax Deductions\nand Monitor Your Driving Patterns.",
             color: .primaryPurple
+        ),
+        OnboardingPage(
+            icon: "doc.text.fill",
+            title: "Document Vault",
+            subtitle: "All Your Docs in One Place",
+            description: "Store Insurance, Registration, PUC,\nand Get Expiry Reminders Automatically.",
+            color: Color(hex: "00BCD4")
         )
     ]
 

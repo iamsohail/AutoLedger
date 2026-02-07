@@ -35,37 +35,12 @@ struct GreetingHeaderView: View {
 
             Spacer()
 
-            // Avatar
-            ZStack {
-                Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.primaryPurple, Color.pinkAccent],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(width: 44, height: 44)
-
-                if let photoURL = authService.userProfile?.photoURL,
-                   let url = URL(string: photoURL) {
-                    AsyncImage(url: url) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    } placeholder: {
-                        Text(displayName.prefix(1).uppercased())
-                            .font(Theme.Typography.cardTitle)
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                } else {
-                    Text(displayName.prefix(1).uppercased())
-                        .font(Theme.Typography.cardTitle)
-                        .foregroundColor(.white)
-                }
-            }
+            GradientAvatarView(
+                uid: authService.user?.uid,
+                name: authService.userProfile?.name,
+                photoURL: authService.userProfile?.photoURL,
+                size: 44
+            )
         }
         .padding(.horizontal, Theme.Spacing.md)
         .padding(.vertical, Theme.Spacing.sm)

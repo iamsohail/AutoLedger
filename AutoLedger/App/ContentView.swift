@@ -10,6 +10,7 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .home
     @State private var selectedVehicle: Vehicle?
     @State private var showingAddVehicle = false
+    @State private var showingFirstVehicle = false
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
 
     enum Tab: String, CaseIterable {
@@ -46,13 +47,8 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if !hasSeenOnboarding {
-                // Step 1: First-time users see feature showcase
-                OnboardingView(onComplete: {
-                    hasSeenOnboarding = true
-                })
-            } else if authService.isCheckingAuth {
-                // Wait for Firebase to restore session before showing login
+            if authService.isCheckingAuth {
+                // Step 1: Wait for Firebase to restore session
                 splashView
             } else if !authService.isAuthenticated {
                 // Step 2: Login
@@ -60,15 +56,24 @@ struct ContentView: View {
             } else if authService.needsProfileCompletion {
                 // Step 3: Complete profile if needed
                 ProfileCompletionView()
+            } else if !hasSeenOnboarding {
+                // Step 4: Feature showcase (shown once after first sign-in)
+                OnboardingView(onComplete: {
+                    hasSeenOnboarding = true
+                    showingFirstVehicle = true
+                })
             } else if vehicles.isEmpty {
-                // Step 4: No vehicles - show add vehicle prompt
+                // Step 5: No vehicles - show add vehicle prompt
                 emptyVehicleState
             } else {
-                // Step 5: Main app
+                // Step 6: Main app
                 mainTabView
             }
         }
         .sheet(isPresented: $showingAddVehicle) {
+            AddVehicleView()
+        }
+        .fullScreenCover(isPresented: $showingFirstVehicle) {
             AddVehicleView()
         }
         .onAppear {
@@ -82,46 +87,115 @@ struct ContentView: View {
     private var splashView: some View {
         ZStack {
             Color.darkBackground.ignoresSafeArea()
-            CarLoadingView(size: 52)
+            GradientSpinner(size: 48)
         }
+    }
+
+    private var displayName: String {
+        let name = authService.userProfile?.name ?? ""
+        return name.isEmpty ? "there" : name.components(separatedBy: " ").first ?? name
     }
 
     private var emptyVehicleState: some View {
         ZStack {
             Color.darkBackground.ignoresSafeArea()
 
-            VStack(spacing: 24) {
-                Image(systemName: "car.fill")
-                    .font(.system(size: 80))
-                    .foregroundColor(.primaryPurple.opacity(0.5))
+            VStack(spacing: Theme.Spacing.lg) {
+                Spacer()
 
-                Text("No Vehicles Yet")
+                // Welcome text
+                Text("Hey \(displayName)!")
                     .font(Theme.Typography.title)
-                    .foregroundColor(.textPrimary)
-
-                Text("Add your first vehicle to start tracking fuel, maintenance, and trips.")
-                    .font(Theme.Typography.subheadline)
                     .foregroundColor(.textSecondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
 
+                // Icon with gradient glow
+                ZStack {
+                    Circle()
+                        .fill(
+                            RadialGradient(
+                                colors: [Color.primaryPurple.opacity(0.3), Color.clear],
+                                center: .center,
+                                startRadius: 20,
+                                endRadius: 80
+                            )
+                        )
+                        .frame(width: 160, height: 160)
+
+                    Image(systemName: "car.fill")
+                        .font(Theme.Typography.statValue)
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: [.primaryPurple, .pinkAccent],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .symbolEffect(.pulse.byLayer, options: .repeating)
+                }
+
+                VStack(spacing: Theme.Spacing.sm) {
+                    Text("No Vehicles Yet")
+                        .font(Theme.Typography.title)
+                        .foregroundColor(.textPrimary)
+
+                    Text("Add Your First Vehicle to Start Tracking\nFuel, Maintenance, and Trips.")
+                        .font(Theme.Typography.subheadline)
+                        .foregroundColor(.textSecondary)
+                        .multilineTextAlignment(.center)
+                }
+
+                // Feature chips
+                HStack(spacing: Theme.Spacing.sm) {
+                    featureChip(icon: "fuelpump.fill", label: "Fuel", color: .greenAccent)
+                    featureChip(icon: "wrench.fill", label: "Service", color: .orange)
+                    featureChip(icon: "location.fill", label: "Trips", color: .primaryPurple)
+                    featureChip(icon: "doc.text.fill", label: "Docs", color: Color(hex: "00BCD4"))
+                }
+                .padding(.top, Theme.Spacing.xs)
+
+                // Gradient CTA button
                 Button {
                     showingAddVehicle = true
                 } label: {
-                    HStack(spacing: 8) {
+                    HStack(spacing: Theme.Spacing.sm) {
                         Image(systemName: "plus.circle.fill")
                         Text("Add Vehicle")
                     }
-                    .font(.system(size: 17, weight: .semibold))
+                    .font(Theme.Typography.headline)
                     .foregroundColor(.white)
-                    .padding(.horizontal, 32)
-                    .padding(.vertical, 16)
-                    .background(Color.primaryPurple)
-                    .cornerRadius(12)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, Theme.Spacing.md)
+                    .background(
+                        LinearGradient(
+                            colors: [.primaryPurple, .pinkAccent],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+                    .cornerRadius(Theme.CornerRadius.medium)
                 }
-                .padding(.top, 16)
+                .padding(.horizontal, 40)
+                .padding(.top, Theme.Spacing.sm)
+
+                Spacer()
+                Spacer()
             }
         }
+    }
+
+    private func featureChip(icon: String, label: String, color: Color) -> some View {
+        HStack(spacing: Theme.Spacing.xs) {
+            Image(systemName: icon)
+                .font(Theme.Typography.caption2)
+                .foregroundColor(color)
+            Text(label)
+                .font(Theme.Typography.captionMedium)
+                .foregroundColor(.textSecondary)
+        }
+        .padding(.horizontal, Theme.Spacing.sm + 4)
+        .padding(.vertical, Theme.Spacing.sm)
+        .background(color.opacity(0.1))
+        .cornerRadius(Theme.CornerRadius.pill)
     }
 
     private var mainTabView: some View {

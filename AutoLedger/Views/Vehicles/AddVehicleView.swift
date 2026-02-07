@@ -173,7 +173,7 @@ struct AddVehicleView: View {
 
                 if vehicleService.isLoading {
                     Spacer().frame(height: 100)
-                    CarLoadingView(size: 36)
+                    GradientSpinner(size: 36)
                     Spacer()
                 } else {
                     // Popular Brands

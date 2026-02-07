@@ -9,11 +9,12 @@ struct SettingsView: View {
     @AppStorage("enableNotifications") private var enableNotifications = true
     @AppStorage("maintenanceReminderDays") private var maintenanceReminderDays = 7
     @AppStorage("documentExpirationReminderDays") private var documentExpirationReminderDays = 30
-    @AppStorage("userName") private var userName = ""
+    @State private var userName = ""
 
     @State private var showingExportOptions = false
     @State private var showingAbout = false
     @State private var showingSignOutConfirmation = false
+    @State private var nameSaveTask: Task<Void, Never>?
 
     var body: some View {
         NavigationStack {
@@ -150,12 +151,18 @@ struct SettingsView: View {
 
                 Section {
                     HStack {
-                        Image(systemName: "person.circle.fill")
-                            .font(Theme.Typography.iconMedium)
-                            .foregroundColor(.primaryPurple)
+                        GradientAvatarView(
+                            uid: authService.user?.uid,
+                            name: authService.userProfile?.name,
+                            photoURL: authService.userProfile?.photoURL,
+                            size: 40
+                        )
 
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(authService.user?.displayName ?? (userName.isEmpty ? "User" : userName))
+                            Text({
+                            let profileName = authService.userProfile?.name ?? ""
+                            return profileName.isEmpty ? (authService.user?.displayName ?? "User") : profileName
+                        }())
                                 .font(Theme.Typography.headline)
                                 .foregroundColor(.textPrimary)
 
@@ -240,6 +247,23 @@ struct SettingsView: View {
                 Button("Cancel", role: .cancel) {}
             } message: {
                 Text("Are you sure you want to sign out?")
+            }
+            .onAppear {
+                userName = authService.userProfile?.name ?? ""
+            }
+            .onChange(of: userName) { _, newValue in
+                nameSaveTask?.cancel()
+                nameSaveTask = Task {
+                    try? await Task.sleep(for: .seconds(1))
+                    guard !Task.isCancelled else { return }
+                    let trimmed = newValue.trimmingCharacters(in: .whitespaces)
+                    guard trimmed != authService.userProfile?.name else { return }
+                    await authService.updateUserProfile(
+                        name: trimmed,
+                        email: authService.userProfile?.email,
+                        phone: authService.userProfile?.phone
+                    )
+                }
             }
         }
     }

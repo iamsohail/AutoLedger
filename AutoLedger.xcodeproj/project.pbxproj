@@ -16,6 +16,7 @@
 		127F3774D34039AB26EEC7D1 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1502A3223494025EB034E /* DashboardView.swift */; };
 		1352C42996990E0723F74C5F /* BrandfetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519AF040D4B84BFD5E77D83 /* BrandfetchService.swift */; };
 		1618419C7928C375D83CA83E /* DocumentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6B31494F286A9D178B5584 /* DocumentDetailView.swift */; };
+		1C3184AA2D3BEF059DCD4937 /* TERMS_OF_SERVICE.md in Resources */ = {isa = PBXBuildFile; fileRef = 2DDECA8BE1C0336874521150 /* TERMS_OF_SERVICE.md */; };
 		1CC188CEDD500C9F2FD21B19 /* AddVehicleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058CD5DDDA17D19EDC7E8182 /* AddVehicleView.swift */; };
 		1E5C208EEE484E0952C932AB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFFBDD4F481108521AFCCFE /* SettingsView.swift */; };
 		1E8DE00234A28B926171DC9B /* ProfileCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474664B186638D3A36F7999E /* ProfileCompletionView.swift */; };
@@ -33,6 +34,7 @@
 		4ABECDB3EB0C1EC1E440B254 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D694B8CA720E56BC8323504 /* UserProfile.swift */; };
 		4D94B40D65A7D53B8745F531 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 800FC0A4BA921E47408B55AE /* FirebaseAuth */; };
 		4E4CDE1F4145017712A46FE9 /* AutoLedgerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */; };
+		4F60DFFB977F8D855ACD9816 /* PRIVACY_POLICY.md in Resources */ = {isa = PBXBuildFile; fileRef = EC704C62C54D5C98600103CB /* PRIVACY_POLICY.md */; };
 		5525CC79041F54A6281C4B9A /* VehicleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4461F8EEA30EE3B7ADACD /* VehicleListView.swift */; };
 		572BC7760DACD21F0872CD28 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4FAAC866BF24F79AD5C57 /* ExploreView.swift */; };
 		576A504B2060A18FF5D799D3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E9DD58097AC7E343BCEC9E6C /* FirebaseFirestore */; };
@@ -44,6 +46,7 @@
 		6D2BB2A05D0198F6FBE1CA91 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6C545AB74AF4C64DC4643947 /* Lottie */; };
 		6EA504887712C2B1FB9B3416 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB1BD4C59C9A1206559DF71 /* Theme.swift */; };
 		70F8D21CAE161A3C5066B1DE /* AutoLedgerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1FE1E0A200F4A7577AA37 /* AutoLedgerTests.swift */; };
+		71AE9C3D35FCFBBC90F35042 /* ALLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5311EF207FCBF239619FB504 /* ALLogoView.swift */; };
 		75FC885435C0E715477FA028 /* AddMaintenanceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D357963A00AC13FCDAC75 /* AddMaintenanceRecordView.swift */; };
 		79520BBB224E135186B64076 /* SpeedometerGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */; };
 		79B268EAE7061AB8F3700A81 /* FirebaseVehicleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876B9CE6C42A41C06CAA0E1 /* FirebaseVehicleService.swift */; };
@@ -68,6 +71,7 @@
 		C1FEC5D66A25B2EA97944CBF /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C04DF1985CD87E50663004 /* SignInView.swift */; };
 		C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5929CE3B7E4DBC8E2263B528 /* FuelEntry.swift */; };
 		C35A84595532459E5595485C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 24A520B7B72C7230FC2205DB /* GoogleSignIn */; };
+		CFA616BB926F733B60742DD9 /* GradientAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE2DB0F156805738B3C39C /* GradientAvatarView.swift */; };
 		D7E08A1C6170053C7327F7CD /* VehicleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F1A81ED31E578B34E8363 /* VehicleDetailView.swift */; };
 		D989C2E89DDF7CC2796CBF60 /* AddDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A96EE0863208E8F567E715 /* AddDocumentView.swift */; };
 		DDA598B8DEEF5FE3BF3E2E7D /* DocumentScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A64F02FDC5DF339C1BFA6C4 /* DocumentScannerView.swift */; };
@@ -113,6 +117,7 @@
 		2519AF040D4B84BFD5E77D83 /* BrandfetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandfetchService.swift; sourceTree = "<group>"; };
 		2A64F02FDC5DF339C1BFA6C4 /* DocumentScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScannerView.swift; sourceTree = "<group>"; };
 		2BDED06B19B8E85E661E7AA6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2DDECA8BE1C0336874521150 /* TERMS_OF_SERVICE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TERMS_OF_SERVICE.md; sourceTree = "<group>"; };
 		32B4FDF7E2498B4F88E2381A /* StartTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTripView.swift; sourceTree = "<group>"; };
 		3D0C2C92121535B9E9AC66AD /* AutoLedgerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerApp.swift; sourceTree = "<group>"; };
 		3D854A8B060ADED8565BCFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -122,7 +127,9 @@
 		47C04DF1985CD87E50663004 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		4E7ADB10E04B94276A50506B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4FA0339704F614A6AFE01B92 /* DataExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportService.swift; sourceTree = "<group>"; };
+		4FBE2DB0F156805738B3C39C /* GradientAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientAvatarView.swift; sourceTree = "<group>"; };
 		51594EAF4ADE25F4E9AE9004 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		5311EF207FCBF239619FB504 /* ALLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALLogoView.swift; sourceTree = "<group>"; };
 		5929CE3B7E4DBC8E2263B528 /* FuelEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelEntry.swift; sourceTree = "<group>"; };
 		5B020D8855C6664638836D1E /* ParkingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpot.swift; sourceTree = "<group>"; };
 		5D694B8CA720E56BC8323504 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -163,6 +170,7 @@
 		E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderView.swift; sourceTree = "<group>"; };
 		E8382852832C2DDBCF01EE4B /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		E919BD8E48FF6A02480DFA0B /* AutoLedger.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AutoLedger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC704C62C54D5C98600103CB /* PRIVACY_POLICY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY_POLICY.md; sourceTree = "<group>"; };
 		EC85E122AA57493816C7EB66 /* SaveParkingSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveParkingSpotView.swift; sourceTree = "<group>"; };
 		F5B5BCE2147F69E146A13260 /* AutoLedgerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLedgerUITests.swift; sourceTree = "<group>"; };
 		FDA4FAAC866BF24F79AD5C57 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -262,6 +270,8 @@
 				72A7EAC88EDBB427C8817FC3 /* Assets.xcassets */,
 				FE37DCE9B66BFB7D0C105291 /* GoogleService-Info.plist */,
 				9F85D4587CD63462BABED9C9 /* IndianVehicleData.json */,
+				EC704C62C54D5C98600103CB /* PRIVACY_POLICY.md */,
+				2DDECA8BE1C0336874521150 /* TERMS_OF_SERVICE.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -335,11 +345,13 @@
 		8F4B0AD32CFC8659C141E4A2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5311EF207FCBF239619FB504 /* ALLogoView.swift */,
 				D8A15FEBFCF7F36E4F3E312D /* CarLoadingView.swift */,
 				D97ACDEFCF1D886FBBB55F33 /* CircularGaugeView.swift */,
 				DF05978D3FA0D5065DF7BBED /* DarkFeatureRow.swift */,
 				2A64F02FDC5DF339C1BFA6C4 /* DocumentScannerView.swift */,
 				1A76A3F08D2BDBA917E3AA53 /* EmptyStateView.swift */,
+				4FBE2DB0F156805738B3C39C /* GradientAvatarView.swift */,
 				E6CD9DA83398DA013CB40B55 /* GreetingHeaderView.swift */,
 				106983CE85DA6F1D7346194C /* LottieView.swift */,
 				CF94E809DED38A8375119EA2 /* SpeedometerGaugeView.swift */,
@@ -529,7 +541,7 @@
 						TestTargetID = 452FD2A6479D474E0AB6A44F;
 					};
 					452FD2A6479D474E0AB6A44F = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = Z2Z347GW4T;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -568,6 +580,8 @@
 				B763E2DA9884082361AD38BA /* Assets.xcassets in Resources */,
 				0CF8FAE124FB256434F1C358 /* GoogleService-Info.plist in Resources */,
 				8FD42BBAE67CF96C876D15E8 /* IndianVehicleData.json in Resources */,
+				4F60DFFB977F8D855ACD9816 /* PRIVACY_POLICY.md in Resources */,
+				1C3184AA2D3BEF059DCD4937 /* TERMS_OF_SERVICE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71AE9C3D35FCFBBC90F35042 /* ALLogoView.swift in Sources */,
 				D989C2E89DDF7CC2796CBF60 /* AddDocumentView.swift in Sources */,
 				7F3492F64CC44B41E49B64A7 /* AddExpenseView.swift in Sources */,
 				3325495ED60795B85E5BE290 /* AddFuelEntryView.swift in Sources */,
@@ -609,6 +624,7 @@
 				11D05CC35CF2BA762A286659 /* FirestoreSyncService.swift in Sources */,
 				C26E18116D5093BA28EA8716 /* FuelEntry.swift in Sources */,
 				36CE1DD71CDD0188B9798F4C /* FuelLogContentView.swift in Sources */,
+				CFA616BB926F733B60742DD9 /* GradientAvatarView.swift in Sources */,
 				0038F43DA3DB78A92BD1B1D2 /* GreetingHeaderView.swift in Sources */,
 				32C4059119D9A4FB09EAE88C /* LocationService.swift in Sources */,
 				6C07C8FB8B9B5B099A03E806 /* LogView.swift in Sources */,
@@ -682,11 +698,10 @@
 				CODE_SIGN_ENTITLEMENTS = AutoLedger/AutoLedger.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Z2Z347GW4T;
 				INFOPLIST_FILE = AutoLedger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -711,11 +726,10 @@
 				CODE_SIGN_ENTITLEMENTS = AutoLedger/AutoLedger.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Z2Z347GW4T;
 				INFOPLIST_FILE = AutoLedger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

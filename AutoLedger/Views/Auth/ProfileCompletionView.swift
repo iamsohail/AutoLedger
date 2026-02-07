@@ -25,37 +25,12 @@ struct ProfileCompletionView: View {
 
                     // Header
                     VStack(spacing: 16) {
-                        // Profile icon
-                        ZStack {
-                            Circle()
-                                .fill(
-                                    LinearGradient(
-                                        colors: [Color.primaryPurple.opacity(0.3), Color.pinkAccent.opacity(0.2)],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                                .frame(width: 100, height: 100)
-
-                            if let photoURL = authService.userProfile?.photoURL,
-                               let url = URL(string: photoURL) {
-                                AsyncImage(url: url) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                } placeholder: {
-                                    Image(systemName: "person.fill")
-                                        .font(Theme.Typography.iconMedium)
-                                        .foregroundColor(.primaryPurple)
-                                }
-                                .frame(width: 80, height: 80)
-                                .clipShape(Circle())
-                            } else {
-                                Image(systemName: "person.fill")
-                                    .font(Theme.Typography.iconMedium)
-                                    .foregroundColor(.primaryPurple)
-                            }
-                        }
+                        GradientAvatarView(
+                            uid: authService.user?.uid,
+                            name: authService.userProfile?.name,
+                            photoURL: authService.userProfile?.photoURL,
+                            size: 100
+                        )
 
                         Text("Complete Your Profile")
                             .font(Theme.Typography.title2)
@@ -193,7 +168,7 @@ struct ProfileCompletionView: View {
                                             .foregroundColor(.greenAccent)
                                             .frame(width: 20)
 
-                                        Text(existingPhone)
+                                        Text(Self.formatPhoneDisplay(existingPhone))
                                             .foregroundColor(.textPrimary)
 
                                         Spacer()
@@ -281,6 +256,20 @@ struct ProfileCompletionView: View {
                 phone = profile.phone?.replacingOccurrences(of: "+91", with: "") ?? ""
             }
         }
+    }
+
+    private static func formatPhoneDisplay(_ phone: String) -> String {
+        // Format +919035794120 → +91 90357 94120
+        var digits = phone
+        var prefix = ""
+        if digits.hasPrefix("+91") {
+            prefix = "+91 "
+            digits = String(digits.dropFirst(3))
+        } else if digits.hasPrefix("+") {
+            return phone // Non-Indian number, return as-is
+        }
+        guard digits.count == 10 else { return prefix + digits }
+        return "\(prefix)\(digits.prefix(5)) \(digits.suffix(5))"
     }
 }
 

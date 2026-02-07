@@ -1,50 +1,41 @@
 import SwiftUI
 
-/// Animated muscle car silhouette with a shimmer gradient sweep — used as the app's loading indicator.
-struct CarLoadingView: View {
+/// Gradient spinning arc — used as the app's loading indicator.
+struct GradientSpinner: View {
     var size: CGFloat = 44
-    @State private var phase: CGFloat = 0
+    var lineWidth: CGFloat? = nil
+    @State private var rotation: Double = 0
 
-    private var carImage: some View {
-        Image("CarSilhouette")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: size)
+    private var resolvedLineWidth: CGFloat {
+        lineWidth ?? max(size * 0.14, 4)
     }
 
     var body: some View {
-        // Single wide gradient that slides through the car mask
-        LinearGradient(
-            stops: [
-                .init(color: .white, location: 0),
-                .init(color: .white, location: 0.3),
-                .init(color: .primaryPurple, location: 0.45),
-                .init(color: .purpleGradientEnd, location: 0.55),
-                .init(color: .white, location: 0.7),
-                .init(color: .white, location: 1)
-            ],
-            startPoint: .leading,
-            endPoint: .trailing
-        )
-        .scaleEffect(x: 3, anchor: .leading)
-        .offset(x: phase)
-        .mask { carImage }
-        .aspectRatio(400 / 113, contentMode: .fit)
-        .frame(height: size)
-        .onAppear {
-            // Use a timer-driven animation for smooth looping
-            phase = 0
-            withAnimation(
-                .linear(duration: 2.5)
-                .repeatForever(autoreverses: false)
-            ) {
-                phase = -size * (400 / 113) * 2
+        Circle()
+            .trim(from: 0, to: 0.7)
+            .stroke(
+                AngularGradient(
+                    colors: [.primaryPurple, .pinkAccent, .primaryPurple.opacity(0)],
+                    center: .center,
+                    startAngle: .degrees(0),
+                    endAngle: .degrees(360)
+                ),
+                style: StrokeStyle(lineWidth: resolvedLineWidth, lineCap: .round)
+            )
+            .frame(width: size, height: size)
+            .rotationEffect(.degrees(rotation))
+            .onAppear {
+                withAnimation(
+                    .linear(duration: 1)
+                    .repeatForever(autoreverses: false)
+                ) {
+                    rotation = 360
+                }
             }
-        }
     }
 }
 
-/// Full-screen loading overlay with animated car and optional message.
+/// Full-screen loading overlay with gradient spinner and optional message.
 struct CarLoadingOverlay: View {
     var message: String? = nil
 
@@ -54,7 +45,7 @@ struct CarLoadingOverlay: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 16) {
-                CarLoadingView(size: 36)
+                GradientSpinner(size: 40)
                 if let message {
                     Text(message)
                         .font(Theme.Typography.subheadline)
@@ -69,8 +60,8 @@ struct CarLoadingOverlay: View {
     ZStack {
         Color.darkBackground.ignoresSafeArea()
         VStack(spacing: 40) {
-            CarLoadingView()
-            CarLoadingView(size: 52)
+            GradientSpinner()
+            GradientSpinner(size: 52)
             CarLoadingOverlay(message: "Please Wait...")
         }
     }
