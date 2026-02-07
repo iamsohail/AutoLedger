@@ -39,5 +39,10 @@
 	<string>1</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>AutoLedger uses your location to find nearby fuel stations, EV chargers, and save parking spots.</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>DarkBackground</string>
+	</dict>
 </dict>
 </plist>
