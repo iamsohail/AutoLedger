@@ -160,7 +160,7 @@ struct DashboardView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
                         Text(vehicle.averageFuelEconomy.map { String(format: "%.1f", $0) } ?? "\u{2014}")
-                            .font(.system(size: 48, weight: .bold, design: .rounded))
+                            .font(.system(size: 48, weight: .bold))
                             .foregroundColor(.textPrimary)
                         Text("Km")
                             .font(.system(size: 20, weight: .medium))
@@ -285,7 +285,7 @@ struct DashboardView: View {
                     )
 
                 Text(value)
-                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .font(.system(size: 32, weight: .bold))
                     .foregroundColor(.textPrimary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)

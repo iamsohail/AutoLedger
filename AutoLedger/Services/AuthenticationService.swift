@@ -21,6 +21,7 @@ class AuthenticationService: ObservableObject {
     private var pendingAppleName: PersonNameComponents?
     private var pendingAuthProvider: UserProfile.AuthProvider?
     private var pendingPhoneNumber: String?
+    private var pendingSignUpName: String?
 
     private let db = Firestore.firestore()
 
@@ -32,14 +33,15 @@ class AuthenticationService: ObservableObject {
         authStateHandler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let self = self else { return }
             self.user = user
-            self.isAuthenticated = user != nil
 
             if let user = user {
                 Task {
                     await self.fetchOrCreateUserProfile(for: user)
+                    self.isAuthenticated = true
                     self.isCheckingAuth = false
                 }
             } else {
+                self.isAuthenticated = false
                 self.userProfile = nil
                 self.needsProfileCompletion = false
                 self.isCheckingAuth = false
@@ -64,7 +66,7 @@ class AuthenticationService: ObservableObject {
                 let provider = pendingAuthProvider ?? determineAuthProvider(for: user)
                 var newProfile = UserProfile(
                     id: user.uid,
-                    name: pendingAppleName?.formatted() ?? user.displayName ?? "",
+                    name: pendingSignUpName ?? pendingAppleName?.formatted() ?? user.displayName ?? "",
                     email: user.email,
                     phone: pendingPhoneNumber ?? user.phoneNumber,
                     photoURL: user.photoURL?.absoluteString,
@@ -80,6 +82,7 @@ class AuthenticationService: ObservableObject {
                 pendingAppleName = nil
                 pendingAuthProvider = nil
                 pendingPhoneNumber = nil
+                pendingSignUpName = nil
             }
         } catch {
             print("Error fetching/creating user profile: \(error)")
@@ -164,20 +167,39 @@ class AuthenticationService: ObservableObject {
         isLoading = true
         errorMessage = nil
         pendingAuthProvider = .email
+        pendingSignUpName = name
 
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
 
-            // Update display name
+            // Update display name on Firebase Auth profile
             let changeRequest = result.user.createProfileChangeRequest()
             changeRequest.displayName = name
             try await changeRequest.commitChanges()
 
         } catch {
+            pendingSignUpName = nil
             errorMessage = error.localizedDescription
         }
 
         isLoading = false
+    }
+
+    // MARK: - Forgot Password
+
+    func resetPassword(email: String) async -> Bool {
+        isLoading = true
+        errorMessage = nil
+
+        do {
+            try await Auth.auth().sendPasswordReset(withEmail: email)
+            isLoading = false
+            return true
+        } catch {
+            errorMessage = error.localizedDescription
+            isLoading = false
+            return false
+        }
     }
 
     // MARK: - Apple Sign In

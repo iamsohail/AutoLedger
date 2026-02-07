@@ -5,9 +5,10 @@
 ### Title Case (Short Text - 2 Lines or Less)
 
 For short text elements, use **Title Case** - capitalize the first letter of every word **EXCEPT** for these exception words:
-- a, an, the
-- and, but, or, nor
-- as, at, by, for, from, in, into, of, on, onto, per, to, with, without
+- **Articles:** a, an, the
+- **Conjunctions:** and, but, or, nor
+- **Prepositions:** as, at, by, for, from, in, into, of, on, onto, per, to, with, without
+- **Pronouns (short):** you, your, yours, me, my, mine, it, its
 
 **Where to Apply Title Case:**
 - Navigation titles
@@ -24,7 +25,7 @@ For short text elements, use **Title Case** - capitalize the first letter of eve
 | Incorrect | Correct |
 |-----------|---------|
 | Log fuel purchases | Log Fuel Purchases |
-| Track your spending over time | Track Your Spending over Time |
+| Track your spending over time | Track your Spending over Time |
 | Schedule oil changes | Schedule Oil Changes |
 | Enable camera access | Enable Camera Access |
 

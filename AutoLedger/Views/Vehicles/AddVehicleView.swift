@@ -31,6 +31,7 @@ struct AddVehicleView: View {
     @State private var selectedModel: VehicleModelData?
     @State private var selectedFuelType: FuelType?
     @State private var selectedTransmission: String = "Manual"
+    @State private var modelSearch = ""
 
     // Manual entry fallback
     @State private var manualMake = ""
@@ -54,7 +55,8 @@ struct AddVehicleView: View {
 
     private var availableModels: [VehicleModelData] {
         guard let make = selectedMake else { return [] }
-        return make.models
+        if modelSearch.isEmpty { return make.models }
+        return make.models.filter { $0.name.localizedCaseInsensitiveContains(modelSearch) }
     }
 
     private var availableFuelTypes: [FuelType] {
@@ -108,7 +110,7 @@ struct AddVehicleView: View {
                     detailsFormView
                 }
             }
-            .navigationTitle(navigationTitle)
+            .navigationTitle(currentStep == .model ? "" : navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color.darkBackground, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
@@ -127,6 +129,11 @@ struct AddVehicleView: View {
                             }
                             .foregroundColor(.textSecondary)
                         }
+                    }
+                }
+                ToolbarItem(placement: .principal) {
+                    if currentStep == .model, let make = selectedMake {
+                        BrandLogoView(make: make.name, size: 56, fallbackColor: .primaryPurple)
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
@@ -268,32 +275,37 @@ struct AddVehicleView: View {
 
     private var modelSelectionView: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 24) {
-                // Brand header
-                if let make = selectedMake {
-                    HStack(spacing: 16) {
-                        BrandLogoView(make: make.name, size: 48, fallbackColor: .primaryPurple)
+            VStack(spacing: Theme.Spacing.md) {
+                // Search bar
+                if let make = selectedMake, make.models.count > 6 {
+                    HStack(spacing: Theme.Spacing.sm + 4) {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.textSecondary)
 
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(make.name)
-                                .font(Theme.Typography.title3)
-                                .foregroundColor(.textPrimary)
-
-                            Text("\(availableModels.count) models available")
-                                .font(Theme.Typography.caption)
-                                .foregroundColor(.textSecondary)
-                        }
-
-                        Spacer()
+                        TextField("", text: $modelSearch, prompt: Text("Search models...").foregroundColor(.textSecondary.opacity(0.5)))
+                            .foregroundColor(.textPrimary)
+                            .autocorrectionDisabled()
                     }
+                    .padding(14)
+                    .background(Color.cardBackground)
+                    .cornerRadius(Theme.CornerRadius.medium)
                     .padding(.horizontal, 20)
-                    .padding(.top, 8)
+                    .padding(.top, Theme.Spacing.xs)
                 }
+
+                // Model count
+                HStack {
+                    Text("\(availableModels.count) models")
+                        .font(Theme.Typography.caption)
+                        .foregroundColor(.textSecondary)
+                    Spacer()
+                }
+                .padding(.horizontal, 20)
 
                 // Model grid (2 columns)
                 LazyVGrid(
-                    columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)],
-                    spacing: 16
+                    columns: [GridItem(.flexible(), spacing: Theme.Spacing.sm + 4), GridItem(.flexible(), spacing: Theme.Spacing.sm + 4)],
+                    spacing: Theme.Spacing.sm + 4
                 ) {
                     ForEach(availableModels) { model in
                         modelCard(model)
@@ -310,6 +322,7 @@ struct AddVehicleView: View {
         Button {
             selectedModel = model
             selectedFuelType = nil
+            modelSearch = ""
             let fuelTypes = model.availableFuelTypes
             if fuelTypes.count == 1 {
                 selectedFuelType = fuelTypes.first
@@ -322,48 +335,21 @@ struct AddVehicleView: View {
                 currentStep = .details
             }
         } label: {
-            VStack(spacing: 0) {
-                // Car image
+            VStack(spacing: Theme.Spacing.xs + 2) {
                 CarImageView(
                     make: selectedMake?.name ?? "",
                     model: model.name,
-                    size: 90,
-                    cornerRadius: 0
+                    size: 120,
+                    cornerRadius: Theme.CornerRadius.medium
                 )
                 .frame(maxWidth: .infinity)
-                .frame(height: 90)
-                .clipped()
 
-                // Model info
-                VStack(spacing: 6) {
-                    Text(model.name)
-                        .font(Theme.Typography.subheadlineMedium)
-                        .foregroundColor(.textPrimary)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.8)
-
-                    // Fuel type tags
-                    HStack(spacing: 4) {
-                        ForEach(model.availableFuelTypes.prefix(3), id: \.self) { fuel in
-                            Text(fuelShortName(fuel))
-                                .font(.system(size: 9, weight: .medium))
-                                .foregroundColor(.primaryPurple)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(Color.primaryPurple.opacity(0.15))
-                                .cornerRadius(4)
-                        }
-                    }
-                }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 10)
+                Text(model.name)
+                    .font(Theme.Typography.caption)
+                    .foregroundColor(.textSecondary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             }
-            .background(Color.cardBackground)
-            .cornerRadius(14)
-            .overlay(
-                RoundedRectangle(cornerRadius: 14)
-                    .stroke(Color.textSecondary.opacity(0.1), lineWidth: 1)
-            )
         }
     }
 
@@ -377,6 +363,18 @@ struct AddVehicleView: View {
         case .plugInHybrid: return "PHEV"
         case .hydrogen: return "H\u{2082}"
         case .flexFuel: return "Flex"
+        }
+    }
+
+    private func fuelChipColor(_ fuel: FuelType) -> Color {
+        switch fuel {
+        case .petrol, .gasoline: return .greenAccent
+        case .diesel: return .orange
+        case .cng: return Color(hex: "00BCD4")
+        case .electric: return .primaryPurple
+        case .hybrid, .plugInHybrid: return Color(hex: "4FC3F7")
+        case .hydrogen: return Color(hex: "26C6DA")
+        case .flexFuel: return .yellow
         }
     }
 
@@ -745,6 +743,7 @@ struct AddVehicleView: View {
             case .brand:
                 break
             case .model:
+                modelSearch = ""
                 currentStep = .brand
             case .details:
                 if useManualEntry {
@@ -834,6 +833,15 @@ struct AddVehicleView: View {
 
         modelContext.insert(vehicle)
         dismiss()
+    }
+}
+
+// MARK: - Array Dedup Helper
+
+private extension Array where Element: Hashable {
+    func uniqued() -> [Element] {
+        var seen = Set<Element>()
+        return filter { seen.insert($0).inserted }
     }
 }
 

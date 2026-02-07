@@ -147,7 +147,10 @@ enum FuelType: String, Codable, CaseIterable {
         case "diesel": return .diesel
         case "cng": return .cng
         case "electric": return .electric
-        case "hybrid": return .hybrid
+        case "hybrid", "strong hybrid", "mild hybrid": return .hybrid
+        case "plug-in hybrid", "phev": return .plugInHybrid
+        case "hydrogen": return .hydrogen
+        case "flex fuel", "flex": return .flexFuel
         default: return .petrol
         }
     }

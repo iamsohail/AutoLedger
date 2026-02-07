@@ -59,7 +59,7 @@ Created views in `/AutoLedger/Views/`:
 - **Explore:** `ExploreView.swift` (map), `SaveParkingSpotView.swift`, `ParkingSpotDetailView.swift`
 - **Vault:** `VaultView.swift` (grid/list), `AddDocumentView.swift`, `DocumentDetailView.swift`
 - **Settings:** `SettingsView.swift`, `BackupSettingsView.swift`, `AISettingsView.swift`, `AboutView.swift`
-- **Auth:** `SignInView.swift`, `ProfileCompletionView.swift`, `PhoneAuthView.swift`
+- **Auth:** `SignInView.swift` (phone OTP default + email toggle), `ProfileCompletionView.swift`
 - **Components:** `SummaryStatView.swift`, `CarLoadingView.swift`, `DarkFeatureRow.swift`
 - **Debug:** `CarImageGalleryView.swift`
 
@@ -300,13 +300,60 @@ xcrun simctl launch booted com.iamsohail.AutoLedger
 - **SwiftUI `.custom()` silently falls back** to system font if PostScript name is wrong
 - Some UIKit elements (List section headers, search bars, alerts) **cannot be overridden** via appearance proxies
 
+### Session 4 (Feb 8, 2026):
+
+1. **Gradient Avatars (GradientAvatarView)**
+   - Created reusable component with 12 curated gradient palettes × 4 directions = 48 combinations
+   - Deterministic selection via djb2 hash of Firebase UID
+   - Initials overlay with white text, falls back to person.fill icon
+   - Replaced avatar in GreetingHeaderView (44pt), ProfileCompletionView (100pt), SettingsView (40pt)
+
+2. **Gradient Spinner (GradientSpinner)**
+   - Replaced car silhouette loading animation with spinning gradient arc
+   - Purple→pink angular gradient, configurable size and stroke width
+   - Used in splash screen, AddVehicleView, and CarLoadingOverlay
+
+3. **Empty State Redesign**
+   - Redesigned "No Vehicles Yet" page with greeting, gradient glow icon, feature chips, gradient CTA button
+   - Feature chips match onboarding card colors: Fuel=green, Service=orange, Trips=purple, Docs=cyan
+   - Auto-presents AddVehicleView after onboarding via fullScreenCover
+
+4. **Onboarding — Document Vault Card**
+   - Added 4th onboarding page for Document Vault with Cyan/Teal (#00BCD4) color
+   - Consistent color across onboarding card, empty state chip, and feature references
+
+5. **Brand Logo Fixes**
+   - Fixed Citroën, MINI, Škoda display: diacritics normalization + asset name overrides
+   - Added Tesla logo (SVG)
+   - Detailed logos (BMW, Datsun, Porsche, Bentley): grayscale + contrast for monochrome consistency
+   - Simple logos: white template on black circle
+
+6. **FuelType Mapping Bug Fix**
+   - Fixed "Petrol, Diesel, Petrol" duplicate — `"strong hybrid"` was falling through to default `.petrol`
+   - Added mappings for "strong hybrid", "mild hybrid", "plug-in hybrid", "hydrogen", "flex fuel"
+   - Added deduplication with `.uniqued()` extension
+
+7. **Model Selection Page Redesign**
+   - Replaced text nav title with brand logo (56pt) in toolbar
+   - Removed fuel type chips from model cards
+   - Removed card backgrounds — images sit directly on dark page (seamless blending)
+   - Model name as minimal caption below image
+   - Added search bar for brands with 6+ models
+   - Color-coded fuel chip helper (kept for future use)
+
+8. **Theme Compliance**
+   - Replaced all raw `.font(.system(...))` with Theme.Typography tokens
+   - Replaced raw spacing/radius values with Theme.Spacing/CornerRadius tokens
+   - Title Case capitalization with Your/You capitalized (matching existing codebase)
+
+9. **Sign-In View Updates**
+   - Various auth flow improvements
+
 ### Pending for Next Session:
-1. Find and replace 15 problematic logo SVGs (white outline versions)
-2. Test complete app flow on device
-3. UI polish — spacing, layout tweaks (without custom fonts)
-4. Add app icon and launch screen
-5. `CarImages/` root directory (387 source PNGs) — add to `.gitignore` or separate storage
-6. Implement remaining features (data export, fuel efficiency charts)
+1. Test complete app flow on device
+2. UI polish — remaining spacing/layout tweaks
+3. Implement remaining features (data export, fuel efficiency charts)
+4. `CarImages/` root directory (387 source PNGs) — add to `.gitignore` or separate storage
 
 ---
 

@@ -10,12 +10,10 @@ class CarBrandLogoService {
 
     /// Brands whose assets contain multiple distinct colors that benefit from original rendering
     private let detailedLogoBrands: Set<String> = [
-        "porsche",          // Gold, red, cream, brown crest (12+ colors + gradients)
-        "bmw",              // White ring + Blue (#0066B1) quadrants
-        "mercedes-benz",    // Gradient grays (#333E46 to #FFFFFF), 3D metallic star
-        "mercedes",         // Alternate name
+        "bmw",              // Black + white quadrant roundel
         "datsun",           // Multi-color 3D badge PNG
-        "bentley",          // White wings + dark B detail SVG (two-tone)
+        "porsche",          // Detailed crest
+        "bentley",          // White wings + dark B detail SVG
     ]
 
     /// Check if a brand should render with original colors
@@ -94,10 +92,20 @@ class CarBrandLogoService {
         }
     }
 
+    /// Overrides for brand names that don't match asset filenames after normalization
+    private let assetNameOverrides: [String: String] = [
+        "mini": "Mini",
+    ]
+
     /// Asset name for bundled logo (if exists)
     func assetName(for make: String) -> String {
-        // Asset names use underscores for spaces and hyphens, preserving case
-        return make.trimmingCharacters(in: .whitespaces)
+        let lower = make.lowercased().trimmingCharacters(in: .whitespaces)
+        if let override = assetNameOverrides[lower] {
+            return override
+        }
+        // Strip diacritics (ë→e, š→s) and normalize spaces/hyphens to underscores
+        return make.folding(options: .diacriticInsensitive, locale: .current)
+            .trimmingCharacters(in: .whitespaces)
             .replacingOccurrences(of: " ", with: "_")
             .replacingOccurrences(of: "-", with: "_")
     }
@@ -130,10 +138,9 @@ struct BrandLogoView: View {
     }
 
     var body: some View {
-        // Check for local asset existence, then use SwiftUI Image for sharp vector rendering
         if service.hasLocalAsset(for: make) {
             if service.isDetailedLogo(for: make) {
-                // Detailed logos: show original colors on black background
+                // Detailed logos: desaturated to monochrome on black background
                 ZStack {
                     Circle()
                         .fill(Color.black)
@@ -144,6 +151,8 @@ struct BrandLogoView: View {
                         .interpolation(.high)
                         .scaledToFit()
                         .padding(size * 0.18)
+                        .grayscale(1.0)
+                        .contrast(1.3)
                 }
                 .frame(width: size, height: size)
                 .clipShape(Circle())
@@ -165,7 +174,7 @@ struct BrandLogoView: View {
                 .clipShape(Circle())
             }
         } else {
-            // Consistent initials fallback
+            // Initials fallback
             initialsView
         }
     }
@@ -176,7 +185,7 @@ struct BrandLogoView: View {
                 .fill(service.brandColor(for: make).opacity(0.15))
 
             Text(service.brandInitials(for: make))
-                .font(.system(size: size * 0.4, weight: .bold, design: .rounded))
+                .font(.system(size: size * 0.4, weight: .bold))
                 .foregroundColor(service.brandColor(for: make))
         }
         .frame(width: size, height: size)

@@ -28,10 +28,10 @@ enum Theme {
         static let captionMedium: Font = .system(size: 12, weight: .medium)
         static let caption2: Font = .system(size: 11, weight: .regular)
 
-        // Stats (rounded design)
-        static let statValue: Font = .system(size: 48, weight: .bold, design: .rounded)
-        static let statValueMedium: Font = .system(size: 36, weight: .bold, design: .rounded)
-        static let statValueSmall: Font = .system(size: 24, weight: .bold, design: .rounded)
+        // Stats
+        static let statValue: Font = .system(size: 48, weight: .bold)
+        static let statValueMedium: Font = .system(size: 36, weight: .bold)
+        static let statValueSmall: Font = .system(size: 24, weight: .bold)
 
         // Special
         static let greeting: Font = .system(size: 24, weight: .semibold)
