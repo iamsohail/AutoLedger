@@ -82,6 +82,7 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .dismissKeyboardOnTap()
     }
 
     private var splashView: some View {

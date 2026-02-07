@@ -132,6 +132,13 @@ extension View {
             .foregroundColor(.secondary)
             .textCase(.uppercase)
     }
+
+    /// Dismiss keyboard when tapping outside text fields
+    func dismissKeyboardOnTap() -> some View {
+        self.onTapGesture {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+    }
 }
 
 // MARK: - Array Extensions

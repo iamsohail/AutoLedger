@@ -60,6 +60,9 @@ struct AutoLedgerApp: App {
     @StateObject private var syncService = FirestoreSyncService.shared
 
     init() {
+        // Ensure screen auto-locks normally (continuous animations can prevent this)
+        UIApplication.shared.isIdleTimerDisabled = false
+
         // Configure navigation bar appearance for dark mode
         let navAppearance = UINavigationBarAppearance()
         navAppearance.configureWithOpaqueBackground()
